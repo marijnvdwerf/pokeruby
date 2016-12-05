@@ -3223,7 +3223,7 @@ gBagScreenFemale_Pal:: @ 8E76FCC
 	.incbin "graphics/interface/bag_screen_female.gbapal.lz"
 
 gUnknown_08E77004:: @ 8E77004
-	.incbin "baserom.gba", 0x00e77004, 0x800
+	.incbin "graphics/interface/bag_screen.bin"
 
 	.align 2
 gBuyMenuFrame_Gfx:: @ 8E77804
@@ -3323,7 +3323,7 @@ gPokeblockGold_Pal::
 
 	.align 2
 gUnknown_08E782FC:: @ 8E782FC
-	.incbin "baserom.gba", 0xE782FC, 0x100 @ LZ, uncomp. size = 0x800
+	.incbin "graphics/interface/pokeblock_feeding_bg_map.bin.lz"
 
 	.align 2
 gBerryCheck_Gfx:: @ 8E783FC
@@ -3335,11 +3335,11 @@ gBerryCheck_Pal:: @ 8E7883C
 
 	.align 2
 gUnknown_08E788E4:: @ 8E788E4
-	.incbin "baserom.gba", 0xE788E4, 0x19E @ LZ, uncomp. size = 0x800
+	.incbin "graphics/interface/berry_tag.bin.lz"
 
 	.align 2
 gUnknown_08E78A84:: @ 8E78A84
-	.incbin "baserom.gba", 0xE78A84, 0x12D @ LZ, uncomp. size = 0x800
+	.incbin "graphics/interface/berry_tag_title.bin.lz"
 
 	.align 2
 gBerryCheckCircle_Gfx:: @ 8E78BB4
