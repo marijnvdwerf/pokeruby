@@ -3182,21 +3182,21 @@ gStatusScreen_Pal:: @ 8E73468
 
 	.align 2
 gUnknown_08E73508:: @ 8E73508
-	.incbin "baserom.gba", 0xE73508, 0x800
+	.incbin "graphics/interface/status_screen.bin"
 
 	.align 2
 gStatusScreen_Tilemap:: @ 8E73D08
-	.incbin "graphics/interface/status_screen.bin.lz"
+	.incbin "graphics/interface/status_screen_pokemon_skills.bin.lz"
 
 gUnknown_08E73E88:: @ 8E73E88
-	.incbin "baserom.gba", 0x00e73e88, 0x800
+	.incbin "graphics/interface/status_screen_battle_moves.bin"
 
 gUnknown_08E74688:: @ 8E74688
-	.incbin "baserom.gba", 0x00e74688, 0x800
+	.incbin "graphics/interface/status_screen_contest_moves.bin"
 
 	.align 2
 gUnknown_08E74E88:: @ 8E74E88
-	.incbin "baserom.gba", 0xE74E88, 0x19C @ LZ, uncomp. size = 0x800
+	.incbin "graphics/interface/pokemon_info.bin.lz"
 
 	.align 2
 gBagMaleTiles:: @ 8E75024
