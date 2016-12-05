@@ -13,19 +13,19 @@ gMysteryEventPhrase:: @ 83DB678
 	.align 1
 gBerryMasterWifePhrases:: @ 83DB680
 	ec_word GREAT
-	ec_word BATTLE
+	ec_word FIGHT
 
-	ec_word CHALLENGE
 	ec_word CONTEST
+	ec_word CHALLENGE
 
-	ec_word OVERWHELMING
 	ec_pokemon1 LATIAS
+	ec_word OVERWHELMING
 
-	ec_word COOL
 	ec_pokemon1 LATIOS
+	ec_word COOL
 
 	ec_word SUPER
-	ec_word HUSTLE
+	.2byte 0xFFFF
 
 gUnknown_083DB694:: @ 83DB694
 	.4byte 0x02001000
@@ -64,13 +64,13 @@ gUnknown_083DB7C0:: @ 83DB7C0
 
 	.align 2
 gUnknown_083DB7DC:: @ 83DB7DC
-	.4byte 0x0200ac80
-	.4byte 0x0200acc9
-	.4byte 0x0200ad12
-	.4byte 0x0200ad5b
+	.4byte 0x0200AFAC
+	.4byte 0x0200AFF5
+	.4byte 0x0200B03E
+	.4byte 0x0200B087
 
 gUnknown_083DB7EC:: @ 83DB7EC
-	.incbin "baserom.gba", 0x003db7ec, 0x8
+	.incbin "graphics/unk/gUnknown_083DB7EC.bin"
 
 gUnknown_083DB7F4:: @ 83DB7F4
 	.incbin "baserom.gba", 0x3db7f4, 0xc
@@ -140,7 +140,7 @@ gSpriteAnim_83DBC1C:: @ 83DBC1C
 
 	.align 2
 gSpriteAnim_83DBC24:: @ 83DBC24
-	obj_image_anim_frame 8, 5
+	obj_image_anim_frame 0, 5
 	obj_image_anim_end
 
 	.align 2
@@ -180,7 +180,7 @@ gSpriteAnim_83DBC5C:: @ 83DBC5C
 
 	.align 2
 gSpriteAnim_83DBC64:: @ 83DBC64
-	obj_image_anim_frame 40, 5
+	obj_image_anim_frame 16, 5
 	obj_image_anim_end
 
 	.align 2
@@ -350,10 +350,25 @@ gUnknown_083DBE40:: @ 83DBE40
 	.incbin "baserom.gba", 0x003dbe40, 0x68
 
 gUnknown_083DBEA8:: @ 83DBEA8
-	.incbin "baserom.gba", 0x003dbea8, 0x4
+	.string "{CLEAR_TO 88}$"
+unk_83E7EB0:
+	.string "{UNKNOWN_14 8} A B C  D E F  {UNKNOWN_14 0}"
+unk_83E7EC5:
+	.string "mehr$"
+unk_83E7ECA::
+	.string "{UNKNOWN_14 8} G H I  J K L      $"
+unk_83E7EE1:
+	.string "{UNKNOWN_14 8} M N O  P Q R S    $"
+unk_83E7EF8:
+	.string "{UNKNOWN_14 8} T U V  W X Y Z    $"
 
+    .align 2
 gUnknown_083DBEAC:: @ 83DBEAC
-	.incbin "baserom.gba", 0x003dbeac, 0x80
+	.4byte unk_83E7EB0
+	.4byte unk_83E7ECA
+	.4byte unk_83E7EE1
+	.4byte unk_83E7EF8
+	.4byte unk_83E7EC5
 
 @ 83DBF2C
 	.include "data/text/easy_chat/group_words.inc"

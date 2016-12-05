@@ -14,6 +14,12 @@
 #define BUGFIX_SAVEFAILEDSCREEN1
 #endif
 
+#if 1
+#define BUGFIX_SAVEFAILEDSCREEN1
+#define BUGFIX_SAVEFAILEDSCREEN2
+#define BUGFIX_GLYPHWIDTH
+#define BUGFIX_TRAINERAPPROACH
+#endif
 // #define BUGFIX_SAVEFAILEDSCREEN2
 
 // European editions of Ruby/Sapphire and all editions of Emerald have this fix.

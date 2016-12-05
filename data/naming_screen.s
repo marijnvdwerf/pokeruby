@@ -69,12 +69,12 @@ gUnknown_083CE28C:: @ 83CE28C
 	.4byte 0x02000004
 
 gUnknown_083CE294:: @ 83CE294
-	.byte   1,  3,  5,  8, 10, 12, 14, 17, 19
-	.byte   1,  3,  5,  8, 10, 12, 14, 17, 19
-	.byte   1,  4,  7, 10, 13, 16, 16, 16, 19
+    .byte  2,   3,   4,   5,   9, 0xA, 0xB, 0xC,0x10,0x13
+    .byte  2,   3,   4,   5,   9, 0xA, 0xB, 0xC,0x10,0x13
+    .byte  1,   4,   7, 0xA, 0xD,0x10,0x10,0x10,0x10,0x13
 
 gUnknown_083CE2AF:: @ 83CE2AF
-	.byte 1, 2, 3
+	.byte 1, 2, 3, 0, 0
 
 	.align 2
 gUnknown_083CE2B4:: @ 83CE2B4
@@ -182,14 +182,14 @@ gUnknown_083CE398:: @ 83CE398
 	.4byte Unknown_83CE38C
 
 gUnknown_083CE3A8:: @ 83CE3A8
-	.string " A B C  D E F    . $"
-	.string " G H I  J K L    , $"
-	.string " M N O  P Q R S    $"
-	.string " T U V  W X Y Z    $"
-	.string " a b c  d e f    . $"
-	.string " g h i  j k l    , $"
-	.string " m n o  p q r s    $"
-	.string " t u v  w x y z    $"
+	.string "  ABCD   EFGH   .  $"
+	.string "  IJKL   MNOP   ,  $"
+	.string "  QRST   UVWX      $"
+	.string "  YZ     ÄÖÜ       $"
+	.string "  abcd   efgh   .  $"
+	.string "  ijkl   mnop   ,  $"
+	.string "  qrst   uvwx      $"
+	.string "  yz     äöü       $"
 	.string " 0  1  2  3  4     $"
 	.string " 5  6  7  8  9     $"
 	.string " !  ?  ♂  ♀  /  -  $"

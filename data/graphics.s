@@ -4560,19 +4560,11 @@ gDecoration10000_Gfx:: @ 8EA2A44
 
 	.align 2
 gFont3LatinGlyphs:: @ 8EA2C44
-	.if REVISION >= 1
-	.incbin "graphics/fonts/font3_lat_rev1.4bpp"
-	.else
 	.incbin "graphics/fonts/font3_lat.4bpp"
-	.endif
 
 	.align 2
 gFont4LatinGlyphs:: @ 8EA6BC4
-	.if REVISION >= 1
-	.incbin "graphics/fonts/font4_lat_rev1.4bpp"
-	.else
-	.incbin "graphics/fonts/font4_lat.4bpp"
-	.endif
+	.incbin "graphics/fonts/font4_lat.4bpp.bin"
 
 	.align 2
 gFont3JapaneseGlyphs:: @ 8EA8744
@@ -4581,3 +4573,109 @@ gFont3JapaneseGlyphs:: @ 8EA8744
 	.align 2
 gFont4JapaneseGlyphs:: @ 8EAC6C4
 	.incbin "graphics/fonts/font4_jpn.4bpp"
+
+	.align 2
+gSummaryScreenTextTiles::
+	.incbin "graphics/filler/img_1.4bpp"
+
+	.align 2
+gUnknown_0839FA7C::
+	.incbin "graphics/filler/img_2.4bpp.lz"
+
+	.align 2
+gIntroTiles::
+	.incbin "graphics/filler/img_3.4bpp.lz"
+
+	.align 2
+ConditionUpDownTiles::
+	.incbin "graphics/filler/img_4.4bpp"
+
+	.align 2
+ConditionUpDownPalette::
+	.incbin "graphics/misc/condition_up_down.gbapal"
+
+	.align 2
+RouletteSpritePalette_01::
+	.incbin "graphics/roulette/shadow.gbapal"
+
+	.align 2
+RouletteSpritePalette_02::
+	.incbin "graphics/roulette/ball.gbapal"
+
+	.align 2
+RouletteSpritePalette_03::
+	.incbin "graphics/roulette/ball_counter.gbapal"
+
+	.align 2
+RouletteSpritePalette_04::
+	.incbin "graphics/roulette/cursor.gbapal"
+
+	.align 2
+RouletteSpritePalette_05::
+	.incbin "graphics/roulette/credit.gbapal"
+
+	.align 2
+RouletteSpritePalette_06::
+	.incbin "graphics/roulette/shroomish.gbapal"
+
+	.align 2
+RouletteSpritePalette_07::
+	.incbin "graphics/roulette/tailow.gbapal"
+
+	.align 2
+RouletteSpritePalette_08::
+	.incbin "graphics/roulette/poke_icons.gbapal"
+
+	.align 2
+RouletteSpritePalette_09::
+	.incbin "graphics/roulette/wynaut.gbapal"
+
+	.align 2
+RouletteSpritePalette_10::
+	.incbin "graphics/roulette/azurill.gbapal"
+
+	.align 2
+RouletteSpritePalette_11::
+	.incbin "graphics/roulette/skitty.gbapal"
+
+	.align 2
+RouletteSpritePalette_12::
+	.incbin "graphics/roulette/makuhita.gbapal"
+
+	.align 2
+RouletteSpritePalette_13::
+	.incbin "graphics/roulette/83F907C.gbapal"
+
+	.align 2
+RouletteSpritePalette_14::
+	.incbin "graphics/roulette/83F909C.gbapal"
+
+	.align 2
+RouletteSpritePalette_15::
+	.incbin "graphics/roulette/83F90BC.gbapal"
+
+	.align 2
+RouletteSpritePalette_16::
+	.incbin "graphics/roulette/83F90DC.gbapal"
+
+	.align 2
+gTilesetPalettes_Shop::
+	.incbin "graphics/filler/filler_8EAF230_map.bin"
+
+	.align 2
+gTilesetTiles_Shop::
+	.incbin "graphics/filler/unk_tiles.4bpp.lz"
+
+	.align 2
+gUnknown_083FAF1C::
+	.incbin "graphics/filler/meter_palette.gbapal"
+
+	.align 2
+gUnknown_083FAF3C::
+	.incbin "graphics/filler/meter_tiles.4bpp.lz"
+
+	.align 2
+gUnknown_083FAE7C::
+	.incbin "graphics/filler/meter_map.bin"
+
+fill_end::

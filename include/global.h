@@ -4,6 +4,8 @@
 #include "gba/gba.h"
 #include "config.h"
 
+#define GERMAN 1
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 
@@ -28,7 +30,7 @@ enum LanguageId {
     LANGUAGE_GERMAN = 5,
 };
 
-#define GAME_LANGUAGE (LANGUAGE_ENGLISH)
+#define GAME_LANGUAGE (LANGUAGE_GERMAN)
 
 enum
 {

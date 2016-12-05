@@ -156,10 +156,10 @@ POKE_GFX_TILES(${PSSGFXDIR}/misc1.4bpp	${PSSGFXDIR}/misc1.png	91)
 
 POKE_GFX_TILES(${MISCGFXDIR}/hof.4bpp	${MISCGFXDIR}/hof.png	37)
 
-POKE_GFX_TILES(${MENUGFXDIR}/wordgroup_frame.4bpp	${MENUGFXDIR}/wordgroup_frame.png	65)
+POKE_GFX_TILES(${MENUGFXDIR}/wordgroup_frame.4bpp	${MENUGFXDIR}/wordgroup_frame.png	76)
 
-POKE_GFX_TILES(${INTROGFXDIR}/copyright.4bpp	${INTROGFXDIR}/copyright.png	43)
+POKE_GFX_TILES(${INTROGFXDIR}/copyright.4bpp	${INTROGFXDIR}/copyright.png	47)
 
 POKE_GFX_TILES(${TITLEGFXDIR}/press_start.4bpp	${TITLEGFXDIR}/press_start.png	41)
 
-POKE_GFX_TILES(${MISCGFXDIR}/end_copyright.4bpp	${MISCGFXDIR}/end_copyright.png	90)
+POKE_GFX_TILES(${MISCGFXDIR}/end_copyright.4bpp	${MISCGFXDIR}/end_copyright.png	92)

@@ -175,15 +175,15 @@ gUnknown_083CA4D4:: @ 83CA4D4
 	.include "data/text/contest_strings.inc"
 
 gUnknownText_MissedTurn:: @ 83CC355
-	.string "Missed turn$"
+	.string "Verpasste Chance$"
 
 gUnknownText_LinkStandbyAndWinner:: @ 83CC361
-	.string "Link standby...$"
+	.string "Verbindung...$"
 	.string "{COLOR WHITE2}$"
-	.string "The winner is {STR_VAR_1}’s {STR_VAR_2}!\nCongratulations!$"
+	.string "Der Sieger ist {STR_VAR_2} von\n"
+	.string "{STR_VAR_1}! Herzlichen Glückwunsch!$"
 
 @ unknown, unreferenced data
-	.byte 0x00
 	.byte 0x9C
 	.byte 0x77
 
@@ -342,4 +342,4 @@ gUnknown_083CC5A4:: @ 83CC5A4
 
 	.align 2
 gUnknown_083CC5D0:: @ 83CC5D0
-	.incbin "baserom.gba", 0x003cc5d0, 0x100
+	.incbin "graphics/gUnknown_083CC5D0.bin"

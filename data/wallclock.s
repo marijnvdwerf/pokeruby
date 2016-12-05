@@ -7,12 +7,10 @@
 ClockGfx_Misc: @ 83F7814
 	.incbin "graphics/misc/clock_misc.4bpp.lz"
 
-	.align 2
 gUnknown_083F7A90:: @ 83F7A90
 	obj_tiles ClockGfx_Misc, 0x2000, 0x1000
 	.space 8
 
-	.align 2
 gUnknown_083F7AA0:: @ 83F7AA0
 	obj_pal gMiscClockMale_Pal, 0x1000
 	obj_pal gMiscClockFemale_Pal, 0x1001

@@ -57,6 +57,7 @@ SECTIONS {
         asm/pokemon_item_effect.o(.text);
         src/pokemon_3.o(.text);
         asm/pokemon_3.o(.text);
+        src/de_rom_8040FE0.o(.text);
         src/trig.o(.text);
         src/rng.o(.text);
         asm/util.o(.text);
@@ -173,6 +174,7 @@ SECTIONS {
         asm/rotating_gate.o(.text);
         src/safari_zone.o(.text);
         asm/contest_link_80C857C.o(.text);
+        src/contest_link_de.o(.text);
         src/item_use.o(.text);
         asm/item_use.o(.text);
         asm/battle_anim_80CA710.o(.text);
@@ -290,6 +292,8 @@ SECTIONS {
         tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
         src/libc.o(.text);
     } =0
+
+    . = 0x081EF778;
 
     .rodata :
     ALIGN(4)

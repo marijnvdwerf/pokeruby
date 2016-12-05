@@ -12,10 +12,6 @@ Palette_406360:: @ 8406360
 	.incbin "baserom.gba", 0x406360, 0x20
 
 	.align 2
-gIntroTiles::
-	.incbin "graphics/intro/intro.4bpp.lz"
-
-	.align 2
 gIntro1BGPals:: @ 8406974
 	.incbin "graphics/intro/intro1_bgpal1.gbapal"
 	.incbin "graphics/intro/intro1_bgpal2.gbapal"
@@ -247,27 +243,33 @@ gSpriteAnim_840AF10:: @ 840AF10
 	obj_image_anim_end
 
 	.align 2
+gSpriteAnim_8416DA4::
+	obj_image_anim_frame 118, 8
+	obj_image_anim_end
+
+	.align 2
 gSpriteAnimTable_840AF18:: @ 840AF18
-	.4byte gSpriteAnim_840AEA8
-	.4byte gSpriteAnim_840AEB0
-	.4byte gSpriteAnim_840AEB8
-	.4byte gSpriteAnim_840AEC0
-	.4byte gSpriteAnim_840AEC8
-	.4byte gSpriteAnim_840AED0
-	.4byte gSpriteAnim_840AED8
+	.4byte gSpriteAnim_840AEA8 @ 80
+	.4byte gSpriteAnim_840AEB0 @ 84
+	.4byte gSpriteAnim_840AEB8 @ 88
+	.4byte gSpriteAnim_840AEC0 @ 92
+	.4byte gSpriteAnim_840AEC8 @ 96
+	.4byte gSpriteAnim_840AED0 @ 100
+	.4byte gSpriteAnim_840AED8 @ 104
 
 	.align 2
 gSpriteAnimTable_840AF34:: @ 840AF34
-	.4byte gSpriteAnim_840AEE0
-	.4byte gSpriteAnim_840AEE8
-	.4byte gSpriteAnim_840AEF0
-	.4byte gSpriteAnim_840AEF8
-	.4byte gSpriteAnim_840AF00
-	.4byte gSpriteAnim_840AF08
+	.4byte gSpriteAnim_840AEE0 @ 112
+	.4byte gSpriteAnim_840AEE8 @ 113
+	.4byte gSpriteAnim_840AEF0 @ 114
+	.4byte gSpriteAnim_840AEF8 @ 115
+	.4byte gSpriteAnim_840AF00 @ 116
+	.4byte gSpriteAnim_840AF08 @ 117
+	.4byte gSpriteAnim_8416DA4 @ 118
 
 	.align 2
 gSpriteAnimTable_840AF4C:: @ 840AF4C
-	.4byte gSpriteAnim_840AF10
+	.4byte gSpriteAnim_840AF10 @ 118
 
 gUnknown_0840AF50:: @ 840AF50
 	.incbin "baserom.gba", 0x0040af50, 0x24

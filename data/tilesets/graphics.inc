@@ -350,6 +350,7 @@ gTilesetPalettes_Building:: @ 8225FA4
 
 	.align 2
 
+.if 0
 gTilesetTiles_Shop:: @ 82261A4
 	.incbin "data/tilesets/secondary/shop/tiles.4bpp.lz"
 
@@ -374,6 +375,7 @@ gTilesetPalettes_Shop:: @ 8227788
 	.incbin "data/tilesets/secondary/shop/palettes/15.gbapal"
 
 	.align 2
+.endif
 
 gTilesetTiles_PokemonCenter:: @ 8227988
 	.incbin "data/tilesets/secondary/pokemon_center/tiles.4bpp.lz"

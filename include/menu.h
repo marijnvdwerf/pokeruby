@@ -64,11 +64,12 @@ u8 sub_8072CBC(void);
 void sub_8072CD4(u8 *, u8 *, u8 *);
 u32 MenuUpdateWindowText_OverrideLineLength(u8);
 struct Window * unref_sub_8072D0C(void);
-u8 InitMenu(u8, u8, u8, u8, u8, u8);
+u8 InitMenu(u8 cursorSubpriority, u8 left, u8 top, u8 numChoices, u8 cursorPos, u8 cursorWidth);
 void RedrawMenuCursor(u8, u8);
 void unref_sub_8072DC0(void);
 void sub_8072DCC(u8);
 void sub_8072DDC(u8);
 void sub_8072DEC(void);
+u8 *de_sub_8073174(u8 *name, u8 *format);
 
 #endif // GUARD_MENU_H

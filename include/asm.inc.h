@@ -368,6 +368,7 @@ void sub_80E6084();
 
 // asm/easy_chat.o
 void sub_80E6764(void);
+u32 de_sub_80EB748(u32, u32);
 void sub_80EB3FC(u8 *, u16);
 u8 ConvertEasyChatWordsToString(u8 *dst, u16 *words, u16, u16);
 u16 sub_80EB72C(u16);
@@ -459,6 +460,10 @@ void sub_8134348(void);
 void sub_8134394();
 u8 sub_81344CC(void);
 void sub_8134AC0(void *);
+extern u8 get_trainer_class_name_index(void);
+extern u8 sub_8135FD8(void);
+extern u8 de_sub_81364AC(void);
+extern u8 de_sub_81364F8(void);
 
 // src/player_pc.o
 void NewGameInitPCItems(void);
@@ -477,10 +482,11 @@ void sub_8148CB0(u8);
 void sub_8148E90(u8);
 u8 sub_8148EC0(/*TODO: arg types*/);
 void sub_8149020(/*TODO: arg types*/);
-u8 intro_create_brendan_sprite(/*TODO: arg types*/);
-u8 intro_create_may_sprite(/*TODO: arg types*/);
+u8 intro_create_brendan_sprite(u16, u16);
+u8 intro_create_may_sprite(u16, u16);
 u8 intro_create_latios_sprite(/*TODO: arg types*/);
 u8 intro_create_latias_sprite(/*TODO: arg types*/);
+extern void sub_8143648(int, u8);
 
 // asm/name_string_util.o
 void SanitizeNameString(u8*);

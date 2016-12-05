@@ -78,13 +78,13 @@ gUnknown_08393E64:: @ 8393E64
 
 	.align 2
 gOamData_8393EA4:: @ 8393EA4
-	.2byte 0x60A0
+	.2byte 0x20A0
 	.2byte 0xC000
 	.2byte 0x0000
 
 	.align 2
 gOamData_8393EAC:: @ 8393EAC
-	.2byte 0x60A0
+	.2byte 0x20A0
 	.2byte 0xC000
 	.2byte 0x0000
 
@@ -95,7 +95,7 @@ gSpriteAnim_8393EB4:: @ 8393EB4
 
 	.align 2
 gSpriteAnim_8393EBC:: @ 8393EBC
-	obj_image_anim_frame 64, 30
+	obj_image_anim_frame 128, 30
 	obj_image_anim_end
 
 	.align 2
@@ -116,7 +116,7 @@ gSpriteTemplate_8393EE4:: @ 8393EE4
 
 	.align 2
 gUnknown_08393EFC:: @ 8393EFC
-	obj_tiles gVersionTiles, 0x1000, 1000
+	obj_tiles gVersionTiles, 0x2000, 1000
 	null_obj_tiles
 
 	.align 2
@@ -166,6 +166,16 @@ gSpriteAnim_8393F4C:: @ 8393F4C
 	obj_image_anim_end
 
 	.align 2
+gSpriteAnim_839F73C::
+	obj_image_anim_frame 32, 4
+	obj_image_anim_end
+
+	.align 2
+gSpriteAnim_839F744::
+	obj_image_anim_frame 36, 4
+	obj_image_anim_end
+
+	.align 2
 gSpriteAnimTable_8393F54:: @ 8393F54
 	.4byte gSpriteAnim_8393F14
 	.4byte gSpriteAnim_8393F1C
@@ -175,6 +185,8 @@ gSpriteAnimTable_8393F54:: @ 8393F54
 	.4byte gSpriteAnim_8393F3C
 	.4byte gSpriteAnim_8393F44
 	.4byte gSpriteAnim_8393F4C
+	.4byte gSpriteAnim_839F73C
+	.4byte gSpriteAnim_839F744
 
 	.align 2
 gSpriteTemplate_8393F74:: @ 8393F74

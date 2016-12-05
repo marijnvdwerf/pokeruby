@@ -878,14 +878,6 @@ gUnknown_08405EDA:: @ 8405EDA
 gUnknown_08405EE6:: @ 8405EE6
 	.incbin "baserom.gba", 0x00405ee6, 0x12
 
-	.align 2
-ConditionUpDownPalette:
-	.incbin "graphics/misc/condition_up_down.gbapal"
-
-	.align 2
-ConditionUpDownTiles:
-	.incbin "graphics/misc/condition_up_down.4bpp"
-
 gUnknown_08406118:: @ 8406118
 	.incbin "baserom.gba", 0x00406118, 0x14
 
