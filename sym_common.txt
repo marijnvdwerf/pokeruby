@@ -1,6 +1,7 @@
 	.include "main.o"
 	.include "sprite.o"
 	.include "string_util.o"
+	.space 0x10
 	.include "link.o"
 	.include "rtc.o"
 

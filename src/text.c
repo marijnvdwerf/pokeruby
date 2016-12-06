@@ -2476,7 +2476,7 @@ u8 sub_800374C(struct Window *win)
     u8 retVal;
 
     sWaitType = 1;
-    sLineLength = 26;
+    sLineLength = 27;
     retVal = UpdateWindowText(win);
     sLineLength = 26;
     sWaitType = 0;
@@ -3334,11 +3334,7 @@ static u8 GetGlyphWidth(struct Window *win, u32 glyph)
 {
     u8 width = 8;
 
-#if REVISION >= 1
     if (win->language != LANGUAGE_JAPANESE)
-#else
-    if (win->language == LANGUAGE_ENGLISH)
-#endif
     {
         width = win->spacing;
         if (!win->spacing)
