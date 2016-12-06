@@ -454,32 +454,7 @@ static u8 FrameType_ProcessInput(u8 selection)
 
 static void FrameType_DrawChoices(u8 selection)
 {
-    u8 text[8];
-    u8 n = selection + 1;
-    u16 i;
-    
-    for(i = 0; gSystemText_Terminator[i] != EOS && i <= 5; i++)
-        text[i] = gSystemText_Terminator[i];
-    
-    //Convert number to decimal string
-    if(n / 10 != 0)
-    {
-        text[i] = n / 10 + CHAR_0;
-        i++;
-        text[i] = n % 10 + CHAR_0;
-        i++;
-    }
-    else
-    {
-        text[i] = n % 10 + CHAR_0;
-        i++;
-        text[i] = CHAR_SPACE;
-        i++;
-    }
-    
-    text[i] = EOS;
-    MenuPrint(gSystemText_Type, 15, 15);
-    MenuPrint(text, 18, 15);
+    asm(".fill 116");
 }
 
 static u8 ButtonMode_ProcessInput(u8 selection)

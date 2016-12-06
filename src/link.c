@@ -571,6 +571,8 @@ static void ProcessRecvCmds(u8 a1)
             break;
         }
     }
+
+    asm(".fill 106");
 }
 
 static void BuildSendCmd(u16 code)
@@ -676,6 +678,7 @@ void OpenLinkTimed(void)
     sPlayerDataExchangeStatus = EXCHANGE_NOT_STARTED;
     gLinkTimeOutCounter = 0;
     OpenLink();
+	ResetBlockSend();
 }
 
 u8 GetLinkPlayerDataExchangeStatusTimed(void)

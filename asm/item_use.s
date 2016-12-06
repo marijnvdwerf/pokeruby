@@ -6,6 +6,17 @@
 
 	.text
 
+	thumb_func_start deu_80C9274
+deu_80C9274:
+    .fill 32
+	thumb_func_end deu_80C9274
+
+	thumb_func_start deu_80C9294
+deu_80C9294:
+    .fill 84
+	thumb_func_end deu_80C9294
+
+
 	thumb_func_start sub_80C8FAC
 sub_80C8FAC: @ 80C8FAC
 	push {r4,lr}

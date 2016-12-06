@@ -4,6 +4,25 @@
 extern s16 gSineTable[];
 extern s16 gSineDegreeTable[];
 
+void unk8040FE0(void) {
+    asm(".fill 16");
+}
+
+void unk8040FF4(void) {
+    asm(".fill 22");
+}
+
+void unk804100C(void) {
+    asm(".fill 22");
+}
+
+void unk8041024(void) {
+    asm(".fill 228");
+}
+
+void unk804110C(void) {
+}
+
 // amplitude * sin(index*(π/128))
 s16 Sin(s16 index, s16 amplitude)
 {

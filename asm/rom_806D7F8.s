@@ -6097,28 +6097,9 @@ _080708FC:
 	movs r3, 0x1
 	bl MenuPrint_PixelCoords
 _08070910:
-	movs r0, 0xFC
-	mov r1, r10
-	strb r0, [r1]
-	movs r0, 0x14
-	strb r0, [r1, 0x1]
-	movs r0, 0x6
-	strb r0, [r1, 0x2]
-	ldr r0, _08070964 @ =0x0201b264
-	add r0, r8
-	movs r2, 0
-	ldrsh r1, [r0, r2]
-	mov r0, r10
-	adds r0, 0x3
-	movs r2, 0x1
-	movs r3, 0x2
 	bl ConvertIntToDecimalStringN
 	lsls r1, r4, 27
 	movs r0, 0xC0
-	lsls r0, 20
-	adds r1, r0
-	lsrs r1, 24
-	mov r0, r9
 	lsls r2, r0, 3
 	mov r0, r10
 	movs r3, 0

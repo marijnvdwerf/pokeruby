@@ -17282,79 +17282,7 @@ _0814528C:
 
 	thumb_func_start sub_81452D0
 sub_81452D0: @ 81452D0
-	push {r4-r7,lr}
-	sub sp, 0x4
-	lsls r0, 16
-	lsrs r5, r0, 16
-	lsls r1, 16
-	lsrs r6, r1, 16
-	lsrs r1, 20
-	lsls r1, 28
-	lsrs r1, 16
-	movs r2, 0
-	ldr r7, _08145360 @ =gUnknown_0840B83C
-	movs r4, 0xC0
-	lsls r4, 19
-	adds r1, 0x1
-	ldr r3, _08145364 @ =0x000003ff
-_081452EE:
-	lsls r0, r2, 1
-	adds r0, r5
-	adds r0, r4
-	strh r1, [r0]
-	adds r0, r2, 0x1
-	lsls r0, 16
-	lsrs r2, r0, 16
-	cmp r2, r3
-	bls _081452EE
-	str r6, [sp]
-	adds r0, r7, 0
-	movs r1, 0x3
-	movs r2, 0x7
-	adds r3, r5, 0
-	bl sub_814524C
-	ldr r0, _08145368 @ =gUnknown_0840B84B
-	str r6, [sp]
-	movs r1, 0x7
-	movs r2, 0x7
-	adds r3, r5, 0
-	bl sub_814524C
-	ldr r4, _0814536C @ =gUnknown_0840B85A
-	str r6, [sp]
-	adds r0, r4, 0
-	movs r1, 0xB
-	movs r2, 0x7
-	adds r3, r5, 0
-	bl sub_814524C
-	str r6, [sp]
-	adds r0, r4, 0
-	movs r1, 0x10
-	movs r2, 0x7
-	adds r3, r5, 0
-	bl sub_814524C
-	ldr r0, _08145370 @ =gUnknown_0840B869
-	str r6, [sp]
-	movs r1, 0x14
-	movs r2, 0x7
-	adds r3, r5, 0
-	bl sub_814524C
-	ldr r0, _08145374 @ =gUnknown_0840B878
-	str r6, [sp]
-	movs r1, 0x18
-	movs r2, 0x7
-	adds r3, r5, 0
-	bl sub_814524C
-	add sp, 0x4
-	pop {r4-r7}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_08145360: .4byte gUnknown_0840B83C
-_08145364: .4byte 0x000003ff
-_08145368: .4byte gUnknown_0840B84B
-_0814536C: .4byte gUnknown_0840B85A
-_08145370: .4byte gUnknown_0840B869
-_08145374: .4byte gUnknown_0840B878
+	.fill 128
 	thumb_func_end sub_81452D0
 
 	thumb_func_start sub_8145378
@@ -18267,6 +18195,7 @@ _08145A62:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 4
 	thumb_func_end sub_81458DC
 
 	.align 2, 0 @ Don't pad with nop.

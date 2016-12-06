@@ -1016,6 +1016,7 @@ _080B57F2:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 88
 	.align 2, 0
 _080B5830: .4byte gPCText_SomeonesPC
 _080B5834: .4byte gPCText_PlayersPC

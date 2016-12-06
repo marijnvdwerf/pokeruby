@@ -308,6 +308,7 @@ static void AddTextColorCtrlCode(u8 *string, u8 bgColor, u8 textColor, u8 shadow
 
 static void CreateStarterPokemonLabel(u8 prevSelection, u8 selection)
 {
+#if 0
     u8 labelText[72];
     u8 *category;
     u8 srcIndex;
@@ -370,6 +371,9 @@ static void CreateStarterPokemonLabel(u8 prevSelection, u8 selection)
     labelBottom = (gStarterChoose_LabelCoords[selection][1] + 4) * 8;
     REG_WIN0H = WIN_RANGE(labelLeft, labelRight);
     REG_WIN0V = WIN_RANGE(labelTop, labelBottom);
+#else
+	asm(".fill 308\n");
+#endif
 }
 
 void nullsub_72(struct Sprite *sprite)

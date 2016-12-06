@@ -177,6 +177,38 @@ u16 StringLength(const u8 *str)
     return length;
 }
 
+__attribute__((naked))
+s32 sub_8006CC0()
+{
+	asm(".syntax unified\n\
+     PUSH    {LR}\n\
+		PUSH    {LR}\n\
+                MOVS    R3, R0\n\
+                MOVS    R2, #0\n\
+                CMP     R2, R1\n\
+                BGE     loc_8006CDE\n\
+                LDRB    R0, [R3]\n\
+                CMP     R0, #0xFF\n\
+                BEQ     loc_8006CDE\n\
+loc_8006CD0:\n\
+                ADDS    R2, #1\n\
+                CMP     R2, R1\n\
+                BGE     loc_8006CDE\n\
+                ADDS    R0, R3, R2\n\
+                LDRB    R0, [R0]\n\
+                CMP     R0, #0xFF\n\
+                BNE     loc_8006CD0\n\
+loc_8006CDE:\n\
+                CMP     R2, R1\n\
+                BNE     loc_8006CE4\n\
+                MOVS    R2, #0\n\
+loc_8006CE4:\n\
+                MOVS    R0, R2\n\
+                POP     {R1}\n\
+                BX      R1\n\
+    .syntax divided\n");
+}
+
 s32 StringCompare(const u8 *str1, const u8 *str2)
 {
     while (*str1 == *str2)

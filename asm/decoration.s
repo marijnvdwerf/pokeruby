@@ -812,6 +812,7 @@ sub_80FE7EC: @ 80FE7EC
 	pop {r4}
 	pop {r0}
 	bx r0
+	.fill 16
 	.align 2, 0
 _080FE858: .4byte gUnknown_020388F6
 _080FE85C: .4byte gUnknown_020388F2
@@ -1403,6 +1404,7 @@ sub_80FECE0: @ 80FECE0
 	add sp, 0x8
 	pop {r0}
 	bx r0
+	.fill 16
 	.align 2, 0
 _080FED14: .4byte gDecorations
 _080FED18: .4byte gUnknown_020388D0

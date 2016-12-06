@@ -22981,6 +22981,16 @@ _0813611E:
 _0813612C: .4byte gSaveBlock2 + 0x556
 	thumb_func_end sub_813610C
 
+	thumb_func_start deu_81364AC
+deu_81364AC:
+    .fill 76
+	thumb_func_end deu_81364AC
+
+	thumb_func_start deu_81364F8
+deu_81364F8:
+    .fill 20
+	thumb_func_end deu_81364F8
+
 	thumb_func_start sub_8136130
 sub_8136130: @ 8136130
 	push {r4,r5,lr}

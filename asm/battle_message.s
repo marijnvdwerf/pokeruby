@@ -615,6 +615,7 @@ _08120F76:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 52
 	.align 2, 0
 _08120F84: .4byte gUnknown_08400F8C
 	thumb_func_end sub_8120AA8
@@ -685,6 +686,8 @@ _08120FF2:
 	pop {r1}
 	bx r1
 	thumb_func_end sub_8120F98
+
+.if 0
 
 	thumb_func_start sub_8120FFC
 sub_8120FFC: @ 8120FFC
@@ -1929,6 +1932,15 @@ _08121A4A:
 	bx r1
 	thumb_func_end sub_8120FFC
 
+.else
+
+	thumb_func_start sub_8120FFC
+sub_8120FFC: @ 8120FFC
+    .fill 2476
+	thumb_func_end sub_8120FFC
+
+.endif
+
 	thumb_func_start sub_8121A68
 sub_8121A68: @ 8121A68
 	push {r4-r7,lr}
@@ -2267,6 +2279,7 @@ _08121D0E:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 24
 	thumb_func_end sub_8121A68
 
 	thumb_func_start sub_8121D1C

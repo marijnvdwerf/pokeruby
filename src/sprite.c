@@ -3,6 +3,7 @@
 #include "main.h"
 #include "palette.h"
 #include "menu_cursor.h"
+#include "rng.h"
 
 #define MAX_SPRITE_COPY_REQUESTS 64
 
@@ -839,6 +840,10 @@ static void RequestSpriteFrameImageCopy(u16 index, u16 tileNum, struct SpriteFra
         gSpriteCopyRequests[gSpriteCopyRequestCount].dest = (u8 *)OBJ_VRAM0 + TILE_SIZE_4BPP * tileNum;
         gSpriteCopyRequests[gSpriteCopyRequestCount].size = images[index].size;
         gSpriteCopyRequestCount++;
+    } else {
+#ifdef DEBUG
+        SetMainCallback2(Random);
+#endif
     }
 }
 
@@ -850,7 +855,11 @@ void RequestSpriteCopy(u8 *src, u8 *dest, u16 size)
         gSpriteCopyRequests[gSpriteCopyRequestCount].dest = dest;
         gSpriteCopyRequests[gSpriteCopyRequestCount].size = size;
         gSpriteCopyRequestCount++;
-    }
+    } else {
+#ifdef DEBUG
+		SetMainCallback2(Random);
+#endif
+	}
 }
 
 void CopyFromSprites(u8 *dest)

@@ -8046,6 +8046,7 @@ _08098A18:
 	pop {r4-r6}
 	pop {r0}
 	bx r0
+	.fill 4
 	.align 2, 0
 _08098A2C: .4byte 0x02002694
 _08098A30: .4byte gUnknown_083B6DF4
@@ -24157,8 +24158,6 @@ _080A0850:
 _080A0890: .4byte gStringVar1
 _080A0894: .4byte gOtherText_Met
 _080A0898:
-	adds r0, r7, 0
-	movs r1, 0x25
 	bl GetMonData
 	lsls r0, 24
 	movs r1, 0xFF

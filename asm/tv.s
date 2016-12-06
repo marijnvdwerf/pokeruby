@@ -1753,6 +1753,7 @@ _080BE548:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 16
 	.align 2, 0
 _080BE554: .4byte gScriptResult
 _080BE558: .4byte gSpecialVar_0x8004
@@ -1907,6 +1908,7 @@ sub_80BE65C: @ 80BE65C
 	pop {r4-r6}
 	pop {r0}
 	bx r0
+	.fill 4
 	.align 2, 0
 _080BE694: .4byte gUnknown_03005D38
 _080BE698: .4byte gSaveBlock1 + 0x2738
@@ -3819,6 +3821,7 @@ _080BF53E:
 	pop {r4,r5}
 	pop {r1}
 	bx r1
+	.fill 28
 	thumb_func_end sub_80BF4F4
 
 	thumb_func_start sub_80BF544

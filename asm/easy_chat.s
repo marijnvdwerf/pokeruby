@@ -5038,6 +5038,7 @@ _080E8796:
 _080E879E:
 	pop {r0}
 	bx r0
+	.fill 20
 	thumb_func_end sub_80E8760
 
 	thumb_func_start sub_80E87A4
@@ -7354,9 +7355,6 @@ _080E99D4:
 	movs r1, 0x2
 	movs r2, 0x4
 	bl sub_80E9A60
-	adds r4, 0x60
-	adds r0, r4, 0
-	movs r1, 0x2
 	movs r2, 0x6
 	bl sub_80E9A60
 _080E9A08:
@@ -10463,6 +10461,7 @@ _080EB1FA:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 4
 	.align 2, 0
 _080EB20C: .4byte 0x00004142
 _080EB210: .4byte 0x00009a2a
@@ -10732,103 +10731,7 @@ _080EB3F6:
 
 	thumb_func_start sub_80EB3FC
 sub_80EB3FC: @ 80EB3FC
-	push {r4-r7,lr}
-	adds r5, r0, 0
-	lsls r6, r1, 16
-	lsrs r4, r6, 16
-	adds r7, r4, 0
-	adds r0, r4, 0
-	bl sub_80EB37C
-	lsls r0, 24
-	cmp r0, 0
-	beq _080EB420
-	ldr r1, _080EB41C @ =gOtherText_ThreeQuestions
-	adds r0, r5, 0
-	bl StringCopy
-	b _080EB4A6
-	.align 2, 0
-_080EB41C: .4byte gOtherText_ThreeQuestions
-_080EB420:
-	ldr r0, _080EB43C @ =0x0000ffff
-	cmp r4, r0
-	beq _080EB4A0
-	lsrs r1, r6, 25
-	ldr r2, _080EB440 @ =0x000001ff
-	ands r2, r7
-	cmp r1, 0x13
-	bgt _080EB444
-	cmp r1, 0x12
-	bge _080EB458
-	cmp r1, 0
-	beq _080EB448
-	b _080EB468
-	.align 2, 0
-_080EB43C: .4byte 0x0000ffff
-_080EB440: .4byte 0x000001ff
-_080EB444:
-	cmp r1, 0x15
-	bne _080EB468
-_080EB448:
-	movs r0, 0xB
-	adds r1, r2, 0
-	muls r1, r0
-	ldr r0, _080EB454 @ =gSpeciesNames
-	adds r1, r0
-	b _080EB498
-	.align 2, 0
-_080EB454: .4byte gSpeciesNames
-_080EB458:
-	movs r0, 0xD
-	adds r1, r2, 0
-	muls r1, r0
-	ldr r0, _080EB464 @ =gMoveNames
-	adds r1, r0
-	b _080EB498
-	.align 2, 0
-_080EB464: .4byte gMoveNames
-_080EB468:
-	ldr r0, _080EB4AC @ =gEasyChatGroupWords
-	lsls r1, 2
-	adds r1, r0
-	ldr r1, [r1]
-	subs r0, r2, 0x1
-	lsls r0, 16
-	lsrs r2, r0, 16
-	ldr r0, _080EB4B0 @ =0x0000ffff
-	cmp r2, r0
-	beq _080EB498
-	adds r3, r0, 0
-_080EB47E:
-	ldrb r0, [r1]
-	adds r1, 0x1
-	subs r2, 0x1
-	cmp r0, 0xFF
-	beq _080EB490
-_080EB488:
-	ldrb r0, [r1]
-	adds r1, 0x1
-	cmp r0, 0xFF
-	bne _080EB488
-_080EB490:
-	lsls r0, r2, 16
-	lsrs r2, r0, 16
-	cmp r2, r3
-	bne _080EB47E
-_080EB498:
-	adds r0, r5, 0
-	bl StringCopy
-	adds r5, r0, 0
-_080EB4A0:
-	movs r0, 0xFF
-	strb r0, [r5]
-	adds r0, r5, 0
-_080EB4A6:
-	pop {r4-r7}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_080EB4AC: .4byte gEasyChatGroupWords
-_080EB4B0: .4byte 0x0000ffff
+	.fill 104
 	thumb_func_end sub_80EB3FC
 
 	thumb_func_start ConvertEasyChatWordsToString
@@ -10903,6 +10806,7 @@ _080EB524:
 	pop {r4-r7}
 	pop {r1}
 	bx r1
+	.fill 40
 	.align 2, 0
 _080EB53C: .4byte 0xffff0000
 _080EB540: .4byte 0x0000ffff
@@ -10910,17 +10814,6 @@ _080EB540: .4byte 0x0000ffff
 
 	thumb_func_start sub_80EB544
 sub_80EB544: @ 80EB544
-	push {r4-r7,lr}
-	mov r7, r10
-	mov r6, r9
-	mov r5, r8
-	push {r5-r7}
-	sub sp, 0x4
-	adds r4, r0, 0
-	adds r5, r1, 0
-	lsls r2, 16
-	lsls r3, 16
-	lsrs r3, 16
 	mov r10, r3
 	ldr r0, _080EB5B0 @ =0xffff0000
 	adds r2, r0
@@ -10992,7 +10885,13 @@ _080EB5C8:
 	pop {r4-r7}
 	pop {r1}
 	bx r1
+	.fill 8
 	thumb_func_end sub_80EB544
+
+	thumb_func_start deu_80EB8F8
+deu_80EB8F8:
+    .fill 156
+	thumb_func_end deu_80EB8F8
 
 	thumb_func_start unref_sub_80EB5E0
 unref_sub_80EB5E0: @ 80EB5E0

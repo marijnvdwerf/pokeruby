@@ -47,7 +47,6 @@ sub_81260D0: @ 81260D0
 	push {lr}
 	ldr r0, _081260E4 @ =gStringVar4
 	ldr r1, _081260E8 @ =gOtherText_DataCannotUseVersion
-	bl StringExpandPlaceholders
 	movs r0, 0x3
 	bl sub_8126160
 	pop {r0}

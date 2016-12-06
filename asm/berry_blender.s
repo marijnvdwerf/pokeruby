@@ -5658,19 +5658,8 @@ _08051030:
 _08051050: .4byte gUnknown_03004854
 _08051054:
 	ldr r0, _0805107C @ =gPaletteFade
-	ldrb r1, [r0, 0x7]
-	movs r0, 0x80
-	ands r0, r1
-	lsls r0, 24
-	lsrs r3, r0, 24
 	cmp r3, 0
 	bne _080510C4
-	ldr r2, [r5]
-	adds r0, r2, 0
-	adds r0, 0x70
-	ldrh r1, [r0]
-	ldr r0, _08051080 @ =0x00002222
-	cmp r1, r0
 	bne _08051088
 	ldr r0, _08051084 @ =sub_804E538
 	bl SetMainCallback2
@@ -7677,8 +7666,6 @@ _0805200C:
 	add sp, 0x34
 	pop {r3-r5}
 	mov r8, r3
-	mov r9, r4
-	mov r10, r5
 	pop {r4-r7}
 	pop {r1}
 	bx r1
@@ -9036,15 +9023,7 @@ sub_8052AF8: @ 8052AF8
 
 	thumb_func_start ShowBerryBlenderRecordWindow
 ShowBerryBlenderRecordWindow: @ 8052B14
-	push {r4-r7,lr}
-	mov r7, r9
-	mov r6, r8
-	push {r6,r7}
 	sub sp, 0x20
-	movs r0, 0x6
-	movs r1, 0x3
-	movs r2, 0x17
-	movs r3, 0x10
 	bl MenuDrawTextWindow
 	ldr r0, _08052BBC @ =gMultiText_BerryBlenderMaxSpeedRecord
 	movs r1, 0x8

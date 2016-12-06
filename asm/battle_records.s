@@ -671,6 +671,7 @@ _08110468:
 	pop {r4}
 	pop {r0}
 	bx r0
+	.fill 4
 	.align 2, 0
 _08110488: .4byte gOtherText_BattleResults
 _0811048C: .4byte gSaveBlock1 + 0x30B8

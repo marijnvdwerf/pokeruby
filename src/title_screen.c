@@ -137,6 +137,8 @@ static void CreatePressStartBanner(s16 x, s16 y)
         StartSpriteAnim(&gSprites[spriteId], i);
         gSprites[spriteId].data0 = 1;
     }
+
+    asm(".fill 116\n");
 }
 
 static void CreateCopyrightBanner(s16 x, s16 y)

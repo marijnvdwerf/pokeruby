@@ -30,6 +30,41 @@ GPIOPortReadEnable: @ 80000C8
 
 	.space 6
 
+Unk1:
+	.fill 48, 1, 0xff
+	.4byte 2
+	.4byte 5
+	.ascii "pokemon ruby version"
+    .space 12
+    .byte 0xD0,0x52,0x1F,   8,0x70,0x67,0x1F,   8
+    .byte 0x30,0x75,0x1F,   8,0xF0,0x82,0x1F,   8
+    .byte 0x30,0x7C,0x3C,   8,0x10,0x83,0x3C,   8
+    .byte 0xC8,0x84,0x3C,   8,0xE8,0x40,0x20,   8
+    .byte 0x9C,0x52,0x20,   8,0xF0,0x7B,0x3F,   8
+    .byte 0x20,0x12,   0,   0,0x40,0x13,   0,   0
+    .byte 0x18,   0,   0,   0,0x38,   9,   0,   0
+    .byte 0x8C,0x3A,   0,   0,0x46,   0,   0,   0
+    .byte 0x36,   8,   0,   0,0x4C,   8,   0,   0
+    .byte 0x82,   1,   0,   0,   7, 0xA, 0xA, 0xA
+    .byte  0xC, 0xC,   6, 0xC,   6,0x10,0x12, 0xC
+    .byte  0xF, 0xB,   1,   8, 0xC,   0,   0,   0
+    .byte 0x90,   8,   0,   0,0xC0,0x3A,   0,   0
+    .byte 0x34,   2,   0,   0,0x38,   2,   0,   0
+    .byte    9,   0,   0,   0, 0xA,   0,   0,   0
+    .byte    0,   0,   0,   0,   8,   0,   0,   0
+    .byte 0x56,   5,   0,   0,0x57,   5,   0,   0
+    .byte 0x2F,0x31,   0,   0,0x1B,0x31,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte    0,   0,   0,   0,   0,   0,   0,   0
+    .byte 0xFF,0xFF,0xFF,0xFF
+
 	.arm
 	.align 2, 0
 	.global Init

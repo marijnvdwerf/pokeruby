@@ -5130,6 +5130,7 @@ _0804A6CC:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 16
 	thumb_func_end sub_804A51C
 
 	thumb_func_start sub_804A6DC
@@ -5537,6 +5538,11 @@ _0804A9DE:
 	pop {r0}
 	bx r0
 	thumb_func_end sub_804A96C
+
+	thumb_func_start sub_804AD20
+sub_804AD20:
+   .fill 48
+	thumb_func_end sub_804AD20
 
 	thumb_func_start sub_804A9F4
 sub_804A9F4: @ 804A9F4
@@ -11352,6 +11358,7 @@ _0804DAEE:
 	pop {r4,r5}
 	pop {r0}
 	bx r0
+	.fill 8
 	.align 2, 0
 _0804DB28: .4byte gIngameTradeMail
 	thumb_func_end sub_804DAD4

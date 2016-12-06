@@ -2948,6 +2948,7 @@ _080C37DC: .4byte REG_WININ
 _080C37E0: .4byte 0x00003f3f
 	thumb_func_end sub_80C3764
 
+.if 0
 	thumb_func_start sub_80C37E4
 sub_80C37E4: @ 80C37E4
 	push {r4-r6,lr}
@@ -3157,6 +3158,24 @@ _080C3984: .4byte 0x0600e000
 _080C3988: .4byte gUnknown_08E964B8
 _080C398C: .4byte 0x00000fff
 	thumb_func_end sub_80C37E4
+
+.else
+
+	thumb_func_start deu_80C39A8
+deu_80C39A8:
+    .fill 220
+	thumb_func_end deu_80C39A8
+
+	thumb_func_start deu_80C3A84
+deu_80C3A84:
+    .fill 244
+	thumb_func_end deu_80C3A84
+
+	thumb_func_start sub_80C37E4
+sub_80C37E4:
+    .fill 72
+	thumb_func_end sub_80C37E4
+.endif
 
 	thumb_func_start sub_80C3990
 sub_80C3990: @ 80C3990

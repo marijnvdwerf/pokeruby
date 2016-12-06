@@ -874,8 +874,6 @@ _0811A4D6:
 	add sp, 0x4
 	pop {r3-r5}
 	mov r8, r3
-	mov r9, r4
-	mov r10, r5
 	pop {r4-r7}
 	pop {r1}
 	bx r1

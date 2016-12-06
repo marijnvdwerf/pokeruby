@@ -531,6 +531,7 @@ _080830C2:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 12
 	.align 2, 0
 _080830D0: .4byte gTasks + 0x8
 _080830D4: .4byte gMain
@@ -867,6 +868,7 @@ _080833B6:
 	pop {r4-r6}
 	pop {r0}
 	bx r0
+	.fill 20
 	.align 2, 0
 _080833BC: .4byte gTasks
 _080833C0: .4byte sub_80833C4

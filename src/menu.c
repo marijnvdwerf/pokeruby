@@ -594,7 +594,7 @@ int sub_8072AB0(u8 *str, u8 left, u16 top, u8 width, u8 height, u32 a6)
     u8 newlineCount = sub_8004FD0(gMenuWindowPtr, NULL, str, gMenuTextTileOffset, left, top, width, a6);
 
     left /= 8;
-    top /= 8;
+asm(".fill 16\n");
     width = (width + 7) / 8;
     height = (height + 7) / 8;
 
@@ -712,4 +712,14 @@ void sub_8072DDC(u8 a1)
 void sub_8072DEC(void)
 {
     sub_814A7FC();
+}
+
+void deu_8073110(void)
+{
+    asm(".fill 96");
+}
+
+void deu_8073174(void)
+{
+    asm(".fill 64");
 }

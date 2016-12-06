@@ -695,6 +695,8 @@ void PrintPlayTime(void)
     FormatPlayTime(playTime, gSaveBlock2.playTimeHours, gSaveBlock2.playTimeMinutes, 1);
     sub_8072C74(alignedPlayTime, playTime, 48, 1);
     MenuPrint(alignedPlayTime, 22, 3);
+
+    asm(".fill 4");
 }
 
 void PrintPokedexCount(void)
@@ -713,6 +715,8 @@ void PrintBadgeCount(void)
     MenuPrint(gMainMenuString_Badges, 16, 5);
     ConvertIntToDecimalString(buffer, GetBadgeCount());
     MenuPrint_PixelCoords(buffer, 205, 40, 1);
+
+    asm(".fill 4");
 }
 
 static void Task_NewGameSpeech1(u8 taskId)

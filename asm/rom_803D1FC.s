@@ -3413,6 +3413,7 @@ _0803FBA8:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 32
 	.align 2, 0
 _0803FBB4: .4byte gStringVar1
 _0803FBB8: .4byte gSpeciesNames

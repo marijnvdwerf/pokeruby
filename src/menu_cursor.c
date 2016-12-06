@@ -434,6 +434,7 @@ _0814AAB0: .4byte gSprites\n\
 _0814AAB4: .4byte gSubspriteTables_842F5C0\n\
 _0814AAB8: .4byte gUnknown_0203A3D1\n\
     .syntax divided\n");
+    asm(".fill 4\n");
 }
 #endif
 
@@ -603,4 +604,7 @@ void sub_814ADF4(u8 a1)
     if (gUnknown_0203A3D2 != 0x40)
         SetSubspriteTables(&gSprites[gUnknown_0203A3D2], &gUnknown_0842F6C0[a1]);
     return;
+}
+
+static void nullsub(void) {
 }

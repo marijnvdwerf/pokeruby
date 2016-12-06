@@ -3012,6 +3012,7 @@ sub_814A2D0: @ 814A2D0
 	lsls r2, 4
 	adds r0, r2
 	bx lr
+	.fill 16
 	.align 2, 0
 _0814A2E8: .4byte gBardMusicTable
 	thumb_func_end sub_814A2D0

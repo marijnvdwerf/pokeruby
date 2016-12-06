@@ -7109,6 +7109,7 @@ _08104D18:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 24
 	.align 2, 0
 _08104D24: .4byte 0x02000000
 _08104D28: .4byte gTasks

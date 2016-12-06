@@ -85,37 +85,7 @@ _080C85FE:
 
 	thumb_func_start sub_80C8604
 sub_80C8604: @ 80C8604
-	push {r4-r6,lr}
-	lsls r0, 24
-	lsrs r2, r0, 24
-	movs r1, 0
-	ldr r5, _080C8638 @ =gTasks
-	ldr r6, _080C863C @ =sub_80C8644
-	ldr r4, _080C8640 @ =gBlockRecvBuffer
-	movs r3, 0xFF
-_080C8614:
-	lsls r0, r1, 8
-	adds r0, r4
-	strh r3, [r0]
-	adds r0, r1, 0x1
-	lsls r0, 24
-	lsrs r1, r0, 24
-	cmp r1, 0x3
-	bls _080C8614
-	lsls r0, r2, 2
-	adds r0, r2
-	lsls r0, 3
-	adds r0, r5
-	movs r1, 0
-	strh r1, [r0, 0x8]
-	str r6, [r0]
-	pop {r4-r6}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_080C8638: .4byte gTasks
-_080C863C: .4byte sub_80C8644
-_080C8640: .4byte gBlockRecvBuffer
+	.fill 32
 	thumb_func_end sub_80C8604
 
 	thumb_func_start sub_80C8644
@@ -427,6 +397,7 @@ _080C8896:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 84
 	.align 2, 0
 _080C88A8: .4byte gTasks
 	thumb_func_end sub_80C8734
@@ -580,6 +551,7 @@ _080C89CE:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 72
 	.align 2, 0
 _080C89D8: .4byte gBlockRecvBuffer
 	thumb_func_end sub_80C8938
@@ -1177,6 +1149,7 @@ _080C8EAE:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 80
 	.align 2, 0
 _080C8EB8: .4byte gBlockRecvBuffer
 	thumb_func_end sub_80C8E1C

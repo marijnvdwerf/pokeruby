@@ -9821,7 +9821,6 @@ sub_80F0A74: @ 80F0A74
 	ldr r0, _080F0AE0 @ =0x00008788
 	adds r4, r5, r0
 	adds r0, r4, 0
-	adds r1, r6, 0
 	bl sub_80F700C
 	movs r0, 0x1F
 	ands r7, r0
@@ -22853,7 +22852,6 @@ _080F7008: .4byte REG_BLDCNT
 sub_80F700C: @ 80F700C
 	push {r4,r5,lr}
 	lsls r1, 16
-	lsrs r1, 16
 	ldr r2, _080F7078 @ =gUnknown_083DFEC4
 	ldr r4, [r2]
 	lsls r2, r1, 3
