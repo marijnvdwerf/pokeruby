@@ -239,13 +239,13 @@ $(MISCGFXDIR)/hof.4bpp: $(MISCGFXDIR)/hof.png
 	$(GFX) $< $@ -num_tiles 37
 
 $(MENUGFXDIR)/wordgroup_frame.4bpp: $(MENUGFXDIR)/wordgroup_frame.png
-	$(GFX) $< $@ -num_tiles 65
+	$(GFX) $< $@ -num_tiles 76
 
 $(INTROGFXDIR)/copyright.4bpp: $(INTROGFXDIR)/copyright.png
-	$(GFX) $< $@ -num_tiles 43
+	$(GFX) $< $@ -num_tiles 47
 
 $(TITLEGFXDIR)/press_start.4bpp: $(TITLEGFXDIR)/press_start.png
 	$(GFX) $< $@ -num_tiles 41
 
 $(MISCGFXDIR)/end_copyright.4bpp: $(MISCGFXDIR)/end_copyright.png
-	$(GFX) $< $@ -num_tiles 90
+	$(GFX) $< $@ -num_tiles 92

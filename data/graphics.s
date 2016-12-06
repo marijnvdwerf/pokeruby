@@ -3961,22 +3961,22 @@ gUnknown_08E94550:: @ 8E94550
 	.incbin "baserom.gba", 0x00e94550, 0x80
 
 gUnknown_08E945D0:: @ 8E945D0
-	.incbin "baserom.gba", 0x00e945d0, 0x500
+	.incbin "graphics/interface/wordgroup_layout.bin"
 
 gUnknown_08E94AD0:: @ 8E94AD0
 	.incbin "baserom.gba", 0x00e94ad0, 0x900
 
 	.align 2
 gUnknown_08E953D0:: @ 8E953D0
-	.incbin "baserom.gba", 0xE953D0, 0xE0 @ LZ, uncomp. size = 0x480
+	.incbin "graphics/interface/wordgroup_unk_layout.bin.lz"
 
 	.align 2
 gUnknown_08E954B0:: @ 8E954B0
-	.incbin "baserom.gba", 0xE954B0, 0x2C3 @ LZ, uncomp. size = 0x500
+	.incbin "graphics/misc/wallclock_edit.bin.lz"
 
 	.align 2
 gUnknown_08E95774:: @ 8E95774
-	.incbin "baserom.gba", 0xE95774, 0x2A1 @ LZ, uncomp. size = 0x500
+	.incbin "graphics/misc/wallclock_view.bin.lz"
 
 	.align 2
 gUnknown_08E95A18:: @ 8E95A18
@@ -3990,10 +3990,10 @@ gUnknown_08E95AB8:: @ 8E95AB8
 	.incbin "baserom.gba", 0x00e95ab8, 0x500
 
 gUnknown_08E95FB8:: @ 8E95FB8
-	.incbin "baserom.gba", 0x00e95fb8, 0x500
+	.incbin "graphics/slot_machine/slots_layout.bin"
 
 gUnknown_08E964B8:: @ 8E964B8
-	.incbin "baserom.gba", 0x00e964b8, 0x200
+	.incbin "graphics/contest/contest_words.bin"
 
 gUnknown_08E966B8:: @ 8E966B8
 	.incbin "baserom.gba", 0x00e966b8, 0x20
@@ -4010,23 +4010,23 @@ gUnknown_08E96738:: @ 8E96738
 
 	.align 2
 gUnknown_08E96888:: @ 8E96888
-	.incbin "baserom.gba", 0xE96888, 0x109 @ LZ, uncomp. size = 0x300
+	.incbin "graphics/pokedex/pokedex_list_menu.bin.lz"
 
 	.align 2
 gUnknown_08E96994:: @ 8E96994
-	.incbin "baserom.gba", 0xE96994, 0x137 @ LZ, uncomp. size = 0x300
+	.incbin "graphics/pokedex/pokedex_listing_menu.bin.lz"
 
 	.align 2
 gUnknown_08E96ACC:: @ 8E96ACC
-	.incbin "baserom.gba", 0xE96ACC, 0x8B @ LZ, uncomp. size = 0xC0
+	.incbin "graphics/pokedex/pokedex_navbar.bin.lz"
 
 	.align 2
 gUnknown_08E96B58:: @ 8E96B58
-	.incbin "baserom.gba", 0xE96B58, 0x7B @ LZ, uncomp. size = 0xC0
+	.incbin "graphics/pokedex/pokedex_navbar_3.bin.lz"
 
 	.align 2
 gUnknown_08E96BD4:: @ 8E96BD4
-	.incbin "baserom.gba", 0xE96BD4, 0x155 @ LZ, uncomp. size = 0x500
+	.incbin "graphics/pokedex/pokedex_detail_layout.bin.lz"
 
 	.align 2
 gUnknown_08E96D2C:: @ 8E96D2C
@@ -4218,7 +4218,7 @@ gUnknown_08E99FB0:: @ 8E99FB0
 
 	.align 2
 gUnknown_08E9A100:: @ 8E9A100
-	.incbin "baserom.gba", 0x00e9a100, 0x200
+	.incbin "graphics/pokenav/bottom_toolbar.bin"
 
 gUnknown_08E9A300:: @ 8E9A300
 	.incbin "baserom.gba", 0x00e9a300, 0x800
@@ -4235,14 +4235,14 @@ gUnknown_08E9AB60:: @ 8E9AB60
 
 	.align 2
 gUnknown_08E9ABB4:: @ 8E9ABB4
-	.incbin "baserom.gba", 0x00e9abb4, 0x78
+	.incbin "graphics/gUnknown_08E9ABB4.bin"
 
 gUnknown_08E9AC2C:: @ 8E9AC2C
 	.incbin "baserom.gba", 0x00e9ac2c, 0x20
 
 	.align 2
 gUnknown_08E9AC4C:: @ 8E9AC4C
-	.incbin "baserom.gba", 0xE9AC4C, 0x18F @ LZ, uncomp. size = 0x500
+	.incbin "graphics/pokenav/condition_screen.bin.lz"
 
 @ text window frames
 
@@ -4560,19 +4560,11 @@ gDecoration10000_Gfx:: @ 8EA2A44
 
 	.align 2
 gFont3LatinGlyphs:: @ 8EA2C44
-	.if REVISION >= 1
-	.incbin "graphics/fonts/font3_lat_rev1.4bpp"
-	.else
 	.incbin "graphics/fonts/font3_lat.4bpp"
-	.endif
 
 	.align 2
 gFont4LatinGlyphs:: @ 8EA6BC4
-	.if REVISION >= 1
-	.incbin "graphics/fonts/font4_lat_rev1.4bpp"
-	.else
-	.incbin "graphics/fonts/font4_lat.4bpp"
-	.endif
+	.incbin "graphics/fonts/font4_lat.4bpp.bin"
 
 	.align 2
 gFont3JapaneseGlyphs:: @ 8EA8744
@@ -4581,3 +4573,109 @@ gFont3JapaneseGlyphs:: @ 8EA8744
 	.align 2
 gFont4JapaneseGlyphs:: @ 8EAC6C4
 	.incbin "graphics/fonts/font4_jpn.4bpp"
+
+	.align 2
+fill_1::
+	.incbin "graphics/filler/img_1.4bpp"
+
+	.align 2
+fill_2::
+	.incbin "graphics/filler/img_2.4bpp.lz"
+
+	.align 2
+fill_3::
+	.incbin "graphics/filler/img_3.4bpp.lz"
+
+	.align 2
+End_ConditionUpDownTiles::
+	.incbin "graphics/filler/img_4.4bpp"
+
+	.align 2
+End_ConditionUpDownPalette::
+	.incbin "graphics/misc/condition_up_down.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_01::
+	.incbin "graphics/roulette/shadow.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_02::
+	.incbin "graphics/roulette/ball.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_03::
+	.incbin "graphics/roulette/ball_counter.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_04::
+	.incbin "graphics/roulette/cursor.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_05::
+	.incbin "graphics/roulette/credit.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_06::
+	.incbin "graphics/roulette/shroomish.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_07::
+	.incbin "graphics/roulette/tailow.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_08::
+	.incbin "graphics/roulette/poke_icons.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_09::
+	.incbin "graphics/roulette/wynaut.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_10::
+	.incbin "graphics/roulette/azurill.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_11::
+	.incbin "graphics/roulette/skitty.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_12::
+	.incbin "graphics/roulette/makuhita.gbapal"
+
+	.align 2
+End_RouletteSpritePalette_13::
+	.incbin "baserom.gba", 0x003F907C, 0x20
+
+	.align 2
+End_RouletteSpritePalette_14::
+	.incbin "baserom.gba", 0x003F909C, 0x20
+
+	.align 2
+End_RouletteSpritePalette_15::
+	.incbin "baserom.gba", 0x003F90BC, 0x20
+
+	.align 2
+End_RouletteSpritePalette_16::
+	.incbin "baserom.gba", 0x003F90DC, 0x20
+
+	.align 2
+filler_8EAF230::
+	.incbin "graphics/filler/filler_8EAF230_map.bin"
+
+	.align 2
+filler_tiles::
+	.incbin "graphics/filler/unk_tiles.4bpp.lz"
+
+	.align 2
+filler_palette::
+	.incbin "graphics/filler/meter_palette.gbapal"
+
+	.align 2
+filler_8EB0A58::
+	.incbin "graphics/filler/meter_tiles.4bpp.lz"
+
+	.align 2
+filler_8EB0D58::
+	.incbin "graphics/filler/meter_map.bin"
+
+fill_end::
