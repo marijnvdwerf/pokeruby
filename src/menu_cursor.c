@@ -606,5 +606,5 @@ void sub_814ADF4(u8 a1)
     return;
 }
 
-static void nullsub(void) {
+void nullsub_814B200(void) {
 }
