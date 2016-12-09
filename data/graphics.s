@@ -4579,7 +4579,7 @@ fill_1::
 	.incbin "graphics/filler/img_1.4bpp"
 
 	.align 2
-fill_2::
+gUnknown_0839FA7C::
 	.incbin "graphics/filler/img_2.4bpp.lz"
 
 	.align 2

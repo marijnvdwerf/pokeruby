@@ -181,7 +181,6 @@ __attribute__((naked))
 s32 sub_8006CC0()
 {
 	asm(".syntax unified\n\
-     PUSH    {LR}\n\
 		PUSH    {LR}\n\
                 MOVS    R3, R0\n\
                 MOVS    R2, #0\n\

@@ -543,7 +543,7 @@ u8 CreateBlendedOutlineCursor(u8 a1, u16 a2, u8 a3, u16 a4, u8 a5)
     }
 
     LoadSpriteSheetDeferred(&gUnknown_0842F1C0[a3 & 0xF]);
-    gUnknown_0203A3D2 = CreateSprite(&gSpriteTemplate_842F298[v8], 0, 0xA0, a1);
+    gUnknown_0203A3D2 = CreateSprite(&gSpriteTemplate_842F298[v8], 0, 161, a1);
 
     if (gUnknown_0203A3D2 != 0x40)
     {

@@ -73,7 +73,12 @@ static u32 GetMonSize(u16 species, u16 b)
 
 static void FormatMonSizeRecord(u8 *string, u32 size)
 {
-    asm(".fill 76");
+    u8 decimalPoint[2];
+
+    memcpy(decimalPoint, gOtherText_DecimalPoint, 2);
+    string = ConvertIntToDecimalStringN(string, size / 10, 0, 8);
+    string = StringAppend(string, decimalPoint);
+    ConvertIntToDecimalStringN(string, size % 10, 0, 1);
 }
 
 static u8 CompareMonSize(u16 species, u16 *sizeRecord)

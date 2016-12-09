@@ -72,7 +72,7 @@ void SpriteCallback_VersionBannerLeft(struct Sprite *sprite)
     if (task->data[1] != 0)
     {
         sprite->oam.objMode = 0;
-        sprite->pos1.y = 66;
+        sprite->pos1.y = 84;
         sprite->invisible = FALSE;
     }
     else
@@ -82,7 +82,7 @@ void SpriteCallback_VersionBannerLeft(struct Sprite *sprite)
         if (task->data[5] < 64)
         {
             sprite->invisible = FALSE;
-            if (sprite->pos1.y != 66)
+            if (sprite->pos1.y != 84)
                 sprite->pos1.y++;
             REG_BLDALPHA = gUnknown_08393E64[task->data[5] / 2];
         }
@@ -96,7 +96,7 @@ void SpriteCallback_VersionBannerRight(struct Sprite *sprite)
     if (task->data[1] != 0)
     {
         sprite->oam.objMode = 0;
-        sprite->pos1.y = 66;
+        sprite->pos1.y = 84;
         sprite->invisible = FALSE;
     }
     else
@@ -104,7 +104,7 @@ void SpriteCallback_VersionBannerRight(struct Sprite *sprite)
         if (task->data[5] < 64)
         {
             sprite->invisible = FALSE;
-            if (sprite->pos1.y != 66)
+            if (sprite->pos1.y != 84)
                 sprite->pos1.y++;
         }
     }
@@ -362,12 +362,12 @@ static void Task_TitleScreenPhase1(u8 taskId)
         REG_BLDY = 0;
         
         //Create left side of version banner
-        spriteId = CreateSprite(&gSpriteTemplate_8393ECC, 0x62, 0x1A, 0);
+        spriteId = CreateSprite(&gSpriteTemplate_8393ECC, 108, 44, 0);
         gSprites[spriteId].invisible = TRUE;
         gSprites[spriteId].data1 = taskId;
         
         //Create right side of version banner
-        spriteId = CreateSprite(&gSpriteTemplate_8393EE4, 0xA2, 0x1A, 0);
+        spriteId = CreateSprite(&gSpriteTemplate_8393EE4, 172, 44, 0);
         gSprites[spriteId].invisible = TRUE;
         gSprites[spriteId].data1 = taskId;
         
@@ -398,7 +398,7 @@ static void Task_TitleScreenPhase2(u8 taskId)
                     | DISPCNT_BG1_ON
                     | DISPCNT_BG2_ON
                     | DISPCNT_OBJ_ON;
-        CreatePressStartBanner(DISPLAY_WIDTH / 2, 108);
+        CreatePressStartBanner(DISPLAY_WIDTH / 2 - 2, 108);
         CreateCopyrightBanner(DISPLAY_WIDTH / 2, 148);
         gTasks[taskId].data[4] = 0;
         gTasks[taskId].func = Task_TitleScreenPhase3;

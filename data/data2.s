@@ -11657,7 +11657,7 @@ gUnknown_0839F8A0:: @ 839F8A0
 gUnknown_0839F988:: @ 839F988
 	.incbin "baserom.gba", 0x0039f988, 0xf4
 
-gUnknown_0839FA7C:: @ 839FA7C
+@gUnknown_0839FA7C:: @ 839FA7C
 @	incbin "graphics/pokedex/noball.4bpp.lz"
 
 @ 839FAC4

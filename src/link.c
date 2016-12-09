@@ -117,6 +117,7 @@ u32 gLinkDebugValue1;
 struct LinkPlayerBlock localLinkPlayerBlock;
 bool8 gLinkErrorOccurred;
 u32 gLinkDebugValue2;
+u32 deuUnkValue1;
 bool8 gLinkPlayerPending[MAX_LINK_PLAYERS];
 struct LinkPlayer gLinkPlayers[MAX_LINK_PLAYERS];
 bool8 gBlockReceived[MAX_LINK_PLAYERS];
@@ -571,8 +572,8 @@ static void ProcessRecvCmds(u8 a1)
             break;
         }
     }
-
-    asm(".fill 106");
+    deuUnkValue1 = 6;
+    asm(".fill 96");
 }
 
 static void BuildSendCmd(u16 code)
@@ -677,8 +678,8 @@ void OpenLinkTimed(void)
 {
     sPlayerDataExchangeStatus = EXCHANGE_NOT_STARTED;
     gLinkTimeOutCounter = 0;
-    OpenLink();
 	ResetBlockSend();
+    OpenLink();
 }
 
 u8 GetLinkPlayerDataExchangeStatusTimed(void)

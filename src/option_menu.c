@@ -365,8 +365,8 @@ static void TextSpeed_DrawChoices(u8 selection)
     styles[selection] = 0x8;
     
     DrawOptionMenuChoice(gSystemText_Slow, 120, 40, styles[0]);
-    DrawOptionMenuChoice(gSystemText_Mid, 155, 40, styles[1]);
-    DrawOptionMenuChoice(gSystemText_Fast, 184, 40, styles[2]);
+    DrawOptionMenuChoice(gSystemText_Mid, 161, 40, styles[1]);
+    DrawOptionMenuChoice(gSystemText_Fast, 202, 40, styles[2]);
 }
 
 static u8 BattleScene_ProcessInput(u8 selection)
@@ -404,7 +404,7 @@ static void BattleStyle_DrawChoices(u8 selection)
     styles[selection] = 0x8;
     
     DrawOptionMenuChoice(gSystemText_Shift, 120, 72, styles[0]);
-    DrawOptionMenuChoice(gSystemText_Set, 190, 72, styles[1]);
+    DrawOptionMenuChoice(gSystemText_Set, 178, 72, styles[1]);
 }
 
 static u8 Sound_ProcessInput(u8 selection)
