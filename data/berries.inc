@@ -1,6 +1,6 @@
 	.align 2
 gBerries:: @ 83CD2CC
-	.string "CHERI$", 7
+	.string "AMRENA$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 20 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -16,7 +16,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "CHESTO$", 7
+	.string "MARON$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 80 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -32,7 +32,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "PECHA$", 7
+	.string "PIRSIF$", 7
 	.byte BERRY_FIRMNESS_VERY_SOFT
 	.2byte 40 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -48,7 +48,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "RAWST$", 7
+	.string "FRAGIA$", 7
 	.byte BERRY_FIRMNESS_HARD
 	.2byte 32 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -64,7 +64,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "ASPEAR$", 7
+	.string "WILBIR$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 50 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -80,7 +80,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "LEPPA$", 7
+	.string "JONAGO$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 28 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -96,7 +96,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "ORAN$", 7
+	.string "SINEL$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 35 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -128,7 +128,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "LUM$", 7
+	.string "PRUNUS$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 34 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -144,7 +144,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "SITRUS$", 7
+	.string "TSITRU$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 95 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -160,7 +160,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "FIGY$", 7
+	.string "GIEFE$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 100 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -208,7 +208,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "AGUAV$", 7
+	.string "GAUVE$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 64 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -224,7 +224,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "IAPAPA$", 7
+	.string "YAPA$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 223 @ size (in millimeters)
 	.byte 3 @ max yield
@@ -240,7 +240,7 @@ gBerries:: @ 83CD2CC
 	.byte 25 @ smoothness
 	.byte 0 @ padding
 
-	.string "RAZZ$", 7
+	.string "HIMMIH$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 120 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -256,7 +256,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "BLUK$", 7
+	.string "MORB$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 108 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -288,7 +288,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "WEPEAR$", 7
+	.string "NIRBE$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 74 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -304,7 +304,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "PINAP$", 7
+	.string "SANANA$", 7
 	.byte BERRY_FIRMNESS_HARD
 	.2byte 80 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -320,7 +320,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "POMEG$", 7
+	.string "GRANA$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 135 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -336,7 +336,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "KELPSY$", 7
+	.string "SETANG$", 7
 	.byte BERRY_FIRMNESS_HARD
 	.2byte 150 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -368,7 +368,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "HONDEW$", 7
+	.string "HONMEL$", 7
 	.byte BERRY_FIRMNESS_HARD
 	.2byte 162 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -384,7 +384,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "GREPA$", 7
+	.string "LABRUS$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 149 @ size (in millimeters)
 	.byte 6 @ max yield
@@ -400,7 +400,7 @@ gBerries:: @ 83CD2CC
 	.byte 20 @ smoothness
 	.byte 0 @ padding
 
-	.string "TAMATO$", 7
+	.string "TAMOT$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 200 @ size (in millimeters)
 	.byte 4 @ max yield
@@ -416,7 +416,7 @@ gBerries:: @ 83CD2CC
 	.byte 30 @ smoothness
 	.byte 0 @ padding
 
-	.string "CORNN$", 7
+	.string "SAIM$", 7
 	.byte BERRY_FIRMNESS_HARD
 	.2byte 75 @ size (in millimeters)
 	.byte 4 @ max yield
@@ -464,7 +464,7 @@ gBerries:: @ 83CD2CC
 	.byte 30 @ smoothness
 	.byte 0 @ padding
 
-	.string "NOMEL$", 7
+	.string "TRONZI$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 285 @ size (in millimeters)
 	.byte 4 @ max yield
@@ -480,7 +480,7 @@ gBerries:: @ 83CD2CC
 	.byte 30 @ smoothness
 	.byte 0 @ padding
 
-	.string "SPELON$", 7
+	.string "KIWAN$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 133 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -496,7 +496,7 @@ gBerries:: @ 83CD2CC
 	.byte 70 @ smoothness
 	.byte 0 @ padding
 
-	.string "PAMTRE$", 7
+	.string "PALLM$", 7
 	.byte BERRY_FIRMNESS_VERY_SOFT
 	.2byte 244 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -512,7 +512,7 @@ gBerries:: @ 83CD2CC
 	.byte 70 @ smoothness
 	.byte 0 @ padding
 
-	.string "WATMEL$", 7
+	.string "WASMEL$", 7
 	.byte BERRY_FIRMNESS_SOFT
 	.2byte 250 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -544,7 +544,7 @@ gBerries:: @ 83CD2CC
 	.byte 70 @ smoothness
 	.byte 0 @ padding
 
-	.string "BELUE$", 7
+	.string "MYRTIL$", 7
 	.byte BERRY_FIRMNESS_VERY_SOFT
 	.2byte 300 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -560,7 +560,7 @@ gBerries:: @ 83CD2CC
 	.byte 70 @ smoothness
 	.byte 0 @ padding
 
-	.string "LIECHI$", 7
+	.string "LYDZI$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 111 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -576,7 +576,7 @@ gBerries:: @ 83CD2CC
 	.byte 80 @ smoothness
 	.byte 0 @ padding
 
-	.string "GANLON$", 7
+	.string "LINGAN$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 33 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -592,7 +592,7 @@ gBerries:: @ 83CD2CC
 	.byte 80 @ smoothness
 	.byte 0 @ padding
 
-	.string "SALAC$", 7
+	.string "SALKA$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 95 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -608,7 +608,7 @@ gBerries:: @ 83CD2CC
 	.byte 80 @ smoothness
 	.byte 0 @ padding
 
-	.string "PETAYA$", 7
+	.string "TAHAY$", 7
 	.byte BERRY_FIRMNESS_VERY_HARD
 	.2byte 237 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -624,7 +624,7 @@ gBerries:: @ 83CD2CC
 	.byte 80 @ smoothness
 	.byte 0 @ padding
 
-	.string "APICOT$", 7
+	.string "APIKO$", 7
 	.byte BERRY_FIRMNESS_HARD
 	.2byte 75 @ size (in millimeters)
 	.byte 2 @ max yield
@@ -656,7 +656,7 @@ gBerries:: @ 83CD2CC
 	.byte 30 @ smoothness
 	.byte 0 @ padding
 
-	.string "STARF$", 7
+	.string "KRAMBO$", 7
 	.byte BERRY_FIRMNESS_SUPER_HARD
 	.2byte 153 @ size (in millimeters)
 	.byte 2 @ max yield

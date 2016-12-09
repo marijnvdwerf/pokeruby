@@ -907,37 +907,37 @@ gUnknown_081F9674:: @ 81F9674
 
 	.align 2
 gUnknown_081F9680:: @ 81F9680
-	.4byte 0x030041D0
+	.4byte 0x030041E0
 	.2byte 0x20
 	.byte 0x13
 	.byte 0x10
 	.4byte BG_VRAM + 0xE104
 
-	.4byte 0x03004250
+	.4byte 0x03004260
 	.2byte 0x40
 	.byte 0x13
 	.byte 0x10
 	.4byte BG_VRAM + 0xF104
 
-	.4byte 0x030041D0
+	.4byte 0x030041E0
 	.2byte 0x60
 	.byte 0x13
 	.byte 0x30
 	.4byte BG_VRAM + 0xE204
 
-	.4byte 0x03004250
+	.4byte 0x03004260
 	.2byte 0x80
 	.byte 0x13
 	.byte 0x30
 	.4byte BG_VRAM + 0xF204
 
-	.4byte 0x030041D0
+	.4byte 0x030041E0
 	.2byte 0x20
 	.byte 0x13
 	.byte 0x18
 	.4byte BG_VRAM + 0xE1C4
 
-	.4byte 0x03004250
+	.4byte 0x03004260
 	.2byte 0x40
 	.byte 0x13
 	.byte 0x18
@@ -3463,11 +3463,11 @@ gUnknown_08216284:: @ 8216284
 	.string "4P$", 4
 
 UnknownText_Mister:
-	.string "MISTER$"
+	.string "OPI$"
 UnknownText_Laddie:
-	.string "LADDIE$"
+	.string "KUMPEL$"
 UnknownText_Lassie:
-	.string "LASSIE$"
+	.string "TUSSI$"
 
 	.align 2
 gUnknown_082162B8:: @ 82162B8
@@ -10333,13 +10333,13 @@ gUnknown_08393E64:: @ 8393E64
 
 	.align 2
 gOamData_8393EA4:: @ 8393EA4
-	.2byte 0x60A0
+	.2byte 0x20A0
 	.2byte 0xC000
 	.2byte 0x0000
 
 	.align 2
 gOamData_8393EAC:: @ 8393EAC
-	.2byte 0x60A0
+	.2byte 0x20A0
 	.2byte 0xC000
 	.2byte 0x0000
 
@@ -10350,7 +10350,7 @@ gSpriteAnim_8393EB4:: @ 8393EB4
 
 	.align 2
 gSpriteAnim_8393EBC:: @ 8393EBC
-	obj_image_anim_frame 64, 30
+	obj_image_anim_frame 128, 30
 	obj_image_anim_end
 
 	.align 2
@@ -10371,7 +10371,7 @@ gSpriteTemplate_8393EE4:: @ 8393EE4
 
 	.align 2
 gUnknown_08393EFC:: @ 8393EFC
-	obj_tiles gVersionTiles, 0x1000, 1000
+	obj_tiles gVersionTiles, 0x2000, 1000
 	null_obj_tiles
 
 	.align 2
@@ -10421,6 +10421,16 @@ gSpriteAnim_8393F4C:: @ 8393F4C
 	obj_image_anim_end
 
 	.align 2
+gSpriteAnim_839F73C::
+	obj_image_anim_frame 32, 4
+	obj_image_anim_end
+
+	.align 2
+gSpriteAnim_839F744::
+	obj_image_anim_frame 36, 4
+	obj_image_anim_end
+
+	.align 2
 gSpriteAnimTable_8393F54:: @ 8393F54
 	.4byte gSpriteAnim_8393F14
 	.4byte gSpriteAnim_8393F1C
@@ -10430,6 +10440,8 @@ gSpriteAnimTable_8393F54:: @ 8393F54
 	.4byte gSpriteAnim_8393F3C
 	.4byte gSpriteAnim_8393F44
 	.4byte gSpriteAnim_8393F4C
+	.4byte gSpriteAnim_839F73C
+	.4byte gSpriteAnim_839F744
 
 	.align 2
 gSpriteTemplate_8393F74:: @ 8393F74
@@ -10991,9 +11003,9 @@ gBadgeFlags:: @ 839B1F0
 TrainerCardColorName_Bronze:
 	.string "BRONZE$", 7
 TrainerCardColorName_Copper:
-	.string "COPPER$", 7
+	.string "KUPFER$", 7
 TrainerCardColorName_Silver:
-	.string "SILVER$", 7
+	.string "SILBER$", 7
 TrainerCardColorName_Gold:
 	.string "GOLD$", 7
 
@@ -11054,7 +11066,7 @@ Text_39B2AF: @ 839B2AF
 	.string "Long name$"
 
 Text_39B2B9: @ 839B2B9
-	.string "ポロックけす$" @ "{POKEBLOCK} CASE$"
+	.string "Delete {POKEBLOCK}$"
 
 	.align 2
 gMoriDebugMenuActions:: @ 839B2C0
@@ -11646,7 +11658,7 @@ gUnknown_0839F988:: @ 839F988
 	.incbin "baserom.gba", 0x0039f988, 0xf4
 
 gUnknown_0839FA7C:: @ 839FA7C
-	.incbin "graphics/pokedex/noball.4bpp.lz"
+@	incbin "graphics/pokedex/noball.4bpp.lz"
 
 @ 839FAC4
 	.include "data/pokedex_orders.inc"
@@ -13360,9 +13372,9 @@ gSpriteTemplate_83C1304:: @ 83C1304
 gSummaryScreenMonMarkingsPalette:: @ 83C131C
 	.incbin "graphics/summary_screen/mon_markings.gbapal"
 
-	.align 2
+@	.align 2
 gSummaryScreenTextTiles:: @ 83C133C
-	.incbin "graphics/summary_screen/text.4bpp"
+@	incbin "graphics/summary_screen/text.4bpp"
 
 	.align 2
 gSummaryScreenButtonTiles:: @ 83C147C
@@ -13868,7 +13880,7 @@ gMatsudaDebugMenu_GoBackText:: @ 83C9337
 	.string "もどる$" @ Go Back
 
 gMatsudaDebugMenu_BattlePointsText:: @ 83C933B
-	.string "{COLOR MAGENTA}BP.$"
+	.string "{COLOR MAGENTA}BP,$"
 
 MatsudaDebugMenuText_Cool:
 	.string "かっこよさ$" @ coolness
@@ -14102,15 +14114,15 @@ gUnknown_083CA4D4:: @ 83CA4D4
 	.include "data/text/contest_strings.inc"
 
 gUnknownText_MissedTurn:: @ 83CC355
-	.string "Missed turn$"
+	.string "Verpasste Chance$"
 
 gUnknownText_LinkStandbyAndWinner:: @ 83CC361
-	.string "Link standby...$"
+	.string "Verbindung...$"
 	.string "{COLOR WHITE2}$"
-	.string "The winner is {STR_VAR_1}’s {STR_VAR_2}!\nCongratulations!$"
+	.string "Der Sieger ist {STR_VAR_2} von\n"
+	.string "{STR_VAR_1}! Herzlichen Glückwunsch!$"
 
 @ unknown, unreferenced data
-	.byte 0x00
 	.byte 0x9C
 	.byte 0x77
 
@@ -14269,7 +14281,7 @@ gUnknown_083CC5A4:: @ 83CC5A4
 
 	.align 2
 gUnknown_083CC5D0:: @ 83CC5D0
-	.incbin "baserom.gba", 0x003cc5d0, 0x100
+	.incbin "graphics/gUnknown_083CC5D0.bin"
 
 	.align 2
 gUnknown_083CC6D0:: @ 83CC6D0
@@ -14424,10 +14436,14 @@ gUnknown_083CE28C:: @ 83CE28C
 	.4byte 0x02000004
 
 gUnknown_083CE294:: @ 83CE294
-	.incbin "baserom.gba", 0x003ce294, 0x1b
+@	incbin "baserom.gba", 0x003ce294, 0x1b
+    .byte  2,   3,   4,   5,   9, 0xA, 0xB, 0xC,0x10,0x13
+    .byte  2,   3,   4,   5,   9, 0xA, 0xB, 0xC,0x10,0x13
+    .byte  1,   4,   7, 0xA, 0xD,0x10,0x10,0x10,0x10,0x13
 
 gUnknown_083CE2AF:: @ 83CE2AF
-	.incbin "baserom.gba", 0x003ce2af, 0x5
+@	incbin "baserom.gba", 0x003ce2af, 0x5
+	.byte 1, 2, 3, 0, 0
 
 	.align 2
 gUnknown_083CE2B4:: @ 83CE2B4
@@ -14530,14 +14546,14 @@ gUnknown_083CE398:: @ 83CE398
 	.4byte Unknown_83CE38C
 
 gUnknown_083CE3A8:: @ 83CE3A8
-	.string " A B C  D E F    . $"
-	.string " G H I  J K L    , $"
-	.string " M N O  P Q R S    $"
-	.string " T U V  W X Y Z    $"
-	.string " a b c  d e f    . $"
-	.string " g h i  j k l    , $"
-	.string " m n o  p q r s    $"
-	.string " t u v  w x y z    $"
+	.string "  ABCD   EFGH   .  $"
+	.string "  IJKL   MNOP   ,  $"
+	.string "  QRST   UVWX      $"
+	.string "  YZ     ÄÖÜ       $"
+	.string "  abcd   efgh   .  $"
+	.string "  ijkl   mnop   ,  $"
+	.string "  qrst   uvwx      $"
+	.string "  yz     äöü       $"
 	.string " 0  1  2  3  4     $"
 	.string " 5  6  7  8  9     $"
 	.string " !  ?  ♂  ♀  /  -  $"
@@ -15178,7 +15194,7 @@ gUnknown_083D180C:: @ 83D180C
 	.incbin "baserom.gba", 0x003d180c, 0x80
 
 gOtherText_DecimalPoint:: @ 83D188C
-	.string ".$"
+	.string ",$"
 
 gUnknown_083D188E:: @ 83D188E
 	.byte 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E
@@ -20457,19 +20473,19 @@ gMysteryEventPhrase:: @ 83DB678
 	.align 1
 gBerryMasterWifePhrases:: @ 83DB680
 	ec_word GREAT
-	ec_word BATTLE
+	ec_word FIGHT
 
-	ec_word CHALLENGE
 	ec_word CONTEST
+	ec_word CHALLENGE
 
-	ec_word OVERWHELMING
 	ec_pokemon1 LATIAS
+	ec_word OVERWHELMING
 
-	ec_word COOL
 	ec_pokemon1 LATIOS
+	ec_word COOL
 
 	ec_word SUPER
-	ec_word HUSTLE
+	.2byte 0xFFFF
 
 gUnknown_083DB694:: @ 83DB694
 	.4byte 0x02001000
@@ -20508,13 +20524,13 @@ gUnknown_083DB7C0:: @ 83DB7C0
 
 	.align 2
 gUnknown_083DB7DC:: @ 83DB7DC
-	.4byte 0x0200ac80
-	.4byte 0x0200acc9
-	.4byte 0x0200ad12
-	.4byte 0x0200ad5b
+	.4byte 0x0200AFAC
+	.4byte 0x0200AFF5
+	.4byte 0x0200B03E
+	.4byte 0x0200B087
 
 gUnknown_083DB7EC:: @ 83DB7EC
-	.incbin "baserom.gba", 0x003db7ec, 0x8
+	.incbin "graphics/unk/gUnknown_083DB7EC.bin"
 
 gUnknown_083DB7F4:: @ 83DB7F4
 	.incbin "baserom.gba", 0x3db7f4, 0xc
@@ -20584,7 +20600,7 @@ gSpriteAnim_83DBC1C:: @ 83DBC1C
 
 	.align 2
 gSpriteAnim_83DBC24:: @ 83DBC24
-	obj_image_anim_frame 8, 5
+	obj_image_anim_frame 0, 5
 	obj_image_anim_end
 
 	.align 2
@@ -20624,7 +20640,7 @@ gSpriteAnim_83DBC5C:: @ 83DBC5C
 
 	.align 2
 gSpriteAnim_83DBC64:: @ 83DBC64
-	obj_image_anim_frame 40, 5
+	obj_image_anim_frame 16, 5
 	obj_image_anim_end
 
 	.align 2
@@ -20794,10 +20810,25 @@ gUnknown_083DBE40:: @ 83DBE40
 	.incbin "baserom.gba", 0x003dbe40, 0x68
 
 gUnknown_083DBEA8:: @ 83DBEA8
-	.incbin "baserom.gba", 0x003dbea8, 0x4
+	.string "{CLEAR_TO 88}$"
+unk_83E7EB0:
+	.string "{UNKNOWN_14 8} A B C  D E F  {UNKNOWN_14 0}"
+unk_83E7EC5:
+	.string "mehr$"
+unk_83E7ECA::
+	.string "{UNKNOWN_14 8} G H I  J K L      $"
+unk_83E7EE1:
+	.string "{UNKNOWN_14 8} M N O  P Q R S    $"
+unk_83E7EF8:
+	.string "{UNKNOWN_14 8} T U V  W X Y Z    $"
 
+    .align 2
 gUnknown_083DBEAC:: @ 83DBEAC
-	.incbin "baserom.gba", 0x003dbeac, 0x80
+	.4byte unk_83E7EB0
+	.4byte unk_83E7ECA
+	.4byte unk_83E7EE1
+	.4byte unk_83E7EF8
+	.4byte unk_83E7EC5
 
 @ 83DBF2C
 	.include "data/text/easy_chat/group_words.inc"
@@ -21790,7 +21821,7 @@ gSpriteAnimTable_83E533C:: @ 83E533C
 	.4byte gSpriteAnim_83E5334
 
 gUnknown_083E537C:: @ 83E537C
-	.incbin "baserom.gba", 0x003e537c, 0xc
+	.incbin "graphics/unk/gUnknown_083E537C.bin"
 
 	.align 2
 gUnknown_083E5388:: @ 83E5388
@@ -24565,70 +24596,6 @@ gUnknown_083F8EF4:: @ 83F8EF4
 	.byte 0, 3, 4, 6, 12
 
 	.align 2
-RouletteSpritePalette_01:
-	.incbin "graphics/roulette/shadow.gbapal"
-
-	.align 2
-RouletteSpritePalette_02:
-	.incbin "graphics/roulette/ball.gbapal"
-
-	.align 2
-RouletteSpritePalette_03:
-	.incbin "graphics/roulette/ball_counter.gbapal"
-
-	.align 2
-RouletteSpritePalette_04:
-	.incbin "graphics/roulette/cursor.gbapal"
-
-	.align 2
-RouletteSpritePalette_05:
-	.incbin "graphics/roulette/credit.gbapal"
-
-	.align 2
-RouletteSpritePalette_06:
-	.incbin "graphics/roulette/shroomish.gbapal"
-
-	.align 2
-RouletteSpritePalette_07:
-	.incbin "graphics/roulette/tailow.gbapal"
-
-	.align 2
-RouletteSpritePalette_08:
-	.incbin "graphics/roulette/poke_icons.gbapal"
-
-	.align 2
-RouletteSpritePalette_09:
-	.incbin "graphics/roulette/wynaut.gbapal"
-
-	.align 2
-RouletteSpritePalette_10:
-	.incbin "graphics/roulette/azurill.gbapal"
-
-	.align 2
-RouletteSpritePalette_11:
-	.incbin "graphics/roulette/skitty.gbapal"
-
-	.align 2
-RouletteSpritePalette_12:
-	.incbin "graphics/roulette/makuhita.gbapal"
-
-	.align 2
-RouletteSpritePalette_13:
-	.incbin "baserom.gba", 0x003F907C, 0x20
-
-	.align 2
-RouletteSpritePalette_14:
-	.incbin "baserom.gba", 0x003F909C, 0x20
-
-	.align 2
-RouletteSpritePalette_15:
-	.incbin "baserom.gba", 0x003F90BC, 0x20
-
-	.align 2
-RouletteSpritePalette_16:
-	.incbin "baserom.gba", 0x003F90DC, 0x20
-
-	.align 2
 gUnknown_083F90FC:: @ 83F90FC
 	.incbin "graphics/roulette/ball.4bpp.lz"
 
@@ -25317,15 +25284,6 @@ CryMeterNeedlePalette: @ 83FA65C
 	.align 2
 CryMeterNeedleTiles: @ 83FA67C
 	.incbin "graphics/pokedex/cry_meter_needle.4bpp"
-
-gUnknown_083FAE7C:: @ 83FAE7C
-	.incbin "baserom.gba", 0x003fae7c, 0xa0
-
-gUnknown_083FAF1C:: @ 83FAF1C
-	.incbin "graphics/pokedex/cry_meter.gbapal"
-
-gUnknown_083FAF3C:: @ 83FAF3C
-	.incbin "graphics/pokedex/cry_meter.4bpp.lz"
 
 	.align 1
 gUnknown_083FB274:: @ 83FB274
@@ -26967,13 +26925,13 @@ gUnknown_08405EDA:: @ 8405EDA
 gUnknown_08405EE6:: @ 8405EE6
 	.incbin "baserom.gba", 0x00405ee6, 0x12
 
-	.align 2
-ConditionUpDownPalette:
-	.incbin "graphics/misc/condition_up_down.gbapal"
-
-	.align 2
-ConditionUpDownTiles:
-	.incbin "graphics/misc/condition_up_down.4bpp"
+@	.align 2
+@ConditionUpDownPalette:
+@	incbin "graphics/misc/condition_up_down.gbapal"
+@
+@	.align 2
+@ConditionUpDownTiles:
+@	incbin "graphics/misc/condition_up_down.4bpp"
 
 gUnknown_08406118:: @ 8406118
 	.incbin "baserom.gba", 0x00406118, 0x14
@@ -27165,8 +27123,8 @@ Palette_406360:: @ 8406360
 	.incbin "baserom.gba", 0x406360, 0x20
 
 	.align 2
-gIntroTiles::
-	.incbin "graphics/intro/intro.4bpp.lz"
+@gIntroTiles::
+@	incbin "graphics/intro/intro.4bpp.lz"
 
 	.align 2
 gUnknown_08406974:: @ 8406974
@@ -27400,27 +27358,33 @@ gSpriteAnim_840AF10:: @ 840AF10
 	obj_image_anim_end
 
 	.align 2
+gSpriteAnim_8416DA4::
+	obj_image_anim_frame 118, 8
+	obj_image_anim_end
+
+	.align 2
 gSpriteAnimTable_840AF18:: @ 840AF18
-	.4byte gSpriteAnim_840AEA8
-	.4byte gSpriteAnim_840AEB0
-	.4byte gSpriteAnim_840AEB8
-	.4byte gSpriteAnim_840AEC0
-	.4byte gSpriteAnim_840AEC8
-	.4byte gSpriteAnim_840AED0
-	.4byte gSpriteAnim_840AED8
+	.4byte gSpriteAnim_840AEA8 @ 80
+	.4byte gSpriteAnim_840AEB0 @ 84
+	.4byte gSpriteAnim_840AEB8 @ 88
+	.4byte gSpriteAnim_840AEC0 @ 92
+	.4byte gSpriteAnim_840AEC8 @ 96
+	.4byte gSpriteAnim_840AED0 @ 100
+	.4byte gSpriteAnim_840AED8 @ 104
 
 	.align 2
 gSpriteAnimTable_840AF34:: @ 840AF34
-	.4byte gSpriteAnim_840AEE0
-	.4byte gSpriteAnim_840AEE8
-	.4byte gSpriteAnim_840AEF0
-	.4byte gSpriteAnim_840AEF8
-	.4byte gSpriteAnim_840AF00
-	.4byte gSpriteAnim_840AF08
+	.4byte gSpriteAnim_840AEE0 @ 112
+	.4byte gSpriteAnim_840AEE8 @ 113
+	.4byte gSpriteAnim_840AEF0 @ 114
+	.4byte gSpriteAnim_840AEF8 @ 115
+	.4byte gSpriteAnim_840AF00 @ 116
+	.4byte gSpriteAnim_840AF08 @ 117
+	.4byte gSpriteAnim_8416DA4 @ 118
 
 	.align 2
 gSpriteAnimTable_840AF4C:: @ 840AF4C
-	.4byte gSpriteAnim_840AF10
+	.4byte gSpriteAnim_840AF10 @ 118
 
 gUnknown_0840AF50:: @ 840AF50
 	.incbin "baserom.gba", 0x0040af50, 0x24
@@ -28051,6 +28015,8 @@ gUnknown_0840B869:: @ 840B869
 
 gUnknown_0840B878::
 	.incbin "baserom.gba", 0x0040B878, 0xf
+	.byte  1,   0,   0,   1,0xFF,0xFF,   1,0x80,0x8A,   1,0xFF,0xFF,   1,0xFF,0xFF
+    .byte  0,   1,   0,0xFF,   1,0xFF,0xFF,   1,0xFF,0xFF,   1,0xFF,0x80,   1,0x80
 
 	.include "data/text/credits.inc"
 
@@ -28149,10 +28115,10 @@ gExpandedPlaceholder_Chan:: @ 840DC82
 	.string "$"
 
 gExpandedPlaceholder_Sapphire:: @ 840DC83
-	.string "SAPPHIRE$"
+	.string "SAPHIR$"
 
 gExpandedPlaceholder_Ruby:: @ 840DC8C
-	.string "RUBY$"
+	.string "RUBIN$"
 
 gExpandedPlaceholder_Aqua:: @ 840DC91
 	.string "AQUA$"
@@ -28161,10 +28127,10 @@ gExpandedPlaceholder_Magma:: @ 840DC96
 	.string "MAGMA$"
 
 gExpandedPlaceholder_Archie:: @ 840DC9C
-	.string "ARCHIE$"
+	.string "ADRIAN$"
 
 gExpandedPlaceholder_Maxie:: @ 840DCA3
-	.string "MAXIE$"
+	.string "MARC$"
 
 gExpandedPlaceholder_Kyogre:: @ 840DCA9
 	.string "KYOGRE$"
@@ -28173,167 +28139,188 @@ gExpandedPlaceholder_Groudon:: @ 840DCB0
 	.string "GROUDON$"
 
 gExpandedPlaceholder_Brendan:: @ 840DCB8
-	.string "BRENDAN$"
+	.string "BRIX$"
 
 gExpandedPlaceholder_May:: @ 840DCC0
-	.string "MAY$"
+	.string "MAIKE$"
 
 gSystemText_Egg:: @ 840DCC4
-	.string "EGG$"
+	.string "EI$"
 
 gSystemText_Pokemon2:: @ 840DCC8
 	.string "POKéMON$"
 
 gMainMenuString_NewGame:: @ 840DCD0
-	.string "NEW GAME$"
+	.string "NEUES SPIEL$"
 
 gMainMenuString_Continue:: @ 840DCD9
-	.string "CONTINUE$"
+	.string "WEITER$"
 
 gMainMenuString_Option:: @ 840DCE2
-	.string "OPTION$"
+	.string "OPTIONEN$"
 
 gMainMenuString_MysteryEvents:: @ 840DCE9
-	.string "MYSTERY EVENTS$"
+	.string "GEHEIMGESCHEHEN$"
 
-SystemText_UpdatingSaveExternal:
-	.string "Updating save file using external\ndata. Please wait.$"
+SystemText_UpdatingSaveExternal: @ 840DCF8
+	.string "Neuer Spielstand mittels Übertra-\n"
+	.string "gung externer Daten. Bitte warten.$"
 
-SystemText_SaveUpdated:
-	.string "The save file has been updated.$"
+SystemText_SaveUpdated: @ 840DD2D
+	.string "Der Spielstand wurde erneuert.$"
 
-SystemText_SaveUpdatedExchangeBackup:
-	.string "The save file has been updated.\pFurther game data cannot be saved\nto the backup memory.\pPlease exchange the backup memory.\pFor details, please contact the\nNintendo Service Center.$"
+SystemText_SaveUpdatedExchangeBackup: @ 840DD4D
+	.string "Der Spielstand wurde gespeichert.\p"
+	.string "Das Backup Memory kann keine \n"
+	.string "weiteren Spieldaten sichern.\p"
+	.string "Bitte Backup Memory austauschen.\p"
+	.string "Bei Fragen bitte an die Nintendo\n"
+	.string "Konsumentenberatung wenden.$"
 
-SystemText_SaveNotUpdated:
-	.string "The save file could not be updated.\pPlease exchange the backup\nmemory.\pFor details, please contact the\nNintendo Service Center.$"
+SystemText_SaveNotUpdated: @ 840DE01
+	.string "Spielstand wurde nicht gesichert.\p"
+	.string "Bitte Backup Memory \n"
+	.string "austauschen.\p"
+	.string "Bei Fragen bitte an die Nintendo\n"
+	.string "Konsumentenberatung wenden.$"
 
 gSaveFileCorruptMessage:: @ 840DE81
-	.string "The save file is corrupt. The\nprevious save file will be loaded.$"
+	.string "Der Spielstand ist beschädigt. Der\n"
+	.string "vorherige Spielstand wird geladen.$"
 
 gSaveFileDeletedMessage:: @ 840DEC2
-	.string " The save file has been deleted...$"
+	.string "Der Spielstand wurde gelöscht.$"
 
 gBoardNotInstalledMessage:: @ 840DEE5
-	.string "The 1M sub-circuit board is\nnot installed.$"
+	.string "Das ‘1M Sub-circuit Board’\n"
+	.string "ist nicht installiert.$"
 
 gBatteryDryMessage:: @ 840DF10
-	.string "The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.$"
+	.string "Interne Batterie ist verbraucht.\n"
+	.string "Spiel kann fortgesetzt werden.\p"
+	.string "Aber zeitbasierende Spiel-Events\n"
+	.string "werden nicht mehr initiiert.$"
 
 gMainMenuString_Player:: @ 840DF7C
-	.string "PLAYER$"
+	.string "SPIELER$"
 
 gMainMenuString_Pokedex:: @ 840DF83
 	.string "POKéDEX$"
 
 gMainMenuString_Time:: @ 840DF8B
-	.string "TIME$"
+	.string "SPIELZEIT$"
 
 gMainMenuString_Badges:: @ 840DF90
-	.string "BADGES$"
+	.string "ORDEN$"
 
 gBirchText_Boy::
-	.string "BOY$"
+	.string "JUNGE$"
 gBirchText_Girl::
-	.string "GIRL$"
+	.string "MÄDEL$"
 gBirchText_NewName::
-	.string "NEW NAME$"
+	.string "NEUER NAME$"
 
 gDefaultBoyName1::
 	.ifdef SAPPHIRE
 	.string "SEAN$"
 	.else
-	.string "LANDON$"
+	.string "ROLAND$"
 	.endif
 gDefaultBoyName2::
-	.string "TERRY$"
+	.string "DANIEL$"
 gDefaultBoyName3::
-	.string "SETH$"
+	.string "HELGE$"
 gDefaultBoyName4::
-	.string "TOM$"
+	.string "JAN$"
 
 gDefaultGirlName1::
 	.ifdef SAPPHIRE
 	.string "MARINA$"
 	.else
-	.string "TERRA$"
+	.string "PETRA$"
 	.endif
 gDefaultGirlName2::
-	.string "KIMMY$"
+	.string "TANJA$"
 gDefaultGirlName3::
-	.string "NICOLA$"
+	.string "ANDREA$"
 gDefaultGirlName4::
 	.string "SARA$"
 
 gSystemText_IntroWeCall::
-	.string "This is what we call\na POKéMON.$"
+	.string "Dies ist ein so genanntes\n"
+	.string "“POKéMON”.$"
 
 gSystemText_NewPara:: @ 840DFF7
 	.string "\p$"
 
 gDexText_UnknownPoke:: @ 840DFF9
-	.string "            ????? POKéMON$" @ why 12 spaces?
+	.string "?????$"
 
 gDexText_UnknownHeight:: @ 840E013
-	.string "{CLEAR_TO 0x0C}??’??”$"
+	.string "???,?  m$"
 
 gDexText_UnknownWeight:: @ 840E01D
-	.string "????.? lbs.$"
+	.string "???,?  kg$"
 	.string "$"
 
 gDexText_CryOf:: @ 840E02A
-	.string "{CLEAR_TO 2}CRY OF$"
+	.string "{CLEAR_TO 2}RUF VON$"
 	.string "$"
 
 gDexText_SizeComparedTo:: @ 840E035
-	.string "SIZE COMPARED TO $"
+	.string "GRÖSSE IM VERGLEICH ZU $"
 
 gDexText_RegisterComplete:: @ 840E047
-	.string "POKéDEX registration completed.$"
+	.string "Neuer Eintrag aufgenommen.$"
 
 gDexText_Searching:: @ 840E067
-	.string "Searching...\nPlease wait.$"
+	.string "Suche läuft.\n"
+	.string "Bitte warten...$"
 
 gDexText_SearchComplete:: @ 840E081
-	.string "Search completed.$"
+	.string "Suche beendet.$"
 
 gDexText_NoMatching:: @ 840E093
-	.string "No matching POKéMON were found.$"
+	.string "Es wurde keine Übereinstimmung ermittelt.$"
 
 DexText_SearchForPoke::
-	.string "Search for POKéMON based on\nselected parameters.$"
+	.string "Suche nach POKéMON anhand\n"
+	.string "ausgewählter Parameter.$"
 DexText_SwitchDex::
-	.string "Switch POKéDEX listings.$"
+	.string "Ordnungssystem des POKéDEX ändern.$"
 DexText_ReturnToDex::
-	.string "Return to the POKéDEX.$"
+	.string "Kehre zurück zum POKéDEX.$"
 DexText_SelectDexMode::
-	.string "Select the POKéDEX mode.$"
+	.string "Wähle einen POKéDEX.$"
 DexText_SelectDexList::
-	.string "Select the POKéDEX listing mode.$"
+	.string "Wähle ein Ordnungssystem des POKéDEX.$"
 DexText_ListByABC::
-	.string "List by the first letter in the name.\n/Spotted POKéMON only.$"
+	.string "Nach Anfangsbuchstaben suchen.\n"
+	.string "(Alle gesehenen POKéMON.)$"
 DexText_ListByColor::
-	.string "List by body color.\n/Spotted POKéMON only.$"
+	.string "Nach Körperfarbe suchen.\n"
+	.string "(Alle gesehenen POKéMON.)$"
 DexText_ListByType::
-	.string "List by type.\n/Owned POKéMON only.$"
+	.string "Nach Elementklasse suchen.\n"
+	.string "(Nur gefangene POKéMON.)$"
 DexText_ExecuteSearchSwitch::
-	.string "Execute search/switch.$"
+	.string "Suche/Ändern ausführen.$"
 DexText_HoennDex::
 	.string "HOENN DEX$"
 DexText_NationalDex::
-	.string "NATIONAL DEX$"
+	.string "NATIONALER DEX$"
 DexText_NumericalMode::
-	.string "NUMERICAL MODE$"
+	.string "NUMERISCH$"
 DexText_ABCMode::
-	.string "A TO Z MODE$"
+	.string "VON A BIS Z$"
 DexText_HeaviestMode::
-	.string "HEAVIEST MODE$"
+	.string "NACH GEWICHT {0x86}$"
 DexText_LightestMode::
-	.string "LIGHTEST MODE$"
+	.string "NACH GEWICHT {0x85}$"
 DexText_TallestMode::
-	.string "TALLEST MODE$"
+	.string "NACH GRÖSSE {0x86}$"
 DexText_SmallestMode::
-	.string "SMALLEST MODE$"
+	.string "NACH GRÖSSE {0x85}$"
 DexText_ABC::
 	.string "ABC$"
 DexText_DEF::
@@ -28353,143 +28340,160 @@ DexText_VWX::
 DexText_YZ::
 	.string "YZ$"
 DexText_Red::
-	.string "RED$"
+	.string "ROT$"
 DexText_Blue::
-	.string "BLUE$"
+	.string "BLAU$"
 DexText_Yellow::
-	.string "YELLOW$"
+	.string "GELB$"
 DexText_Green::
-	.string "GREEN$"
+	.string "GRÜN$"
 DexText_Black::
-	.string "BLACK$"
+	.string "SCHWARZ$"
 DexText_Brown::
-	.string "BROWN$"
+	.string "BRAUN$"
 DexText_Purple::
-	.string "PURPLE$"
+	.string "LILA$"
 DexText_Gray::
-	.string "GRAY$"
+	.string "GRAU$"
 DexText_White::
-	.string "WHITE$"
+	.string "WEISS$"
 DexText_Pink::
-	.string "PINK$"
+	.string "ROSA$"
 DexText_HoennDex2::
-	.string "HOENN region’s POKéDEX$"
+	.string "POKéDEX von HOENN$"
 DexText_NationalDex2::
-	.string "National edition POKéDEX$"
+	.string "POKéDEX, erweiterte Edition$"
 DexText_ListByNumber::
-	.string "POKéMON are listed according to their\nnumber.$"
+	.string "POKéMON werden anhand ihrer\n"
+	.string "Nummer sortiert.$"
 DexText_ListByABC2::
-	.string "Spotted and owned POKéMON are listed\nalphabetically.$"
+	.string "Gesehene und gefangene POKéMON\n"
+	.string "werden alphabetisch geordnet.$"
 DexText_ListByHeavyToLightest::
-	.string "Owned POKéMON are listed from the\nheaviest to the lightest.$"
+	.string "Gefangene POKéMON werden nach Gewicht\n"
+	.string "sortiert, beginnend mit dem schwersten.$"
 DexText_ListByLightToHeaviest::
-	.string "Owned POKéMON are listed from the\nlightest to the heaviest.$"
+	.string "Gefangene POKéMON werden nach Gewicht\n"
+	.string "sortiert, beginnend mit dem leichtesten.$"
 DexText_ListByTallToSmallest::
-	.string "Owned POKéMON are listed from the\ntallest to the smallest.$"
+	.string "Gefangene POKéMON werden nach Größe\n"
+	.string "sortiert, beginnend mit dem größten.$"
 DexText_ListBySmallToTallest::
-	.string "Owned POKéMON are listed from the\nsmallest to the tallest.$"
+	.string "Gefangene POKéMON werden nach Größe\n"
+	.string "sortiert, beginnend mit dem kleinsten.$"
 DexText_Terminator5::
 	.string "$"
 DexText_DontSpecify::
-	.string "DON’T SPECIFY.$"
+	.string "KEINE ANGABE$"
 DexText_None::
-	.string "NONE$"
+	.string "KEINER$"
 DexText_RightPointingTriangle::
-	.string "▶$" @ right-pointing triangle
+	.string "▶$"
 DexText_Terminator6::
 	.string " $"
 
 gMenuText_WelcomeToHOFAndDexRating:: @ 840E44F
-	.string "Welcome to the HALL OF FAME!$"
-	.string "Spotted POKéMON: {STR_VAR_1}!\nOwned POKéMON: {STR_VAR_2}!\pPROF. BIRCH’s POKéDEX rating!\pPROF. BIRCH: Let’s see...\p$"
+	.string "Willkommen in der RUHMESHALLE!$"
+
+	.string "Gesehene POKéMON: {STR_VAR_1}!\n"
+	.string "Gefangene POKéMON: {STR_VAR_2}!\p"
+	.string "PROF. BIRKs POKéDEX-Bewertung!\p"
+	.string "PROF. BIRK: Sehen wir mal...\p"
+	.string "$"
 
 gMenuText_HOFSaving:: @ 840E4CD
-	.string "SAVING...\nDON’T TURN OFF THE POWER.$"
+	.string "SPEICHERVORGANG...\n"
+	.string "DAS GERÄT NICHT AUSSCHALTEN!$"
 
 gMenuText_HOFCorrupt:: @ 840E4F1
-	.string "The HALL OF FAME data is corrupt.$"
+	.string "Die RH-Daten sind beschädigt.$"
 
 gMenuText_HOFNumber:: @ 840E513
-	.string "HALL OF FAME No. $"
+	.string "RUHMESHALLE, Nr. $"
 
 gMenuText_HOFCongratulations:: @ 840E525
-	.string "LEAGUE CHAMPION!\nCONGRATULATIONS!$"
+	.string "CHAMP der POKéMON LIGA!\n"
+	.string "Herzlichen Glückwunsch!$"
 
 gOtherText_Number2:: @ 840E547
-	.string "No. $"
+	.string "Nr.$"
 
 gOtherText_Level3:: @ 840E54C
-	.string "Lv. $"
+	.string "Lv.$"
 
 gOtherText_IDNumber:: @ 840E551
-	.string "IDNo. /$"
+	.string "ID.Nr. /$"
 
 gOtherText_Name:: @ 840E559
 	.string "NAME /$"
 
 gOtherText_IDNumber2:: @ 840E560
-	.string "IDNo. /$"
+	.string "ID.Nr. /$"
 
 gOtherText_BirchInTrouble:: @ 840E568
-	.string "{HIGHLIGHT WHITE2}{COLOR DARK_GREY}PROF. BIRCH is in trouble!\nRelease a POKéMON and rescue him!$"
+	.string "{HIGHLIGHT WHITE2}{COLOR DARK_GREY}PROF. BIRK ist in Schwierigkeiten!\n"
+	.string "Schnapp’ dir ein POKéMON und hilf ihm!$"
 
 gOtherText_DoYouChoosePoke:: @ 840E5AB
-	.string "{HIGHLIGHT WHITE2}{COLOR DARK_GREY}Do you choose this POKéMON?$"
+	.string "{HIGHLIGHT WHITE2}{COLOR DARK_GREY}Wählst du dieses POKéMON?$"
 
 gOtherText_Poke:: @ 840E5CD
 	.string "POKéMON$"
 
 gSystemText_SaveErrorExchangeBackup:: @ 840E5D5
-	.string "Save error.\pPlease exchange the\nbackup memory.$"
+	.string "Fehler beim Speichern!\p"
+	.string "Bitte Backup Memory\n"
+	.string "austauschen.$"
 
 gOtherText_FlyToWhere:: @ 840E604
-	.string "FLY to where?$"
+	.string "Wohin willst du FLIEGEN?$"
 
 OtherText_Use::
-	.string "USE$"
+	.string "O.K.$"
 OtherText_Toss::
-	.string "TOSS$"
+	.string "MÜLL$"
 OtherText_Register::
-	.string "REGISTER$"
+	.string "WÄHLEN$"
 OtherText_Give2::
-	.string "GIVE$"
+	.string "GEBEN$"
 OtherText_CheckTag::
-	.string "CHECK TAG$"
+	.string "PRÜFEN$"
 OtherText_Confirm::
-	.string "CONFIRM$"
+	.string "O.K.$"
 
 gOtherText_Walk:: @ 840E63B
-	.string "WALK$"
+	.string "LAUFEN$"
 
 gUnknownText_Exit:: @ 840E640
-	.string "EXIT$"
+	.string "BEENDEN$"
 
 gOtherText_CancelNoTerminator:: @ 840E645
-	.string "CANCEL$"
+	.string "ZURÜCK$"
 
 gOtherText_CancelWithTerminator:: @ 840E64C
-	.string "$CANCEL$"
+	.string "$ZURÜCK$"
 
 OtherText_Item::
 	.string "ITEM$"
 OtherText_Mail::
-	.string "MAIL$"
+	.string "BRIEF$"
 OtherText_Take2::
-	.string "TAKE$"
+	.string "NEHMEN$"
 OtherText_Store::
-	.string "STORE$"
+	.string "GEBEN$"
 
 gOtherText_Check:: @ 840E669
-	.string "CHECK$"
+	.string "PRÜFEN$"
 
 gOtherText_None:: @ 840E66F
-	.string "NONE$"
+	.string "KEINES$"
 
 gOtherText_ThreeQuestions2:: @ 840E674
 	.string "???$"
 
 gOtherText_FiveQuestionsAndSlash:: @ 840E678
 	.string "?????$"
+
 	.string "/$"
 
 gOtherText_OneDash:: @ 840E680
@@ -28513,37 +28517,38 @@ gOtherText_TallPlusAndRightArrow:: @ 840E691
 	.string "{RIGHT_ARROW}$"
 
 gMenuText_GoBackToPrev:: @ 840E697
-	.string "Go back to the\nprevious menu.$"
+	.string "Kehre zurück zum\n"
+	.string "vorherigen Menü.$"
 
 gOtherText_WhatWillYouDo:: @ 840E6B5
-	.string "What would you like to do?$"
+	.string "Was möchtest du tun?$"
 
 gOtherText_xString1:: @ 840E6D0
 	.string "×{STR_VAR_1}$"
 
 gOtherText_Berry2:: @ 840E6D4
-	.string " BERRY$"
+	.string "BEERE$"
 
 gOtherText_Coins2:: @ 840E6DB
-	.string "{STR_VAR_1} COINS$"
+	.string "{STR_VAR_1} MÜNZ.$"
 
 gOtherText_CloseBag:: @ 840E6E4
-	.string "CLOSE BAG$"
+	.string "BEUTEL SCHLIESSEN$"
 
 OtherText_TheField3::
-	.string "the field.$"
+	.string "zum Hauptmenü.$"
 OtherText_TheBattle::
-	.string "the battle.$"
+	.string "zum Kampf.$"
 OtherText_ThePokeList::
-	.string "the POKéMON LIST.$"
+	.string "zur POKéMON-LISTE.$"
 OtherText_TheShop::
-	.string "the shop.$"
+	.string "zum Geschäft.$"
 OtherText_TheField::
-	.string "the field.$"
+	.string "zum Hauptmenü.$"
 OtherText_TheField2::
-	.string "the field.$"
+	.string "zum Hauptmenü.$"
 OtherText_ThePC::
-	.string "the PC.$"
+	.string "zum PC.$"
 
 	.align 2
 gUnknown_0840E740:: @ 840E740
@@ -28556,922 +28561,1054 @@ gUnknown_0840E740:: @ 840E740
 	.4byte OtherText_ThePC
 
 gOtherText_ReturnTo:: @ 840E75C
-	.string "Return to$"
+	.string "Zurück $"
 
 gOtherText_WhatWillYouDo2:: @ 840E766
-	.string "What would you\nlike to do?$"
+	.string "Was möchtest\n"
+	.string "du tun?$"
 
 gOtherText_CantWriteMail:: @ 840E781
-	.string "You can’t write\nMAIL here.$"
+	.string "Du kannst keinen\n"
+	.string "BRIEF schreiben.$"
 
 gOtherText_NoPokemon:: @ 840E79C
-	.string "There is no\nPOKéMON.{PAUSE_UNTIL_PRESS}$"
+	.string "Hier ist kein\n"
+	.string "POKéMON.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_SwitchWhichItem:: @ 840E7B3
-	.string "Switch with which\nitem?$"
+	.string "Gegen welches Item\n"
+	.string "austauschen?$"
 
 gOtherText_CantBeHeld:: @ 840E7CB
-	.string "{STR_VAR_1} can’t be held.$"
+	.string "{STR_VAR_1} ist nicht zu geben.$"
 
 gOtherText_CantBeHeldHere:: @ 840E7DD
-	.string "{STR_VAR_1} can’t be held here.$"
+	.string "{STR_VAR_1} ist hier nicht zu geben.$"
 
 gOtherText_HowManyToDeposit:: @ 840E7F4
-	.string "How many do you\nwant to deposit?$"
+	.string "Wie viele möchtest\n"
+	.string "du ablegen?$"
 
 gOtherText_DepositedItems:: @ 840E815
-	.string "Deposited {STR_VAR_2}\n{STR_VAR_1}(s).$"
+	.string "{STR_VAR_2}× {STR_VAR_1}\n"
+	.string "wurde abgelegt.$"
 
 gOtherText_NoRoomForItems:: @ 840E829
-	.string "There’s no room to\nstore items.$"
+	.string "Kein Platz für\n"
+	.string "weitere Items.$"
 
 gOtherText_CantStoreSomeoneItem:: @ 840E849
-	.string "You can’t store\nsomeone else’s item\nin the PC.$"
+	.string "Du kannst kein\n"
+	.string "Item eines anderen\n"
+	.string "auf dem PC lagern.$"
 
 gOtherText_TooImportant:: @ 840E878
-	.string "That’s much too\nimportant to toss\nout!$"
+	.string "Das ist viel zu\n"
+	.string "wichtig, um es\n"
+	.string "wegzuwerfen!$"
 
 gOtherText_HowManyToToss:: @ 840E89F
-	.string "Toss out how many?$"
+	.string "Wie viel in den Müll?$"
 
 gOtherText_ThrewAwayItem:: @ 840E8B2
-	.string "Threw away {STR_VAR_2}\n{STR_VAR_1}(s).$"
+	.string "{STR_VAR_2} × {STR_VAR_1}\n"
+	.string "weggeworfen.$"
 
 gOtherText_OkayToThrowAwayPrompt:: @ 840E8C7
-	.string "Is it okay to\nthrow away {STR_VAR_2}\n{STR_VAR_1}(s)?$"
+	.string "Willst du wirklich\n"
+	.string "{STR_VAR_2} × {STR_VAR_1}\n"
+	.string "wegwerfen?$"
 
 gOtherText_DadsAdvice:: @ 840E8EA
-	.string "DAD’s advice...\n{PLAYER}, there’s a time and place for\leverything!{PAUSE_UNTIL_PRESS}$"
+	.string "VATI sagt immer...\n"
+	.string "{PLAYER}, dies ist weder der rechte\l"
+	.string "Ort noch der rechte Zeitpunkt dafür!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CantGetOffBike:: @ 840E929
-	.string "You can’t dismount your BIKE here.{PAUSE_UNTIL_PRESS}$"
+	.string "Du kannst hier nicht vom RAD steigen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ItemfinderResponding:: @ 840E94E
-	.string "Oh!\nThe machine’s responding!\pThere’s an item buried around here!{PAUSE_UNTIL_PRESS}$"
+	.string "Oh!\n"
+	.string "Das Gerät zeigt etwas an!\p"
+	.string "Hier muss ein Item vergraben sein!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ItemfinderFoundItem:: @ 840E992
-	.string "The machine’s indicating something\nright underfoot!{PAUSE_UNTIL_PRESS}$"
+	.string "Das Gerät macht direkt unter\n"
+	.string "deinen Füßen etwas aus!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_NoResponse:: @ 840E9C8
-	.string "... ... ... ... Nope!\nThere’s no response.{PAUSE_UNTIL_PRESS}$"
+	.string "... ... ... ... Nichts!\n"
+	.string "Keine Anzeige.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_Coins3:: @ 840E9F5
-	.string "Your COINS:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}$"
+	.string "Deine MÜNZEN:\n"
+	.string "{STR_VAR_1}{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_BootedTM:: @ 840EA06
-	.string "Booted up a TM.$"
+	.string "Eine TM wurde aktiviert.$"
 
 gOtherText_BootedHM:: @ 840EA16
-	.string "Booted up an HM.$"
+	.string "Eine VM wurde aktiviert.$"
 
 gOtherText_ContainsMove:: @ 840EA27
-	.string "It contained\n{STR_VAR_1}.\pTeach {STR_VAR_1}\nto a POKéMON?$"
+	.string "Sie enthält\n"
+	.string "{STR_VAR_1}.\p"
+	.string "{STR_VAR_1} einem\n"
+	.string "POKéMON beibringen?$"
 
 gOtherText_UsedItem:: @ 840EA4F
-	.string "{PLAYER} used the\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
+	.string "{PLAYER} setzt\n"
+	.string "{STR_VAR_2} ein.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_RepelLingers:: @ 840EA61
-	.string "But the effects of a REPEL lingered\nfrom earlier.{PAUSE_UNTIL_PRESS}$"
+	.string "Aber SCHUTZ wirkt doch\n"
+	.string "noch!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_UsedFlute:: @ 840EA95
-	.string "{PLAYER} used the\n{STR_VAR_2}.\pWild POKéMON will be lured.{PAUSE_UNTIL_PRESS}$"
+	.string "{PLAYER} setzt\n"
+	.string "{STR_VAR_2} ein.\p"
+	.string "Wilde POKéMON werden angezogen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_UsedRepel:: @ 840EAC3
-	.string "{PLAYER} used the\n{STR_VAR_2}.\pWild POKéMON will be repelled.{PAUSE_UNTIL_PRESS}$"
+	.string "{PLAYER} setzt\n"
+	.string "{STR_VAR_2} ein.\p"
+	.string "Wilde POKéMON werden abgehalten.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_BoxIsFull:: @ 840EAF4
-	.string "The BOX is full.{PAUSE_UNTIL_PRESS}$"
+	.string "Die BOXEN sind voll.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_Size:: @ 840EB07
-	.string "SIZE /$"
+	.string "MASS:$"
 
 gOtherText_Firm:: @ 840EB0E
-	.string "FIRM /$"
+	.string "GÜTE:$"
 
 gContestStatsText_Unknown1:: @ 840EB15
-	.string "{STR_VAR_1}.{STR_VAR_2}”$"
+	.string "{STR_VAR_1},{STR_VAR_2} cm$"
 
 ContestStatsText_VerySoft:
-	.string "Very soft$"
+	.string "Sehr weich$"
 ContestStatsText_Soft:
-	.string "Soft$"
+	.string "Weich$"
 ContestStatsText_Hard:
-	.string "Hard$"
+	.string "Hart$"
 ContestStatsText_VeryHard:
-	.string "Very hard$"
+	.string "Sehr hart$"
 ContestStatsText_SuperHard:
-	.string "Super hard$"
+	.string "Steinhart$"
 ContestStatsText_RedPokeBlock:
-	.string "RED {POKEBLOCK}$"
+	.string "{POKEBLOCK} ROT$"
 ContestStatsText_BluePokeBlock:
-	.string "BLUE {POKEBLOCK}$"
+	.string "{POKEBLOCK} BLAU$"
 ContestStatsText_PinkPokeBlock:
-	.string "PINK {POKEBLOCK}$"
+	.string "{POKEBLOCK} ROSA$"
 ContestStatsText_GreenPokeBlock:
-	.string "GREEN {POKEBLOCK}$"
+	.string "{POKEBLOCK} GRÜN$"
 ContestStatsText_YellowPokeBlock:
-	.string "YELLOW {POKEBLOCK}$"
+	.string "{POKEBLOCK} GELB$"
 ContestStatsText_PurplePokeBlock:
-	.string "PURPLE {POKEBLOCK}$"
+	.string "{POKEBLOCK} LILA$"
 ContestStatsText_IndigoPokeBlock:
-	.string "INDIGO {POKEBLOCK}$"
+	.string "{POKEBLOCK} INDIGO$"
 ContestStatsText_BrownPokeBlock:
-	.string "BROWN {POKEBLOCK}$"
+	.string "{POKEBLOCK} BRAUN$"
 ContestStatsText_LiteBluePokeBlock:
-	.string "LITEBLUE {POKEBLOCK}$"
+	.string "{POKEBLOCK} CYAN$"
 ContestStatsText_OlivePokeBlock:
-	.string "OLIVE {POKEBLOCK}$"
+	.string "{POKEBLOCK} OLIV$"
 ContestStatsText_GrayPokeBlock:
-	.string "GRAY {POKEBLOCK}$"
+	.string "{POKEBLOCK} GRAU$"
 ContestStatsText_BlackPokeBlock:
-	.string "BLACK {POKEBLOCK}$"
+	.string "{POKEBLOCK} SCHWARZ$"
 ContestStatsText_WhitePokeBlock:
-	.string "WHITE {POKEBLOCK}$"
+	.string "{POKEBLOCK} WEISS$"
 ContestStatsText_GoldPokeBlock:
-	.string "GOLD {POKEBLOCK}$"
+	.string "{POKEBLOCK} GOLD$"
 
 gContestStatsText_Spicy:: @ 840EBED
-	.string "SPICY$"
+	.string "SCHARF$"
 
 gContestStatsText_Dry:: @ 840EBF3
-	.string "DRY$"
+	.string "TROCKEN$"
 
 gContestStatsText_Sweet:: @ 840EBF7
-	.string "SWEET$"
+	.string "SÜSS$"
 
 gContestStatsText_Bitter:: @ 840EBFD
 	.string "BITTER$"
 
 gContestStatsText_Sour:: @ 840EC04
-	.string "SOUR$"
-	.string "TASTY$" @ tasty is probably unused, but feel isn't.
-	.string "FEEL$"
+	.string "SAUER$"
+	.string "LECKER$"
+	.string "WÜRZE$"
 
 gContestStatsText_StowCase:: @ 840EC14
-	.string "Stow CASE.$"
+	.string "BOX verstauen.$"
 
 gContestStatsText_ThrowAwayPrompt:: @ 840EC1F
-	.string "Throw away this\n{STR_VAR_1}?$"
+	.string "{STR_VAR_1}\n"
+	.string "wegwerfen?$"
 
 gContestStatsText_WasThrownAway:: @ 840EC33
-	.string "The {STR_VAR_1}\nwas thrown away.$"
+	.string "{STR_VAR_1}\n"
+	.string "wurde weggeworfen.$"
 
 gContestStatsText_NormallyAte:: @ 840EC4B
-	.string "{STR_VAR_1} ate the\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} aß den\n"
+	.string "{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
 
 gContestStatsText_HappilyAte:: @ 840EC5C
-	.string "{STR_VAR_1} happily ate the\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} aß gerne den\n"
+	.string "{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
 
 gContestStatsText_DisdainfullyAte:: @ 840EC75
-	.string "{STR_VAR_1} disdainfully ate the\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} aß ungern den\n"
+	.string "{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
 
 MartText_Buy:
-	.string "BUY$"
+	.string "KAUFEN$"
 MartText_Sell:
-	.string "SELL$"
+	.string "VERKAUFEN$"
 MartText_Quit2:
-	.string "QUIT$"
+	.string "TSCHÜSS!$"
 
 gOtherText_QuitShopping:: @ 840ECA1
-	.string "Quit shopping.$"
+	.string "Einkauf beenden.$"
 
 gOtherText_HowManyYouWant:: @ 840ECB0
-	.string "{STR_VAR_1}? Certainly.\nHow many would you like?$"
+	.string "{STR_VAR_1}? Aber gerne.\n"
+	.string "Wie viele möchtest du?$"
 
 gOtherText_ThatWillBe:: @ 840ECD8
-	.string "{STR_VAR_1}? And you wanted {STR_VAR_2}?\nThat will be ¥{STR_VAR_3}.$"
+	.string "{STR_VAR_1}? Und du möchtest {STR_VAR_2}?\n"
+	.string "Das macht dann ¥{STR_VAR_3}.$"
 
 gOtherText_ThatWillBe2:: @ 840ED01
-	.string "{STR_VAR_1}, is it?\nThat’ll be ¥{STR_VAR_2}. Do you want it?$"
+	.string "{STR_VAR_1} soll es sein?\n"
+	.string "Das kostet ¥{STR_VAR_2}. Einverstanden?$"
 
 gOtherText_ThatWillBe3:: @ 840ED2C
-	.string "You wanted {STR_VAR_1}?\nThat’ll be ¥{STR_VAR_2}. Will that be okay?$"
+	.string "Du wolltest {STR_VAR_1}?\n"
+	.string "Das kostet ¥{STR_VAR_2}. Einverstanden?$"
 
 gOtherText_HereYouGo:: @ 840ED5E
-	.string "Here you go!\nThank you very much.$"
+	.string "Bitte sehr!\n"
+	.string "Und vielen Dank.$"
 
 gOtherText_HereYouGo2:: @ 840ED80
-	.string "Thank you!\nI’ll send it to your home PC.$"
+	.string "Vielen Dank!\n"
+	.string "Es wird auf deinen PC übertragen.$"
 
 gOtherText_HereYouGo3:: @ 840EDA9
-	.string "Thanks!\nI’ll send it to your PC at home.$"
+	.string "Danke!\n"
+	.string "Es wird auf deinen PC übertragen.$"
 
 gOtherText_NotEnoughMoney:: @ 840EDD2
-	.string "You don’t have enough money.{PAUSE_UNTIL_PRESS}$"
+	.string "Du hast nicht genug Geld.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_NoRoomFor:: @ 840EDF1
-	.string "You have no more room for items.{PAUSE_UNTIL_PRESS}$"
+	.string "Du hast keinen Platz für weitere Items.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_SpaceForIsFull:: @ 840EE14
-	.string "The space for {STR_VAR_1} is full.{PAUSE_UNTIL_PRESS}$"
+	.string "Es ist kein Platz für {STR_VAR_1}.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_AnythingElse:: @ 840EE30
-	.string "Is there anything else I can help\nyou with?$"
+	.string "Gibt es noch etwas, womit\n"
+	.string "ich dienen kann?$"
 
 gOtherText_CanIHelpYou:: @ 840EE5C
-	.string "Can I help you with anything else?$"
+	.string "Kann ich dir sonst noch dienlich sein?$"
 
 gOtherText_FreePremierBall:: @ 840EE7F
-	.string "I’ll throw in a PREMIER BALL, too.{PAUSE_UNTIL_PRESS}$"
+	.string "Ich gebe dir noch einen PREMIERBALL.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CantBuyThat:: @ 840EEA4
-	.string "{STR_VAR_2}? Oh, no.\nI can’t buy that.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_2}? Es tut mir Leid, aber\n"
+	.string "das kann ich nicht kaufen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_HowManyToSell:: @ 840EEC4
-	.string "{STR_VAR_2}?\nHow many would you like to sell?$"
+	.string "{STR_VAR_2}?\n"
+	.string "Wie viele möchtest du verkaufen?$"
 
 gOtherText_CanPay:: @ 840EEE9
-	.string "I can pay ¥{STR_VAR_1}.\nWould that be okay?$"
+	.string "Ich gebe dir ¥{STR_VAR_1}.\n"
+	.string "Bist du damit einverstanden?$"
 
 gOtherText_SoldItem:: @ 840EF0C
-	.string "Turned over the {STR_VAR_2}\nand received ¥{STR_VAR_1}.$"
+	.string "{STR_VAR_2} wurde übergeben\n"
+	.string "im Tausch gegen ¥{STR_VAR_1}.$"
 
 OtherText_Money::
 	.string "¥{STR_VAR_1}$"
 OtherText_Shift::
-	.string "SHIFT$"
+	.string "TAUSCH$"
 OtherText_SendOut::
-	.string "SEND OUT$"
+	.string "AUSSENDEN$"
 OtherText_Switch2::
-	.string "SWITCH$"
+	.string "TAUSCH$"
 OtherText_Summary::
-	.string "SUMMARY$"
+	.string "BERICHT$"
 OtherText_Moves::
-	.string "MOVES$"
+	.string "ATTACKEN$"
 OtherText_Enter2::
-	.string "ENTER$"
+	.string "EINTRAGEN$"
 OtherText_NoEntry::
-	.string "NO ENTRY$"
+	.string "AUSTRAGEN$"
 OtherText_Take::
-	.string "TAKE$"
+	.string "NEHMEN$"
 OtherText_Read2::
-	.string "READ$"
+	.string "LESEN$"
 
 gOtherText_Hp2:: @ 840EF72
-	.string "HP$"
+	.string "KP$"
 
 gOtherText_SpAtk2:: @ 840EF75
-	.string "SP. ATK$"
+	.string "SP. ANG.$"
 
 gOtherText_SpDef2:: @ 840EF7D
-	.string "SP. DEF$"
+	.string "SP. VER.$"
 
 gOtherText_WontHaveAnyEffect:: @ 840EF85
-	.string "It won’t have any effect.{PAUSE_UNTIL_PRESS}$"
+	.string "Es wird keine Wirkung haben.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CantUseOnPoke:: @ 840EFA1
-	.if REVISION >= 1
-	.string "This can’t be used on\nthat POKéMON.{PAUSE_UNTIL_PRESS}$"
-	.else
-	.string "This item can’t be used on\nthat POKéMON.{PAUSE_UNTIL_PRESS}$"
-	.endif
+	.string "Das kann nicht bei diesem\n"
+	.string "POKéMON eingesetzt werden.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CantBeSwitched:: @ 840EFCC
-	.string "{STR_VAR_1} can’t be switched\nout!{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} kann nicht ausge-\n"
+	.string "tauscht werden!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_AlreadyBattle:: @ 840EFE8
-	.string "{STR_VAR_1} is already\nin battle!{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1}\n"
+	.string "kämpft bereits!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_AlreadySelected:: @ 840F003
-	.string "{STR_VAR_1} has already been\nselected.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} ist\n"
+	.string "bereits ausgewählt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_NoEnergyLeft:: @ 840F023
-	.string "{STR_VAR_1} has no energy\nleft to battle!{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} kann\n"
+	.string "nicht kämpfen!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CantSwitchPokeWithYours:: @ 840F046
-	.string "You can’t switch {STR_VAR_1}’s\nPOKéMON with one of yours!{PAUSE_UNTIL_PRESS}$"
+	.string "Ein POKéMON von {STR_VAR_1} ist\n"
+	.string "nicht gegen deins eintauschbar!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_EGGCantBattle:: @ 840F079
-	.string "An EGG can’t battle!{PAUSE_UNTIL_PRESS}$"
+	.string "Ein EI kann nicht kämpfen!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CantBeUsedBadge:: @ 840F090
-	.string "This can’t be used until a new\nBADGE is obtained.$"
+	.string "Das ist erst einsetzbar, wenn\n"
+	.string "ein neuer ORDEN errungen wurde.$"
 
 gOtherText_NoMoreThreePoke:: @ 840F0C2
-	.string "No more than three POKéMON\nmay enter.$"
+	.string "Es können nicht mehr als\n"
+	.string "drei POKéMON teilnehmen.$"
 
 gOtherText_SendRemovedMailPrompt:: @ 840F0E8
-	.string "Send the removed MAIL to\nyour PC?$"
+	.string "Den abgenommenen BRIEF\n"
+	.string "auf deinen PC übertragen?$"
 
 gOtherText_MailWasSent:: @ 840F10A
-	.string "The MAIL was sent to your PC.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BRIEF wurde auf deinen\n"
+	.string "PC übertragen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_MailboxIsFull:: @ 840F12A
-	.string "Your PC’s MAILBOX is full.{PAUSE_UNTIL_PRESS}$"
+	.string "Du kannst keine weiteren BRIEFE\n"
+	.string "auf deinen PC übertragen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_MailRemovedMessageLost:: @ 840F147
-	.string "If the MAIL is removed, the\nmessage will be lost. Okay?$"
+	.string "Wird der BRIEF entfernt, geht\n"
+	.string "der Inhalt verloren, okay?$"
 
 gOtherText_MailMustBeRemoved:: @ 840F17F
-	.string "MAIL must be removed before\nholding an item.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BRIEF muss entfernt werden,\n"
+	.string "um ein Item tragen zu können.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_WasGivenToHold:: @ 840F1AE
-	.string "{STR_VAR_1} was given the\n{STR_VAR_2} to hold.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} erhält\n"
+	.string "{STR_VAR_2} zum Tragen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_AlreadyHolding:: @ 840F1CD
-	.string "{STR_VAR_1} is already holding\none {STR_VAR_2}.\pWould you like to switch the\ntwo items?$"
+	.string "{STR_VAR_1} trägt bereits\n"
+	.string "{STR_VAR_2}.\p"
+	.string "Sollen die Items ausge-\n"
+	.string "tauscht werden?$"
 
 gOtherText_NotHoldingAnything:: @ 840F213
-	.string "{STR_VAR_1} isn’t\nholding anything.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} trägt\n"
+	.string "kein Item.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ReceivedTheThingFrom:: @ 840F230
-	.string "Received the {STR_VAR_2}\nfrom {STR_VAR_1}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_2} von\n"
+	.string "{STR_VAR_1} erhalten.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_MailTaken:: @ 840F24B
-	.string "MAIL was taken from the\nPOKéMON.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BRIEF wurde dem\n"
+	.string "POKéMON abgenommen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_TakenAndReplaced:: @ 840F26E
-	.string "The {STR_VAR_2} was taken and\nreplaced with the {STR_VAR_1}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_2} wurde gegen\n"
+	.string "{STR_VAR_1} ausgetauscht.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_PokeHoldingItemCantMail:: @ 840F29B
-	.string "This POKéMON is holding an item.\nIt cannot hold MAIL.{PAUSE_UNTIL_PRESS}$"
+	.string "Dieses POKéMON trägt ein Item.\n"
+	.string "Es kann keinen BRIEF tragen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_MailTransferredMailbox:: @ 840F2D3
-	.string "MAIL was transferred from\nthe MAILBOX.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BRIEF wurde von deinem\n"
+	.string "PC heruntergeladen.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_BagFullCannotRemoveItem:: @ 840F2FC
-	.string "The BAG is full. The POKéMON’s\nitem could not be removed.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BEUTEL ist voll. Das Item des\n"
+	.string "POKéMON wurde nicht entfernt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_LearnedMove:: @ 840F338
-	.string "{STR_VAR_1} learned\n{STR_VAR_2}!$"
+	.string "{STR_VAR_1} erlernt\n"
+	.string "{STR_VAR_2}!$"
 
 gOtherText_NotCompatible:: @ 840F347
-	.string "{STR_VAR_1} and {STR_VAR_2}\nare not compatible.\p{STR_VAR_2} can’t be learned.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} und {STR_VAR_2}\n"
+	.string "sind nicht kompatibel.\p"
+	.string "{STR_VAR_2} kann nicht \n"
+	.string "erlernt werden.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_WantsToLearn:: @ 840F37C
-	.string "{STR_VAR_1} wants to learn the\nmove {STR_VAR_2}.\pHowever, {STR_VAR_1} already\nknows four moves.\pShould a move be deleted and\nreplaced with {STR_VAR_2}?$"
+	.string "{STR_VAR_1} versucht,\n"
+	.string "{STR_VAR_2} zu erlernen.\p"
+	.string "Aber {STR_VAR_1} kann maximal\n"
+	.string "vier Attacken erlernen.\p"
+	.string "Soll eine andere Attacke durch\n"
+	.string "{STR_VAR_2} ersetzt werden?$"
 
 gOtherText_StopTryingTo:: @ 840F3F0
-	.string "Stop trying to teach\n{STR_VAR_2}?$"
+	.string "{STR_VAR_2} nicht\n"
+	.string "erlernen?$"
 
 gOtherText_DidNotLearnMove2:: @ 840F409
-	.string "{STR_VAR_1} did not learn the\nmove {STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} hat {STR_VAR_2}\n"
+	.string "nicht erlernt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_WhichMoveToForget2:: @ 840F429
-	.string "Which move should be forgotten?{PAUSE_UNTIL_PRESS}$"
+	.string "Welche Attacke soll vergessen\n"
+	.string "werden?{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ForgetMove123_2:: @ 840F44B
-	.string "{PAUSE 32}1, {PAUSE 15}2, and{PAUSE 15}... {PAUSE 15}... {PAUSE 15}... {PAUSE 15}{PLAY_SE SE_KON}Poof!\p{STR_VAR_1} forgot how to\nuse {STR_VAR_2}.\pAnd...{PAUSE_UNTIL_PRESS}$"
+	.string "{PAUSE 32}1, {PAUSE 15}2 und{PAUSE 15}... {PAUSE 15}... {PAUSE 15}... {PAUSE 15}{PLAY_SE 0x38 0x00} Schwupp!\p"
+	.string "{STR_VAR_1} hat\n"
+	.string "{STR_VAR_2} vergessen.\p"
+	.string "Und...{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_AlreadyKnows:: @ 840F49E
-	.string "{STR_VAR_1} already knows\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} kennt\n"
+	.string "{STR_VAR_2}.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_HPRestoredBy:: @ 840F4B5
-	.string "{STR_VAR_1}’s HP was restored by\n{STR_VAR_2} points.{PAUSE_UNTIL_PRESS}$"
+	.string "Die KP von {STR_VAR_1} wurden\n"
+	.string "um {STR_VAR_2} Punkte aufgefüllt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CuredPoisoning:: @ 840F4DA
-	.string "{STR_VAR_1} was cured of its\npoisoning.{PAUSE_UNTIL_PRESS}$"
+	.string "Die Vergiftung von {STR_VAR_1}\n"
+	.string "wurde geheilt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_CuredParalysis:: @ 840F4FB
-	.string "{STR_VAR_1} was cured of\nparalysis.{PAUSE_UNTIL_PRESS}$"
+	.string "Die Paralyse von {STR_VAR_1}\n"
+	.string "wurde aufgehoben.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_WokeUp:: @ 840F518
-	.string "{STR_VAR_1} woke up.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} ist aufgewacht.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_BurnHealed:: @ 840F526
-	.string "{STR_VAR_1}’s burn was healed.{PAUSE_UNTIL_PRESS}$"
+	.string "Verbrennung von {STR_VAR_1}\n"
+	.string "wurde geheilt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ThawedOut:: @ 840F53E
-	.string "{STR_VAR_1} was thawed out.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} wurde aufgetaut.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_PPRestored:: @ 840F553
-	.string "PP was restored.{PAUSE_UNTIL_PRESS}$"
+	.string "AP wurden aufgefüllt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_RegainedHealth:: @ 840F566
-	.string "{STR_VAR_1} regained health.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} erholte sich.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_BecameHealthy:: @ 840F57C
-	.string "{STR_VAR_1} became healthy.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} erholte sich.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_PPIncreased:: @ 840F591
-	.string "{STR_VAR_1}’s PP increased.{PAUSE_UNTIL_PRESS}$"
+	.string "AP von {STR_VAR_1}\n"
+	.string "wurden angehoben.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ElevatedTo:: @ 840F5A6
-	.string "{STR_VAR_1} was elevated to\nLv. {STR_VAR_2}.$"
+	.string "{STR_VAR_1} erreicht\n"
+	.string "Lv. {STR_VAR_2}.$"
 
 gOtherText_WasRaised:: @ 840F5C1
-	.string "{STR_VAR_1}’s {STR_VAR_2} was\nraised.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_2} von\n"
+	.string "{STR_VAR_1} wurde angehoben.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_SnapConfusion:: @ 840F5D7
-	.string "{STR_VAR_1} snapped out of its\nconfusion.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} ist nicht\n"
+	.string "mehr verwirrt.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_GotOverLove:: @ 840F5FA
-	.string "{STR_VAR_1} got over its\ninfatuation.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} fühlt sich nicht\n"
+	.string "mehr angezogen.{PAUSE_UNTIL_PRESS}$"
 
 OtherText_ChoosePoke::
-	.string "Choose a POKéMON.$"
+	.string "Wähle ein POKéMON.$"
 OtherText_MovePokeTo::
-	.string "Move to where?$"
+	.string "An wessen Stelle setzen?$"
 OtherText_TeachWhat::
-	.string "Teach which POKéMON?$"
+	.string "Welches POKéMON lehren?$"
 OtherText_UseWhat::
-	.string "Use on which POKéMON?$"
+	.string "Welches POKéMON?$"
 OtherText_GiveWhat::
-	.string "Give to which POKéMON?$"
+	.string "Welchem POKéMON geben?$"
 OtherText_DoWhat::
-	.string "Do what with {STR_VAR_1}?$"
+	.string "Was tun mit {STR_VAR_1}?$"
 OtherText_NothingToCut::
-	.string "There’s nothing to CUT.$"
+	.string "Hier nicht einsetzbar.$"
 OtherText_CantSurf::
-	.string "You can’t SURF here.$"
+	.string "SURFER nicht einsetzbar.$"
 OtherText_AlreadySurfing::
-	.string "You’re already SURFING.$"
+	.string "SURFER ist eingesetzt.$"
 OtherText_CantUseThatHere::
-	.string "Can’t use that here.$"
+	.string "Hier nicht einsetzbar.$"
 OtherText_RestoreWhatMove::
-	.string "Restore which move?$"
+	.string "Welche Attacke auffüllen?$"
 OtherText_BoostPP::
-	.string "Boost PP of which move?$"
+	.string "AP welcher Attacke heben?$"
 OtherText_DoWhatWithItem::
-	.string "Do what with an item?$"
+	.string "Was willst du mit dem Item?$"
 OtherText_NoPokeForBattle::
-	.string "No POKéMON for battle!$"
+	.string "Kein POKéMON kampfbereit!$"
 OtherText_ChoosePoke2::
-	.string "Choose a POKéMON.$"
+	.string "Wähle ein POKéMON.$"
 OtherText_NotEnoughHP::
-	.string "Not enough HP...$"
+	.string "Nicht genügend KP...$"
 OtherText_ThreePokeNeeded::
-	.string "Three POKéMON are needed.$"
+	.string "Drei POKéMON sind nötig.$"
 OtherText_PokeCantBeSame::
-	.string "POKéMON can’t be the same.$"
+	.string "Nicht dieselben POKéMON!$"
 OtherText_NoIdenticalHoldItems::
-	.string "No identical hold items.$"
+	.string "Nicht dieselben Items!$"
 OtherText_TeachWhichPoke::
-	.string "Teach which POKéMON?$"
+	.string "Welches POKéMON lehren?$"
 
 gOtherText_Attack:: @ 840F7C6
-	.string "ATTACK$"
+	.string "ANGRIFF$"
 
 gOtherText_Defense:: @ 840F7CD
-	.string "DEFENSE$"
+	.string "VERT.$"
 
 gOtherText_SpAtk:: @ 840F7D5
-	.string "SP. ATK$"
+	.string "SP.ANG.$"
 
 gOtherText_SpDef:: @ 840F7DD
-	.string "SP. DEF$"
+	.string "SP.VER.$"
 
 gOtherText_Speed:: @ 840F7E5
-	.string "SPEED$"
+	.string "INIT.$"
 
 gOtherText_HP:: @ 840F7EB
-	.string "HP$"
+	.string "KP$"
 
 gOtherText_Terminator18:: @ 840F7EE
 	.string "$"
 
 gOtherText_OriginalTrainer:: @ 840F7EF
-	.string "OT/$"
+	.string "OT:$"
 
 gOtherText_Type2:: @ 840F7F3
-	.string "TYPE/$"
+	.string "TYP:$"
 
 gOtherText_Power2:: @ 840F7F9
-	.string "POWER$"
+	.string "STÄRKE$"
 
 gOtherText_Accuracy2:: @ 840F7FF
-	.string "ACCURACY$"
+	.string "GENAU.$"
 
 gOtherText_Appeal2:: @ 840F808
-	.string "APPEAL$"
+	.string "AUSDR.$"
 
 gOtherText_Jam2:: @ 840F80F
-	.string "JAM$"
+	.string "EINDR.$"
 
 gOtherText_Status:: @ 840F813
 	.string "STATUS$"
 
 gOtherText_ExpPoints:: @ 840F81A
-	.string "EXP. POINTS$"
+	.string "E.-PUNKTE$"
 
 gOtherText_NextLv:: @ 840F826
-	.string "NEXT LV.$"
+	.string "NÄCHST. Lv.$"
 
 gOtherText_Ribbons00:: @ 840F82F
-	.string "RIBBONS: 00$"
+	.string "BÄNDER: 00$"
 
 OtherText_Event::
-	.string "EVENT$"
+	.string "GESCHEHEN$"
 OtherText_Switch::
-	.string "SWITCH$"
+	.string "TAUSCH$"
 OtherText_PokeInfo::
-	.string "POKéMON INFO$"
+	.string "POKéMON-INFO$"
 OtherText_PokeSkills::
-	.string "POKéMON SKILLS$"
+	.string "POKéMON-FÄHIG.$"
 OtherText_BattleMoves::
-	.string "BATTLE MOVES$"
+	.string "ATTACKEN$"
 OtherText_ContestMoves::
-	.string "C0NTEST MOVES$" @why the l33t 0, that's stupid
+	.string "WETT.-ATTACKEN$"
 OtherText_Info::
 	.string "INFO$"
 
 gOtherText_EggLongTime:: @ 840F884
-	.string "It looks like this EGG will\ntake a long time to hatch.$"
+	.string "Dieses EI braucht sicher\n"
+	.string "noch lange, bis es schlüpft.$"
 
 gOtherText_EggSomeTime:: @ 840F8BB
-	.string "What will hatch from this?\nIt will take some time.$"
+	.string "Was da wohl schlüpfen wird?\n"
+	.string "Es wird sicher lange dauern.$"
 
 gOtherText_EggSoon:: @ 840F8EE
-	.string "It moves occasionally.\nIt should hatch soon.$"
+	.string "Es bewegt sich manchmal.\n"
+	.string "Vielleicht schlüpft es bald?$"
 
 gOtherText_EggAbout:: @ 840F91B
-	.string "It’s making sounds.\nIt’s about to hatch!$"
+	.string "Es macht Geräusche.\n"
+	.string "Sicher schlüpft es bald!$"
 
 gOtherText_CantForgetHMs:: @ 840F944
-	.string "HM moves can’t be\nforgotten now.$"
+	.string "VM-Attacken können jetzt\n"
+	.string "nicht vergessen werden.$"
 
 gOtherText_PlayersBase:: @ 840F965
-	.string "’s BASE$"
+	.string "BASIS v. {PLAYER}$"
 
 gOtherText_OkayToDeleteFromRegistry:: @ 840F96D
-	.string "Is it okay to delete {STR_VAR_1}\nfrom the REGISTRY?$"
+	.string "Soll {STR_VAR_1} aus dem GRUNDBUCH\n"
+	.string "gelöscht werden?$"
 
 gOtherText_RegisteredDataDeleted:: @ 840F998
-	.string "The registered data was deleted.{PAUSE_UNTIL_PRESS}$"
+	.string "Eingetragene Daten wurden gelöscht.{PAUSE_UNTIL_PRESS}$"
 
 gSecretBaseText_NoRegistry:: @ 840F9BB
-	.string "There is no REGISTRY.{PAUSE_UNTIL_PRESS}$"
+	.string "Es gibt kein GRUNDBUCH.{PAUSE_UNTIL_PRESS}$"
 
 SecretBaseText_DelRegist::
-	.string "DEL REGIST.$"
+	.string "EINTR. LÖSCHEN$"
 SecretBaseText_Decorate::
-	.string "DECORATE$"
+	.string "DEKORIEREN$"
 SecretBaseText_PutAway::
-	.string "PUT AWAY$"
+	.string "WEGNEHMEN$"
 SecretBaseText_Toss::
-	.string "TOSS$"
+	.string "WEGWERFEN$"
 SecretBaseText_PutOutDecor::
-	.string "Put out the selected decoration item.$"
+	.string "Wähle eine Dekoration \n"
+	.string "und stelle sie auf.$"
 SecretBaseText_StoreChosenDecor::
-	.string "Store the chosen decoration in the PC.$"
+	.string "Wähle eine Dekoration und \n"
+	.string "übertrage sie auf deinen PC.$"
 SecretBaseText_ThrowAwayDecor::
-	.string "Throw away unwanted decorations.$"
+	.string "Wähle eine Dekoration\n"
+	.string "und wirf sie weg.$"
 
 gSecretBaseText_NoDecors:: @ 840FA64
-	.string "There are no decorations.{PAUSE_UNTIL_PRESS}$"
+	.string "Es gibt keine Dekoration.{PAUSE_UNTIL_PRESS}$"
 
 SecretBaseText_Desk::
-	.string "DESK$"
+	.string "TISCH$"
 SecretBaseText_Chair::
-	.string "CHAIR$"
+	.string "STUHL$"
 SecretBaseText_Plant::
-	.string "PLANT$"
+	.string "PFLANZE$"
 SecretBaseText_Ornament::
 	.string "ORNAMENT$"
 SecretBaseText_Mat::
-	.string "MAT$"
+	.string "MATTE$"
 SecretBaseText_Poster::
 	.string "POSTER$"
 SecretBaseText_Doll::
-	.string "DOLL$"
+	.string "PUPPE$"
 SecretBaseText_Cushion::
-	.string "CUSHION$"
+	.string "KISSEN$"
 
 gSecretBaseText_GoldRank:: @ 840FAB2
 	.string "GOLD$"
 
 gSecretBaseText_SilverRank:: @ 840FAB7
-	.string "SILVER$"
+	.string "SILBER$"
 
 gSecretBaseText_PlaceItHere:: @ 840FABE
-	.string "Place it here?$"
+	.string "Hierhin platzieren?$"
 
 gSecretBaseText_CantBePlacedHere:: @ 840FACD
-	.string "It can’t be placed here.$"
+	.string "Kann hier nicht platziert werden.$"
 
 gSecretBaseText_CancelDecorating:: @ 840FAE6
-	.string "Cancel decorating?$"
+	.string "Dekorieren beenden?$"
 
 gSecretBaseText_InUseAlready:: @ 840FAF9
-	.string "This is in use already.$"
+	.string "Das wurde bereits platziert.$"
 
 gSecretBaseText_NoMoreDecor:: @ 840FB11
-	.string "No more decorations can be placed.\nThe most that can be placed is {STR_VAR_1}.$"
+	.string "Mehr kann nicht dekoriert werden. Es\n"
+	.string "ist nur Platz für {STR_VAR_1} Dekorationen.$"
 
 gSecretBaseText_NoMoreDecor2:: @ 840FB57
-	.string "No more decorations can be placed.\nThe most that can be placed is {STR_VAR_1}.$"
-	.string "This can’t be placed here.\nIt must be on a DESK, etc.$"
+	.string "Mehr kann nicht dekoriert werden. Es\n"
+	.string "ist nur Platz für {STR_VAR_1} Dekorationen.$"
+
+gSecretBaseText_DecorMustPlaceOnTable::
+	.string "Das geht nicht. Es muss auf einem\n"
+	.string "TISCH oder Ähnlichem stehen.$"
 
 gSecretBaseText_DecorCantPlace:: @ 840FBD3
-	.string "This decoration can’t be placed in\nyour own room.$"
+	.string "Die Dekoration kann nicht in deinem\n"
+	.string "eigenen Zimmer aufgestellt werden.$"
 
 gSecretBaseText_DecorInUse:: @ 840FC05
-	.string "This decoration is in use.\nIt can’t be thrown away.$"
+	.string "Diese Dekoration wurde platziert.\n"
+	.string "Du kannst sie nicht wegwerfen.$"
 
 gSecretBaseText_WillBeDiscarded:: @ 840FC39
-	.string "This {STR_VAR_1} will be discarded.\nIs that okay?$"
+	.string "{STR_VAR_1} wird weggeworfen.\n"
+	.string "Einverstanden?$"
 
 gSecretBaseText_DecorThrownAway:: @ 840FC62
-	.string "The decoration item was thrown away.$"
+	.string "Die Dekoration wurde weggeworfen.$"
 
 gSecretBaseText_StopPuttingAwayDecor:: @ 840FC87
-	.string "Stop putting away decorations?$"
+	.string "Wegnehmen von Dekoration beenden?$"
 
 gSecretBaseText_NoDecor:: @ 840FCA6
-	.string "There is no decoration item here.$"
+	.string "Hier ist keine Dekoration.$"
 
 gSecretBaseText_ReturnDecor:: @ 840FCC8
-	.string "Return this decoration to the PC?$"
+	.string "Diese Dekoration auf \n"
+	.string "den PC übertragen?$"
 
 gSecretBaseText_DecorReturned:: @ 840FCEA
-	.string "The decoration was returned to the PC.$"
+	.string "Die Dekoration wurde auf\n"
+	.string "den PC übertragen.$"
 
 gSecretBaseText_NoDecorInUse:: @ 840FD11
-	.string "There are no decorations in use.{PAUSE_UNTIL_PRESS}$"
+	.string "Es sind keine Dekorationen platziert.{PAUSE_UNTIL_PRESS}$"
 
-SecretBaseText_Tristan::
-	.string "TRISTAN$"
+SecretBaseText_Tristan:: @ 840FD34
+	.string "TATIAN$"
+
 SecretBaseText_Philip::
-	.string "PHILIP$"
+	.string "LARS$"
 SecretBaseText_Dennis::
-	.string "DENNIS$"
+	.string "KLAAS$"
 SecretBaseText_Roberto::
-	.string "ROBERTO$"
+	.string "HAINER$"
 SecretBaseText_TurnOff::
-	.string "TURN OFF$"
+	.string "AUSSCHALTEN$"
 SecretBaseText_Decoration::
-	.string "DECORATION$"
+	.string "DEKORATION$"
 SecretBaseText_ItemStorage::
-	.string "ITEM STORAGE$"
+	.string "ITEM-LAGER$"
 
 gPCText_Mailbox:: @ 840FD73
-	.string "MAILBOX$"
+	.string "BRIEFBOX$"
 
 PCText_DepositItem::
-	.string "DEPOSIT ITEM$"
+	.string "ITEM ABLEGEN$"
 PCText_WithdrawItem::
-	.string "WITHDRAW ITEM$"
+	.string "ITEM NEHMEN$"
 PCText_TossItem::
-	.string "TOSS ITEM$"
+	.string "ITEM IN MÜLL$"
 PCText_StoreItems::
-	.string "Store items in the PC.$"
+	.string "Lagere Items auf deinem PC.$"
 PCText_TakeOutItems::
-	.string "Take out items from the PC.$"
+	.string "Nimm Items von deinem PC.$"
 PCText_ThrowAwayItems::
-	.string "Throw away items stored in the PC.$"
+	.string "Wirf gelagerte Items weg.$"
 
 gOtherText_NoItems:: @ 840FDF6
-	.string "There are no items.{PAUSE_UNTIL_PRESS}$"
+	.string "Es gibt keine Items.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_NoMoreRoom:: @ 840FE0C
-	.string "There is no more\nroom in the BAG.$"
+	.string "In deinem BEUTEL\n"
+	.string "ist kein Platz mehr.$"
 
 gOtherText_HowManyToWithdraw:: @ 840FE2E
-	.string "How many do you\nwant to withdraw?$"
+	.string "Wie viele möchtest\n"
+	.string "du aufnehmen?$"
 
 gOtherText_WithdrewThing:: @ 840FE50
-	.string "Withdrew {STR_VAR_2}\n{STR_VAR_1}(s).$"
+	.string "{STR_VAR_2} × {STR_VAR_1}\n"
+	.string "aufgenommen.$"
 
 OtherText_Read:
-	.string "READ$"
+	.string "LESEN$"
 
 gOtherText_MoveToBag:: @ 840FE68
-	.string "MOVE TO BAG$"
+	.string "IN BEUTEL GEBEN$"
 
 OtherText_Give:
-	.string "GIVE$"
+	.string "GEBEN$"
 
 gOtherText_NoMailHere:: @ 840FE79
-	.string "There’s no MAIL here.{PAUSE_UNTIL_PRESS}$"
+	.string "Hier ist kein BRIEF.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_WhatWillYouDoMail:: @ 840FE91
-	.string "What would you like to do with\n{STR_VAR_1}’s MAIL?$"
+	.string "Was soll mit dem BRIEF von\n"
+	.string "{STR_VAR_1} geschehen?$"
 
 gOtherText_MessageWillBeLost:: @ 840FEBB
-	.string "The message will be lost.\nIs that okay?$"
+	.string "Der Inhalt geht verloren.\n"
+	.string "Ist das in Ordnung für dich?$"
 
 gOtherText_BagIsFull:: @ 840FEE3
-	.string "The BAG is full.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BEUTEL ist voll.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_MailWasReturned:: @ 840FEF6
-	.string "The MAIL was returned to the BAG\nwith its message erased.{PAUSE_UNTIL_PRESS}$"
+	.string "Der BRIEF, dessen Inhalt gelöscht\n"
+	.string "ist, wurde im BEUTEL gelagert.{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_Dad:: @ 840FF32
-	.string "DAD$"
+	.string "VATI$"
 
 gOtherText_Mom:: @ 840FF36
-	.string "MOM$"
+	.string "MUTTI$"
 
 gOtherText_Wallace:: @ 840FF3A
-	.string "WALLACE$"
+	.string "WASSILI$"
 
 gOtherText_Steven:: @ 840FF42
-	.string "STEVEN$"
+	.string "TROY$"
 
 gOtherText_Brawly:: @ 840FF49
-	.string "BRAWLY$"
+	.string "KAMILLO$"
 
 gOtherText_Winona:: @ 840FF50
-	.string "WINONA$"
+	.string "WIBKE$"
 
 gOtherText_Phoebe:: @ 840FF57
-	.string "PHOEBE$"
+	.string "ANTONIA$"
 
 gOtherText_Glacia:: @ 840FF5E
-	.string "GLACIA$"
+	.string "FROSINA$"
 
 gContestText_ContestWinner:: @ 840FF65
-	.string "CONTEST WINNER\n$"
+	.string "-WETTBEWERBSSIEGER\n$"
 
 gOtherText_Unknown1:: @ 840FF75
-	.string "’s $"
+	.string " von $"
 
 OtherText_Cool::
-	.string "COOL $"
+	.string "COOL.$"
 OtherText_Beauty2::
-	.string "BEAUTY $"
+	.string "SCHÖN.$"
 OtherText_Cute::
-	.string "CUTE $"
+	.string "ANMUT$"
 OtherText_Smart::
-	.string "SMART $"
+	.string "KLUG.$"
 OtherText_Tough::
-	.string "TOUGH $"
+	.string "STÄRKE$"
 OtherText_NonstopSuperCool::
-	.string "Nonstop super-cool -\nthe inestimable $"
+	.string "Super-mega-cool ist\n"
+	.string "dieses umwerfende $"
 OtherText_Terminator6::
 	.string "$"
 OtherText_GoodLookingPoke::
-	.string "Hey, there!\nThe good-looking POKéMON $"
+	.string "Das anbetungswürdige\n"
+	.string "POKéMON: $"
 OtherText_Terminator7::
 	.string "$"
 OtherText_MarvelousGreat::
-	.string "The marvelous, wonderful, and\nvery great $"
+	.string "Phantastisch, großartig -\n"
+	.string "schlicht brillant: $"
 OtherText_Terminator8::
 	.string "$"
 OtherText_CenturyLastVenus::
-	.string "This century’s last Venus -\nthe beautiful $"
+	.string "Ein Bild von einem POKéMON!\n"
+	.string "Das wunderschöne $"
 OtherText_Terminator9::
 	.string "$"
 OtherText_Terminator10::
-	.string "$"
+	.string "Einfach umwerfend, das strahlende\n"
+	.string "Lächeln von $"
 OtherText_DazzlingSlime::
-	.string "’s dazzling,\nglittering smile$"
+	.string "$"
 OtherText_PokeCenterIdol::
-	.string "POKéMON CENTER’s super idol -\nthe incomparable $"
+	.string "Superstar des POKéMON-CENTERs -\n"
+	.string "das unvergleichliche $"
 OtherText_Terminator11::
 	.string "$"
 OtherText_LovelyAndSweet::
-	.string "The lovely and sweet $"
+	.string "Das liebliche, zuckersüße $"
 OtherText_Terminator12::
 	.string "$"
 OtherText_ThePretty::
-	.string "The pretty $"
+	.string "Das Gewinner-Portrait\n"
+	.string "von dem hübschen $"
 OtherText_WinningPortrait::
-	.string "’s\nwinning portrait$"
+	.string "$"
 OtherText_GiveUsWink::
-	.string "Give us a wink!\nThe cutie POKéMON $"
+	.string "Winke uns zu, du\n"
+	.string "goldiges $"
 OtherText_Terminator13::
 	.string "$"
 OtherText_SmartnessMaestro::
-	.string "The smartness maestro -\nThe wise POKéMON $"
+	.string "Der Gelehrte unter den\n"
+	.string "POKéMON! Das weise $"
 OtherText_Terminator14::
 	.string "$"
 OtherText_ChosenPokeAmong::
-	.string "The chosen POKéMON -\nThe one among POKéMON $"
+	.string "Das auserwählte und\n"
+	.string "einzigartige POKéMON: $"
 OtherText_Terminator15::
 	.string "$"
 OtherText_TheExcellent::
-	.string "The excellent $"
+	.string "Das grandiose $"
 OtherText_ItsMomentOfElegance::
-	.string "’s\nmoment of elegance$"
+	.string " -\n"
+	.string "der Inbegriff von Eleganz und Stil$"
 OtherText_PowerfullyMuscular::
-	.string "The powerfully muscular\nspeedster $"
+	.string "Der energische, kraftstrotzende\n"
+	.string "Überflieger: $"
 OtherText_Terminator16::
 	.string "$"
 OtherText_StrongErEst::
-	.string "The strong, stronger, and\nstrongest $"
+	.string "Stark, stärker, am stärksten -\n"
+	.string "das allerstärkste $"
 OtherText_Terminator17::
 	.string "$"
 OtherText_MightyTough::
-	.string "The mighty tough\nhyper POKéMON $"
+	.string "Das mächtige, prächtige - das\n"
+	.string "stärkste POKéMON: $"
 OtherText_Exclamation::
-	.string "!$"
+	.string "$"
 OtherText_Petalburg::
-	.string "PETALBURG$"
+	.string "BLÜTENBURG CITY$"
 OtherText_Slateport::
-	.string "SLATEPORT$"
+	.string "GRAPHITPORT CITY$"
 OtherText_Littleroot::
-	.string "LITTLEROOT$"
+	.string "WURZELHEIM$"
 OtherText_Lilycove::
-	.string "LILYCOVE$"
+	.string "SEEGRASULB CITY$"
 OtherText_Dewford::
-	.string "DEWFORD$"
+	.string "FAUSTAUHAVEN$"
 OtherText_Enter::
-	.string "ENTER$"
+	.string "JA$"
 OtherText_Info3::
 	.string "INFO$"
 OtherText_WhatsAContest::
-	.string "What’s a CONTEST?$"
+	.string "Der WETTBEWERB$"
 OtherText_TypesOfContest::
-	.string "Types of CONTESTS$"
+	.string "WETTBEWERB-Arten$"
 OtherText_Ranks::
-	.string "Ranks$"
+	.string "Klassen$"
 OtherText_Judging::
-	.string "Judging$"
+	.string "Bewertung$"
 OtherText_CoolContest::
-	.string "COOL CONTEST$"
+	.string "COOL.-WETTB.$"
 OtherText_BeautyContest::
-	.string "BEAUTY CONTEST$"
+	.string "SCHÖN.-WETTB.$"
 OtherText_CuteContest::
-	.string "CUTE CONTEST$"
+	.string "ANMUT-WETTB.$"
 OtherText_SmartContest::
-	.string "SMART CONTEST$"
+	.string "KLUG.-WETTB.$"
 OtherText_ToughContest::
-	.string "TOUGH CONTEST$"
+	.string "STÄRKE-WETTB.$"
 OtherText_Decoration::
-	.string "DECORATION$"
+	.string "DEKORATION$"
 OtherText_PackUp::
-	.string "PACK UP$"
+	.string "EINPACKEN$"
 OtherText_Count::
-	.string "COUNT$"
+	.string "ZÄHLEN$"
 OtherText_Registry::
-	.string "REGISTRY$"
+	.string "GRUNDBUCH$"
 OtherText_Information::
 	.string "INFORMATION$"
 OtherText_Mach::
-	.string "MACH$"
+	.string "EIL$"
 OtherText_Acro::
-	.string "ACRO$"
+	.string "KUNST$"
 OtherText_Poison::
-	.string "PSN$"
+	.string "GIF$"
 OtherText_Paralysis::
 	.string "PAR$"
 OtherText_Sleep::
-	.string "SLP$"
+	.string "SLF$"
 OtherText_Burn::
-	.string "BRN$"
+	.string "BRT$"
 OtherText_Frozen::
-	.string "FRZ$"
+	.string "GFR$"
 OtherText_Quit::
-	.string "QUIT$"
+	.string "ZURÜCK$"
 OtherText_SawIt::
-	.string "Saw it$"
+	.string "Gesehen$"
 OtherText_NotYet::
-	.string "Not yet$"
+	.string "Noch nicht$"
 OtherText_Yes::
-	.string "YES$"
+	.string "JA$"
 OtherText_No::
-	.string "NO$"
+	.string "NEIN$"
 OtherText_Info2::
 	.string "INFO$"
 OtherText_SingleBattle::
-	.string "SINGLE BATTLE$"
+	.string "EINZELKAMPF$"
 OtherText_DoubleBattle::
-	.string "DOUBLE BATTLE$"
+	.string "DOPPELKAMPF$"
 OtherText_MultiBattle::
-	.string "MULTI BATTLE$"
+	.string "MULTIKAMPF$"
 OtherText_MrBriney::
-	.string "MR. BRINEY$"
+	.string "MR. BRACK$"
 OtherText_MakeAChallenge::
-	.string "Make a challenge.$"
+	.string "Zum Kampf fordern$"
 OtherText_ObtainInformation::
-	.string "Obtain information.$"
+	.string "Information dazu$"
 OtherText_Lv50_2::
-	.string "LV. 50$"
+	.string "Lv. 50$"
 OtherText_Lv100_2::
-	.string "LV. 100$"
+	.string "Lv. 100$"
 OtherText_Zigzagoon::
-	.string "ZIGZAGOON$"
+	.string "ZIGZACHS$"
 OtherText_Nincada::
 	.string "NINCADA$"
 OtherText_Poochyena::
-	.string "POOCHYENA$"
+	.string "FIFFYEN$"
 OtherText_Nincada2::
 	.string "NINCADA$"
 OtherText_Lotad::
-	.string "LOTAD$"
+	.string "LOTURZEL$"
 OtherText_Roselia::
 	.string "ROSELIA$"
 OtherText_Shroomish::
-	.string "SHROOMISH$"
+	.string "KNILZ$"
 OtherText_Nincada3::
 	.string "NINCADA$"
 OtherText_Surskit::
-	.string "SURSKIT$"
+	.string "GEHWEIHER$"
 OtherText_Treecko::
-	.string "TREECKO$"
+	.string "GECKARBOR$"
 OtherText_Torchic::
-	.string "TORCHIC$"
+	.string "FLEMMLI$"
 OtherText_Mudkip::
-	.string "MUDKIP$"
+	.string "HYDROPI$"
 OtherText_Seedot::
-	.string "SEEDOT$"
+	.string "SAMURZEL$"
 OtherText_Shroomish2::
-	.string "SHROOMISH$"
+	.string "KNILZ$"
 OtherText_Spinda::
-	.string "SPINDA$"
+	.string "PANDIR$"
 OtherText_Shroomish3::
-	.string "SHROOMISH$"
+	.string "KNILZ$"
 OtherText_Zigzagoon2::
-	.string "ZIGZAGOON$"
+	.string "ZIGZACHS$"
 OtherText_Wurmple::
-	.string "WURMPLE$"
+	.string "WAUMPEL$"
 OtherText_PokeBall::
-	.string "POKé BALL$"
+	.string "POKéBALL$"
 OtherText_SuperPotion::
-	.string "SUPER POTION$"
+	.string "SUPERTRANK$"
 OtherText_SamePrice::
-	.string "Same price$"
+	.string "Zum selben Preis$"
 OtherText_Yen135::
 	.string "¥135$"
 OtherText_Yen155::
@@ -29479,29 +29616,29 @@ OtherText_Yen155::
 OtherText_Yen175::
 	.string "¥175$"
 OtherText_CostMore::
-	.string "They will cost more.$"
+	.string "Sie kosten mehr.$"
 OtherText_CostLess::
-	.string "They will cost less.$"
+	.string "Sie kosten weniger.$"
 OtherText_SamePrice2::
-	.string "Same price$"
+	.string "Gleicher Preis$"
 OtherText_MaleSymbol::
 	.string "♂$"
 OtherText_FemaleSymbol::
 	.string "♀$"
 OtherText_Neither::
-	.string "Neither$"
+	.string "Weder noch$"
 OtherText_Males::
-	.string "Males$"
+	.string "Männer$"
 OtherText_Females::
-	.string "Females$"
+	.string "Frauen$"
 OtherText_SameNumber::
-	.string "Same number$"
+	.string "Gleich viele$"
 OtherText_Male::
-	.string "Male$"
+	.string "Männlich$"
 OtherText_Female::
-	.string "Female$"
+	.string "Weiblich$"
 OtherText_ItDepends::
-	.string "It depends$"
+	.string "Ansichtssache$"
 OtherText_Six2::
 	.string "6$"
 OtherText_Eight2::
@@ -29521,103 +29658,103 @@ OtherText_Seven::
 OtherText_Eight::
 	.string "8$"
 OtherText_FreshWater::
-	.string "FRESH WATER{CLEAR_TO 0x48}¥200$"
+	.string "TAFELWASSER{CLEAR_TO 72}¥200$"
 OtherText_SodaPop::
-	.string "SODA POP{CLEAR_TO 0x48}¥300$"
+	.string "SPRUDEL{CLEAR_TO 72}¥300$"
 OtherText_Lemonade::
-	.string "LEMONADE{CLEAR_TO 0x48}¥350$"
+	.string "LIMONADE{CLEAR_TO 72}¥350$"
 OtherText_HowToRide::
-	.string "HOW TO RIDE$"
+	.string "RAD FAHREN$"
 OtherText_HowToTurn::
-	.string "HOW TO TURN$"
+	.string "KURVEN FAHREN$"
 OtherText_SandySlopes::
-	.string "SANDY SLOPES$"
+	.string "SANDHÜGEL$"
 OtherText_Wheelies::
 	.string "WHEELIES$"
 OtherText_BunnyHops::
-	.string "BUNNY-HOPS$"
+	.string "HOPPELN$"
 OtherText_Jumping::
-	.string "JUMPING$"
+	.string "SPRINGEN$"
 OtherText_Satisfied::
-	.string "Satisfied$"
+	.string "Zufrieden$"
 OtherText_Dissatisfied::
-	.string "Dissatisfied$"
+	.string "Unzufrieden$"
 OtherText_Deepseatooth::
-	.string "DEEPSEATOOTH$"
+	.string "ABYSSZAHN$"
 OtherText_Deepseascale::
-	.string "DEEPSEASCALE$"
+	.string "ABYSSPLATTE$"
 OtherText_BlueFlute2::
-	.string "BLUE FLUTE$"
+	.string "BLAUE FLÖTE$"
 OtherText_YellowFlute2::
-	.string "YELLOW FLUTE$"
+	.string "GELBE FLÖTE$"
 OtherText_RedFlute2::
-	.string "RED FLUTE$"
+	.string "ROTE FLÖTE$"
 OtherText_WhiteFlute2::
-	.string "WHITE FLUTE$"
+	.string "WEISSE FLÖTE$"
 OtherText_BlackFlute2::
-	.string "BLACK FLUTE$"
+	.string "SCHWRZ. FLÖTE$"
 OtherText_GlassChair::
-	.string "GLASS CHAIR$"
+	.string "GLASSTUHL$"
 OtherText_GlassDesk::
-	.string "GLASS DESK$"
+	.string "GLASTISCH$"
 OtherText_TreeckoDoll::
-	.string "TREECKO DOLL 1,000 COINS$"
+	.string "GECKARBOR-PUPPE 1.000 M.$"
 OtherText_TorchicDoll::
-	.string "TORCHIC DOLL 1,000 COINS$"
+	.string "FLEMMLI-PUPPE 1.000 M.$"
 OtherText_MudkipDoll::
-	.string "MUDKIP DOLL   1,000 COINS$"
+	.string "HYDROPI-PUPPE 1.000 M.$"
 OtherText_50Coins::
-	.string "  50 COINS    ¥1,000$"
+	.string "  50 MÜNZEN    ¥1.000$"
 OtherText_500Coins::
-	.string "500 COINS  ¥10,000$"
+	.string "500 MÜNZEN  ¥10.000$"
 OtherText_Excellent::
-	.string "Excellent!$"
+	.string "Klasse!$"
 OtherText_NotSoHot::
-	.string "Not so hot$"
+	.string "Naja...$"
 OtherText_RedShard::
-	.string "RED SHARD$"
+	.string "PURPURSTÜCK$"
 OtherText_YellowShard::
-	.string "YELLOW SHARD$"
+	.string "GELBSTÜCK$"
 OtherText_BlueShard::
-	.string "BLUE SHARD$"
+	.string "INDIGOSTÜCK$"
 OtherText_GreenShard::
-	.string "GREEN SHARD$"
+	.string "GRÜNSTÜCK$"
 OtherText_BattleTower::
-	.string "BATTLE TOWER$"
+	.string "DUELLTURM$"
 OtherText_Right::
-	.string "Right$"
+	.string "Rechts$"
 OtherText_Left::
-	.string "Left$"
+	.string "Links$"
 OtherText_TM32::
-	.string "TM32  1,500 COINS$"
+	.string "TM32  1.500 MÜNZEN$"
 OtherText_TM29::
-	.string "TM29  3,500 COINS$"
+	.string "TM29  3.500 MÜNZEN$"
 OtherText_TM35::
-	.string "TM35  4,000 COINS$"
+	.string "TM35  4.000 MÜNZEN$"
 OtherText_TM24::
-	.string "TM24  4,000 COINS$"
+	.string "TM24  4.000 MÜNZEN$"
 OtherText_TM13::
-	.string "TM13  4,000 COINS$"
+	.string "TM13  4.000 MÜNZEN$"
 OtherText_1F_2::
-	.string "1F$"
+	.string "EG$"
 OtherText_2F_2::
-	.string "2F$"
+	.string "1S$"
 OtherText_3F_2::
-	.string "3F$"
+	.string "2S$"
 OtherText_4F_2::
-	.string "4F$"
+	.string "3S$"
 OtherText_5F_2::
-	.string "5F$"
+	.string "4S$"
 OtherText_Cool2::
-	.string "COOL$"
+	.string "COOL.$"
 OtherText_Beauty3::
-	.string "BEAUTY$"
+	.string "SCHÖN.$"
 OtherText_Cute2::
-	.string "CUTE$"
+	.string "ANMUT$"
 OtherText_Smart2::
-	.string "SMART$"
+	.string "KLUG.$"
 OtherText_Tough2::
-	.string "TOUGH$"
+	.string "STÄRKE$"
 OtherText_Normal::
 	.string "NORMAL$"
 OtherText_Super::
@@ -29627,554 +29764,583 @@ OtherText_Hyper::
 OtherText_Master::
 	.string "MASTER$"
 OtherText_Cool3::
-	.string "COOL$"
+	.string "COOL.$"
 OtherText_Beauty4::
-	.string "BEAUTY$"
+	.string "SCHÖN.$"
 OtherText_Cute3::
-	.string "CUTE$"
+	.string "ANMUT$"
 OtherText_Smart3::
-	.string "SMART$"
+	.string "KLUG.$"
 OtherText_Tough3::
-	.string "TOUGH$"
+	.string "STÄRKE$"
 OtherText_Items::
-	.string "ITEMS$"
+	.string "ITEM$"
 OtherText_KeyItems::
-	.string "KEY ITEMS$"
+	.string "BASIS-ITEM$"
 OtherText_Balls::
-	.string "BALLS$"
+	.string "BALL$"
 OtherText_TMsHMs::
-	.string "TMs & HMs$"
+	.string "TM/VM$"
 OtherText_Berries::
-	.string "BERRIES$"
+	.string "BEEREN$"
 
 gPCText_SomeonesPC:: @ 8410753
-	.string "SOMEONE’S PC$"
+	.string "JEMANDES PC$"
 
 gPCText_LanettesPC:: @ 8410760
-	.string "LANETTE’S PC$"
+	.string "LANETTES PC$"
 
 gPCText_PlayersPC:: @ 841076D
-	.string "{PLAYER}’s PC$"
+	.string "PC von {PLAYER}$"
 
 gPCText_HallOfFame:: @ 8410775
-	.string "HALL OF FAME$"
+	.string "RUHMESHALLE$"
 
 gPCText_LogOff:: @ 8410782
-	.string "LOG OFF$"
+	.string "AUSLOGGEN$"
 
 gOtherText_99Times:: @ 841078A
-	.string "99 times +$"
+	.string "99-mal +$"
 
 gOtherText_1Minute:: @ 8410795
-	.string "1 minute +$"
+	.string "1 Minute +$"
 
 gOtherText_Seconds:: @ 84107A0
-	.string " seconds$"
+	.string " Sekunden$"
 
 gOtherText_Times:: @ 84107A9
-	.string " times$"
+	.string "-mal$"
 	.string ".$"
 
 gOtherText_BigGuy:: @ 84107B2
-	.string "Big guy$"
+	.string "$"
 
 gOtherText_BigGirl:: @ 84107BA
-	.string "Big girl$"
+	.string "$"
 
 gOtherText_Son:: @ 84107C3
-	.string "son$"
+	.string "Sohn$"
 
 gOtherText_Daughter:: @ 84107C7
-	.string "daughter$"
+	.string "Tochter$"
 
 OtherText_BlueFlute:
-	.string "BLUE FLUTE$"
+	.string "BLAUE FLÖTE$"
 OtherText_YellowFlute:
-	.string "YELLOW FLUTE$"
+	.string "GELBE FLÖTE$"
 OtherText_RedFlute:
-	.string "RED FLUTE$"
+	.string "ROTE FLÖTE$"
 OtherText_WhiteFlute:
-	.string "WHITE FLUTE$"
+	.string "WEISSE FLÖTE$"
 OtherText_BlackFlute:
-	.string "BLACK FLUTE$"
+	.string "SCHWRZ. FLÖTE$"
 OtherText_PrettyChair:
-	.string "PRETTY CHAIR$"
+	.string "EDLER STUHL$"
 OtherText_PrettyDesk:
-	.string "PRETTY DESK$"
+	.string "EDLER TISCH$"
 OtherText_1F:
-	.string "1F$"
+	.string "EG$"
 OtherText_2F:
-	.string "2F$"
+	.string "1S$"
 OtherText_3F:
-	.string "3F$"
+	.string "2S$"
 OtherText_4F:
-	.string "4F$"
+	.string "3S$"
 OtherText_5F:
-	.string "5F$"
+	.string "4S$"
 OtherText_6F:
-	.string "6F$"
+	.string "5S$"
 OtherText_7F:
-	.string "7F$"
+	.string "6S$"
 OtherText_8F:
-	.string "8F$"
+	.string "7S$"
 OtherText_9F:
-	.string "9F$"
+	.string "8S$"
 OtherText_10F:
-	.string "10F$"
+	.string "9S$"
 OtherText_11F:
-	.string "11F$"
+	.string "10S$"
 OtherText_B1F:
-	.string "B1F$"
+	.string "U1S$"
 OtherText_B2F:
-	.string "B2F$"
+	.string "U2S$"
 OtherText_B3F:
-	.string "B3F$"
+	.string "U3S$"
 OtherText_B4F:
-	.string "B4F$"
+	.string "U4S$"
 OtherText_Rooftop:
-	.string "ROOFTOP$"
+	.string "DACH$"
 
 gOtherText_NowOn:: @ 841085E
-	.string "Now on:$"
+	.string "Momentan im$"
 
 gPCText_Cancel:: @ 8410866
-	.string "CANCEL$"
+	.string "ZURÜCK$"
 
 PCText_ExitBox:
-	.string "Exit from the BOX.$"
+	.string "Die BOX verlassen?$"
 PCText_WhatYouDo:
-	.string "What would you like to do?$"
+	.string "Was möchtest du tun?$"
 PCText_PickATheme:
-	.string "Please pick a theme.$"
+	.string "Wähle eine Motivsammlung.$"
 PCText_PickAWallpaper:
-	.string "Please pick out wallpaper.$"
+	.string "Wähle ein Hintergrundmotiv.$"
 PCText_IsSelected:
-	.string " is selected.$"
+	.string " ist ausgewählt.$"
 PCText_JumpToWhichBox:
-	.string "Jump to which BOX?$"
+	.string "Zu welcher BOX wechseln?$"
 PCText_DepositInWhichBox:
-	.string "Deposit in which BOX?$"
+	.string "In welche BOX ablegen?$"
 PCText_WasDeposited:
-	.string " was deposited.$"
+	.string " wurde abgelegt.$"
 PCText_BoxIsFull:
-	.string "The BOX is full.$"
+	.string "Die BOX ist voll.$"
 PCText_ReleasePoke:
-	.string "Release this POKéMON?$"
+	.string "Dieses POKéMON freilassen?$"
 PCText_WasReleased:
-	.string " was released.$"
+	.string "{STR_VAR_1} ist wieder frei.$"
 PCText_ByeBye:
-	.string "Bye-bye, !$"
+	.string "Tschüss, !$"
 PCText_MarkPoke:
-	.string "Mark your POKéMON.$"
+	.string "Markiere dein POKéMON.$"
 PCText_LastPoke:
-	.string "That’s your last POKéMON!$"
+	.string "Dein letztes POKéMON!$"
 PCText_PartyFull:
-	.string "Your party’s full!$"
+	.string "Dein Team ist voll!$"
 PCText_HoldingPoke:
-	.string "You’re holding a POKéMON!$"
+	.string "Du hältst ein POKéMON!$"
 PCText_WhichOneWillTake:
-	.string "Which one will you take?$"
+	.string "Welches wählst du aus?$"
 PCText_CantReleaseEgg:
-	.string "You can’t release an EGG.$"
+	.string "Du kannst kein EI freilass.!$"
 PCText_ContinueBox:
-	.string "Continue BOX operations?$"
+	.string "Die BOX weiter bearbeiten?$"
 PCText_CameBack:
-	.string " came back!$"
+	.string " kam zurück!$"
 PCText_Worried:
-	.string "Was it worried about you?$"
+	.string "War es in Sorge um dich?$"
 PCText_Surprise:
 	.string "... ... ... ... ...!$"
 PCText_PleaseRemoveMail:
-	.string "Please remove the MAIL.$"
+	.string "BRIEF bitte entfernen.$"
 PCText_Cancel2:
-	.string "CANCEL$"
+	.string "ZURÜCK$"
 PCText_Deposit:
-	.string "DEPOSIT$"
+	.string "ABLEGEN$"
 PCText_Withdraw:
-	.string "WITHDRAW$"
+	.string "NEHMEN$"
 PCText_Switch:
-	.string "SWITCH$"
+	.string "TAUSCHEN$"
 PCText_Move:
-	.string "MOVE$"
+	.string "BEWEGEN$"
 PCText_Place:
-	.string "PLACE$"
+	.string "ABSETZEN$"
 PCText_Summary:
-	.string "SUMMARY$"
+	.string "BERICHT$"
 PCText_Release:
-	.string "RELEASE$"
+	.string "ENTLASS.$"
 PCText_Mark:
-	.string "MARK$"
+	.string "MARKIER.$"
 PCText_Name:
-	.string "NAME$"
+	.string "BENENNEN$"
 PCText_Jump:
-	.string "JUMP$"
+	.string "WECHSELN$"
 PCText_Wallpaper:
-	.string "WALLPAPER$"
+	.string "MOTIV$"
 PCText_Scenery1:
-	.string "SCENERY 1$"
+	.string "LISTE 1$"
 PCText_Scenery2:
-	.string "SCENERY 2$"
+	.string "LISTE 2$"
 PCText_Scenery3:
-	.string "SCENERY 3$"
+	.string "LISTE 3$"
 PCText_Etc:
-	.string "ETCETERA$"
+	.string "SONSTIGES$"
 PCText_Forest:
-	.string "FOREST$"
+	.string "WALD$"
 PCText_City:
-	.string "CITY$"
+	.string "MAUER$"
 PCText_Desert:
-	.string "DESERT$"
+	.string "WÜSTE$"
 PCText_Savanna:
-	.string "SAVANNA$"
+	.string "STEPPE$"
 PCText_Crag:
-	.string "CRAG$"
+	.string "GERÖLL$"
 PCText_Volcano:
-	.string "VOLCANO$"
+	.string "VULKAN$"
 PCText_Snow:
-	.string "SNOW$"
+	.string "SCHNEE$"
 PCText_Cave:
-	.string "CAVE$"
+	.string "HÖHLE$"
 PCText_Beach:
-	.string "BEACH$"
+	.string "STRAND$"
 PCText_Seafloor:
-	.string "SEAFLOOR$"
+	.string "TIEFSEE$"
 PCText_River:
-	.string "RIVER$"
+	.string "FLUSS$"
 PCText_Sky:
-	.string "SKY$"
+	.string "HIMMEL$"
 PCText_Polka:
-	.string "POLKA-DOT$"
+	.string "PUNKTE$"
 PCText_PokeCenter:
 	.string "POKéCENTER$"
 PCText_Machine:
-	.string "MACHINE$"
+	.string "MASCHINE$"
 PCText_Plain:
-	.string "PLAIN$"
+	.string "WEISS$"
 PCText_WhatDoYouWant:
-	.string "What do you want?$"
+	.string "Was willst du tun?$"
 PCText_WithdrawPoke:
-	.string "WITHDRAW POKéMON$"
+	.string "POKéMON NEHMEN$"
 PCText_DepositPoke:
-	.string "DEPOSIT POKéMON$"
+	.string "POKéMON ABLEGEN$"
 PCText_MovePoke:
-	.string "MOVE POKéMON$"
+	.string "POKéMON BEWEGEN$"
 PCText_SeeYa:
-	.string "SEE YA!$"
+	.string "TSCHÜSSI!$"
 PCText_MovePokeToParty:
-	.string "Move POKéMON stored in BOXES to\nyour party.$"
+	.string "Nimm POKéMON aus einer\n"
+	.string "BOX in dein Team auf.$"
 PCText_StorePokeInBox:
-	.string "Store POKéMON in your party in BOXES.$"
+	.string "Lagere POKéMON aus deinem\n"
+	.string "Team in einer BOX.$"
 PCText_OrganizeBoxesParty:
-	.string "Organize the POKéMON in BOXES and\nin your party.$"
+	.string "Ordne POKéMON in den BOXEN\n"
+	.string "und/oder in deinem Team.$"
 PCText_ReturnToPrevMenu:
-	.string "Return to the previous menu.$"
+	.string "Zurück zum vorherigen Menü.$"
 
 gPCText_OnlyOne:: @ 8410C1C
-	.string "There is just one POKéMON with you.$"
+	.string "Du führst nur ein POKéMON mit dir.$"
 
 gPCText_PartyFull2:: @ 8410C40
-	.string "Your party is full!$"
+	.string "Dein Team ist voll!$"
 
 gPCText_BOX:: @ 8410C54
-	.string "BOX$"
+	.string "BOX $"
 
 PCText_CheckMap:
-	.string "{CLEAR 0}Check the map of the HOENN region.$"
+	.string "{CLEAR 0}Karte der HOENN-Region$"
 PCText_CheckPoke:
-	.string "{CLEAR 0}Check POKéMON in detail.$"
+	.string "{CLEAR 0}POKéMON-Daten im Detail$"
 PCText_CheckTrainer:
-	.string "{CLEAR 0}Check TRAINER information.$"
+	.string "{CLEAR 0}TRAINER-Daten im Detail$"
 PCText_CheckRibbons:
-	.string "{CLEAR 0}Check obtained RIBBONS.$"
+	.string "{CLEAR 0}Einsicht über BÄNDER$"
 PCText_PutAwayNav:
-	.string "{CLEAR 0}Put away the POKéNAV.$"
+	.string "{CLEAR 0}POKéNAV schließen$"
 PCText_NoRibbonWin:
-	.string "{CLEAR 0}There are no RIBBON winners.$"
+	.string "{CLEAR 0}Es gibt keine BÄNDER.$"
 PCText_NoTrainers:
-	.string "{CLEAR 0}No TRAINERS are registered.$"
+	.string "{CLEAR 0}Keine TRAINER-Daten aufgenommen$"
 PCText_CheckParty:
-	.string "{CLEAR 0}Check party POKéMON in detail.$"
+	.string "{CLEAR 0}Daten über POKéMON des Teams$"
 PCText_CheckPokeAll:
-	.string "{CLEAR 0}Check all POKéMON in detail.$"
+	.string "{CLEAR 0}Daten über alle POKéMON$"
 PCText_ReturnToNav:
-	.string "{CLEAR 0}Return to the POKéNAV menu.$"
+	.string "{CLEAR 0}Zurück zum POKéNAV-Menü$"
 PCText_FindCool:
-	.string "{CLEAR 0}Find cool POKéMON.$"
+	.string "{CLEAR 0}Nach coolen POKéMON suchen.$"
 PCText_FindBeauty:
-	.string "{CLEAR 0}Find beautiful POKéMON.$"
+	.string "{CLEAR 0}Nach schönen POKéMON suchen.$"
 PCText_FindCute:
-	.string "{CLEAR 0}Find cute POKéMON.$"
+	.string "{CLEAR 0}Nach anmutigen POKéMON suchen.$"
 PCText_FindSmart:
-	.string "{CLEAR 0}Find smart POKéMON.$"
+	.string "{CLEAR 0}Nach klugen POKéMON suchen.$"
 PCText_FindTough:
-	.string "{CLEAR 0}Find tough POKéMON.$"
+	.string "{CLEAR 0}Nach starken POKéMON suchen.$"
 PCText_ReturnToCondition:
-	.string "{CLEAR 0}Return to the CONDITION menu.$"
+	.string "{CLEAR 0}Zurück zum Menüpunkt ZUSTAND$"
 
 gOtherText_NumberRegistered:: @ 8410E22
-	.string "No. registered$"
+	.string "Registrierte:$"
 
 gOtherText_NumberBattles:: @ 8410E31
-	.string "No. of battles$"
+	.string "Kämpfe:$"
 
 gOtherText_Strategy:: @ 8410E40
-	.string "{PALETTE 5}STRATEGY$"
+	.string "{PALETTE 5}TAKTIK:$"
 
 gOtherText_TrainersPokemon:: @ 8410E4C
-	.string "{PALETTE 5}TRAINER’S POKéMON$"
+	.string "{PALETTE 5}POKéMON:$"
 
 gOtherText_SelfIntroduction:: @ 8410E61
-	.string "{PALETTE 5}SELF-INTRODUCTION$"
+	.string "{PALETTE 5}MOTTO:$"
 
 gOtherText_Nature2:: @ 8410E76
-	.string "NATURE/$"
+	.string "NATUR/$"
 
 gOtherText_InParty:: @ 8410E7E
-	.string "IN PARTY$"
+	.string "IM TEAM$"
 
 gOtherText_Number:: @ 8410E87
-	.string "No. $"
+	.string "Nr. $"
 
 gOtherText_Ribbons:: @ 8410E8C
-	.string "RIBBONS$"
+	.string "BÄNDER$"
 
 OtherText_MakeProfilePage1::
-	.string "Make your profile by combining$"
+	.string "Erstelle dein eigenes Profil:$"
 OtherText_MakeProfilePage2::
-	.string "four words or phrases.$"
+	.string "Kombiniere 4 Wörter/Ausdrücke.$"
 OtherText_MakeMessagePage1::
-	.string "Make a message with 6 phrases.$"
+	.string "Verwende 6 Ausdrücke.$"
 OtherText_MakeMessagePage2::
-	.string "Max. two 12-letter phrases/line.$"
+	.string "Max. pro Zeile 2-mal 12 Buchstaben$"
 OtherText_DescribeFeelingsPage1::
-	.string "Find words that describe your$"
+	.string "Finde Worte, die deine momentanen$"
 OtherText_DescribeFeelingsPage2::
-	.string "feelings right now.$"
+	.string "Empfindungen beschreiben.$"
 OtherText_WithFourPhrases::
-	.string "With four phrases,$"
+	.string "Verwende 4 Ausdrücke und$"
 OtherText_CombineNinePhrasesPage1::
-	.string "Combine nine phrases and$"
+	.string "Kombiniere 9 Ausdrücke und$"
 OtherText_CombineNinePhrasesPage2::
-	.string "make a message.$"
+	.string "erstelle eine Nachricht.$"
 OtherText_ImproveBardSongPage1::
-	.string "Change just one word or phrase$"
+	.string "Ändere nur 1 Wort/Ausdruck$"
 OtherText_ImproveBardSongPage2::
-	.string "and improve the BARD’s song.$"
+	.string "und verbessere das BARDEN-Lied.$"
 OtherText_YourProfile::
-	.string "Your profile $"
+	.string "Dein Profil$"
 OtherText_YourFeelingBattle::
-	.string "Your feeling at the battle’s start$"
+	.string "Deine Gefühle zum Kampfbeginn$"
 OtherText_SetWinMessage::
-	.string "What you say if you win a battle$"
+	.string "Deine Worte im Fall des Sieges$"
 OtherText_SetLossMessage::
-	.string "What you say if you lose a battle$"
+	.string "Deine Worte im Fall der Niederlage$"
 OtherText_TheAnswer::
-	.string "The answer$"
+	.string "Die Antwort$"
 OtherText_MailMessage::
-	.string "The MAIL message$"
+	.string "Der Inhalt des BRIEFES$"
 OtherText_MailSalutation::
-	.string "The MAIL salutation$"
+	.string "Der Gruß des BRIEFES$"
 OtherText_NewSong::
-	.string "The new song$"
+	.string "Das neue Lied$"
 OtherText_CombineTwoPhrasesPage1::
-	.string "Combine two phrases and$"
+	.string "Kombiniere 2 Ausdrücke und$"
 OtherText_CombineTwoPhrasesPage2::
-	.string "make a trendy saying.$"
+	.string "schaffe einen hippen Spruch.$"
 OtherText_ConfirmTrendyPage1::
-	.string "The trendy saying$"
+	.string "Der hippe Spruch$"
 OtherText_ConfirmTrendyPage2::
-	.string "is as shown. Okay?$"
+	.string "lautet also so. O.K.?$"
 OtherText_HipsterPage1::
-	.string "I’ll combine two phrases and$"
+	.string "Kombiniere 2 Ausdrücke und$"
 OtherText_HipsterPage2::
-	.string "teach you a good saying.$"
+	.string "bringe ihr einen guten Spruch bei.$"
 
 gOtherText_TextDeletedConfirmPage1:: @ 84110EE
-	.string "All the text being edited will$"
+	.string "Der gesamte verfasste Text wird$"
 
 gOtherText_TextDeletedConfirmPage2:: @ 841110D
-	.string "be deleted. Is that okay?$"
+	.string "gelöscht. Einverstanden?$"
 
 gOtherText_QuitEditing:: @ 8411127
-	.string "Quit editing?$"
+	.string "Das Textverfassen beenden?$"
 
 gOtherText_EditedTextNoSavePage1:: @ 8411135
-	.string "The edited text will not be saved.$"
+	.string "Der Text wird nicht gespeichert.$"
 
 gOtherText_EditedTextNoSavePage2:: @ 8411158
-	.string "Is that okay?$"
+	.string "Ist das in Ordnung?$"
 
 gOtherText_EnterAPhraseOrWord:: @ 8411166
-	.string "Please enter a phrase or word.$"
+	.string "Bitte Wort/Ausdruck eingeben.$"
 
 gOtherText_TextNoDelete:: @ 8411185
-	.string "The entire text can’t be deleted.$"
+	.string "Gesamter Text ist nicht löschbar.$"
 
 gOtherText_OnlyOnePhrase:: @ 84111A7
-	.string "Only one phrase may be changed.$"
+	.string "Nur ein Ausdruck ist änderbar.$"
 
 gOtherText_OriginalSongRestored:: @ 84111C7
-	.string "The original song will be restored.$"
+	.string "Das Lied wird wiederhergestellt.$"
 
 gOtherText_TrendyAlready:: @ 84111EB
-	.string "That’s trendy already!$"
+	.string "Das ist bereits hip.$"
 
 gOtherText_CombineTwoPhrases:: @ 8411202
-	.string "Combine two words or phrases.$"
+	.string "Kombiniere 2 Wörter/Ausdrücke.$"
 
 gOtherText_QuitGivingInfo:: @ 8411220
-	.string "Quit giving information?$"
+	.string "Keine weiteren Infos liefern?$"
 
 gOtherText_StopGivingMail:: @ 8411239
-	.string "Stop giving the POKéMON MAIL?$"
+	.string "POKéMON keinen BRIEF geben?$"
 
 gOtherText_Profile:: @ 8411257
-	.string "PROFILE$"
+	.string "PROFIL$"
 
 gOtherText_AtBattleStart:: @ 841125F
-	.string "At the battle’s start.$"
+	.string "Zum Kampfbeginn$"
 
 gOtherText_UponWinningBattle:: @ 8411276
-	.string "Upon winning a battle.$"
+	.string "Über den Sieg$"
 
 gOtherText_UponLosingBattle:: @ 841128D
-	.string "Upon losing a battle.$"
+	.string "Über die Niederlage$"
 
 gOtherText_TheBardsSong:: @ 84112A3
-	.string "The BARD’s Song$"
+	.string "Das BARDEN-Lied$"
 
 gOtherText_WhatsHipHappening:: @ 84112B3
-	.string "What’s hip and happening?$"
+	.string "Was ist hip? Was ist top?$"
 
 gOtherText_Interview:: @ 84112CD
 	.string "Interview$"
 
 gOtherText_GoodSaying:: @ 84112D7
-	.string "Good saying$"
+	.string "Guter Spruch$"
 
 OtherText_SoPretty::
-	.string " so pretty!$"
+	.string " so hübsch!$"
 OtherText_SoDarling::
-	.string " so darling!$"
+	.string " so reizend!$"
 OtherText_SoRelaxed::
-	.string " so relaxed!$"
+	.string " so lässig!$"
 OtherText_SoSunny::
-	.string " so sunny!$"
+	.string " so überwältigend!$"
 OtherText_SoDesirable::
-	.string " so desirable!$"
+	.string " so erstrebenswert!$"
 OtherText_SoExciting::
-	.string " so exciting!$"
+	.string " so aufregend!$"
 OtherText_SoAmusing::
-	.string " so amusing!$"
+	.string " so amüsant!$"
 OtherText_SoMagical::
-	.string " so magical!$"
+	.string " so zauberhaft!$"
 
 gOtherText_Is:: @ 841134B
-	.string " is$"
+	.string " klingt$"
 
 gOtherText_DontYouAgree:: @ 841134F
-	.string "\nDon’t you agree?$"
+	.string "\n"
+	.string "Findest du nicht auch?$"
 
 OtherText_WantVacationNicePlace::
-	.string "I so want to go on a vacation.\nWould you happen to know a nice place?$"
+	.string "Ich will unbedingt verreisen!\n"
+	.string "Kennst du ein hübsches Reiseziel?$"
 OtherText_BoughtCrayonsIsNice::
-	.string "I bought crayons with 120 colors!\nDon’t you think that’s nice?$"
+	.string "Ich habe 120 verschiedene Farbstifte\n"
+	.string "gekauft! Das ist doch toll, oder?$"
 OtherText_IfWeCouldFloat::
-	.string "Wouldn’t it be nice if we could float\naway on a cloud of bubbles?$"
+	.string "Wäre es nicht herrlich, wir könnten auf\n"
+	.string "einer Luftblasenwolke davonschweben?$"
 OtherText_SandWashesAwayMakeSad::
-	.string "When you write on a sandy beach,\nthey wash away. It makes me sad.$"
+	.string "Eine Botschaft in Sand geschrieben\n"
+	.string "wird weggespült. Das ist traurig.$"
 OtherText_WhatsBottomSeaLike::
-	.string "What’s the bottom of the sea like?\nJust once I would so love to go!$"
+	.string "Wie der Meeresgrund wohl ist? Ich\n"
+	.string "würde ihn so gerne einmal erleben!$"
 OtherText_SeeSettingSun::
-	.string "When you see the setting sun, does it\nmake you want to go home?$"
+	.string "Sehnst du dich beim Anblick der unter-\n"
+	.string "gehenden Sonne nach deinem Zuhause?$"
 OtherText_LyingInGreenGrass::
-	.string "Lying back in the green grass...\nOh, it’s so, so nice!$"
+	.string "Einfach so im grünen Gras liegen...\n"
+	.string "Oh, das ist so was von angenehm!$"
 OtherText_SecretBasesWonderful::
-	.string "SECRET BASES are so wonderful!\nCan’t you feel the excitement?$"
+	.string "GEHEIMBASEN sind superklasse!\n"
+	.string "Findest du das nicht auch aufregend?$"
 OtherText_PokeLeague::
-	.string "POKéMON LEAGUE$"
+	.string "POKéMON LIGA$"
 OtherText_PokeCenter::
-	.string "POKéMON CENTER$"
+	.string "POKéMON-CENTER$"
 
 gOtherText_GetsAPokeBlock:: @ 8411581
-	.string " gets a {POKEBLOCK}?$"
+	.string " erhält einen {POKEBLOCK}?$"
 
 OtherText_Coolness::
 	.string "Coolness $"
 OtherText_Beauty::
-	.string "Beauty $"
+	.string "Schönheit $"
 OtherText_Cuteness::
-	.string "Cuteness $"
+	.string "Anmut $"
 OtherText_Smartness::
-	.string "Smartness $"
+	.string "Klugheit $"
 OtherText_Toughness::
-	.string "Toughness $"
+	.string "Stärke $"
 
 gOtherText_WasEnhanced:: @ 84115C2
-	.string "was enhanced!$"
+	.string "wurde erhöht!$"
 
 gOtherText_NothingChanged:: @ 84115D0
-	.string "Nothing changed!$"
+	.string "Keine Veränderung eingetreten!$"
 
 gOtherText_WontEat:: @ 84115E1
-	.string "It won’t eat anymore...$"
+	.string "Es will nicht mehr essen.$"
 
 gSystemText_SaveFailedBackupCheck:: @ 84115F9
-	.string "Save failed.\nChecking the backup memory...\nPlease wait.\n{COLOR RED}“Time required: 1 minute”$"
+	.string "Speicherfehler\n"
+	.string "Backup Memory wird geprüft.\n"
+	.string "Bitte warten...\n"
+	.string "{COLOR RED}“Benötigte Zeit: 1 Minute”$"
 
 gSystemText_BackupDamagedGameContinue:: @ 841164E
-	.string "The backup memory is damaged or\nthe internal battery has run dry.\nThe game can be played. However,\nprogress cannot be saved.$"
+	.string "Backup Memory defekt oder\n"
+	.string "interne Batterie verbraucht!\n"
+	.string "Spiel kann fortgesetzt werden.\n"
+	.string "Weiteres Speichern nicht möglich.$"
 
 gSystemText_GameplayEnded:: @ 84116CB
-	.string "{COLOR RED}“Gameplay cannot be continued.\nReturning to the title screen...”$"
+	.string "{COLOR RED}“Spiel fortsetzen nicht möglich.\n"
+	.string "Zurück zum Titelbildschirm...”$"
 
 gSystemText_CheckCompleteSaveAttempt:: @ 841170F
-	.string "Check completed.\nAttempting to save again.\nPlease wait.$"
+	.string "Überprüfung beendet.\n"
+	.string "Neuer Speicherversuch erfolgt.\n"
+	.string "Bitte warten...$"
 
 gSystemText_SaveCompletedGameEnd:: @ 8411747
-	.string "Save completed.\n{COLOR RED}“Gameplay cannot be continued.\nReturning to the title screen.”$"
+	.string "Speichern beendet.\n"
+	.string "{COLOR RED}“Spiel fortsetzen nicht möglich.\n"
+	.string "Zurück zum Titelbildschirm.”$"
 
 gSystemText_SaveCompletedPressA:: @ 8411799
-	.string "Save completed.\n{COLOR RED}“Please press the A Button.”$"
+	.string "Speichern beendet.\n"
+	.string "{COLOR RED}“Bitte A-Knopf drücken.”$"
 
 gOtherText_Ferry:: @ 84117C9
-	.string "FERRY$"
+	.string "FÄHRE$"
 
 gOtherText_SecretBase:: @ 84117CF
-	.string "SECRET BASE$"
+	.string "GEHEIMBASIS$"
 
 gOtherText_Hideout:: @ 84117DB
-	.string "HIDEOUT$"
+	.string "VERSTECK$"
 
 gSystemText_ResetRTCPrompt:: @ 84117E3
-	.string "Reset RTC?\nA: Confirm, B: Cancel$"
+	.string "Echtzeituhr zurücksetzen?\n"
+	.string "A: Bestätigen, B: Zurück$"
 
 gSystemText_PresentTime:: @ 8411804
-	.string "Present time in game$"
+	.string "Aktuelle Uhrzeit im Spiel$"
 
 gSystemText_PreviousTime:: @ 8411819
-	.string "Previous time in game$"
+	.string "Vorherige Uhrzeit im Spiel$"
 
 gSystemText_PleaseResetTime:: @ 841182F
-	.string "Please reset the time.$"
+	.string "Bitte die Zeit zurückstellen.$"
 
 gSystemText_ClockResetDataSave:: @ 8411846
-	.string "The clock has been reset.\nData will be saved. Please wait.$"
+	.string "Die Uhr wurde zurückgestellt. Daten\n"
+	.string "werden gesichert. Bitte warten...$"
 
 gSystemText_SaveCompleted:: @ 8411881
-	.string "Save completed.$"
+	.string "Speichern beendet.$"
 
 gSystemText_SaveFailed:: @ 8411891
-	.string "Save failed...$"
+	.string "Speichern fehlgeschlagen.$"
 
 gSystemText_NoSaveFileNoTime:: @ 84118A0
-	.string "There is no save file, so the time\ncan’t be set.$"
+	.string "Es existiert kein Speicherstand. Uhr-\n"
+	.string "zeit kann nicht eingestellt werden.$"
 
 gSystemText_ClockAdjustmentUsable:: @ 84118D1
-	.string "The in-game clock adjustment system\nis now useable.$"
+	.string "Das spielinterne Zeiteingabe-\n"
+	.string "System ist jetzt verfügbar.$"
 
 gSystemText_Saving:: @ 8411905
-	.string "SAVING...\nDON’T TURN OFF THE POWER.$"
+	.string "SPEICHERVORGANG...\n"
+	.string "GERÄT NICHT AUSSCHALTEN!$"
 
 	.align 2
 gUnknown_0841192C:: @ 841192C
@@ -30928,64 +31094,70 @@ gUnknown_0842C29C:: @ 842C29C
 
 	@ unused
 gOtherText_TopSpeed::
-	.string "TOP SPEED$"
+	.string "TEMPO$"
 
 gMultiText_BerryBlenderMaxSpeedRecord:: @ 842C2E6
-	.string "BERRY BLENDER\nMAXIMUM SPEED RECORD!$"
+	.string "BEERENMIXER\n"
+	.string "MAXIMALTEMPO-REKORD!$"
 
 gMultiText_2P3P4P:: @ 842C30A
-	.string "2 PLAYERS\n3 PLAYERS\n4 PLAYERS$"
+	.string "2 SPIELER\n"
+	.string "3 SPIELER\n"
+	.string "4 SPIELER$"
 
 gMultiText_Saving:: @ 842C328
-	.string "SAVING...\nDON’T TURN OFF THE POWER.$"
+	.string "SPEICHERVORGANG...\n"
+	.string "DAS GERÄT NICHT AUSSCHALTEN!$"
 
 gMultiText_LinkError:: @ 842C34C
-	.string "{HIGHLIGHT TRANSPARENT}{COLOR WHITE2}Link error...\nCheck your Game Link cable connection,\nand turn the power off and on.$"
+	.string "{HIGHLIGHT TRANSPARENT}{COLOR WHITE2}Verbindungsfehler...\n"
+	.string "Die Kabelverbindungen überprüfen und\n"
+	.string "die Geräte aus- und wieder einschalten.$"
 
 gSystemText_OptionMenu:: @ 842C3A6
-	.string "{PALETTE 9}OPTION$"
+	.string "{PALETTE 9}OPTIONEN$"
 
 gSystemText_TextSpeed:: @ 842C3B0
-	.string "{PALETTE 9}TEXT SPEED$"
+	.string "{PALETTE 9}TEXT-TEMPO$"
 
 gSystemText_BattleScene:: @ 842C3BE
-	.string "{PALETTE 9}BATTLE SCENE$"
+	.string "{PALETTE 9}ANIMATION$"
 
 gSystemText_BattleStyle:: @ 842C3CE
-	.string "{PALETTE 9}BATTLE STYLE$"
+	.string "{PALETTE 9}KAMPFSTIL$"
 
 gSystemText_Sound:: @ 842C3DE
-	.string "{PALETTE 9}SOUND$"
+	.string "{PALETTE 9}TON$"
 
 gSystemText_Frame:: @ 842C3E7
-	.string "{PALETTE 9}FRAME$"
+	.string "{PALETTE 9}RAHMEN$"
 
 gSystemText_Cancel:: @ 842C3F0
-	.string "{PALETTE 9}CANCEL$"
+	.string "{PALETTE 9}ZURÜCK$"
 
 gSystemText_ButtonMode:: @ 842C3FA
-	.string "{PALETTE 9}BUTTON MODE$"
+	.string "{PALETTE 9}KNOPFBELEGUNG$"
 
 gSystemText_Slow:: @ 842C409
-	.string "{PALETTE 15}SLOW$"
+	.string "{PALETTE 15}1$"
 
 gSystemText_Mid:: @ 842C411
-	.string "{PALETTE 15}MID$"
+	.string "{PALETTE 15}2$"
 
 gSystemText_Fast:: @ 842C418
-	.string "{PALETTE 15}FAST$"
+	.string "{PALETTE 15}3$"
 
 gSystemText_On:: @ 842C420
-	.string "{PALETTE 15}ON$"
+	.string "{PALETTE 15}EIN$"
 
 gSystemText_Off:: @ 842C426
-	.string "{PALETTE 15}OFF$"
+	.string "{PALETTE 15}AUS$"
 
 gSystemText_Shift:: @ 842C42D
-	.string "{PALETTE 15}SHIFT$"
+	.string "{PALETTE 15}WECHSEL$"
 
 gSystemText_Set:: @ 842C436
-	.string "{PALETTE 15}SET$"
+	.string "{PALETTE 15}FOLGE$"
 
 gSystemText_Mono:: @ 842C43D
 	.string "{PALETTE 15}MONO$"
@@ -30994,7 +31166,7 @@ gSystemText_Stereo:: @ 842C445
 	.string "{PALETTE 15}STEREO$"
 
 gSystemText_Type:: @ 842C44F
-	.string "{PALETTE 15}TYPE$"
+	.string "{PALETTE 15}MOTIV $"
 
 gSystemText_Terminator:: @ 842C457
 	.string "{PALETTE 8}$"
@@ -31003,7 +31175,7 @@ gSystemText_Normal:: @ 842C45B
 	.string "{PALETTE 15}NORMAL$"
 
 gSystemText_LR:: @ 842C465
-	.string "{PALETTE 15}LR$"
+	.string "{PALETTE 15}L/R$"
 
 gSystemText_LA:: @ 842C46B
 	.string "{PALETTE 15}L=A$"
@@ -31013,100 +31185,111 @@ SystemText_Pokedex:
 SystemText_Pokemon:
 	.string "POKéMON$"
 SystemText_BAG:
-	.string "BAG$"
+	.string "BEUTEL$"
 SystemText_Pokenav:
 	.string "POKéNAV$"
 SystemText_Player:
 	.string "{PLAYER}$"
 SystemText_Save:
-	.string "SAVE$"
+	.string "SICHERN$"
 SystemText_Option:
-	.string "OPTION$"
+	.string "OPTION.$"
 SystemText_Exit:
-	.string "EXIT$"
+	.string "BEENDEN$"
 SystemText_Retire: @ safari zone?
-	.string "RETIRE$"
+	.string "SCHLUSS$"
 
 gOtherText_SafariStock:: @ 842C4A9
-	.string "SAFARI BALLS\nStock: {STR_VAR_1}$"
+	.string "SAFARIBÄLLE\n"
+	.string "Vorrat: {STR_VAR_1}$"
 
 gSystemText_LinkStandby:: @ 842C4C0
-	.string "Link standby...\n... ... B Button: Cancel$"
+	.string "Verbindung...\n"
+	.string "... ... B-Knopf: Abbrechen$"
 
 gSystemText_LoadEventPressA:: @ 842C4E9
-	.string "Press the A Button to load event.\n... ... B Button: Cancel$"
+	.string "Lade Geschehen mit A-Knopf.\n"
+	.string "... ... B-Knopf: Abbrechen$"
 
 gSystemText_LoadingEvent:: @ 842C524
-	.string "Loading event...$"
+	.string "Geschehen wird geladen.$"
 
 gSystemText_DontCutLink:: @ 842C535
-	.string "Don’t remove the Game Link cable.\nDon’t turn off the power.$"
+	.string "Verbindungskabel nicht entfernen!\n"
+	.string "Die Geräte nicht ausschalten!$"
 
 gSystemText_EventLoadSuccess:: @ 842C571
-	.string "The event was safely loaded.$$"
+	.string "Geschehen ist erfolgreich geladen.$$"
 
 gSystemText_LoadingError:: @ 842C58F
-	.string "Loading error.\nEnding session.$$$$$$$$"
+	.string "Fehler beim Laden!\n"
+	.string "Vorgang wird abgebrochen.$$$$$$$$"
 
 gOtherText_Hoenn:: @ 842C5B5
 	.string "HOENN$"
 
 gOtherText_OhABite:: @ 842C5BB
-	.string "Oh! A bite!$"
+	.string "Oh! Da hat etwas angebissen!$"
 
 gOtherText_PokeOnHook:: @ 842C5C7
-	.string "A POKéMON’s on the hook!{PAUSE_UNTIL_PRESS}$"
+	.string "Du hast ein POKéMON am Haken!{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_NotEvenANibble:: @ 842C5E2
-	.string "Not even a nibble...{PAUSE_UNTIL_PRESS}$"
+	.string "Nicht mal ein klitzekleines Knabbern...{PAUSE_UNTIL_PRESS}$"
 
 gOtherText_ItGotAway:: @ 842C5F9
-	.string "It got away...{PAUSE_UNTIL_PRESS}$$"
+	.string "Es ist entkommen...{PAUSE_UNTIL_PRESS}$$"
 
 gTradeText_WillBeSent:: @ 842C60B
-	.string "{STR_VAR_2} will be sent to {STR_VAR_1}.$"
+	.string "{STR_VAR_2} wird {STR_VAR_1} zugesandt.$"
 
 gTradeText_ByeBye:: @ 842C622
-	.string "Bye-bye, {STR_VAR_2}!$"
+	.string "Tschüss, {STR_VAR_2}!$"
 
 gTradeText_SentOverPoke:: @ 842C62F
-	.string "{STR_VAR_1} sent over {STR_VAR_3}.$"
+	.string "{STR_VAR_1} versandte {STR_VAR_3}.$"
 
 gTradeText_TakeGoodCare:: @ 842C640
-	.string "Take good care of {STR_VAR_3}!$"
+	.string "Kümmere dich gut um {STR_VAR_3}!$"
 
 TradeText_Cancel:
-	.string "CANCEL$"
+	.string "ZUR.$"
 TradeText_ChoosePoke:
-	.string "Choose a POKéMON.$"
+	.string "Wähle ein POKéMON.$"
 TradeText_Summary1:
-	.string "SUMMARY$"
+	.string "BERICHT$"
 TradeText_Trade1:
-	.string "TRADE$"
+	.string "TAUSCH$"
 TradeText_CancelTradePrompt:
-	.string "Cancel trade?$"
+	.string "Tausch abbrechen?$"
 TradeText_PressBToExit:
-	.string "Press the B Button to exit.$"
+	.string "Mit B-Knopf beenden.$"
 TradeText_Summary2:
-	.string "SUMMARY$"
+	.string "BERICHT$"
 TradeText_Trade2:
-	.string "TRADE$"
+	.string "TAUSCH$"
 TradeText_LinkStandby:
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Link standby...\nPlease wait.$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Verbindung...\n"
+	.string "Bitte warten...$"
 TradeText_TradeCancelled:
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}The trade has\nbeen canceled.$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Der Tausch\n"
+	.string "wurde abgebrochen.$"
 TradeText_OnlyPoke:
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}That’s your only\nPOKéMON for battle.$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Das ist das einzige\n"
+	.string "POKéMON zum Kampf.$"
 TradeText_NonTradablePoke:
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Your friend can’t\ntrade that one.$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Dein Freund kann\n"
+	.string "das nicht senden.$"
 TradeText_WaitingForFriend:
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Waiting for your\nfriend to finish...$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Dein Freund ist\n"
+	.string "noch nicht fertig...$"
 TradeText_WantToTrade:
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Your friend wants\nto trade POKéMON.$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}Dein Freund möchte\n"
+	.string "POKéMON tauschen.$"
 	.string "$"
 
 gTradeText_TradeOkayPrompt:: @ 842C7B6
-	.string "Is this trade okay?$"
+	.string "Ist der Tausch O.K.?$"
 
 gOtherText_Terminator2:: @ 842C7CA
 	.string "$"
@@ -31114,7 +31297,7 @@ gOtherText_Terminator2:: @ 842C7CA
 gOtherText_ControlAndMiscText:: @ 842C7CB
 	.string "\n$"
 	.string "/$"
-	.string "Lv$"
+	.string "Lv.$"
 	.string "---$"
 
 gOtherText_FourQuestions:: @ 842C7D6
@@ -31127,79 +31310,81 @@ gOtherText_ThreeQuestions:: @ 842C890
 	.string "???$"
 
 gOtherText_From:: @ 842C894
-	.string "From $"
+	.string "Von $"
 
 gOtherText_MixingRecordsWithFriend:: @ 842C89A
-	.string "Mixing records...$"
+	.string "Rekorddaten-Austausch...$"
 
 gOtherText_MixingComplete:: @ 842C8AC
-	.string "Record mixing completed.\nThank you for waiting.$"
+	.string "Rekorddaten-Austausch beendet.\n"
+	.string "Vielen Dank für deine Geduld.$"
 
 gOtherText_TrainersTrainerCard:: @ 842C8DC
-	.string "’s TRAINER CARD$"
+	.string "TRAINERPASS von {PLAYER}$"
 
 gOtherText_FirstHOF:: @ 842C8EC
-	.string "FIRST HALL OF FAME$"
+	.string "ERSTE RUHMESHALLE:$"
 
 gOtherText_LinkCableBattles:: @ 842C8FF
-	.string "LINK CABLE BATTLES  W/            L/$"
+	.string "KÄMPFE GG. FREUND/E  S.:            N.:$"
 
 gOtherText_BattleTowerWinRecord:: @ 842C924
-	.string "BATTLE TOWER W/{CLEAR_TO 0x72}&{CLEAR_TO 0x98}STRAIGHT$"
+	.string "DUELLTURM-S.:{CLEAR_TO 114}&{CLEAR_TO 152} IN FOLGE$"
 
 gOtherText_ContestRecord:: @ 842C943
-	.string "CONTESTS W/FRIENDS W/$"
+	.string "WETTB. MIT FREUND/EN S.:$"
 
 gOtherText_MixingRecord:: @ 842C959
-	.string "{POKEBLOCK}S W/FRIENDS$"
+	.string "{POKEBLOCK} MIT FREUND/EN:$"
 
 gOtherText_TradeRecord:: @ 842C96A
-	.string "POKéMON TRADES$"
+	.string "POKéMON-TAUSCH:$"
 
 gOtherText_Boy:: @ 842C979
-	.string "BOY$"
+	.string "JUNGE$"
 
 gOtherText_Girl:: @ 842C97D
-	.string "GIRL$"
+	.string "MÄDEL$"
 	.string "$"
 
 gOtherText_Player:: @ 842C983
-	.string "PLAYER$"
+	.string "SPIELER$"
 
 gOtherText_Badges:: @ 842C98A
-	.string "BADGES$"
+	.string "ORDEN$"
 	.string "$"
 
 gOtherText_Pokedex:: @ 842C992
 	.string "POKéDEX$"
 
 gOtherText_PlayTime:: @ 842C99A
-	.string "PLAY TIME$"
+	.string "SPIELZEIT$"
 
 gOtherText_SentToPC:: @ 842C9A4
-	.string "{STR_VAR_1} was sent to\nthe PC.{PAUSE_UNTIL_PRESS}$"
+	.string "{STR_VAR_1} wurde auf\n"
+	.string "den PC übertragen.{PAUSE_UNTIL_PRESS}$"
 
 OtherText_YourName:
-	.string "YOUR NAME?$"
+	.string "DEIN NAME?$"
 OtherText_BoxName:
-	.string "BOX NAME?$"
+	.string "NAME DER BOX?$"
 OtherText_PokeName:
-	.string "{STR_VAR_1}’s nickname?$"
+	.string "Kosename f. {STR_VAR_1}$"
 
 gOtherText_Marco:: @ 842C9E1
 	.string "MARCO$" @ polo
 
 gOtherText_Coins:: @ 842C9E7
-	.string "{STR_VAR_1} COINS$"
+	.string "{STR_VAR_1} MÜNZ.$"
 
 gOtherText_BattleResults:: @ 842C9F0
-	.string "{PLAYER}’s BATTLE RESULTS$"
+	.string "KAMPFERGEBNISSE von {PLAYER}$"
 
 gOtherText_WinRecord:: @ 842CA04
-	.string "TOTAL RECORD W/{STR_VAR_1} L/{STR_VAR_2} D/{STR_VAR_3}$"
+	.string "GESAMT-REKORD S.:{STR_VAR_1} N.:{STR_VAR_2} P.:{STR_VAR_3}$"
 
 gOtherText_WinLoseDraw:: @ 842CA20
-	.string "WIN        LOSE        DRAW$"
+	.string "SIEG      NIEDER.     PATT$"
 
 gOtherText_SevenDashes:: @ 842CA3C
 	.string "-------$"
@@ -31208,276 +31393,324 @@ gOtherText_FourDashes:: @ 842CA44
 	.string "----$"
 
 gOtherText_BattleTowerResults:: @ 842CA49
-	.string "{PLAYER}’s BATTLE TOWER RESULTS$"
+	.string "DUELLTURM-ERGEBNIS. von {PLAYER}$"
 
 gOtherText_Lv50:: @ 842CA63
-	.string "LV 50$"
+	.string "Lv. 50$"
 
 gOtherText_Lv100:: @ 842CA69
-	.string "LV 100$"
+	.string "Lv. 100$"
 
 gOtherText_WinStreak:: @ 842CA70
-	.string "{STR_VAR_1}W STREAK$"
+	.string "{STR_VAR_1}S IN FOLGE$"
 
 gOtherText_Current:: @ 842CA7B
-	.string "CURRENT$"
+	.string "MOMENTAN$"
 
 gOtherText_Record:: @ 842CA83
-	.string "RECORD$"
+	.string "REKORD$"
 
 gOtherText_Prev:: @ 842CA8A
-	.string "PREV.$"
+	.string "VORHER$"
 
 gOtherText_QuitGamePrompt:: @ 842CA90
-	.string "Quit the game?$"
+	.string "Spiel beenden?$"
 
 gOtherText_MaxCoins:: @ 842CA9F
-	.string "You’ve got 9,999 COINS.$"
+	.string "Du hast 9.999 MÜNZEN.$"
 
 gOtherText_OutOfCoins:: @ 842CAB7
-	.string "You’ve run out of COINS.\nGame over!$"
+	.string "Du hast keine MÜNZEN mehr.\n"
+	.string "Game over!$"
 
 gOtherText_DontHaveThreeCoins:: @ 842CADB
-	.string "You don’t have three COINS.$"
+	.string "Du hast keine drei MÜNZEN.$"
 
 gOtherText_ReelTime:: @ 842CAF7
-	.string "REEL TIME\nHere’s your chance to take\naim and nail marks!\nThe Reel Time continues for\nas often as the drawn number.\nIt all ends on a Big Bonus.$"
+	.string "REEL TIME\n"
+	.string "Hier hast du die Chance, in\n"
+	.string "Blitzesschnelle zu gewinnen!\n"
+	.string "Die Glücksrunde wiederholt\n"
+	.string "sich, so oft die Zahl anzeigt.\n"
+	.string "Sie endet mit einem BIG BONUS!$"
 
 DaycareText_GetAlongVeryWell::
-	.string "The two seem to get along very well.$"
+	.string "Die beiden scheinen sich sehr zu mögen.$"
 DaycareText_GetAlong::
-	.string "The two seem to get along.$"
+	.string "Die beiden scheinen sich zu vertragen.$"
 DaycareText_DontLikeOther::
-	.string "The two don’t seem to like each other.$"
+	.string "Die beiden mögen sich nicht sehr.$"
 DaycareText_PlayOther::
-	.string "The two prefer to play with other\nPOKéMON than each other.$"
+	.string "Die beiden spielen lieber mit anderen\n"
+	.string "POKéMON als miteinander.$"
 
 gOtherText_NewLine2:: @ 842CC28
 	.string "\n$"
 
 gOtherText_CancelAndLv:: @ 842CC2A
-	.string "CANCEL$"
-	.string "LV$"
+	.string "KEINES$"
+	.string "Lv.$"
 
 gEggNickname:: @ 842CC34
-	.string "EGG$"
+	.string "EI$"
 
 gOtherText_HatchedFromEgg:: @ 842CC38
-	.string "{COLOR WHITE2}{HIGHLIGHT TRANSPARENT}{SHADOW DARK_GREY}{STR_VAR_1} hatched from the EGG!$"
+	.string "{COLOR WHITE2}{HIGHLIGHT TRANSPARENT}{SHADOW DARK_GREY}{STR_VAR_1} schlüpfte aus dem EI!$"
 
 gOtherText_NickHatchPrompt:: @ 842CC5A
-	.string "{COLOR WHITE2}{HIGHLIGHT TRANSPARENT}{SHADOW DARK_GREY}Would you like to nickname the newly\nhatched {STR_VAR_1}?$"
+	.string "{COLOR WHITE2}{HIGHLIGHT TRANSPARENT}{SHADOW DARK_GREY}Möchtest du dem geschlüpften\n"
+	.string "{STR_VAR_1} einen Kosenamen geben?$"
 
 OtherText_Battle::
-	.string "BATTLE$"
+	.string "KAMPF$"
 OtherText_Contest::
-	.string "CONTEST$"
+	.string "WETTB.$"
 OtherText_Type::
-	.string "TYPE/$"
+	.string "TYP/$"
 OtherText_PP::
-	.string "PP/$"
+	.string "AP/$"
 OtherText_Power::
-	.string "POWER$"
+	.string "STÄRKE$"
 OtherText_Accuracy::
-	.string "ACCURACY$"
+	.string "GENAU.$"
 OtherText_Appeal::
-	.string "APPEAL$"
+	.string "AUSDRUCK$"
 OtherText_Jam::
-	.string "JAM$"
+	.string "EINDRUCK$"
 
 gOtherText_TeachWhichMove:: @ 842CCC7
-	.string "Teach which move to {STR_VAR_1}?$"
+	.string "{STR_VAR_1} welche Attacke beibr.?$"
 
 gOtherText_TeachSpecificMove:: @ 842CCDF
-	.string "Teach {STR_VAR_2}?$"
+	.string "{STR_VAR_2} beibringen?$"
 
 gOtherText_PokeLearnedMove:: @ 842CCE9
-	.string "{STR_VAR_1} learned {STR_VAR_2}.$"
+	.string "{STR_VAR_1} erlernte {STR_VAR_2}.$"
 
 gOtherText_DeleteOlderMove:: @ 842CCF8
-	.string "{STR_VAR_1} is trying to learn\n{STR_VAR_2}.\pBut {STR_VAR_1} can’t learn more\nthan four moves.\pDelete an older move to make\nroom for {STR_VAR_2}?$"
+	.string "{STR_VAR_1} versucht,\n"
+	.string "{STR_VAR_2} zu erlernen.\p"
+	.string "Aber {STR_VAR_1} kann nicht mehr\n"
+	.string "als vier Attacken erlernen.\p"
+	.string "Soll eine Attacke zu Gunsten von\n"
+	.string "{STR_VAR_2} vergessen werden?$"
 
 gOtherText_StopLearningMove:: @ 842CD65
-	.string "Stop learning {STR_VAR_2}?$"
+	.string "{STR_VAR_2} nicht erlernen?$"
 
 gOtherText_ForgotMove123:: @ 842CD77
-	.string "{PAUSE 32}1, {PAUSE 15}2 {PAUSE 15}...{PAUSE 15}...{PAUSE 15}...{PAUSE 15} {PLAY_SE 0x0038}Poof!\p$"
+	.string "{PAUSE 32}1, {PAUSE 15}2 {PAUSE 15}...{PAUSE 15}...{PAUSE 15}...{PAUSE 15} {PLAY_SE 0x38 0x00} Schwupp!\p$"
+
+deuOtherText_ForgotAndLearned:: @ 843912f
+	.string "{STR_VAR_1} vergaß {STR_VAR_3}.\p"
+	.string "Und...\p"
+	.string "{STR_VAR_1} erlernt {STR_VAR_2}.$"
 
 gOtherText_ForgotOrDidNotLearnMove:: @ 842CDA3
-	.string "{STR_VAR_1} forgot {STR_VAR_3}.\pAnd...\p{STR_VAR_1} learned {STR_VAR_2}.$"
-	.string "{STR_VAR_1} did not learn\n{STR_VAR_2}.$"
+	.string "{STR_VAR_1} hat {STR_VAR_2}\n"
+	.string "nicht erlernt.$"
 
 gOtherText_GiveUpTeachingMove:: @ 842CDDC
-	.string "Give up trying to teach a new move\nto {STR_VAR_1}?$"
+	.string "Soll {STR_VAR_1} keine neue Attacke\n"
+	.string "erlernen?$"
 
 gOtherText_WhichMoveToForget:: @ 842CE06
-	.string "Which move should be forgotten?\p$"
+	.string "Welche Attacke soll vergessen\n"
+	.string "werden?\p"
+	.string "$"
 
 gSystemText_ClearAllSaveDataPrompt:: @ 842CE27
-	.string "Clear all save data areas?$"
+	.string "Alle gesich. Datenbereiche löschen?$"
 
 gSystemText_ClearingData:: @ 842CE42
-	.string "Clearing data...\nPlease wait.$"
+	.string "Daten werden gelöscht...\n"
+	.string "Bitte warten...$"
 
 gContestText_AnnounceResults:: @ 842CE60
-	.string "Announcing the results!$"
+	.string "Bekanntgabe der Ergebnisse!$"
 
 gContestText_PreliminaryResults:: @ 842CE78
-	.string "The preliminary results!$"
+	.string "Ergebnisse 1. Durchlauf!$"
 
 gContestText_Round2Results:: @ 842CE91
-	.string "Round 2 results!$"
+	.string "Ergebnisse 2. Durchlauf!$"
 
 gContestText_PokeWon:: @ 842CEA2
-	.string "{STR_VAR_1}’s {STR_VAR_2} won!$"
+	.string "Sieger ist: {STR_VAR_2} von {STR_VAR_1}!$"
 
 gOtherText_LinkStandby:: @ 842CEAF
-	.string "Link standby...$"
+	.string "Verbindung...$"
 
 @ 842CEBF
 	.include "data/text/landmarks.inc"
 
 gOtherText_Terminator4:: @ 842D0E6
-	.string "$"
+	.string ", $"
 
 gOtherText_Nature:: @ 842D0E7
-	.string " nature, $"
+	.string "Wesen: $"
 
 gOtherText_Comma:: @ 842D0F1
 	.string ",$"
 
 gOtherText_Met:: @ 842D0F3
-	.string " (met).$"
+	.string " (gef.)$"
 
 gOtherText_Egg2:: @ 842D0FB
-	.string " (EGG).$"
+	.string " (EI)$"
 
 gOtherText_ObtainedInTrade:: @ 842D103
-	.string "obtained in a trade.$"
+	.string "im Tausch erhalten.$"
 
 gOtherText_FatefulEncounter:: @ 842D118
-	.string "fateful encounter.$"
+	.string "schicksalhafte Begegnung.$"
 
 gOtherText_Met2:: @ 842D12B
-	.string " (met).$"
+	.string " (gef.)$"
 
 gOtherText_EggDayCare:: @ 842D133
-	.string "An odd POKéMON EGG found\nby the DAY CARE couple.$"
+	.string "Seltsames POKéMON-EI, das\n"
+	.string "die PENSIONSLEITUNG fand.$"
 
 gOtherText_EggNicePlace:: @ 842D164
-	.string "A peculiar POKéMON EGG\nobtained at the nice place.$"
+	.string "Kurioses POKéMON-EI an\n"
+	.string "hübschem Ort erhalten.$"
 
 gOtherText_EggObtainedInTrade:: @ 842D197
-	.string "A peculiar POKéMON EGG\nobtained in a trade.$"
+	.string "Kurioses POKéMON-EI im\n"
+	.string "Tausch erhalten.$"
 
 gOtherText_EggHotSprings:: @ 842D1C3
-	.string "A POKéMON EGG obtained\nat the hot springs.$"
+	.string "Ein POKéMON-EI an den\n"
+	.string "Heißen Quellen erhalten.$"
 
 gOtherText_LinkStandby2:: @ 842D1EE
-	.string "Link standby...$"
+	.string "Verbindung...$"
 
 gOtherText_YesNoAndPlayer:: @ 842D1FE
-	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}YES\nNO$"
-	.string "{HIGHLIGHT TRANSPARENT}PLAYER$"
+	.string "{COLOR DARK_GREY}{HIGHLIGHT WHITE2}{SHADOW LIGHT_GREY}JA\n"
+	.string "NEIN$"
+
+	.string "{HIGHLIGHT TRANSPARENT}SPIELER$"
+
 	.string "{HIGHLIGHT TRANSPARENT}$"
 
 gOtherText_HoennDex:: @ 842D21C
 	.string "HOENN$"
 
 gOtherText_NationalDex:: @ 842D222
-	.string "NATIONAL$"
+	.string "NATIONALER$"
 
 gOtherText_DiplomaCertificationGameFreak:: @ 842D22B
-	.string "{HIGHLIGHT TRANSPARENT}Player: {CLEAR 0x10}{COLOR RED}{PLAYER}\n\n{COLOR DARK_GREY}{STR_VAR_1} POKéDEX\nThis document certifies\nthat you have successfully\ncompleted your POKéDEX.\n\n{CLEAR_TO 0x42}{COLOR RED}GAME FREAK$"
+	.string "{HIGHLIGHT TRANSPARENT}Spieler: {CLEAR 16}{COLOR RED}{PLAYER}\n"
+	.string "\n"
+	.string "{COLOR DARK_GREY}{STR_VAR_1} POKéDEX\n"
+	.string "Dies Dokument bescheinigt\n"
+	.string "die erfolgreiche Vervoll-\n"
+	.string "ständigung des POKéDEX.\n"
+	.string "\n"
+	.string "{CLEAR_TO 66}{COLOR RED}GAME FREAK$"
+
 	.string "{COLOR RED}{HIGHLIGHT TRANSPARENT}GAME FREAK$"
 
 gOtherText_PLink:: @ 842D2BC
-	.string "{STR_VAR_1}P LINK$"
+	.string "{STR_VAR_1}SP-LINK$"
 
 gOtherText_YesNoTerminating:: @ 842D2C5
-	.string "YES\nNO$"
-	.string "Terminating.$"
+	.string "JA\n"
+	.string "NEIN$"
+
+	.string "Abbruch$"
 
 gOtherText_LinkNotFound:: @ 842D2D9
-	.string "Link partner(s) not found.\nPlease try again.\p$"
+	.string "Kein(e) Link-Partner gefunden.\n"
+	.string "Bitte erneut versuchen.\p$"
 
 gOtherText_BlenderChooseBerry:: @ 842D307
-	.string "Starting up the BERRY BLENDER.\pPlease select a BERRY from your BAG\nto put in the BERRY BLENDER.\p$"
+	.string "BEERENMIXER wird gestartet.\p"
+	.string "Wähle die BEERE aus dem BEUTEL,\n"
+	.string "die in den BEERENMIXER soll.\p$"
 
 gOtherText_PokeBlockMade:: @ 842D368
-	.string " was made!$"
+	.string "{STR_VAR_1} wurde gemixt!$"
 
 gOtherText_PressAToStart:: @ 842D373
-	.string "Press the A Button to start.$"
+	.string "Drücke A-Knopf zum Starten.$"
 
 gOtherText_PleaseWait:: @ 842D390
-	.string "Please wait a while.$"
+	.string "Bitte hab noch ein wenig Geduld.$"
 
 gOtherText_LinkStandby3:: @ 842D3A5
-	.string "Link standby...$"
+	.string "Verbindung...$"
 
 gOtherText_BlendAnotherBerryPrompt:: @ 842D3B5
-	.string "Would you like to blend another BERRY?$"
+	.string "Möchtest du noch eine BEERE mixen?$"
 
 gOtherText_OutOfBerries:: @ 842D3DC
-	.string "You’ve run out of BERRIES for\nblending in the BERRY BLENDER.\p$"
+	.string "Du hast keine BEEREN mehr zum\n"
+	.string "Mixen im BEERENMIXER.\p"
+	.string "$"
 
 gOtherText_CaseIsFull:: @ 842D41A
-	.string "Your {POKEBLOCK} CASE is full.\p$"
+	.string "Deine {POKEBLOCK}-BOX ist voll.\p$"
 
 gOtherText_NoBerriesForBlend:: @ 842D434
-	.string " has no BERRIES to put in\nthe BERRY BLENDER.$"
+	.string "{PLAYER} hat keine BEEREN\n"
+	.string "für den BEERENMIXER.$"
 
 gOtherText_OtherCaseIsFull:: @ 842D461
-	.string "’s {POKEBLOCK} CASE is full.\p$"
+	.string "{POKEBLOCK}-BOX von {PLAYER} \n"
+	.string "ist voll.\n$"
 
 gOtherText_ResultsOfBlending:: @ 842D479
-	.string "RESULTS OF BLENDING$"
-	.string "BERRY USED$"
+	.string "MIX-RESULTATE$"
+
+	.string "VERW. BEERE$"
 
 gOtherText_Berry:: @ 842D498
-	.string " BERRY$"
+	.string "{STR_VAR_1}BEERE$"
 
 gOtherText_RequiredTime:: @ 842D49F
-	.string "REQUIRED TIME$"
+	.string "ZEIT BENÖTIGT$"
 
 gOtherText_Min:: @ 842D4AD
 	.string "MIN.$"
 
 gOtherText_Sec:: @ 842D4B2
-	.string "SEC.$"
+	.string "SEK.$"
 
 gOtherText_MaxSpeed:: @ 842D4B7
-	.string "MAXIMUM SPEED$"
+	.string "MAXIMALTEMPO$"
 
 gOtherText_RPM:: @ 842D4C5
-	.string "RPM$"
-	.string ".$"
+	.string " RPM$"
+
+	.string ",$"
 
 gOtherText_Ranking:: @ 842D4CB
-	.string "RANKING$"
+	.string "STUFE$"
 
 gOtherText_BlockLevelIs:: @ 842D4D3
-	.string "The level is $"
+	.string "Der Level ist $"
 
 gOtherText_BlockFeelIs:: @ 842D4E1
-	.string ", and the feel is $"
+	.string " und die Würze ist $"
 
 gOtherText_Period:: @ 842D4F4
 	.string ".$"
 
 gOtherText_Day:: @ 842D4F6
-	.string "DAY$"
+	.string "TAG$"
 	.string ":$"
 
 gOtherText_OK:: @ 842D4FC
-	.string "OK$"
+	.string "O.K.$"
 
 gOtherText_CorrectTimePrompt:: @ 842D4FF
-	.string "Is this the correct time?$"
+	.string "Ist die Uhrzeit korrekt?$"
 
 	.align 2
-OutlineCursorTiles_00:
+OutlineCursorTiles_00::
 	.incbin "graphics/interface/outline_cursor_00.4bpp"
 
 	.align 2
@@ -31569,41 +31802,41 @@ gSpriteAnimTable_842F13C:: @ 842F13C
 
 	.align 2
 gUnknown_0842F140:: @ 842F140
-	obj_tiles OutlineCursorTiles_00, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_01, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_02, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_03, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_04, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_05, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_06, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_07, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_08, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_09, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_10, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_11, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_12, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_13, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_14, 0x1C0, 0xFFF0
-	obj_tiles OutlineCursorTiles_15, 0x1C0, 0xFFF0
+	obj_tiles OutlineCursorTiles_00, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_01, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_02, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_03, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_04, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_05, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_06, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_07, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_08, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_09, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_10, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_11, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_12, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_13, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_14, 0x380, 0xFFF0
+	obj_tiles OutlineCursorTiles_15, 0x380, 0xFFF0
 
 	.align 2
 gUnknown_0842F1C0:: @ 842F1C0
-	obj_tiles OutlineCursorTiles_00, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_01, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_02, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_03, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_04, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_05, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_06, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_07, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_08, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_09, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_10, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_11, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_12, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_13, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_14, 0x1C0, 0xFFF1
-	obj_tiles OutlineCursorTiles_15, 0x1C0, 0xFFF1
+	obj_tiles OutlineCursorTiles_00, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_01, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_02, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_03, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_04, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_05, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_06, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_07, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_08, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_09, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_10, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_11, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_12, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_13, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_14, 0x380, 0xFFF1
+	obj_tiles OutlineCursorTiles_15, 0x380, 0xFFF1
 
 	.align 2
 gUnknown_0842F240:: @ 842F240
@@ -31635,63 +31868,43 @@ gSpriteTemplate_842F2B0:: @ 842F2B0
 
 	.align 2
 Unknown_842F2C8: @ 842F2C8
-	.incbin "baserom.gba", 0x0042f2c8, 0x10
+	.incbin "graphics/unk/outline_cursor_00.bin"
 Unknown_842F2D8: @ 842F2D8
-	.incbin "baserom.gba", 0x0042f2d8, 0x18
+	.incbin "graphics/unk/outline_cursor_01.bin"
 Unknown_842F2F0: @ 842F2F0
-	.incbin "baserom.gba", 0x0042f2f0, 0x20
+	.incbin "graphics/unk/outline_cursor_02.bin"
 Unknown_842F310: @ 842F310
-	.incbin "baserom.gba", 0x0042f310, 0x18
+	.incbin "graphics/unk/outline_cursor_03.bin"
 Unknown_842F328: @ 842F328
-	.incbin "baserom.gba", 0x0042f328, 0x18
+	.incbin "graphics/unk/outline_cursor_04.bin"
 Unknown_842F340: @ 842F340
-	.incbin "baserom.gba", 0x0042f340, 0x20
+	.incbin "graphics/unk/outline_cursor_05.bin"
 Unknown_842F360: @ 842F360
-	.incbin "baserom.gba", 0x0042f360, 0x20
+	.incbin "graphics/unk/outline_cursor_06.bin"
 Unknown_842F380: @ 842F380
-	.incbin "baserom.gba", 0x0042f380, 0x20
+	.incbin "graphics/unk/outline_cursor_07.bin"
 Unknown_842F3A0: @ 842F3A0
-	.incbin "baserom.gba", 0x0042f3a0, 0x20
+	.incbin "graphics/unk/outline_cursor_08.bin"
 Unknown_842F3C0: @ 842F3C0
-	.incbin "baserom.gba", 0x0042f3c0, 0x28
+	.incbin "graphics/unk/outline_cursor_09.bin"
 Unknown_842F3E8: @ 842F3E8
-	.incbin "baserom.gba", 0x0042f3e8, 0x28
+	.incbin "graphics/unk/outline_cursor_10.bin"
 Unknown_842F410: @ 842F410
-	.incbin "baserom.gba", 0x0042f410, 0x28
+	.incbin "graphics/unk/outline_cursor_11.bin"
 Unknown_842F438: @ 842F438
-	.incbin "baserom.gba", 0x0042f438, 0x28
+	.incbin "graphics/unk/outline_cursor_12.bin"
 Unknown_842F460: @ 842F460
-	.incbin "baserom.gba", 0x0042f460, 0x30
+	.incbin "graphics/unk/outline_cursor_13.bin"
 Unknown_842F490: @ 842F490
-	.incbin "baserom.gba", 0x0042f490, 0x30
+	.incbin "graphics/unk/outline_cursor_14.bin"
 Unknown_842F4C0: @ 842F4C0
-	.incbin "baserom.gba", 0x0042f4c0, 0x30
+	.incbin "graphics/unk/outline_cursor_15.bin"
 Unknown_842F4F0: @ 842F4F0
-	.incbin "baserom.gba", 0x0042f4f0, 0x30
+	.incbin "graphics/unk/outline_cursor_16.bin"
 Unknown_842F520: @ 842F520
-	.incbin "baserom.gba", 0x0042f520, 0x38
+	.incbin "graphics/unk/outline_cursor_17.bin"
 Unknown_842F558: @ 842F558
-	.incbin "baserom.gba", 0x0042f558, 0x18
-
-	.4byte Unknown_842F2C8
-	.4byte Unknown_842F2C8
-	.4byte Unknown_842F2D8
-	.4byte Unknown_842F2F0
-	.4byte Unknown_842F310
-	.4byte Unknown_842F328
-	.4byte Unknown_842F340
-	.4byte Unknown_842F360
-	.4byte Unknown_842F380
-	.4byte Unknown_842F3A0
-	.4byte Unknown_842F3C0
-	.4byte Unknown_842F3E8
-	.4byte Unknown_842F410
-	.4byte Unknown_842F438
-	.4byte Unknown_842F460
-	.4byte Unknown_842F490
-	.4byte Unknown_842F4C0
-	.4byte Unknown_842F4F0
-	.4byte Unknown_842F520
+	.incbin "graphics/unk/outline_cursor_18.bin"
 
 	.align 2
 gUnknown_0842F5BC:: @ 842F5BC
@@ -31715,7 +31928,7 @@ gSubspriteTables_842F5C0:: @ 842F5C0
 	.4byte 13, gMenuCursorSubsprites
 	.4byte 14, gMenuCursorSubsprites
 	.4byte 15, gMenuCursorSubsprites
-	.4byte  1, gMenuCursorSubsprites
+	.4byte 16, gMenuCursorSubsprites
 	.4byte 17, gMenuCursorSubsprites
 	.4byte 18, gMenuCursorSubsprites
 	.4byte 19, gMenuCursorSubsprites
@@ -31757,50 +31970,61 @@ gUnknown_0842F6C0:: @ 842F6C0
 	.align 2
 gUnknown_0842F758:: @ 842F758
 	.4byte 3, gMenuCursorSubsprites
-	.4byte 0, 2
-	.4byte 0, 66
-	.4byte 0, 105
-	.4byte 0, 34
+	.4byte 0xFFFF0000, 6
+	.4byte 0xFFFF0000, 134
+	.4byte 0xFFFF0000, 200
+	.4byte 0xFFFF0000, 70
 
 	.align 2
 gUnknown_0842F780:: @ 842F780
-	.4byte 0, 105
+	.4byte 0xFFFF0000, 6
 
 	.align 2
 gUnknown_0842F788:: @ 842F788
-	.4byte 0, 34
+	.4byte 0xFFFF0000, 200
 
 	.align 2
 gUnknown_0842F790:: @ 842F790
-	.4byte 0, 66
+	.4byte 0xFFFF0000, 70
+	.4byte 0xFFFF0000, 134
 
 gOtherText_BerryObtainedDadHasIt:: @ 842F798
-	.string "Obtained a {STR_VAR_2} BERRY!\nDad has it at PETALBURG GYM.$"
+	.string "Eine {STR_VAR_2}BEERE! Vater in der \n"
+	.string "ARENA von BLÜTENBURG CITY besitzt\l"
+	.string "auch eine.$"
 
 gOtherText_BerryTransformed:: @ 842F7CA
-	.string "The {STR_VAR_1} BERRY transformed into\none {STR_VAR_2} BERRY.$"
+	.string "Die {STR_VAR_1}BEERE verwandelte\n"
+	.string "sich in eine {STR_VAR_2}BEERE!$"
 
 gOtherText_BerryAlreadyObtained:: @ 842F7F6
-	.string "The {STR_VAR_1} BERRY has already been\nobtained.$"
+	.string "Du hast schon eine {STR_VAR_1}BEERE.$"
 
 gOtherText_SpecialRibbonReceived:: @ 842F81E
-	.string "A special RIBBON was awarded to your\nparty POKéMON.$"
+	.string "Ein besonderes BAND wurde deinem\n"
+	.string "POKéMON im Team verliehen.$"
 
 gOtherText_DexUpgraded:: @ 842F852
-	.string "The POKéDEX has been upgraded with\nthe NATIONAL MODE.$"
+	.string "Der POKéDEX wurde mit dem NATIONALEN\n"
+	.string "MODUS ausgerüstet.$"
 
 gOtherText_RareWordAdded:: @ 842F888
-	.string "A rare word has been added.$"
+	.string "Ein seltenes Wort wurde hinzugefügt.$"
 
 gOtherText_PokeWasSentOver:: @ 842F8A4
-	.string "{STR_VAR_1} was sent over!$"
+	.string "{STR_VAR_1} wurde gesendet!$"
 
 gOtherText_PartyIsFull:: @ 842F8B6
-	.string "Your party is full.\n{STR_VAR_1} could not be sent over.$"
+	.string "Dein Team ist bereits vollständig.\n"
+	.string "{STR_VAR_1} kann nicht gesendet\l"
+	.string "werden.$"
 
 gOtherText_NewTrainerInHoenn:: @ 842F8E5
-	.string "A new TRAINER has arrived in HOENN.$"
-	.string "A new adversary has arrived in the\nBATTLE TOWER.$"
+	.string "Ein neuer TRAINER ist in HOENN\n"
+	.string "angekommen.$"
+	.string "Ein neuer Widersacher ist im DUELLTURM\n"
+	.string "eingetroffen.$"
 
 gOtherText_DataCannotUseVersion:: @ 842F93A
-	.string "This data cannot be used in\nthis version.$"
+	.string "Die Daten können in dieser Edition\n"
+	.string "nicht eingesetzt werden.$"

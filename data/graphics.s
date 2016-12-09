@@ -4583,99 +4583,99 @@ fill_2::
 	.incbin "graphics/filler/img_2.4bpp.lz"
 
 	.align 2
-fill_3::
+gIntroTiles::
 	.incbin "graphics/filler/img_3.4bpp.lz"
 
 	.align 2
-End_ConditionUpDownTiles::
+ConditionUpDownTiles::
 	.incbin "graphics/filler/img_4.4bpp"
 
 	.align 2
-End_ConditionUpDownPalette::
+ConditionUpDownPalette::
 	.incbin "graphics/misc/condition_up_down.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_01::
+RouletteSpritePalette_01::
 	.incbin "graphics/roulette/shadow.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_02::
+RouletteSpritePalette_02::
 	.incbin "graphics/roulette/ball.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_03::
+RouletteSpritePalette_03::
 	.incbin "graphics/roulette/ball_counter.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_04::
+RouletteSpritePalette_04::
 	.incbin "graphics/roulette/cursor.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_05::
+RouletteSpritePalette_05::
 	.incbin "graphics/roulette/credit.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_06::
+RouletteSpritePalette_06::
 	.incbin "graphics/roulette/shroomish.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_07::
+RouletteSpritePalette_07::
 	.incbin "graphics/roulette/tailow.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_08::
+RouletteSpritePalette_08::
 	.incbin "graphics/roulette/poke_icons.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_09::
+RouletteSpritePalette_09::
 	.incbin "graphics/roulette/wynaut.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_10::
+RouletteSpritePalette_10::
 	.incbin "graphics/roulette/azurill.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_11::
+RouletteSpritePalette_11::
 	.incbin "graphics/roulette/skitty.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_12::
+RouletteSpritePalette_12::
 	.incbin "graphics/roulette/makuhita.gbapal"
 
 	.align 2
-End_RouletteSpritePalette_13::
+RouletteSpritePalette_13::
 	.incbin "baserom.gba", 0x003F907C, 0x20
 
 	.align 2
-End_RouletteSpritePalette_14::
+RouletteSpritePalette_14::
 	.incbin "baserom.gba", 0x003F909C, 0x20
 
 	.align 2
-End_RouletteSpritePalette_15::
+RouletteSpritePalette_15::
 	.incbin "baserom.gba", 0x003F90BC, 0x20
 
 	.align 2
-End_RouletteSpritePalette_16::
+RouletteSpritePalette_16::
 	.incbin "baserom.gba", 0x003F90DC, 0x20
 
 	.align 2
-filler_8EAF230::
+gTilesetPalettes_Shop::
 	.incbin "graphics/filler/filler_8EAF230_map.bin"
 
 	.align 2
-filler_tiles::
+gTilesetTiles_Shop::
 	.incbin "graphics/filler/unk_tiles.4bpp.lz"
 
 	.align 2
-filler_palette::
+gUnknown_083FAF1C::
 	.incbin "graphics/filler/meter_palette.gbapal"
 
 	.align 2
-filler_8EB0A58::
+gUnknown_083FAF3C::
 	.incbin "graphics/filler/meter_tiles.4bpp.lz"
 
 	.align 2
-filler_8EB0D58::
+gUnknown_083FAE7C::
 	.incbin "graphics/filler/meter_map.bin"
 
 fill_end::

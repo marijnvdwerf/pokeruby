@@ -255,13 +255,6 @@ SECTIONS {
         src/link.o(.rodata);
         src/rtc.o(.rodata);
         data/data2.o(.rodata);
-    } =0
-
-    . = 0x843D900;
-
-    .rodata_2 :
-    ALIGN(4)
-    {
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
     } =0
