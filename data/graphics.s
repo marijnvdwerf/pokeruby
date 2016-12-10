@@ -4575,7 +4575,7 @@ gFont4JapaneseGlyphs:: @ 8EAC6C4
 	.incbin "graphics/fonts/font4_jpn.4bpp"
 
 	.align 2
-fill_1::
+gSummaryScreenTextTiles::
 	.incbin "graphics/filler/img_1.4bpp"
 
 	.align 2
