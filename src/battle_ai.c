@@ -156,10 +156,10 @@ void sub_810715C(void)
         unk_2016800.aiFlags = 0x20000000;
     else if(gUnknown_020239F8 & 0x10)
         unk_2016800.aiFlags = 0x80000000;
+	else if(gUnknown_020239F8 & 0x900 || gTrainerBattleOpponent == 0x400)
+		unk_2016800.aiFlags = 7;
     else
         unk_2016800.aiFlags = gTrainers[gTrainerBattleOpponent].aiFlags;
-
-	asm(".fill 36\n");
 }
 
 u8 sub_81072A8(void)
