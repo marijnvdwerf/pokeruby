@@ -6,6 +6,7 @@
 #include "text_window.h"
 #include "sound.h"
 #include "menu_cursor.h"
+#include <string_util.h>
 
 struct Menu
 {
@@ -714,12 +715,23 @@ void sub_8072DEC(void)
     sub_814A7FC();
 }
 
-void deu_8073110(void)
+void deu_8073110(u8* buffer, u8 *name)
 {
     asm(".fill 96");
 }
 
-void deu_8073174(void)
-{
-    asm(".fill 64");
+u32 sub_8006CC0(u8 *ptr, u32 length);
+
+u8 *deu_8073174(u8 *name, u8 *format) {
+    u32 offset;
+    u8 *ptr;
+
+    offset = sub_8006CC0(gStringVar2, 0x100);
+    ptr = &gStringVar2[1 + offset];
+
+    StringCopy(ptr, format);
+
+    deu_8073110(ptr, name);
+
+    return StringCopy(name, ptr);
 }

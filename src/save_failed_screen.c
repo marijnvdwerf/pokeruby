@@ -92,15 +92,9 @@ void sub_8146E50(void)
 			SetUpWindowConfig(&gWindowConfig_81E6C3C);
 			InitMenuWindow(&gWindowConfig_81E6CE4);
 			// in revision 1.0, the text window is too small, causing text to overflow and create garbage. this is fixed in later revisions.
-#if (REVISION >= 1)
 			MenuDrawTextWindow(13, 6, 16, 9);
 			MenuDrawTextWindow(1, 10, 28, 19);
 			MenuPrint(gSystemText_SaveFailedBackupCheck, 2, 11);
-#else
-			MenuDrawTextWindow(13, 8, 16, 11);
-			MenuDrawTextWindow(1, 12, 28, 19);
-			MenuPrint(gSystemText_SaveFailedBackupCheck, 2, 13);
-#endif
 			BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, 0);
 			ime = REG_IME;
 			REG_IME = 0;
@@ -136,21 +130,14 @@ void sub_8147048(void)
 		{
 			if(!sub_814737C(gUnknown_03005EA8))
 			{
-			#if (REVISION >= 1)
 				MenuDrawTextWindow(1, 10, 28, 19);
 				MenuPrint(gSystemText_CheckCompleteSaveAttempt, 2, 11);
-			#else
-				MenuDrawTextWindow(1, 12, 28, 19);
-				MenuPrint(gSystemText_CheckCompleteSaveAttempt, 2, 13);
-			#endif
 				sub_8125C3C(gUnknown_0203933C);
-			
-				if(gUnknown_03005EA8)
-				#if (REVISION >= 1)
+
+				if (gUnknown_03005EA8) {
+					MenuDrawTextWindow(1, 10, 28, 19);
 					MenuPrint(gSystemText_SaveFailedBackupCheck, 2, 11);
-				#else
-					MenuPrint(gSystemText_SaveFailedBackupCheck, 2, 13);
-				#endif
+				}
 			
 				clockVal++;
 			
@@ -164,31 +151,18 @@ void sub_8147048(void)
 	}
 	if(clockVal == 3) // _081470A6
 	{
-	#if (REVISION >= 1)
 		MenuDrawTextWindow(1, 10, 28, 19);
 		MenuPrint(gSystemText_BackupDamagedGameContinue, 2, 11);
-	#else
-		MenuDrawTextWindow(1, 12, 28, 19);
-		MenuPrint(gSystemText_BackupDamagedGameContinue, 2, 13);
-	#endif
 		SetMainCallback2(sub_81471A4);
 		goto gotoLabel; // this calls sub_81471A4 for some reason.
 	}
 	else // _081470E4
 	{
-	#if (REVISION >= 1)
 		MenuDrawTextWindow(1, 10, 28, 19);
-	#else
-		MenuDrawTextWindow(1, 12, 28, 19);
-	#endif
 		
 		if(!gUnknown_03005EBC) // cant continue game.
 		{
-		#if (REVISION >= 1)
 			MenuPrint(gSystemText_SaveCompletedGameEnd, 2, 11);
-		#else
-			MenuPrint(gSystemText_SaveCompletedGameEnd, 2, 13);
-		#endif
 			goto gotoLabel;
 		}
 		else // can continue game.
@@ -196,22 +170,13 @@ void sub_8147048(void)
 	}
 	// no matter what I do, i can't get rid of these gotos. They were seemingly labeled at the end by the developer and jumped to manually depending on the result.
 gotoLabel2: // _0814710C
-#if (REVISION >= 1)
 	MenuDrawTextWindow(1, 10, 28, 19);
 	MenuPrint(gSystemText_BackupDamagedGameContinue, 2, 11);
-#else
-	MenuDrawTextWindow(1, 12, 28, 19);
-	MenuPrint(gSystemText_BackupDamagedGameContinue, 2, 13);
-#endif
 	SetMainCallback2(sub_8147154);
 	return;
 
 gotoLabel3:
-#if (REVISION >= 1)
 	MenuPrint(gSystemText_SaveCompletedPressA, 2, 11);
-#else
-	MenuPrint(gSystemText_SaveCompletedPressA, 2, 13);
-#endif
 
 gotoLabel: // _0814713E
 	SetMainCallback2(sub_81471A4); // seemingly called twice?
@@ -223,13 +188,8 @@ void sub_8147154(void)
 	
 	if(gMain.newKeys & A_BUTTON)
 	{
-	#if (REVISION >= 1)
 		MenuDrawTextWindow(1, 10, 28, 19);
 		MenuPrint(gSystemText_GameplayEnded, 2, 11);
-	#else
-		MenuDrawTextWindow(1, 12, 28, 19);
-		MenuPrint(gSystemText_GameplayEnded, 2, 13);
-	#endif
 		SetVBlankCallback(sub_8146E3C);
 		SetMainCallback2(sub_81471A4);
 	}
@@ -289,11 +249,7 @@ void sub_8147218(void)
 	strh r0, [r2, 0x3E]\n\
 	mov r1, r12\n\
 	adds r1, 0x3C\n\
-	@.if REVISION >= 1\n\
 	@movs r0, 0x38\n\
-	@.else\n\
-	movs r0, 0x48\n\
-	@.endif\n\
 	strb r0, [r1]\n\
 	ldr r0, _0814729C @ =gUnknown_0203933E\n\
 	ldrh r0, [r0]\n\

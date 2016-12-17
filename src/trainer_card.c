@@ -1883,7 +1883,7 @@ static void TrainerCard_Back_PrintName(void) {
     StringCopy(bufferPtr, unk_2000000.var_64.playerName);
     ConvertInternationalString(bufferPtr, unk_2000000.language);
 
-    StringAppend(bufferPtr, gOtherText_TrainersTrainerCard);
+    deu_8073174(bufferPtr, gOtherText_TrainersTrainerCard);
 
     MenuPrint_RightAligned(gStringVar1, 28, 2);
 }
