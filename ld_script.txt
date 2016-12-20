@@ -102,6 +102,7 @@ SECTIONS {
         src/party_menu.o(.text_c);
         asm/party_menu.o(.text_8070968);
         src/start_menu.o(.text);
+        src/start_menu_debug.o(.text);
         src/menu.o(.text);
         src/tileset_anim.o(.text);
         src/palette.o(.text);
@@ -118,7 +119,10 @@ SECTIONS {
         asm/rom_8080874.o(.text);
         src/battle_setup.o(.text);
         asm/cable_club.o(.text);
+        src/tomomichi_debug_menu.o(.text);
+        src/nohara_debug_menu.o(.text);
         src/mori_debug_menu.o(.text);
+        src/taya_debug_window.o(.text);
         src/trainer_see.o(.text);
         src/wild_encounter.o(.text);
         src/field_effect.o(.text);
@@ -140,6 +144,7 @@ SECTIONS {
         asm/pokemon_summary_screen.o(.text_80A0958);
         asm/script_movement.o(.text);
         asm/fldeff_cut.o(.text);
+        asm/kagaya_debug_menu.o(.text);
         asm/mail_data.o(.text);
         src/map_name_popup.o(.text);
         asm/item_menu.o(.text);
@@ -149,6 +154,7 @@ SECTIONS {
         asm/contest.o(.text);
         asm/shop.o(.text);
         src/berry.o(.text);
+        src/watanabe_debug_menu.o(.text);
         src/script_menu.o(.text);
         asm/naming_screen.o(.text);
         src/money.o(.text);
@@ -184,6 +190,7 @@ SECTIONS {
         asm/mon_markings.o(.text);
         asm/mauville_old_man.o(.text);
         src/mail.o(.text);
+        src/unk_debug.o(.text);
         asm/menu_helpers.o(.text);
         asm/script_pokemon_util_80F99CC.o(.text);
         src/dewford_trend.o(.text);
@@ -194,6 +201,7 @@ SECTIONS {
         src/decoration.o(.text);
         asm/decoration.o(.text_80FE868);
         asm/slot_machine.o(.text);
+        src/unk_debug_menu_2.o(.text);
         src/contest_painting.o(.text);
         src/battle_ai.o(.text);
         asm/trader.o(.text);
@@ -222,6 +230,7 @@ SECTIONS {
         src/save.o(.text);
         src/mystery_event_script.o(.text);
         asm/mystery_event_script.o(.text);
+        src/unk_debug_menu_3.o(.text);
         asm/field_effect_helpers.o(.text);
         asm/contest_ai.o(.text);
         asm/rom_81258BC.o(.text);
@@ -240,6 +249,7 @@ SECTIONS {
         src/braille_puzzles.o(.text);
         asm/pokeblock_feed.o(.text);
         src/clear_save_data_menu.o(.text);
+        src/nakamura_debug_menu.o(.text);
         asm/intro_credits_graphics.o(.text);
         asm/evolution_graphics.o(.text);
         src/bard_music.o(.text);
@@ -293,7 +303,7 @@ SECTIONS {
         src/libc.o(.text);
     } =0
 
-    . = 0x081EF778;
+    . = 0X082084CC;
 
     .rodata :
     ALIGN(4)
@@ -329,6 +339,7 @@ SECTIONS {
         data/reset_rtc_screen.o(.rodata);
         data/party_menu.o(.rodata);
         src/start_menu.o(.rodata);
+        data/debug_start_menu.o(.rodata);
         src/menu.o(.rodata);
         data/tileset_anim.o(.rodata);
         src/palette.o(.rodata);
@@ -345,7 +356,10 @@ SECTIONS {
         data/rom_8080874.o(.rodata);
         data/battle_setup.o(.rodata);
         data/cable_club.o(.rodata);
+        data/debug_menu_tomomichi.o(.rodata);
+        data/debug_menu_nohara.o(.rodata);
         data/mori_debug_menu.o(.rodata);
+        data/debug_menu_taya.o(.rodata);
         data/trainer_see.o(.rodata);
         data/wild_encounter.o(.rodata);
         data/field_effect.o(.rodata);
@@ -358,6 +372,7 @@ SECTIONS {
         data/pokemon_icon.o(.rodata);
         data/pokemon_summary_screen.o(.rodata);
         data/fldeff_cut.o(.rodata);
+        data/debug_menu_kagaya.o(.rodata);
         data/item_menu.o(.rodata);
         data/battle_anim_80A7E7C.o(.rodata);
         data/item.o(.rodata);
@@ -365,6 +380,7 @@ SECTIONS {
         data/contest.o(.rodata);
         data/shop.o(.rodata);
         data/berry.o(.rodata);
+        data/debug_menu_watanabe.o(.rodata);
         data/script_menu.o(.rodata);
         data/naming_screen.o(.rodata);
         data/money.o(.rodata);
@@ -386,12 +402,14 @@ SECTIONS {
         data/mon_markings.o(.rodata);
         data/mauville_old_man.o(.rodata);
         data/mail.o(.rodata);
+        data/debug_unk_2.o(.rodata);
         data/menu_helpers.o(.rodata);
         data/heal_location.o(.rodata);
         data/region_map.o(.rodata);
         data/cute_sketch.o(.rodata);
         data/decoration.o(.rodata);
         data/slot_machine.o(.rodata);
+        data/debug_unk_3.o(.rodata);
         data/contest_painting.o(.rodata);
         src/battle_ai.o(.rodata);
         data/trader.o(.rodata);
@@ -408,6 +426,7 @@ SECTIONS {
         data/battle_811DA74.o(.rodata);
         data/battle_message.o(.rodata);
         data/choose_party.o(.rodata);
+        data/debug_unk_4.o(.rodata);
         data/cable_car.o(.rodata);
         data/save.o(.rodata);
         data/field_effect_helpers.o(.rodata);
@@ -422,9 +441,11 @@ SECTIONS {
         data/diploma.o(.rodata);
         data/strings.o(.rodata);
         data/berry_tag_screen.o(.rodata);
+        data/debug_unk_5.o(.rodata);
         src/save_failed_screen.o(.rodata);
         data/save_failed_screen.o(.rodata);
         data/pokeblock_feed.o(.rodata);
+        data/debug_unk_6.o(.rodata);
         data/intro_credits_graphics.o(.rodata);
         data/evolution_graphics.o(.rodata);
         data/bard_music.o(.rodata);
@@ -432,6 +453,7 @@ SECTIONS {
         data/strings2.o(.rodata);
         data/menu_cursor.o(.rodata);
         data/mystery_event_msg.o(.rodata);
+        data/debug_unk_7.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
     } =0

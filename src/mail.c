@@ -139,6 +139,7 @@ void HandleReadMail(struct MailStruct *arg0, MainCallback arg1, bool8 arg2) {
 __attribute__((naked))
 void HandleReadMail(struct MailStruct *arg0, MainCallback arg1, bool8 arg2) {
     asm(".syntax unified\n\
+.fill 76\n\
 	push {r4-r6,lr}\n\
 	sub sp, 0x4\n\
 	adds r4, r0, 0\n\
@@ -653,7 +654,6 @@ static void sub_80F8FB4(void) {
         return;
     }
 
-    SetMainCallback2(unk_2000000.varEC);
     switch (unk_2000000.varFB) {
         case 2:
         case 1:
@@ -665,5 +665,4 @@ static void sub_80F8FB4(void) {
     }
 
     memset(&unk_2000000, 0, 0x110);
-    ResetPaletteFade();
 }

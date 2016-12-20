@@ -43,6 +43,7 @@ _0806AEF8:
 	pop {r4-r6}
 	pop {r0}
 	bx r0
+	.fill 40
 	.align 2, 0
 _0806AF2C: .4byte gUnknown_0202E8FA
 _0806AF30: .4byte gUnknown_08376BB4
@@ -303,6 +304,7 @@ _0806B11C:
 
 	thumb_func_start sub_806B124
 sub_806B124: @ 806B124
+.fill 32
 	push {r4-r7,lr}
 	mov r7, r8
 	push {r7}
@@ -8415,6 +8417,7 @@ _0806F0B0: .4byte Task_TeamMonTMMove
 
 	thumb_func_start Task_TeamMonTMMove
 Task_TeamMonTMMove: @ 806F0B4
+.fill 20
 	push {r4-r7,lr}
 	lsls r0, 24
 	lsrs r6, r0, 24
@@ -11829,6 +11832,26 @@ _08070F8A:
 	pop {r1}
 	bx r1
 	thumb_func_end GetItemEffectType
+
+	thumb_func_start debug_sub_8075C30
+debug_sub_8075C30:
+	.fill 16
+	thumb_func_end debug_sub_8075C30
+
+	thumb_func_start debug_sub_8075C40
+debug_sub_8075C40:
+	.fill 348
+	thumb_func_end debug_sub_8075C40
+
+	thumb_func_start debug_sub_8075D9C
+debug_sub_8075D9C:
+	.fill 24
+	thumb_func_end debug_sub_8075D9C
+
+	thumb_func_start debug_sub_8075DB4
+debug_sub_8075DB4:
+	.fill 132
+	thumb_func_end debug_sub_8075DB4
 
 	thumb_func_start unref_sub_8070F90
 unref_sub_8070F90: @ 8070F90

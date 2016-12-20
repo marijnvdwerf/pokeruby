@@ -133,3 +133,6 @@ gUnknown_083F8408:: @ 83F8408
 
 gUnknown_083F8410:: @ 83F8410
 	.incbin "baserom.gba", 0x003f8410, 0x8
+
+@ 0x84245CC
+	.incbin "../pokeruby-other/pokeruby-de-debug.gba", 0x4245CC, 96

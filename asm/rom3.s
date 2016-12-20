@@ -30,6 +30,7 @@ _0800B880: .4byte sub_8083C50
 
 	thumb_func_start sub_800B884
 sub_800B884: @ 800B884
+    .fill 60
 	push {r4-r7,lr}
 	sub sp, 0x14
 	ldr r0, _0800B920 @ =gUnknown_030042D4

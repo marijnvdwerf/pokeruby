@@ -6,6 +6,26 @@
 
 	.text
 
+
+	thumb_func_start debug_sub_8110CCC
+debug_sub_8110CCC:
+.fill 184
+    thumb_func_end debug_sub_8110CCC
+
+	thumb_func_start debug_sub_8110D84
+debug_sub_8110D84:
+.fill 420
+    thumb_func_end debug_sub_8110D84
+
+	thumb_func_start debug_sub_8110F28
+debug_sub_8110F28:
+.fill 48
+    thumb_func_end debug_sub_8110F28
+
+
+
+
+
 	thumb_func_start sub_80FC7A0
 sub_80FC7A0: @ 80FC7A0
 	push {lr}

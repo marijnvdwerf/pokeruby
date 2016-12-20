@@ -539,6 +539,10 @@ u16 sub_8125C10(void *data, u16 size)
     return ((checksum >> 16) + checksum);
 }
 
+void sub_813B79C(void) {
+    asm(".fill 144");
+}
+
 u8 sub_8125C3C(u8 a1)
 {
     u8 i;
@@ -579,12 +583,14 @@ u8 sub_8125C3C(u8 a1)
     return 0;
 }
 
+extern u8 gUnknown_Debug_03004BD0;
+
 u8 sub_8125D44(u8 a1)
 {
     if (gUnknown_3004820 != 1)
         return 0xFF;
     sub_8125C3C(a1);
-    if (!gUnknown_03005EA8)
+    if (!gUnknown_03005EA8 || !gUnknown_Debug_03004BD0)
         return 1;
     DoSaveFailedScreen(a1);
     return 0xFF;

@@ -1258,6 +1258,11 @@ _0809625C: .4byte gPokemonStorage + 0x8344
 _08096260: .4byte gPCText_BOX
 	thumb_func_end sub_80961D8
 
+	thumb_func_start debug_sub_80A3904
+debug_sub_80A3904:
+	.fill 348
+	thumb_func_end debug_sub_80A3904
+
 	thumb_func_start sub_8096264
 sub_8096264: @ 8096264
 	push {r4-r6,lr}
@@ -2055,6 +2060,7 @@ sub_8096874: @ 8096874
 
 	thumb_func_start sub_8096884
 sub_8096884: @ 8096884
+	.fill 8
 	push {lr}
 	ldr r0, _080968A0 @ =gMain
 	ldr r1, _080968A4 @ =0x0000043c
@@ -2322,6 +2328,21 @@ _08096AF4: .4byte gMain
 _08096AF8: .4byte 0x0000043c
 	thumb_func_end sub_80969A0
 
+	thumb_func_start debug_sub_80A4300
+debug_sub_80A4300:
+	.fill 58
+	thumb_func_end debug_sub_80A4300
+
+	thumb_func_start debug_sub_80A433C
+debug_sub_80A433C:
+	.fill 32
+	thumb_func_end debug_sub_80A433C
+
+	thumb_func_start debug_sub_80A435C
+debug_sub_80A435C:
+	.fill 92
+	thumb_func_end debug_sub_80A435C
+
 	thumb_func_start sub_8096AFC
 sub_8096AFC: @ 8096AFC
 	push {lr}
@@ -2520,6 +2541,7 @@ _08096C80: .4byte sub_8096C84
 
 	thumb_func_start sub_8096C84
 sub_8096C84: @ 8096C84
+	.fill 36
 	push {r4,lr}
 	ldr r0, _08096C9C @ =0x02000000
 	ldrb r0, [r0, 0x4]
@@ -2981,6 +3003,7 @@ _08097074: .4byte sub_8096C84
 
 	thumb_func_start sub_8097078
 sub_8097078: @ 8097078
+	.fill 120
 	push {r4,lr}
 	ldr r0, _08097090 @ =0x02000000
 	ldrb r0, [r0, 0x4]
@@ -14403,8 +14426,14 @@ sub_809CA8C: @ 809CA8C
 	bx r0
 	thumb_func_end sub_809CA8C
 
+	thumb_func_start debug_sub_80AA40C
+debug_sub_80AA40C:
+	.fill 0x28
+	thumb_func_end debug_sub_80AA40C
+
 	thumb_func_start sub_809CAB0
 sub_809CAB0: @ 809CAB0
+	.fill 20
 	push {lr}
 	bl sub_809CDCC
 	bl sub_809AB8C

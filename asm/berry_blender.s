@@ -7231,6 +7231,7 @@ _08051C54: .4byte 0x0000096c
 
 	thumb_func_start sub_8051C58
 sub_8051C58: @ 8051C58
+    .fill 36
 	push {r4-r7,lr}
 	mov r7, r10
 	mov r6, r9

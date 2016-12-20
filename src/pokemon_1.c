@@ -470,6 +470,10 @@ void CalculateMonStats(struct Pokemon *mon)
     }
 }
 
+void debug_sub_803F55C(void) {
+    asm(".fill 676");
+}
+
 void sub_803B4B4(struct Pokemon *src, struct Pokemon *dest)
 {
     u32 value = 0;

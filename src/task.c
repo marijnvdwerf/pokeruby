@@ -46,6 +46,7 @@ u8 CreateTask(TaskFunc func, u8 priority)
         }
     }
 
+    asm(".fill 8");
     return 0;
 }
 

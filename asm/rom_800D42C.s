@@ -796,6 +796,7 @@ _0800DAB4: .4byte gBattleTerrainPalette_BattleTower
 
 	thumb_func_start sub_800DAB8
 sub_800DAB8: @ 800DAB8
+    .fill 88
 	push {lr}
 	ldr r0, _0800DAE8 @ =gUnknown_08D00000
 	movs r1, 0xC0
@@ -2162,6 +2163,7 @@ _0800E7F4:
 
 	thumb_func_start sub_800E7F8
 sub_800E7F8: @ 800E7F8
+    .fill 32
 	push {r4,r5,lr}
 	sub sp, 0x4
 	movs r0, 0
@@ -3114,6 +3116,7 @@ _0800F008:
 	pop {r4-r7}
 	pop {r0}
 	bx r0
+	.fill 44
 	.align 2, 0
 _0800F010: .4byte gUnknown_02024D1F
 _0800F014: .4byte gUnknown_030042D0
@@ -3225,6 +3228,7 @@ _0800F100: .4byte 0x02000000
 
 	thumb_func_start sub_800F104
 sub_800F104: @ 800F104
+    .fill 48
 	push {r4-r7,lr}
 	mov r7, r9
 	mov r6, r8
@@ -3414,6 +3418,7 @@ _0800F294: .4byte sub_800E7F8
 
 	thumb_func_start sub_800F298
 sub_800F298: @ 800F298
+.fill 44
 	push {r4-r7,lr}
 	mov r7, r8
 	push {r7}
@@ -4104,6 +4109,7 @@ _0800F804: .4byte gTrainerBattleOpponent
 
 	thumb_func_start sub_800F808
 sub_800F808: @ 800F808
+.fill 200
 	push {lr}
 	bl AnimateSprites
 	bl BuildOamBuffer
@@ -5393,6 +5399,204 @@ _08010236:
 _08010240: .4byte gPaletteFade
 _08010244: .4byte gMain
 	thumb_func_end c2_081284E0
+	
+
+
+
+
+	thumb_func_start debug_sub_8010800
+debug_sub_8010800:
+	.fill 24
+	thumb_func_end debug_sub_8010800
+
+	thumb_func_start debug_sub_8010818
+debug_sub_8010818:
+	.fill 160
+	thumb_func_end debug_sub_8010818
+
+	thumb_func_start debug_sub_80108B8
+debug_sub_80108B8:
+	.fill 452
+	thumb_func_end debug_sub_80108B8
+
+	thumb_func_start debug_sub_8010A7C
+debug_sub_8010A7C:
+	.fill 48
+	thumb_func_end debug_sub_8010A7C
+
+	thumb_func_start debug_sub_8010AAC
+debug_sub_8010AAC:
+	.fill 212
+	thumb_func_end debug_sub_8010AAC
+
+	thumb_func_start debug_sub_8010B80
+debug_sub_8010B80:
+	.fill 300
+	thumb_func_end debug_sub_8010B80
+
+	thumb_func_start debug_sub_8010CAC
+debug_sub_8010CAC:
+	.fill 2028
+	thumb_func_end debug_sub_8010CAC
+
+	thumb_func_start debug_sub_8011498
+debug_sub_8011498:
+	.fill 692
+	thumb_func_end debug_sub_8011498
+
+	thumb_func_start debug_sub_801174C
+debug_sub_801174C:
+	.fill 1524
+	thumb_func_end debug_sub_801174C
+
+	thumb_func_start debug_sub_8011D40
+debug_sub_8011D40:
+	.fill 144
+	thumb_func_end debug_sub_8011D40
+
+	thumb_func_start debug_nullsub_45
+debug_nullsub_45:
+	.fill 4
+	thumb_func_end debug_nullsub_45
+
+	thumb_func_start debug_sub_8011DD4
+debug_sub_8011DD4:
+	.fill 136
+	thumb_func_end debug_sub_8011DD4
+
+	thumb_func_start debug_sub_8011E5C
+debug_sub_8011E5C:
+	.fill 24
+	thumb_func_end debug_sub_8011E5C
+
+	thumb_func_start debug_sub_8011E74
+debug_sub_8011E74:
+	.fill 44
+	thumb_func_end debug_sub_8011E74
+
+	thumb_func_start debug_sub_8011EA0
+debug_sub_8011EA0:
+	.fill 1012
+	thumb_func_end debug_sub_8011EA0
+
+	thumb_func_start debug_sub_8012294
+debug_sub_8012294:
+	.fill 324
+	thumb_func_end debug_sub_8012294
+
+	thumb_func_start debug_sub_80123D8
+debug_sub_80123D8:
+	.fill 360
+	thumb_func_end debug_sub_80123D8
+
+	thumb_func_start debug_sub_8012540
+debug_sub_8012540:
+	.fill 92
+	thumb_func_end debug_sub_8012540
+
+	thumb_func_start debug_nullsub_3
+debug_nullsub_3:
+	.fill 4
+	thumb_func_end debug_nullsub_3
+
+	thumb_func_start debug_sub_80125A0
+debug_sub_80125A0:
+	.fill 68
+	thumb_func_end debug_sub_80125A0
+
+	thumb_func_start debug_sub_80125E4
+debug_sub_80125E4:
+	.fill 68
+	thumb_func_end debug_sub_80125E4
+
+	thumb_func_start debug_sub_8012628
+debug_sub_8012628:
+	.fill 48
+	thumb_func_end debug_sub_8012628
+
+	thumb_func_start debug_sub_8012658
+debug_sub_8012658:
+	.fill 48
+	thumb_func_end debug_sub_8012658
+
+	thumb_func_start debug_sub_8012688
+debug_sub_8012688:
+	.fill 496
+	thumb_func_end debug_sub_8012688
+
+	thumb_func_start debug_sub_8012878
+debug_sub_8012878:
+	.fill 60
+	thumb_func_end debug_sub_8012878
+
+	thumb_func_start debug_sub_80128B4
+debug_sub_80128B4:
+	.fill 132
+	thumb_func_end debug_sub_80128B4
+
+	thumb_func_start debug_sub_8012938
+debug_sub_8012938:
+	.fill 192
+	thumb_func_end debug_sub_8012938
+
+	thumb_func_start debug_sub_80129F8
+debug_sub_80129F8:
+	.fill 200
+	thumb_func_end debug_sub_80129F8
+
+	thumb_func_start debug_sub_8012AC0
+debug_sub_8012AC0:
+	.fill 108
+	thumb_func_end debug_sub_8012AC0
+
+	thumb_func_start debug_sub_8012B2C
+debug_sub_8012B2C:
+	.fill 32
+	thumb_func_end debug_sub_8012B2C
+
+	thumb_func_start debug_sub_8012B4C
+debug_sub_8012B4C:
+	.fill 36
+	thumb_func_end debug_sub_8012B4C
+
+	thumb_func_start debug_sub_8012B70
+debug_sub_8012B70:
+	.fill 152
+	thumb_func_end debug_sub_8012B70
+
+	thumb_func_start debug_sub_8012C08
+debug_sub_8012C08:
+	.fill 264
+	thumb_func_end debug_sub_8012C08
+
+	thumb_func_start debug_sub_8012D10
+debug_sub_8012D10:
+	.fill 1328
+	thumb_func_end debug_sub_8012D10
+
+	thumb_func_start debug_sub_8013240
+debug_sub_8013240:
+	.fill 24
+	thumb_func_end debug_sub_8013240
+
+	thumb_func_start debug_sub_8013258
+debug_sub_8013258:
+	.fill 60
+	thumb_func_end debug_sub_8013258
+
+	thumb_func_start debug_sub_8013294
+debug_sub_8013294:
+	.fill 52
+	thumb_func_end debug_sub_8013294
+
+	thumb_func_start debug_sub_80132C8
+debug_sub_80132C8:
+	.fill 40
+	thumb_func_end debug_sub_80132C8
+
+
+	
+	
 
 	thumb_func_start oac_poke_opponent
 oac_poke_opponent: @ 8010248
@@ -6201,49 +6405,33 @@ _0801081C: .4byte gUnknown_030042D4
 _08010820: .4byte bc_8012FAC
 	thumb_func_end sub_8010800
 
+
+
+	thumb_func_start debug_sub_80138CC
+debug_sub_80138CC:
+	.fill 280
+	thumb_func_end debug_sub_80138CC
+
+	thumb_func_start debug_sub_80139E4
+debug_sub_80139E4:
+	.fill 144
+	thumb_func_end debug_sub_80139E4
+
+	thumb_func_start debug_sub_8013A74
+debug_sub_8013A74:
+	.fill 28
+	thumb_func_end debug_sub_8013A74
+
 	thumb_func_start sub_8010824
-sub_8010824: @ 8010824
-	push {r4,r5,lr}
-	ldr r0, _08010864 @ =gUnknown_030042D4
-	ldr r0, [r0]
-	bl _call_via_r0
-	ldr r1, _08010868 @ =gUnknown_02024A60
-	movs r0, 0
-	strb r0, [r1]
-	ldr r0, _0801086C @ =gUnknown_02024A68
-	ldrb r0, [r0]
-	cmp r0, 0
-	beq _0801085E
-	ldr r5, _08010870 @ =gUnknown_03004330
-	adds r4, r1, 0
-_08010840:
-	ldrb r0, [r4]
-	lsls r0, 2
-	adds r0, r5
-	ldr r0, [r0]
-	bl _call_via_r0
-	ldrb r0, [r4]
-	adds r0, 0x1
-	strb r0, [r4]
-	ldr r1, _0801086C @ =gUnknown_02024A68
-	lsls r0, 24
-	lsrs r0, 24
-	ldrb r1, [r1]
-	cmp r0, r1
-	bcc _08010840
-_0801085E:
-	pop {r4,r5}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_08010864: .4byte gUnknown_030042D4
-_08010868: .4byte gUnknown_02024A60
-_0801086C: .4byte gUnknown_02024A68
-_08010870: .4byte gUnknown_03004330
+sub_8010824:
+	.fill 40
 	thumb_func_end sub_8010824
+
+
 
 	thumb_func_start sub_8010874
 sub_8010874: @ 8010874
+	.fill 24
 	push {r4-r7,lr}
 	mov r7, r10
 	mov r6, r9
@@ -21213,6 +21401,7 @@ _08018320: .4byte gBattleMons
 
 	thumb_func_start sub_8018324
 sub_8018324: @ 8018324
+    .fill 1228
 	push {r4-r7,lr}
 	mov r7, r10
 	mov r6, r9
@@ -27585,6 +27774,7 @@ _0801B924: .4byte 0x00016010
 
 	thumb_func_start sub_801B928
 sub_801B928: @ 801B928
+.fill 36
 	push {r4-r7,lr}
 	mov r7, r9
 	mov r6, r8
@@ -35105,6 +35295,7 @@ _0801F610: .4byte gUnknown_081D94B0
 
 	thumb_func_start atk15_seteffectwithchancetarget
 atk15_seteffectwithchancetarget: @ 801F614
+.fill 44
 	push {r4,lr}
 	ldr r2, _0801F640 @ =gBattleMons
 	ldr r0, _0801F644 @ =gUnknown_02024C07
@@ -51374,6 +51565,7 @@ _080278A8:
 
 	thumb_func_start sub_80278B8
 sub_80278B8: @ 80278B8
+.fill 192
 	push {r4-r7,lr}
 	mov r7, r8
 	push {r7}
@@ -61178,6 +61370,7 @@ _0802C688: .4byte sub_8010520
 
 	thumb_func_start sub_802C68C
 sub_802C68C: @ 802C68C
+.fill 488
 	push {r4-r7,lr}
 	mov r7, r8
 	push {r7}
@@ -62565,6 +62758,18 @@ _0802D1F8: .4byte gMain
 _0802D1FC: .4byte 0x0000043d
 _0802D200: .4byte gUnknown_030042D0
 	thumb_func_end sub_802D18C
+
+
+	thumb_func_start debug_sub_8030C24
+debug_sub_8030C24:
+    .fill 1112
+	thumb_func_end debug_sub_8030C24
+
+	thumb_func_start debug_sub_803107C
+debug_sub_803107C:
+    .fill 274
+	thumb_func_end debug_sub_803107C
+
 
 	thumb_func_start sub_802D204
 sub_802D204: @ 802D204
@@ -77452,6 +77657,7 @@ _08034BF8: .4byte sub_8033160
 
 	thumb_func_start sub_8034BFC
 sub_8034BFC: @ 8034BFC
+    .fill 36
 	push {r4-r6,lr}
 	mov r6, r9
 	mov r5, r8
@@ -78461,6 +78667,7 @@ sub_803541C: @ 803541C
 
 	thumb_func_start sub_8035428
 sub_8035428: @ 8035428
+    .fill 232
 	push {r4-r6,lr}
 	ldr r6, _0803545C @ =gUnknown_02024A60
 	ldrb r0, [r6]
@@ -81335,6 +81542,7 @@ _08036AFE:
 
 	thumb_func_start sub_8036B0C
 sub_8036B0C: @ 8036B0C
+    .fill 16
 	push {r4-r6,lr}
 	ldr r5, _08036B68 @ =gBattleTypeFlags
 	ldrh r1, [r5]

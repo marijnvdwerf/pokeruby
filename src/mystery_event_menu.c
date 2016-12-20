@@ -344,3 +344,37 @@ static void CB2_MysteryEventMenu(void)
     BuildOamBuffer();
     UpdatePaletteFade();
 }
+
+void debug_sub_815D1D8();
+
+void debug_sub_815D04C(void)
+{
+    asm(".fill 268");
+}
+
+void debug_sub_815D15C(void)
+{
+    ResetSpriteData();
+    FreeAllSpritePalettes();
+    ResetTasks();
+    SetVBlankCallback(VBlankCB);
+    SetUpWindowConfig(&gWindowConfig_81E6CE4);
+    InitMenuWindow(&gWindowConfig_81E6CE4);
+    MenuZeroFillScreen();
+    REG_DISPCNT = DISPCNT_BG0_ON | DISPCNT_OBJ_1D_MAP | DISPCNT_MODE_0;
+    REG_BLDCNT = 0;
+
+    CreateTask(Task_DestroySelf, 0);
+    StopMapMusic();
+    RunTasks();
+    AnimateSprites();
+    BuildOamBuffer();
+    UpdatePaletteFade();
+    FillPalette(0, 0, 2);
+    SetMainCallback2(debug_sub_815D1D8);
+}
+
+void debug_sub_815D1D8(void)
+{
+    asm(".fill 592");
+}

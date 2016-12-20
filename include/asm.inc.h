@@ -262,6 +262,7 @@ u8 sub_80A7E5C(u8);
 void sub_80AA280(u8);
 void sub_80AA5E8(u8);
 void sub_80AA658(u8);
+void unref_sub_80AB084(const u8 *);
 
 // asm/contest.o
 void sub_80AB1B0(void);

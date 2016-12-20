@@ -1808,6 +1808,7 @@ _08044548: .4byte REG_BG0CNT
 
 	thumb_func_start sub_804454C
 sub_804454C: @ 804454C
+.fill 12
 	push {r4-r7,lr}
 	mov r7, r10
 	mov r6, r9
@@ -4461,6 +4462,7 @@ _08045A58: .4byte REG_BG0CNT
 
 	thumb_func_start sub_8045A5C
 sub_8045A5C: @ 8045A5C
+.fill 68
 	push {r4-r7,lr}
 	mov r7, r10
 	mov r6, r9

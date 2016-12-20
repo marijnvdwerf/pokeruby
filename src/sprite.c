@@ -1,5 +1,6 @@
 #include "global.h"
 #include "sprite.h"
+#include "asm.h"
 #include "main.h"
 #include "menu_cursor.h"
 #include "palette.h"
@@ -836,6 +837,12 @@ static void RequestSpriteFrameImageCopy(u16 index, u16 tileNum, struct SpriteFra
         gSpriteCopyRequests[gSpriteCopyRequestCount].size = images[index].size;
         gSpriteCopyRequestCount++;
     }
+#ifdef DEBUG
+    else
+    {
+        unref_sub_80AB084(sDmaOverErrorMsg);
+    }
+#endif
 }
 
 void RequestSpriteCopy(u8 *src, u8 *dest, u16 size)
@@ -847,6 +854,12 @@ void RequestSpriteCopy(u8 *src, u8 *dest, u16 size)
         gSpriteCopyRequests[gSpriteCopyRequestCount].size = size;
         gSpriteCopyRequestCount++;
     }
+#ifdef DEBUG
+    else
+    {
+        unref_sub_80AB084(sDmaOverErrorMsg);
+    }
+#endif
 }
 
 void CopyFromSprites(u8 *dest)

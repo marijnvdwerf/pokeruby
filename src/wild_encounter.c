@@ -144,7 +144,11 @@ static void FeebasSeedRng(u16 seed)
     sFeebasRngValue = seed;
 }
 
-static u8 ChooseWildMonIndex_Land(void)
+void debug_sub_8092344(void) {
+    asm(".fill 0x24");
+}
+
+u8 ChooseWildMonIndex_Land(void)
 {
     u8 rand = Random() % 100;
 
@@ -384,7 +388,11 @@ static bool8 DoWildEncounterRateDiceRoll(u16 encounterRate)
         return FALSE;
 }
 
-static bool8 DoWildEncounterTest(u32 encounterRate, bool8 ignoreAbility)
+void debug_sub_809283C(void) {
+    asm(".fill 52");
+}
+
+ bool8 DoWildEncounterTest(u32 encounterRate, bool8 ignoreAbility)
 {
     encounterRate *= 16;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))

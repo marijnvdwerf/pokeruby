@@ -3044,6 +3044,11 @@ CreateDecorationShop2Menu: @ 80B4594
 _080B45B0: .4byte EnableBothScriptContexts
 	thumb_func_end CreateDecorationShop2Menu
 
+	thumb_func_start debug_sub_80C2818
+debug_sub_80C2818:
+    .fill 28
+	thumb_func_end debug_sub_80C2818
+
 	thumb_func_start sub_80B45B4
 sub_80B45B4: @ 80B45B4
 	push {r4-r7,lr}

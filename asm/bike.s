@@ -58,6 +58,7 @@ MovePlayerOnMachBike: @ 80E50E0
 	pop {r4}
 	pop {r0}
 	bx r0
+	.fill 36
 	.align 2, 0
 _080E510C: .4byte gUnknown_083DB594
 	thumb_func_end MovePlayerOnMachBike
@@ -329,6 +330,7 @@ MovePlayerOnAcroBike: @ 80E52DC
 	pop {r4}
 	pop {r0}
 	bx r0
+	.fill 40
 	.align 2, 0
 _080E5310: .4byte gUnknown_083DB5B0
 	thumb_func_end MovePlayerOnAcroBike

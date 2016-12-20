@@ -1096,6 +1096,7 @@ sub_80ABAAC: @ 80ABAAC
 	bl UpdatePaletteFade
 	pop {r0}
 	bx r0
+	.fill 28
 	thumb_func_end sub_80ABAAC
 
 	thumb_func_start sub_80ABAC4
@@ -1547,6 +1548,7 @@ _080ABE9C: .4byte sub_80ABEA0
 
 	thumb_func_start sub_80ABEA0
 sub_80ABEA0: @ 80ABEA0
+.fill 16
 	push {r4-r7,lr}
 	sub sp, 0x8
 	lsls r0, 24
@@ -1780,6 +1782,32 @@ _080AC0A0: .4byte 0x02019204
 _080AC0A4: .4byte gContestMons
 _080AC0A8: .4byte gContestPlayerMonIndex
 	thumb_func_end sub_80ABEA0
+
+
+	thumb_func_start debug_sub_80B9EBC
+debug_sub_80B9EBC:
+    .fill 0x182
+    .fill 20
+	thumb_func_end debug_sub_80B9EBC
+
+	thumb_func_start debug_sub_80BA054
+debug_sub_80BA054:
+    .fill 0x2BA
+	thumb_func_end debug_sub_80BA054
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	thumb_func_start sub_80AC0AC
 sub_80AC0AC: @ 80AC0AC

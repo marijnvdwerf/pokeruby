@@ -10,6 +10,7 @@
 #include "songs.h"
 #include "sound.h"
 #include "sprite.h"
+#include "string_util.h"
 #include "task.h"
 #include "text.h"
 
@@ -186,7 +187,7 @@ static const u8 sTestString[] = _"テストな";
 
 ALIGNED(4) static const u8 sMagic[] = "GameFreak inc.";
 
-ALIGNED(4) static const u8 sEmptyString[] = _"";
+static const u8 sEmptyString[] = _" ";
 
 void Task_DestroySelf(u8 taskId)
 {
@@ -1010,6 +1011,7 @@ _08007B60:\n\
 	pop {r0}\n\
 	bx r0\n\
     .syntax divided\n");
+    asm(".fill 8");
 }
 #endif
 
@@ -1397,6 +1399,27 @@ static void PrintHex(u32 num, u8 x, u8 y, u8 maxDigits)
     }
 }
 
+#ifdef DEBUG
+
+EWRAM_DATA u8 *unk_20238C4 = NULL;
+EWRAM_DATA u32 unk_20238C8 = 0;
+EWRAM_DATA u8 *unk_20238CC = NULL;
+EWRAM_DATA u32 unk_20238D0 = 0;
+
+void debug_sub_8008218(u8 *buffer, u32 arg1, u8 *arg2, u32 arg3) {
+    CpuSet(sLinkTestDigitTiles, buffer, 272);
+    unk_20238C4 = buffer;
+    unk_20238C8 = arg1;
+    unk_20238CC = arg2;
+    unk_20238D0 = arg3;
+}
+
+void debug_sub_8008264(u32 arg0, u32 arg1, u32 arg2, u32 arg3, u8 *arg4) {
+    asm(".fill 140");
+}
+
+#endif
+
 static void LinkCB_RequestPlayerDataExchange(void)
 {
     // Only one request needs to be sent, so only the master sends it.
@@ -1677,12 +1700,31 @@ void CB2_LinkError(void)
 
 static void CB2_PrintErrorMessage(void)
 {
-    u8 array[64] __attribute__((unused)); // unused
+    u8 buffer[0x20] __attribute__((unused)); // unused
+    u8 buffer2[0x20] __attribute__((unused)); // unused
 
     switch (gMain.state)
     {
     case 0:
         MenuPrint_PixelCoords(gMultiText_LinkError, 20, 56, 1);
+#ifdef DEBUG
+            StringCopy(buffer, sColorCodes);
+
+            ConvertIntToHexStringN(buffer2, sErrorLinkStatus, STR_CONV_MODE_LEADING_ZEROS, 8);
+            StringAppend(buffer, buffer2);
+
+            StringAppend(buffer, sEmptyString);
+
+            ConvertIntToHexStringN(buffer2, sErrorLastSendQueueCount, STR_CONV_MODE_LEADING_ZEROS, 2);
+            StringAppend(buffer, buffer2);
+
+            StringAppend(buffer, sEmptyString);
+
+            ConvertIntToHexStringN(buffer2, sErrorLastRecvQueueCount, STR_CONV_MODE_LEADING_ZEROS, 2);
+            StringAppend(buffer, buffer2);
+
+            MenuPrint(buffer, 2, 15);
+#endif
         break;
     case 30:
     case 60:

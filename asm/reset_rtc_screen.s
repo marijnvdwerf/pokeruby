@@ -1297,4 +1297,33 @@ _0806AED4: .4byte 0x0000ffff
 _0806AED8: .4byte gPaletteFade
 	thumb_func_end Task_ResetRtcScreen
 
+
+	thumb_func_start debug_sub_806F8F8
+debug_sub_806F8F8:
+	.fill 16
+	thumb_func_end debug_sub_806F8F8
+
+	thumb_func_start debug_sub_806F908
+debug_sub_806F908:
+	.fill 148
+	thumb_func_end debug_sub_806F908
+
+	thumb_func_start debug_sub_806F99C
+debug_sub_806F99C:
+	.fill 28
+	thumb_func_end debug_sub_806F99C
+
+	thumb_func_start debug_sub_806F9B8
+debug_sub_806F9B8:
+	.fill 44
+	thumb_func_end debug_sub_806F9B8
+
+	thumb_func_start debug_sub_806F9E4
+debug_sub_806F9E4:
+	.fill 352
+	thumb_func_end debug_sub_806F9E4
+
+
+
+
 	.align 2, 0 @ Don't pad with nop.

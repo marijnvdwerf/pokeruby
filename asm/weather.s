@@ -2095,6 +2095,18 @@ _0807DE70: .4byte gUnknown_030006DC
 _0807DE74: .4byte gUnknown_083970C8
 	thumb_func_end sub_807DE68
 
+	thumb_func_start debug_sub_8085564
+debug_sub_8085564:
+    .fill 168
+	thumb_func_end debug_sub_8085564
+
+	thumb_func_start debug_sub_808560C
+debug_sub_808560C:
+    .fill 84
+	thumb_func_end debug_sub_808560C
+
+
+
 	thumb_func_start sub_807DE78
 sub_807DE78: @ 807DE78
 	push {lr}

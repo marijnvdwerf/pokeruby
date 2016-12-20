@@ -155,6 +155,9 @@ static void PlayerAllowForcedMovementIfMovingSameDirection(void)
 
 static u8 TryDoMetatileBehaviorForcedMovement(void)
 {
+#ifdef DEBUG
+    asm(".fill 32");
+#endif
     return gUnknown_0830FBA0[GetForcedMovementByMetatileBehavior()]();
 }
 
@@ -332,6 +335,9 @@ u8 ForcedMovement_MuddySlope(void)
 static void MovePlayerNotOnBike(u8 a, u16 b)
 {
     gUnknown_0830FBEC[CheckMovementInputNotOnBike(a)](a, b);
+#ifdef DEBUG
+    asm(".fill 24");
+#endif
 }
 
 static u8 CheckMovementInputNotOnBike(u8 a)
@@ -1600,3 +1606,14 @@ static void sub_805A954(void)
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
         sub_8127F28(gMapObjects[gPlayerAvatar.mapObjectId].mapobj_unk_1A, 1, playerSprite->pos2.y);
 }
+
+#ifdef DEBUG
+
+void debug_sub_805F2B0(void) {
+    asm(".fill 42");
+}
+
+void debug_sub_805F2DC(void) {
+    asm(".fill 106");
+}
+#endif

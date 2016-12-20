@@ -173,7 +173,7 @@ gSpriteImageTable_83EC934: @ 83EC934
 
 	.align 2
 gSpriteTemplate_83EC93C:: @ 83EC93C
-	spr_template 0xFFFF, 3000, 0x20391AC, gSpriteAnimTable_83EC930, gSpriteImageTable_83EC934, gDummySpriteAffineAnimTable, sub_81009A8
+	spr_template 0xFFFF, 3000, gUnknown_020391AC, gSpriteAnimTable_83EC930, gSpriteImageTable_83EC934, gDummySpriteAffineAnimTable, sub_81009A8
 
 	.align 2
 gUnknown_083EC954:: @ 83EC954
