@@ -978,7 +978,7 @@ BattleText_OtherMenu:
 	.string "What should\n{STRING 15} do?$"
 
 gUnknown_08400CBB:: @ 8400CBB
-BattleText_PlayerMenu:
+BattleText_PlayerMenu::
 	.string "What will\n{STRING 32} do?$"
 
 gUnknown_08400CCC:: @ 8400CCC
@@ -994,7 +994,7 @@ BattleText_MenuOptions:
 	.string "{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}FIGHT{CLEAR_TO 0x2E}BAG\nPOKéMON{CLEAR_TO 0x2E}RUN$"
 
 gUnknown_08400D15:: @ 8400D15
-BattleText_MenuOptionsSafari:
+BattleText_MenuOptionsSafari::
 	.string "{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW SKY_BLUE LIGHT_BLUE WHITE2}BALL{CLEAR_TO 0x2E}{POKEBLOCK}\nGO NEAR{CLEAR_TO 0x2E}RUN$"
 
 gUnknown_08400D38:: @ 8400D38

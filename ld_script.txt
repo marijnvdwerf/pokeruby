@@ -224,6 +224,8 @@ SECTIONS {
         asm/field_effect_helpers.o(.text);
         asm/contest_ai.o(.text);
         asm/rom_81258BC.o(.text);
+        src/rom_81258BC.o(.text);
+        asm/rom_81258BC.o(.text_812BBFC);
         src/player_pc.o(.text);
         asm/player_pc.o(.text);
         src/intro.o(.text);
