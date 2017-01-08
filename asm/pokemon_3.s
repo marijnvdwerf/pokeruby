@@ -1,4 +1,5 @@
 	.include "constants/gba_constants.inc"
+	.include "constants/misc_constants.inc"
 	.include "constants/species_constants.inc"
 	.include "asm/macros.inc"
 
@@ -335,7 +336,7 @@ sub_803FB68: @ 803FB68
 	strb r0, [r4, 0x0]
 	lsls r0, 24
 	lsrs r0, 24
-	cmp r0, 0x2
+	cmp r0, GAME_LANGUAGE
 	bne _0803FBC4
 	movs r6, 0xB
 	adds r0, r7, 0
@@ -2741,7 +2742,7 @@ sub_8040D3C: @ 8040D3C
 	cmp r1, 0x1D
 	bne _08040D7E
 _08040D54:
-	cmp r2, 0x2
+	cmp r2, GAME_LANGUAGE
 	bne _08040D68
 	movs r0, 0xB
 	muls r1, r0
@@ -2776,7 +2777,7 @@ sub_8040D8C: @ 8040D8C
 	push {lr}
 	lsls r0, 16
 	lsrs r3, r0, 16
-	movs r2, 0x2
+	movs r2, GAME_LANGUAGE
 	ldrb r0, [r1]
 	cmp r0, 0xFC
 	bne _08040DA2
