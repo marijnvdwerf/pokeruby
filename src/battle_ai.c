@@ -352,6 +352,9 @@ void BattleAI_SetupAIData(void)
     u8 r7;
 
     // clear AI data and set default move score to 100.
+
+    asm(".fill 12");
+
     for(i = 0; (u32)i < 28; i++)
         data[i] = 0;
     for(i = 0; i < 4; i++)

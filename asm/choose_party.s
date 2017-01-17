@@ -1310,6 +1310,12 @@ sub_8122838: @ 8122838
 	bx r0
 	thumb_func_end sub_8122838
 
+
+	thumb_func_start debug_sub_81381B4
+debug_sub_81381B4:
+    .fill 200
+	thumb_func_end debug_sub_81381B4
+
 	thumb_func_start sub_8122854
 sub_8122854: @ 8122854
 	push {r4,lr}

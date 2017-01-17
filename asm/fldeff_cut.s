@@ -6,6 +6,11 @@
 
 	.text
 
+	thumb_func_start debug_sub_80AFEE4
+debug_sub_80AFEE4:
+    .fill 0xCA
+	thumb_func_end debug_sub_80AFEE4
+
 	thumb_func_start SetUpFieldMove_Cut
 SetUpFieldMove_Cut: @ 80A2504
 	push {r4-r7,lr}

@@ -34,6 +34,7 @@ gUnknown_083ECAAC:: @ 83ECAAC
 	.4byte sub_81023FC
 	.4byte sub_8102424
 	.4byte sub_8102460
+	.4byte debug_sub_8116E74
 
 	.align 2
 gUnknown_083ECB20:: @ 83ECB20

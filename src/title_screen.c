@@ -10,6 +10,7 @@
 #include "main.h"
 #include "main_menu.h"
 #include "palette.h"
+#include "rom4.h"
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
@@ -559,12 +560,19 @@ static void Task_TitleScreenPhase3(u8 taskId)
             }
         }
     }
+    asm(".fill 40");
 }
 
 static void CB2_GoToMainMenu(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitMainMenu);
+}
+
+void CB2_debug(void)
+{
+    if (!UpdatePaletteFade())
+        SetMainCallback2(debug_sub_805891C);
 }
 
 static void CB2_GoToCopyrightScreen(void)

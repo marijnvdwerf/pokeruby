@@ -483,6 +483,13 @@ _081102E0: .4byte gLinkPlayers
 _081102E4: .4byte gLinkPlayerMapObjects
 	thumb_func_end sub_8110290
 
+
+	thumb_func_start debug_sub_81257E0
+debug_sub_81257E0:
+    .fill 112
+	thumb_func_end debug_sub_81257E0
+
+
 	thumb_func_start PrintLinkBattleWinsLossesDraws
 PrintLinkBattleWinsLossesDraws: @ 81102E8
 	push {r4,lr}

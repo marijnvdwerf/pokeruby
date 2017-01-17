@@ -5,6 +5,30 @@
 	.syntax unified
 
 	.text
+	
+	
+	thumb_func_start debug_sub_8138C14
+debug_sub_8138C14:
+	.fill 32
+	thumb_func_end debug_sub_8138C14
+
+	thumb_func_start debug_sub_8138C34
+debug_sub_8138C34:
+	.fill 32
+	thumb_func_end debug_sub_8138C34
+
+	thumb_func_start debug_sub_8138C54
+debug_sub_8138C54:
+	.fill 112
+	thumb_func_end debug_sub_8138C54
+
+	thumb_func_start debug_sub_8138CC4
+debug_sub_8138CC4:
+	.fill 88
+	thumb_func_end debug_sub_8138CC4
+
+
+
 
 	thumb_func_start sub_81231EC
 sub_81231EC: @ 81231EC
@@ -51,6 +75,26 @@ sub_8123218: @ 8123218
 	.align 2, 0
 _08123240: .4byte sub_81231EC
 	thumb_func_end sub_8123218
+
+
+
+
+	thumb_func_start debug_sub_8138D74
+debug_sub_8138D74:
+	.fill 24
+	thumb_func_end debug_sub_8138D74
+
+	thumb_func_start debug_sub_8138D8C
+debug_sub_8138D8C:
+	.fill 24
+	thumb_func_end debug_sub_8138D8C
+
+
+
+
+
+
+
 
 	thumb_func_start sub_8123244
 sub_8123244: @ 8123244

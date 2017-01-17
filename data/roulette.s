@@ -133,6 +133,10 @@ gUnknown_083F8EE8:: @ 83F8EE8
 gUnknown_083F8EF4:: @ 83F8EF4
 	.byte 0, 3, 4, 6, 12
 
+gUnknown_Debug_0842510D:: @ 0x842510D
+	.string "Set　COIN　and　Press　START\n"
+	.string "Aーp1　Bーm1　R:Lー×10$"
+
 	.align 2
 gUnknown_083F90FC:: @ 83F90FC
 	.incbin "graphics/roulette/ball.4bpp.lz"

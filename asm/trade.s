@@ -5531,10 +5531,10 @@ _0804A9D6:
 	cmp r2, r12
 	blt _0804A9A8
 _0804A9DC:
+	movs r0, 0x1
 	pop {r3-r5}
 	mov r8, r3
 	mov r9, r4
-	mov r10, r5
 	pop {r4-r7}
 	pop {r0}
 	bx r0
@@ -5542,33 +5542,7 @@ _0804A9DC:
 
 	thumb_func_start sub_804AD20
 sub_804AD20:
-	push {r4-r6,lr}
-	sub sp, 0xC
-	adds r6, r0, 0
-	ldr r0, [sp, 0x1C]
-	ldr r4, [sp, 0x20]
-	ldr r5, [sp, 0x24]
-	lsls r1, 24
-	lsrs r1, 24
-	lsls r2, 24
-	lsrs r2, 24
-	lsls r0, 24
-	lsrs r0, 24
-	lsls r4, 24
-	lsrs r4, 24
-	lsls r5, 16
-	lsrs r5, 16
-	str r0, [sp]
-	str r4, [sp, 0x4]
-	str r5, [sp, 0x8]
-	adds r0, r6, 0
-	bl sub_804A96C
-	movs r0, 0x1
-	strb r0, [r6, 0x10]
-	add sp, 0xC
-	pop {r4-r6}
-	pop {r0}
-	bx r0
+   .fill 56
 	thumb_func_end sub_804AD20
 
 	thumb_func_start sub_804A9F4

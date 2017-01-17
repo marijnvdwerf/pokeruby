@@ -547,6 +547,11 @@ sub_810BAF4: @ 810BAF4
 _0810BB08: .4byte sub_810B96C
 	thumb_func_end sub_810BAF4
 
+	thumb_func_start debug_sub_8120F98
+debug_sub_8120F98:
+    .fill 64
+	thumb_func_end debug_sub_8120F98
+
 	thumb_func_start sub_810BB0C
 sub_810BB0C: @ 810BB0C
 	push {lr}

@@ -29,6 +29,12 @@ const struct SB1_2EFC_Struct gUnknown_08216604 =
     }
 };
 
+const u8 gUnknown_Debug_0823C788[] = {
+        0x19, 0x28, 0x02, 0x03, 0x00, 0x09, 0x01, 0x01
+};
+
+const u8 gUnknown_Debug_0823C790[] = _"KRÖTE";
+
 void write_word_to_mem(u32 var, u8 *dataPtr)
 {
     dataPtr[0] = var;
@@ -80,6 +86,10 @@ void sub_8052DE4(void)
     CpuFill32(0, &gSaveBlock2.filler_A8, sizeof(gSaveBlock2.filler_A8));
 }
 
+void debug_sub_8052E04(void) {
+    asm(".fill 112");
+}
+
 void WarpToTruck(void)
 {
     warp1_set(25, 40, -1, -1, -1); // inside of truck
@@ -99,6 +109,7 @@ void sub_8052E4C(void)
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
     sub_80A3684();
+    asm(".fill 8");
 }
 
 void NewGameInitData(void)
@@ -145,4 +156,8 @@ void NewGameInitData(void)
     ResetLotteryCorner();
     WarpToTruck();
     ScriptContext2_RunNewScript(gUnknown_0819FA81);
+}
+
+void debug_sub_8057508(void) {
+    asm(".fill 160");
 }

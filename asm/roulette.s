@@ -312,6 +312,7 @@ _0811536C:
 
 	thumb_func_start sub_8115384
 sub_8115384: @ 8115384
+.fill 12
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _081153A4 @ =gMain
@@ -586,6 +587,7 @@ _08115630: .4byte sub_81150FC
 
 	thumb_func_start sub_8115634
 sub_8115634: @ 8115634
+.fill 88
 	push {r4-r6,lr}
 	ldr r0, _081156B8 @ =0x02019000
 	adds r3, r0, 0
@@ -3215,6 +3217,7 @@ _08116B3C: .4byte sub_8116B40
 
 	thumb_func_start sub_8116B40
 sub_8116B40: @ 8116B40
+.fill 12
 	push {r4,r5,lr}
 	lsls r0, 24
 	lsrs r5, r0, 24
@@ -4568,6 +4571,7 @@ _081175BC: .4byte sub_8117528
 
 	thumb_func_start sub_81175C0
 sub_81175C0: @ 81175C0
+.fill 12
 	push {r4,lr}
 	adds r4, r0, 0
 	lsls r4, 24
@@ -4825,8 +4829,22 @@ _081177F4: .4byte gUnknown_081C411C
 _081177F8: .4byte sub_81175DC
 	thumb_func_end Task_Roulette_0
 
+
+	thumb_func_start debug_sub_812CDE4
+debug_sub_812CDE4:
+    .fill 516
+	thumb_func_end debug_sub_812CDE4
+
+	thumb_func_start debug_sub_812CFE8
+debug_sub_812CFE8:
+    .fill 164
+	thumb_func_end debug_sub_812CFE8
+
+
+
 	thumb_func_start PlayRoulette
 PlayRoulette: @ 81177FC
+.fill 36
 	push {lr}
 	bl ScriptContext2_Enable
 	ldr r0, _08117828 @ =Task_Roulette_0
@@ -7610,6 +7628,12 @@ _08118DDC:
 	bx r0
 	thumb_func_end sub_8118D2C
 
+
+	thumb_func_start debug_sub_812E698
+debug_sub_812E698:
+    .fill 180
+	thumb_func_end debug_sub_812E698
+
 	thumb_func_start sub_8118DE4
 sub_8118DE4: @ 8118DE4
 	push {r4-r7,lr}
@@ -7815,6 +7839,7 @@ _08118F88: .4byte sub_8118D2C
 
 	thumb_func_start sub_8118F8C
 sub_8118F8C: @ 8118F8C
+.fill 24
 	push {r4-r7,lr}
 	mov r7, r9
 	mov r6, r8

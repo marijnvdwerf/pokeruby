@@ -783,6 +783,13 @@ _080C62BE:
 	bx r0
 	thumb_func_end sub_80C6280
 
+
+	thumb_func_start debug_sub_80D93F4
+debug_sub_80D93F4:
+    .fill 184
+	thumb_func_end debug_sub_80D93F4
+
+
 	thumb_func_start SetUpFieldMove_SecretPower
 SetUpFieldMove_SecretPower: @ 80C62C4
 	push {r4,lr}

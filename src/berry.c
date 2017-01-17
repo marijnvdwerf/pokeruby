@@ -5,6 +5,7 @@
 #include "items.h"
 #include "main.h"
 #include "rng.h"
+#include "string_util.h"
 #include "text.h"
 
 #define FIRST_BERRY ITEM_CHERI_BERRY
@@ -18,6 +19,14 @@ extern u16 gScriptLastTalked;
 extern u16 gSpecialVar_0x8004;
 extern u16 gSpecialVar_0x8005;
 extern u16 gSpecialVar_0x8006;
+
+void debug_sub_80C2B04(void) {
+    asm(".fill 40");
+}
+
+void debug_sub_80C2B30(void) {
+    asm(".fill 40");
+}
 
 // unused
 void ClearEnigmaBerries(void)
@@ -35,6 +44,10 @@ void SetEnigmaBerry(u8 *src)
 
     gSaveBlock1.enigmaBerry.berry.description1 = gSaveBlock1.enigmaBerry.description1;
     gSaveBlock1.enigmaBerry.berry.description2 = gSaveBlock1.enigmaBerry.description2;
+}
+
+void debug_sub_80C2BD0(void) {
+    asm(".fill 68");
 }
 
 u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry)
@@ -60,7 +73,12 @@ u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry)
     gSaveBlock1.enigmaBerry.berry.description1 = description1;
     gSaveBlock1.enigmaBerry.berry.description2 = description2;
 
+    asm(".fill 196");
     return checksum;
+}
+
+void debug_sub_80C2D24(void) {
+    asm(".fill 92");
 }
 
 bool32 IsEnigmaBerryValid(void)
@@ -390,6 +408,65 @@ u8 PlayerHasBerries(void)
 {
     return IsBagPocketNonEmpty(BAG_BERRIES);
 }
+
+#ifdef DEBUG
+
+void debug_sub_80C33FC(u8 *buffer, s32 value, u8 n) {
+    StringAppend(gStringVar4, buffer);
+    ConvertIntToDecimalStringN(gStringVar1, value, STR_CONV_MODE_LEADING_ZEROS, n);
+    StringAppend(gStringVar4, gStringVar1);
+}
+
+extern u8 gUnknown_Debug_083F7F9D[];
+extern u8 gUnknown_Debug_083F7FA2[];
+extern u8 gUnknown_Debug_083F7FA9[];
+extern u8 gUnknown_Debug_083F7FB0[];
+extern u8 gUnknown_Debug_083F7FB7[];
+extern u8 gUnknown_Debug_083F7FBE[];
+extern u8 gUnknown_Debug_083F7FC5[];
+extern u8 gUnknown_Debug_083F7FCC[];
+extern u8 gUnknown_Debug_083F7FD3[];
+extern u8 gUnknown_Debug_083F7FD3[];
+extern u8 gUnknown_Debug_083F7FD3[];
+
+#ifdef NONMATCHING
+u8* DebugOpenBerryInfo(void) {
+    s32 i;
+    u8 berryTreeId;
+    struct BerryTree *berryTree;
+
+    if (GetFieldObjectScriptPointerForComparison() != &BerryTreeScript) {
+        return NULL;
+    }
+
+    berryTreeId = FieldObjectGetBerryTreeId(gSelectedMapObject);
+    berryTree = GetBerryTreeInfo(berryTreeId);
+    
+    for (i = 0; i < 500; i++) {
+        gStringVar4[i] |= 0xFF;
+    }
+
+    debug_sub_80C33FC(gUnknown_Debug_083F7F9D, berryTreeId, 3);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FA2, berryTree->berry, 2);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FA9, berryTree->stage, 2);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FB0, berryTree->secondsUntilNextStage, 5);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FB7, berryTree->berryYield, 2);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FBE, berryTree->regrowthCount, 3);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FC5, berryTree->growthSparkle, 1);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FCC, berryTree->watered1, 1);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FD3, berryTree->watered2, 1);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FD3, berryTree->watered3, 1);
+    debug_sub_80C33FC(gUnknown_Debug_083F7FD3, berryTree->watered4, 1);
+
+    return gStringVar4;
+}
+#else
+void DebugOpenBerryInfo(void) {
+    asm(".fill 252");
+}
+#endif
+
+#endif
 
 void ResetBerryTreeSparkleFlags(void)
 {

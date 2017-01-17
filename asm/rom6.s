@@ -280,6 +280,11 @@ _0810B4FC: .4byte gTasks
 _0810B500: .4byte gPlayerAvatar
 	thumb_func_end sub_810B4CC
 
+	thumb_func_start debug_sub_8120968
+debug_sub_8120968:
+    .fill 38
+	thumb_func_end debug_sub_8120968
+
 	thumb_func_start SetUpFieldMove_RockSmash
 SetUpFieldMove_RockSmash: @ 810B504
 	push {lr}

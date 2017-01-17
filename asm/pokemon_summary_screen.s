@@ -8,6 +8,7 @@
 
 	thumb_func_start sub_809D844
 sub_809D844: @ 809D844
+	.fill 44
 	push {lr}
 	bl RunTasks
 	bl AnimateSprites
@@ -298,6 +299,7 @@ _0809DA80: .4byte 0x02018000
 
 	thumb_func_start sub_809DA84
 sub_809DA84: @ 809DA84
+	.fill 32
 	push {r4-r7,lr}
 	sub sp, 0x8
 	ldr r1, _0809DAA4 @ =gMain

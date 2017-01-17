@@ -792,6 +792,7 @@ _0812B4D0:
 
 	thumb_func_start bx_battle_menu_t6_2
 bx_battle_menu_t6_2: @ 812B4D4
+    .fill 40
 	push {r4,r5,lr}
 	ldr r0, _0812B508 @ =gMain
 	ldrh r1, [r0, 0x2E]
@@ -18941,6 +18942,11 @@ _081341DA:
 	bx r1
 	thumb_func_end sub_81341D4
 
+	thumb_func_start debug_sub_814A3A8
+debug_sub_814A3A8:
+	.fill 28
+	thumb_func_end debug_sub_814A3A8
+
 	thumb_func_start sub_81341F8
 sub_81341F8: @ 81341F8
 	push {lr}
@@ -19382,6 +19388,18 @@ GetRoamerLocation: @ 8134538
 	.align 2, 0
 _08134544: .4byte gRoamerLocation
 	thumb_func_end GetRoamerLocation
+
+	thumb_func_start debug_sub_814A714
+debug_sub_814A714:
+	.fill 40
+	thumb_func_end debug_sub_814A714
+
+	thumb_func_start debug_sub_814A73C
+debug_sub_814A73C:
+	.fill 20
+	thumb_func_end debug_sub_814A73C
+
+
 
 	thumb_func_start sub_8134548
 sub_8134548: @ 8134548

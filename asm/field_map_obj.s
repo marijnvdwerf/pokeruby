@@ -27,6 +27,7 @@ npc_clear_ids_and_state: @ 805AA50
 
 	thumb_func_start npcs_clear_ids_and_state
 npcs_clear_ids_and_state: @ 805AA70
+    .fill 8
 	push {r4,r5,lr}
 	movs r4, 0
 	ldr r5, _0805AA94 @ =gMapObjects
@@ -341,6 +342,7 @@ _0805AC9C:
 
 	thumb_func_start InitFieldObjectStateFromTemplate
 InitFieldObjectStateFromTemplate: @ 805ACA4
+    .fill 12
 	push {r4-r7,lr}
 	mov r7, r9
 	mov r6, r8
@@ -654,6 +656,7 @@ _0805AEEC: .4byte gMapObjects
 
 	thumb_func_start RemoveFieldObject
 RemoveFieldObject: @ 805AEF0
+.fill 12
 	push {lr}
 	ldrb r2, [r0]
 	movs r1, 0x2
@@ -771,6 +774,7 @@ _0805AFC8: .4byte gMapObjects
 
 	thumb_func_start sub_805AFCC
 sub_805AFCC: @ 805AFCC
+.fill 12
 	push {r4-r7,lr}
 	mov r7, r10
 	mov r6, r9
@@ -1722,6 +1726,7 @@ _0805B70C: .4byte gSaveBlock1
 
 	thumb_func_start sub_805B710
 sub_805B710: @ 805B710
+    .fill 28
 	push {r4-r7,lr}
 	adds r4, r0, 0
 	adds r5, r1, 0

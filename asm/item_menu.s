@@ -52,6 +52,7 @@ _080A3178: .4byte 0x06006000
 
 	thumb_func_start sub_80A317C
 sub_80A317C: @ 80A317C
+    .fill 36
 	push {r4,r5,lr}
 	sub sp, 0x4
 	ldr r0, _080A3198 @ =gMain
@@ -732,6 +733,11 @@ _080A371A:
 	.align 2, 0
 _080A373C: .4byte gBagPockets
 	thumb_func_end sub_80A3714
+
+	thumb_func_start debug_sub_80A3714
+debug_sub_80A3714:
+	.fill 128
+	thumb_func_end debug_sub_80A3714
 
 	thumb_func_start sub_80A3740
 sub_80A3740: @ 80A3740
@@ -8377,6 +8383,7 @@ sub_80A73FC: @ 80A73FC
 
 	thumb_func_start sub_80A740C
 sub_80A740C: @ 80A740C
+    .fill 44
 	push {lr}
 	bl sub_80A75E4
 	bl sub_80A7768

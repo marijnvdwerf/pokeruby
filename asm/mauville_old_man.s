@@ -126,6 +126,13 @@ _080F7B00:
 	bx r0
 	thumb_func_end sub_80F7AA4
 
+
+	thumb_func_start debug_sub_810B32C
+debug_sub_810B32C:
+    .fill 0x8C
+	thumb_func_end debug_sub_810B32C
+
+
 	thumb_func_start GetCurrentMauvilleOldMan
 GetCurrentMauvilleOldMan: @ 80F7B08
 	ldr r0, _080F7B10 @ =gSaveBlock1 + 0x2D94

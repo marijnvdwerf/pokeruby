@@ -148,6 +148,7 @@ void sub_8093110(Callback arg1) {
     sub_80932AC(arg1);
     SetMainCallback2(sub_8093174);
     unk_2000000.language = GAME_LANGUAGE;
+    asm(".fill 12");
 }
 
 void sub_8093130(u8 playerIndex, Callback arg2) {
@@ -166,6 +167,17 @@ void sub_8093130(u8 playerIndex, Callback arg2) {
     linkPlayerId = r4[playerIndex].linkPlayerId;
 
     r2->language = r3[linkPlayerId].language;
+    asm(".fill 12");
+}
+
+void debug_sub_80A0710(void) {
+    asm(".fill 40");
+}
+void debug_sub_80A073C(void) {
+    asm(".fill 64");
+}
+void debug_sub_80A0780(void) {
+    asm(".fill 36");
 }
 
 
@@ -593,6 +605,7 @@ _080936D0: .4byte 0x02000000\n\
 #endif
 
 void sub_80936D4(void) {
+    asm(".fill 36");
     unk_2000000.var_7 = FALSE;
     unk_2000000.var_8 = FALSE;
     unk_2000000.var_9 = FALSE;
@@ -783,6 +796,7 @@ _080938C8: .4byte 0x02000000\n\
 
 __attribute__((naked))
 bool8 sub_80938CC() {
+    asm(".fill 60");
     asm(".syntax unified\n\
 	push {lr}\n\
 	ldr r0, _080938E4 @ =gMain\n\
@@ -1827,6 +1841,7 @@ static void TrainerCard_Front_PrintMoney(void) {
 static void TrainerCard_Front_PrintPokedexCount(void) {
     u8 buffer[16];
 
+    asm(".fill 12");
     if (unk_2000000.var_7 == FALSE) {
         sub_8094110();
         return;

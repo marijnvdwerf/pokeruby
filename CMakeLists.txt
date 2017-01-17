@@ -31,7 +31,7 @@ set(RAMSCRGEN	${CMAKE_SOURCE_DIR}/tools/ramscrgen/ramscrgen)
 set(RSFONT		${CMAKE_SOURCE_DIR}/tools/rsfont/rsfont)
 set(CC1			${CMAKE_SOURCE_DIR}/tools/agbcc/bin/agbcc)
 set(CC1_OLD		${CMAKE_SOURCE_DIR}/tools/agbcc/bin/old_agbcc)
-set(C_FLAGS		-mthumb-interwork -Wimplicit -Wparentheses -Wunused -Werror -O2 -fhex-asm)
+set(C_FLAGS		-mthumb-interwork -Wimplicit -Wparentheses -Wunused -O2 -fhex-asm)
 set(LIBGCC 		${CMAKE_SOURCE_DIR}/tools/agbcc/lib/libgcc.a)
 
 #set(CMAKE_C_COMPILER ${DEVKITARM}/bin/arm-none-eabi-gcc)

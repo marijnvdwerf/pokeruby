@@ -6,8 +6,20 @@
 
 	.text
 
+	thumb_func_start debug_sub_808A4D0
+debug_sub_808A4D0:
+    .fill 140
+	thumb_func_end debug_sub_808A4D0
+
+	thumb_func_start debug_sub_808A55C
+debug_sub_808A55C:
+    .fill 500
+	thumb_func_end debug_sub_808A55C
+
+
 	thumb_func_start sub_8082CD4
 sub_8082CD4: @ 8082CD4
+    .fill 40
 	push {r4-r6,lr}
 	lsls r0, 24
 	lsrs r6, r0, 24
@@ -678,6 +690,7 @@ _080831F4: .4byte sub_8083288
 
 	thumb_func_start sub_80831F8
 sub_80831F8: @ 80831F8
+    .fill 16
 	push {r4-r7,lr}
 	lsls r0, 24
 	lsrs r4, r0, 24
@@ -2041,6 +2054,19 @@ _08083C9C: .4byte CB2_LinkError
 _08083CA0: .4byte gReceivedRemoteLinkPlayers
 	thumb_func_end sub_8083C50
 
+
+	thumb_func_start debug_sub_808B778
+debug_sub_808B778:
+	.fill 48
+	thumb_func_end debug_sub_808B778
+
+	thumb_func_start debug_sub_808B7A8
+debug_sub_808B7A8:
+	.fill 56
+	thumb_func_end debug_sub_808B7A8
+
+
+
 	thumb_func_start sub_8083CA4
 sub_8083CA4: @ 8083CA4
 	push {r4,lr}
@@ -2082,5 +2108,20 @@ unref_sub_8083CC8: @ 8083CC8
 _08083CE8: .4byte gTasks
 _08083CEC: .4byte sub_8083CA4
 	thumb_func_end unref_sub_8083CC8
+
+	thumb_func_start debug_sub_808B82C
+debug_sub_808B82C:
+	.fill 12
+	thumb_func_end debug_sub_808B82C
+
+	thumb_func_start debug_sub_808B838
+debug_sub_808B838:
+	.fill 24
+	thumb_func_end debug_sub_808B838
+
+	thumb_func_start debug_sub_808B850
+debug_sub_808B850:
+	.fill 12
+	thumb_func_end debug_sub_808B850
 
 	.align 2, 0 @ Don't pad with nop.

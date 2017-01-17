@@ -2493,8 +2493,14 @@ _0808AE82:
 	bx r1
 	thumb_func_end SetUpFieldMove_Waterfall
 
+	thumb_func_start debug_sub_80986AC
+debug_sub_80986AC:
+	.fill 76
+	thumb_func_end debug_sub_80986AC
+
 	thumb_func_start sub_808AE8C
 sub_808AE8C: @ 808AE8C
+	.fill 28
 	push {r4-r6,lr}
 	ldr r0, _0808AED8 @ =gScriptItemId
 	ldrb r0, [r0]

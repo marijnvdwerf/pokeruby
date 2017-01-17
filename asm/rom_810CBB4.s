@@ -6,6 +6,11 @@
 
 	.text
 
+	thumb_func_start debug_sub_8122080
+debug_sub_8122080:
+    .fill 44
+	thumb_func_end debug_sub_8122080
+
 	thumb_func_start SetUpFieldMove_Flash
 SetUpFieldMove_Flash: @ 810CBB4
 	push {lr}

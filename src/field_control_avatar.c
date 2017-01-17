@@ -135,6 +135,7 @@ void process_overworld_input(struct UnkInputStruct *pStruct, u16 keys, u16 heldK
     u8 r9 = gPlayerAvatar.running2;
     bool8 r7 = MetatileBehavior_IsMoveTile(cur_mapdata_block_role_at_player_pos(r9));
 
+    asm(".fill 128");
     if ((r6 == 2 && r7 == FALSE) || r6 == 0)
     {
         if (sub_80E6034() != 4)
@@ -177,6 +178,7 @@ int sub_8068024(struct UnkInputStruct *s)
     u8 r6;
     u16 r4;
 
+    asm(".fill 92");
     r6 = player_get_direction_lower_nybble();
     player_get_pos_to_and_height(&position);
     r4 = MapGridGetMetatileBehaviorAt(position.x, position.y);

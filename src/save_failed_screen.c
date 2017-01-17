@@ -213,6 +213,7 @@ static void CB2_WipeSave(void)
     }
 
     SetMainCallback2(CB2_FadeAndReturnToTitleScreen);
+    asm(".fill 16");
 }
 
 static void CB2_GameplayCannotBeContinued(void)
@@ -284,16 +285,7 @@ static void VBlankCB_UpdateClockGraphics(void)
 
 static bool8 VerifySectorWipe(u16 sector)
 {
-    u32 *ptr = (u32 *)unk_2000000;
-    u16 i;
-
-    ReadFlash(sector, 0, (u8 *)ptr, 4096);
-
-    for (i = 0; i < 0x400; i++, ptr++)
-        if (*ptr)
-            return TRUE;
-
-    return FALSE;
+    asm(".fill 48");
 }
 
 static bool8 WipeSector(u16 sector)

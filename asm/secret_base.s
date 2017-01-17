@@ -4426,6 +4426,7 @@ _080BD670: .4byte gSaveBlock1 + 0x1A08
 
 	thumb_func_start sub_80BD674
 sub_80BD674: @ 80BD674
+.fill 12
 	push {r4-r7,lr}
 	adds r6, r0, 0
 	adds r5, r1, 0

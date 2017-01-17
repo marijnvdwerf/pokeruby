@@ -417,6 +417,7 @@ _080EBDD4: .4byte 0x02000000
 
 	thumb_func_start sub_80EBDD8
 sub_80EBDD8: @ 80EBDD8
+.fill 32
 	push {lr}
 	sub sp, 0x4
 	ldr r1, _080EBDF8 @ =0x02000000
@@ -684,6 +685,7 @@ _080EC008: .4byte sub_80EC268
 
 	thumb_func_start sub_80EC00C
 sub_80EC00C: @ 80EC00C
+.fill 32
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080EC02C @ =0x02000000
@@ -1246,6 +1248,7 @@ _080EC49C: .4byte 0x00006dad
 
 	thumb_func_start sub_80EC4A0
 sub_80EC4A0: @ 80EC4A0
+.fill 24
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080EC4C0 @ =0x02000000
@@ -1469,6 +1472,7 @@ _080EC678: .4byte sub_80EC67C
 
 	thumb_func_start sub_80EC67C
 sub_80EC67C: @ 80EC67C
+	.fill 44
 	push {r4,r5,lr}
 	sub sp, 0x4
 	ldr r1, _080EC69C @ =0x02000000
@@ -1918,6 +1922,7 @@ _080ECA0C: .4byte 0x00006dad
 
 	thumb_func_start sub_80ECA10
 sub_80ECA10: @ 80ECA10
+.fill 32
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080ECA30 @ =0x02000000
@@ -2328,6 +2333,7 @@ _080ECD7C: .4byte sub_80EC9A8
 
 	thumb_func_start sub_80ECD80
 sub_80ECD80: @ 80ECD80
+.fill 32
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080ECDA0 @ =0x02000000
@@ -2642,6 +2648,7 @@ _080ED018: .4byte sub_80ECC08
 
 	thumb_func_start sub_80ED01C
 sub_80ED01C: @ 80ED01C
+.fill 32
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080ED03C @ =0x02000000
@@ -3002,6 +3009,7 @@ _080ED318: .4byte sub_80ED31C
 
 	thumb_func_start sub_80ED31C
 sub_80ED31C: @ 80ED31C
+.fill 44
 	push {r4,lr}
 	ldr r0, _080ED338 @ =0x02000000
 	movs r1, 0xC1
@@ -3090,6 +3098,7 @@ _080ED3CA:
 
 	thumb_func_start sub_80ED3D0
 sub_80ED3D0: @ 80ED3D0
+    .fill 100
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r0, _080ED3EC @ =0x02000000
@@ -3213,6 +3222,7 @@ _080ED4D4: .4byte sub_80ED31C
 
 	thumb_func_start sub_80ED4D8
 sub_80ED4D8: @ 80ED4D8
+.fill 68
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080ED4F8 @ =0x02000000
@@ -3365,6 +3375,7 @@ _080ED61C: .4byte sub_80ED858
 
 	thumb_func_start sub_80ED620
 sub_80ED620: @ 80ED620
+.fill 32
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080ED640 @ =0x02000000
@@ -3629,6 +3640,7 @@ _080ED854: .4byte sub_80ED858
 
 	thumb_func_start sub_80ED858
 sub_80ED858: @ 80ED858
+.fill 40
 	push {r4,r5,lr}
 	sub sp, 0x4
 	ldr r1, _080ED878 @ =0x02000000
@@ -4001,6 +4013,7 @@ _080EDB84: .4byte sub_80ED3D0
 
 	thumb_func_start sub_80EDB88
 sub_80EDB88: @ 80EDB88
+.fill 116
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080EDBA8 @ =0x02000000
@@ -4263,6 +4276,7 @@ _080EDDB8: .4byte sub_80EDDBC
 
 	thumb_func_start sub_80EDDBC
 sub_80EDDBC: @ 80EDDBC
+    .fill 44
 	push {r4,lr}
 	ldr r0, _080EDDD8 @ =0x02000000
 	movs r1, 0xC1
@@ -4414,6 +4428,7 @@ _080EDEE0: .4byte sub_80EC00C
 
 	thumb_func_start sub_80EDEE4
 sub_80EDEE4: @ 80EDEE4
+    .fill 40
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080EDF04 @ =0x02000000
@@ -4599,6 +4614,7 @@ _080EE068: .4byte sub_80EE06C
 
 	thumb_func_start sub_80EE06C
 sub_80EE06C: @ 80EE06C
+    .fill 44
 	push {r4,r5,lr}
 	ldr r1, _080EE08C @ =0x02000000
 	movs r2, 0xC1
@@ -4857,6 +4873,7 @@ _080EE290: .4byte 0x02000000
 
 	thumb_func_start sub_80EE294
 sub_80EE294: @ 80EE294
+    .fill 64
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r1, _080EE2B4 @ =0x02000000
@@ -5009,6 +5026,7 @@ _080EE3D4: .4byte sub_80EDDBC
 
 	thumb_func_start sub_80EE3D8
 sub_80EE3D8: @ 80EE3D8
+    .fill 128
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r0, _080EE3F8 @ =0x02000000
@@ -5207,6 +5225,7 @@ _080EE588: .4byte sub_80EE58C
 
 	thumb_func_start sub_80EE58C
 sub_80EE58C: @ 80EE58C
+    .fill 44
 	push {r4,r5,lr}
 	ldr r5, _080EE5A8 @ =0x02000000
 	movs r0, 0xC1
@@ -5996,6 +6015,7 @@ _080EEC0A:
 
 	thumb_func_start sub_80EEC10
 sub_80EEC10: @ 80EEC10
+.fill 44
 	push {r4,lr}
 	ldr r0, _080EEC48 @ =gMain
 	ldrh r1, [r0, 0x2E]
@@ -6068,6 +6088,7 @@ _080EEC8A:
 
 	thumb_func_start sub_80EEC90
 sub_80EEC90: @ 80EEC90
+    .fill 48
 	push {r4,lr}
 	ldr r0, _080EECC0 @ =gMain
 	ldrh r1, [r0, 0x2E]

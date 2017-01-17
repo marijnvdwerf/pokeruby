@@ -38,6 +38,8 @@ gUnknown_02023A04: @ 2023A04
 gUnknown_02023A14: @ 2023A14
 	.space 0x4C
 
+    .space 0x294
+
 gUnknown_02023A60: @ 2023A60
 	.space 0x2
 
@@ -508,6 +510,15 @@ gUnknown_0202FF58: @ 202FF58
 	.space 0x4
 
 	.include "src/battle_setup.o"
+
+unk_2030220:
+	.space 0x4
+
+unk_2030224:
+	.space 0x4
+
+unk_2030228:
+
 	.include "src/wild_encounter.o"
 
 gUnknown_0202FF84: @ 202FF84
@@ -575,6 +586,15 @@ gUnknown_0203847F: @ 203847F
 
 gUnknown_02038480: @ 2038480
 	.space 0x64
+
+unk_2038790:
+	.space 0x4
+
+unk_2038794:
+	.space 0x4
+
+unk_2038798:
+	.space 0x4
 
 gUnknown_020384E4: @ 20384E4
 	.space 0x1
@@ -735,6 +755,8 @@ gUnknown_02038730: @ 2038730
 
 gUnknown_02038731: @ 2038731
 	.space 0x3
+
+    .space 56
 
 gUnknown_02038734: @ 2038734
 	.space 0x4
@@ -933,6 +955,12 @@ gUnknown_02039268: @ 2039268
 gUnknown_0203926A: @ 203926A
 	.space 0x2
 
+unk_203955C:
+	.space 0x4
+
+unk_2039560:
+	.space 0x4
+
 gUnknown_0203926C: @ 203926C
 	.space 0x4
 
@@ -1032,6 +1060,8 @@ gUnknown_0203933E: @ 203933E
 
 gUnknown_02039350: @ 2039350
 	.space 0x8
+
+.space 0x10
 
 gUnknown_02039358: @ 2039358
 	.space 0x2

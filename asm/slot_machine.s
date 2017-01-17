@@ -8,6 +8,7 @@
 
 	thumb_func_start PlaySlotMachine
 PlaySlotMachine: @ 81018A0
+    .fill 12
 	push {lr}
 	lsls r0, 24
 	lsrs r0, 24
@@ -19,6 +20,11 @@ PlaySlotMachine: @ 81018A0
 	.align 2, 0
 _081018B4: .4byte sub_81018B8
 	thumb_func_end PlaySlotMachine
+
+	thumb_func_start debug_sub_811609C
+debug_sub_811609C:
+.fill 36
+	thumb_func_end debug_sub_811609C
 
 	thumb_func_start sub_81018B8
 sub_81018B8: @ 81018B8
@@ -389,6 +395,7 @@ _08101BA0: .4byte 0x00000809
 
 	thumb_func_start sub_8101BA4
 sub_8101BA4: @ 8101BA4
+.fill 32
 	push {r4-r7,lr}
 	mov r7, r9
 	mov r6, r8
@@ -711,6 +718,7 @@ _08101E0C: .4byte 0x02000000
 
 	thumb_func_start sub_8101E10
 sub_8101E10: @ 8101E10
+.fill 24
 	push {lr}
 	movs r0, 0
 	bl sub_8104CAC
@@ -735,6 +743,7 @@ _08101E38: .4byte 0x0000270e
 
 	thumb_func_start sub_8101E3C
 sub_8101E3C: @ 8101E3C
+.fill 120
 	push {r4,lr}
 	ldr r0, _08101E58 @ =gMain
 	ldrh r1, [r0, 0x2E]
@@ -930,6 +939,7 @@ _08101FA0: .4byte 0x02000000
 
 	thumb_func_start sub_8101FA4
 sub_8101FA4: @ 8101FA4
+.fill 24
 	push {r4,lr}
 	adds r4, r0, 0
 	bl sub_8102484
@@ -1002,6 +1012,7 @@ _08102030: .4byte 0x02000000
 
 	thumb_func_start sub_8102034
 sub_8102034: @ 8102034
+.fill 44
 	push {lr}
 	ldrh r1, [r0, 0x8]
 	adds r1, 0x1
@@ -1024,6 +1035,7 @@ _08102054: .4byte 0x02000000
 
 	thumb_func_start sub_8102058
 sub_8102058: @ 8102058
+.fill 76
 	push {r4,lr}
 	ldr r0, _08102088 @ =gMain
 	ldrh r1, [r0, 0x2E]
@@ -1052,6 +1064,7 @@ _0810208C: .4byte 0x02000000
 
 	thumb_func_start sub_8102090
 sub_8102090: @ 8102090
+.fill 132
 	push {r4,lr}
 	ldr r4, _081020BC @ =0x02000000
 	ldrb r0, [r4, 0x18]
@@ -1085,6 +1098,7 @@ _081020C2:
 
 	thumb_func_start sub_81020C8
 sub_81020C8: @ 81020C8
+.fill 24
 	push {r4,lr}
 	ldr r4, _08102128 @ =0x02000000
 	ldrb r1, [r4, 0x4]
@@ -1538,6 +1552,7 @@ _08102420: .4byte 0x02000000
 
 	thumb_func_start sub_8102424
 sub_8102424: @ 8102424
+.fill 12
 	push {r4,lr}
 	sub sp, 0x4
 	ldr r0, _08102454 @ =gSaveBlock1
@@ -1588,8 +1603,14 @@ _0810247C: .4byte gPaletteFade
 _08102480: .4byte 0x02000000
 	thumb_func_end sub_8102460
 
+	thumb_func_start debug_sub_8116E74
+debug_sub_8116E74:
+    .fill 28
+	thumb_func_end debug_sub_8116E74
+
 	thumb_func_start sub_8102484
 sub_8102484: @ 8102484
+.fill 368
 	push {r4,lr}
 	ldr r4, _081024E4 @ =0x02000000
 	ldrb r0, [r4, 0xA]
