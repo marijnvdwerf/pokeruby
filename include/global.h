@@ -402,7 +402,8 @@ struct SaveBlock1 /* 0x02025734 */
     /*0x303C*/ u8 filler_303C[0x38];
     /*0x3074*/ u8 filler_3074[0x42];
     /*0x30B6*/ u8 filler_30B6;
-    /*0x30B7*/ u8 filler_30B7[0x59];
+    /*0x30B7*/ u8 filler_30B7[1];
+	/*0x30B7*/ u8 filler_30B8[0x58];
     /*0x3110*/ u8 giftRibbons[7];
     /*0x3117*/ u8 filler_311B[0x2D];
     /*0x3144*/ struct Roamer roamer;
