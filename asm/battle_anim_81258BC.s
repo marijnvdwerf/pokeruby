@@ -1668,7 +1668,7 @@ _0812BB84:
 	bl get_battle_strings_
 	ldr r4, _0812BBD4 @ =gUnknown_03004210
 	ldr r1, _0812BBF8 @ =gUnknown_020238CC
-	movs r2, 0xDC
+	movs r2, 0xDE
 	lsls r2, 1
 	movs r0, 0x23
 	str r0, [sp]

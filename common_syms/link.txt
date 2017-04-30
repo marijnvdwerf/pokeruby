@@ -5,6 +5,8 @@ gLinkErrorOccurred
 4
 gLinkDebugValue2
 4
+deUnkValue1
+deUnkValue2
 gLinkPlayerPending
 gLinkPlayers
 gBlockReceived

@@ -4576,7 +4576,7 @@ gFont4JapaneseGlyphs:: @ 8EAC6C4
 
 	.align 2
 gSummaryScreenTextTiles::
-	.incbin "graphics/summary_screen/text.4bpp"
+	.incbin "graphics-de/summary_screen/text.4bpp"
 
 	.align 2
 gUnknown_0839FA7C::
@@ -4588,7 +4588,7 @@ gIntroTiles::
 
 	.align 2
 ConditionUpDownTiles::
-	.incbin "graphics/misc/condition_up_down.4bpp"
+	.incbin "graphics-de/misc/condition_up_down.4bpp"
 
 	.align 2
 ConditionUpDownPalette::
@@ -4687,8 +4687,8 @@ gUnknown_083FAF1C::
 
 	.align 2
 gUnknown_083FAF3C::
-	.incbin "graphics/pokedex/cry_meter.4bpp.lz"
+	.incbin "graphics-de/pokedex/cry_meter.4bpp.lz"
 
 	.align 2
 gUnknown_083FAE7C::
-	.incbin "graphics/pokedex/cry_meter_map.bin"
+	.incbin "graphics-de/pokedex/cry_meter_map.bin"

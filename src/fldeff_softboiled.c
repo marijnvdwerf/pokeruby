@@ -141,7 +141,7 @@ static void sub_8133E74(u8 taskId) {
         return;
     }
 
-    MenuZeroFillWindowRect(3, 14, 26, 19);
+    MenuZeroFillWindowRect(0, 14, 29, 19);
     sub_806D538(3, 0);
     gTasks[taskId].func = sub_806CB74;
 }
@@ -153,8 +153,8 @@ static void sub_8133EB8(u8 taskId) {
     gTasks[taskId].func = sub_8133E74;
 }
 
-#define WINDOW_LEFT 3
-#define WINDOW_RIGHT 26
+#define WINDOW_LEFT 0
+#define WINDOW_RIGHT 29
 
 static void sub_8133EF8(void) {
     sub_806CCE4();

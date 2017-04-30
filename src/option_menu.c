@@ -91,7 +91,7 @@ static void VBlankCB(void)
 
 void CB2_InitOptionMenu(void)
 {
-    switch (gMain.state)
+    switch(gMain.state)
     {
         default:
         case 0:
@@ -112,12 +112,12 @@ void CB2_InitOptionMenu(void)
             REG_BG0VOFS = 0;
             addr = (u8 *)VRAM;
             size = 0x18000;
-            while (1)
+            while(1)
             {
                 DmaFill16(3, 0, addr, 0x1000);
                 addr += 0x1000;
                 size -= 0x1000;
-                if (size <= 0x1000)
+                if(size <= 0x1000)
                 {
                     DmaFill16(3, 0, addr, size);
                     break;
@@ -144,7 +144,7 @@ void CB2_InitOptionMenu(void)
             gMain.state++;
             break;
         case 4:
-            if (!MultistepInitMenuWindowContinue())
+            if(!MultistepInitMenuWindowContinue())
                 return;
             gMain.state++;
             break;
@@ -227,7 +227,7 @@ void CB2_InitOptionMenu(void)
 
 static void Task_OptionMenuFadeIn(u8 taskId)
 {
-    if (!gPaletteFade.active)
+    if(!gPaletteFade.active)
     {
         gTasks[taskId].func = Task_OptionMenuProcessInput;
     }
@@ -235,26 +235,26 @@ static void Task_OptionMenuFadeIn(u8 taskId)
 
 static void Task_OptionMenuProcessInput(u8 taskId)
 {
-    if (gMain.newKeys & A_BUTTON)
+    if(gMain.newKeys & A_BUTTON)
     {
-        if (gTasks[taskId].data[TD_MENUSELECTION] == MENUITEM_CANCEL)
+        if(gTasks[taskId].data[TD_MENUSELECTION] == MENUITEM_CANCEL)
             gTasks[taskId].func = Task_OptionMenuSave;
     }
-    else if (gMain.newKeys & B_BUTTON)
+    else if(gMain.newKeys & B_BUTTON)
     {
         gTasks[taskId].func = Task_OptionMenuSave;
     }
-    else if (gMain.newKeys & DPAD_UP)
+    else if(gMain.newKeys & DPAD_UP)
     {
-        if (gTasks[taskId].data[TD_MENUSELECTION] > 0)
+        if(gTasks[taskId].data[TD_MENUSELECTION] > 0)
             gTasks[taskId].data[TD_MENUSELECTION]--;
         else
             gTasks[taskId].data[TD_MENUSELECTION] = 6;
         HighlightOptionMenuItem(gTasks[taskId].data[TD_MENUSELECTION]);
     }
-    else if (gMain.newKeys & DPAD_DOWN)
+    else if(gMain.newKeys & DPAD_DOWN)
     {
-        if (gTasks[taskId].data[TD_MENUSELECTION] <= 5)
+        if(gTasks[taskId].data[TD_MENUSELECTION] <= 5)
             gTasks[taskId].data[TD_MENUSELECTION]++;
         else
             gTasks[taskId].data[TD_MENUSELECTION] = 0;
@@ -262,7 +262,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     }
     else
     {
-        switch (gTasks[taskId].data[TD_MENUSELECTION])
+        switch(gTasks[taskId].data[TD_MENUSELECTION])
         {
             case MENUITEM_TEXTSPEED:
                 gTasks[taskId].data[TD_TEXTSPEED] = TextSpeed_ProcessInput(gTasks[taskId].data[TD_TEXTSPEED]);
@@ -307,7 +307,7 @@ static void Task_OptionMenuSave(u8 taskId)
 
 static void Task_OptionMenuFadeOut(u8 taskId)
 {
-    if (!gPaletteFade.active)
+    if(!gPaletteFade.active)
     {
         DestroyTask(taskId);
         SetMainCallback2(gMain.savedCallback);
@@ -328,7 +328,7 @@ static void DrawOptionMenuChoice(u8 *text, u8 x, u8 y, u8 style)
     u8 dst[16];
     u16 i;
 
-    for (i = 0; *text != EOS && i <= 14; i++)
+    for(i = 0; *text != EOS && i <= 14; i++)
         dst[i] = *(text++);
 
     dst[2] = style;
@@ -338,16 +338,16 @@ static void DrawOptionMenuChoice(u8 *text, u8 x, u8 y, u8 style)
 
 static u8 TextSpeed_ProcessInput(u8 selection)
 {
-    if (gMain.newKeys & DPAD_RIGHT)
+    if(gMain.newKeys & DPAD_RIGHT)
     {
-        if (selection <= 1)
+        if(selection <= 1)
             selection++;
         else
             selection = 0;
     }
-    if (gMain.newKeys & DPAD_LEFT)
+    if(gMain.newKeys & DPAD_LEFT)
     {
-        if (selection != 0)
+        if(selection != 0)
             selection--;
         else
             selection = 2;
@@ -365,13 +365,13 @@ static void TextSpeed_DrawChoices(u8 selection)
     styles[selection] = 0x8;
 
     DrawOptionMenuChoice(gSystemText_Slow, 120, 40, styles[0]);
-    DrawOptionMenuChoice(gSystemText_Mid, 155, 40, styles[1]);
-    DrawOptionMenuChoice(gSystemText_Fast, 184, 40, styles[2]);
+    DrawOptionMenuChoice(gSystemText_Mid, 161, 40, styles[1]);
+    DrawOptionMenuChoice(gSystemText_Fast, 202, 40, styles[2]);
 }
 
 static u8 BattleScene_ProcessInput(u8 selection)
 {
-    if (gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
+    if(gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
         selection ^= 1;
     return selection;
 }
@@ -390,7 +390,7 @@ static void BattleScene_DrawChoices(u8 selection)
 
 static u8 BattleStyle_ProcessInput(u8 selection)
 {
-    if (gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
+    if(gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
         selection ^= 1;
     return selection;
 }
@@ -404,12 +404,12 @@ static void BattleStyle_DrawChoices(u8 selection)
     styles[selection] = 0x8;
 
     DrawOptionMenuChoice(gSystemText_Shift, 120, 72, styles[0]);
-    DrawOptionMenuChoice(gSystemText_Set, 190, 72, styles[1]);
+    DrawOptionMenuChoice(gSystemText_Set, 178, 72, styles[1]);
 }
 
 static u8 Sound_ProcessInput(u8 selection)
 {
-    if (gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
+    if(gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
     {
         selection ^= 1;
         SetPokemonCryStereo(selection);
@@ -431,17 +431,17 @@ static void Sound_DrawChoices(u8 selection)
 
 static u8 FrameType_ProcessInput(u8 selection)
 {
-    if (gMain.newKeys & DPAD_RIGHT)
+    if(gMain.newKeys & DPAD_RIGHT)
     {
-        if (selection <= 18)
+        if(selection <= 18)
             selection++;
         else
             selection = 0;
         MenuLoadTextWindowGraphics_OverrideFrameType(selection);
     }
-    if (gMain.newKeys & DPAD_LEFT)
+    if(gMain.newKeys & DPAD_LEFT)
     {
-        if (selection != 0)
+        if(selection != 0)
             selection--;
         else
             selection = 19;
@@ -452,17 +452,18 @@ static u8 FrameType_ProcessInput(u8 selection)
 
 #define CHAR_0 0xA1 //Character code of '0' character
 
+#ifdef NONMATCHING
 static void FrameType_DrawChoices(u8 selection)
 {
     u8 text[8];
     u8 n = selection + 1;
     u16 i;
 
-    for (i = 0; gSystemText_Terminator[i] != EOS && i <= 5; i++)
+    for(i = 0; gSystemText_Terminator[i] != EOS && i <= 5; i++)
         text[i] = gSystemText_Terminator[i];
 
     //Convert number to decimal string
-    if (n / 10 != 0)
+    if(n / 10 != 0)
     {
         text[i] = n / 10 + CHAR_0;
         i++;
@@ -481,6 +482,69 @@ static void FrameType_DrawChoices(u8 selection)
     MenuPrint(gSystemText_Type, 15, 15);
     MenuPrint(text, 18, 15);
 }
+#else
+__attribute__((naked))
+static void FrameType_DrawChoices(u8 selection)
+{
+    asm(".syntax unified\n\
+	push {r4-r6,lr}\n\
+	sub sp, 0x10\n\
+	lsls r0, 24\n\
+	movs r1, 0x80\n\
+	lsls r1, 17\n\
+	adds r0, r1\n\
+	lsrs r5, r0, 24\n\
+	ldr r1, _0808C368 @ =gSystemText_Type\n\
+	mov r0, sp\n\
+	bl StringCopy\n\
+	ldr r1, _0808C36C @ =gSystemText_Terminator\n\
+	mov r0, sp\n\
+	bl StringAppend\n\
+	adds r4, r0, 0\n\
+	adds r0, r5, 0\n\
+	movs r1, 0xA\n\
+	bl __udivsi3\n\
+	adds r1, r0, 0\n\
+	lsls r0, r1, 24\n\
+	lsrs r6, r0, 24\n\
+	cmp r6, 0\n\
+	beq _0808C370\n\
+	adds r0, r1, 0\n\
+	adds r0, 0xA1\n\
+	strb r0, [r4]\n\
+	adds r4, 0x1\n\
+	adds r0, r5, 0\n\
+	movs r1, 0xA\n\
+	bl __umodsi3\n\
+	adds r0, 0xA1\n\
+	strb r0, [r4]\n\
+	b _0808C380\n\
+	.align 2, 0\n\
+_0808C368: .4byte gSystemText_Type\n\
+_0808C36C: .4byte gSystemText_Terminator\n\
+_0808C370:\n\
+	adds r0, r5, 0\n\
+	movs r1, 0xA\n\
+	bl __umodsi3\n\
+	adds r0, 0xA1\n\
+	strb r0, [r4]\n\
+	adds r4, 0x1\n\
+	strb r6, [r4]\n\
+_0808C380:\n\
+	adds r4, 0x1\n\
+	movs r0, 0xFF\n\
+	strb r0, [r4]\n\
+	mov r0, sp\n\
+	movs r1, 0xF\n\
+	movs r2, 0xF\n\
+	bl MenuPrint\n\
+	add sp, 0x10\n\
+	pop {r4-r6}\n\
+	pop {r0}\n\
+	bx r0\n\
+    .syntax divided\n");
+}
+#endif
 
 static u8 ButtonMode_ProcessInput(u8 selection)
 {

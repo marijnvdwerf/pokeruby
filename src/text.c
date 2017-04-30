@@ -2479,7 +2479,7 @@ u8 sub_800374C(struct Window *win)
     u8 retVal;
 
     sWaitType = 1;
-    sLineLength = 26;
+    sLineLength = 27;
     retVal = UpdateWindowText(win);
     sLineLength = 26;
     sWaitType = 0;

@@ -24,6 +24,7 @@ SCANINC := tools/scaninc/scaninc
 PREPROC := tools/preproc/preproc
 RAMSCRGEN := tools/ramscrgen/ramscrgen
 
+LANGUAGE := GERMAN
 REVISION := 0
 
 VERSIONS := ruby sapphire ruby_rev1 sapphire_rev1 ruby_rev2 sapphire_rev2
@@ -124,7 +125,7 @@ $1_OBJS_REL := $$($1_OBJS_REL:sound/%=../../sound/%)
 $$($1_C_OBJS): VERSION := $2
 $$($1_C_OBJS): REVISION := $3
 build/$1/%.o : %.c $$$$(c_dep)
-	@$$(CPP) $$(CPPFLAGS) -D $$(VERSION) -D REVISION=$$(REVISION) $$< -o build/$1/$$*.i
+	@$$(CPP) $$(CPPFLAGS) -D $$(VERSION) -D REVISION=$$(REVISION) -D $$(LANGUAGE) $$< -o build/$1/$$*.i
 	@$$(PREPROC) build/$1/$$*.i charmap.txt | $$(CC1) $$(CFLAGS) -o build/$1/$$*.s
 	@printf ".text\n\t.align\t2, 0\n" >> build/$1/$$*.s
 	$$(AS) $$(ASFLAGS) -o $$@ build/$1/$$*.s

@@ -1995,7 +1995,7 @@ static void TrainerCard_Back_PrintName(void)
     StringCopy(str, unk_2000000.var_64.playerName);
     ConvertInternationalString(str, unk_2000000.language);
 
-    StringAppend(str, gOtherText_TrainersTrainerCard);
+    de_sub_8073174(str, gOtherText_TrainersTrainerCard);
 
     MenuPrint_RightAligned(gStringVar1, 28, 2);
 }
