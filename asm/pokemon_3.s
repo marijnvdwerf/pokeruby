@@ -1950,50 +1950,7 @@ sub_8040D08: @ 8040D08
 _08040D38: .4byte gLinkPlayers
 	thumb_func_end sub_8040D08
 
-	thumb_func_start sub_8040D3C
-sub_8040D3C: @ 8040D3C
-	push {r4,lr}
-	adds r4, r1, 0
-	lsls r0, 16
-	lsrs r1, r0, 16
-	adds r0, r1, 0
-	lsls r2, 24
-	lsrs r2, 24
-	movs r3, 0
-	cmp r1, 0x20
-	beq _08040D54
-	cmp r1, 0x1D
-	bne _08040D7E
-_08040D54:
-	cmp r2, 0x2
-	bne _08040D68
-	movs r0, 0xB
-	muls r1, r0
-	ldr r0, _08040D64 @ =gSpeciesNames
-	adds r1, r0
-	b _08040D70
-	.align 2, 0
-_08040D64: .4byte gSpeciesNames
-_08040D68:
-	ldr r1, _08040D88 @ =gUnknown_08208337
-	cmp r0, 0x20
-	bne _08040D70
-	subs r1, 0xB
-_08040D70:
-	adds r0, r4, 0
-	bl StringCompareWithoutExtCtrlCodes
-	movs r3, 0
-	cmp r0, 0
-	bne _08040D7E
-	movs r3, 0x1
-_08040D7E:
-	adds r0, r3, 0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08040D88: .4byte gUnknown_08208337
-	thumb_func_end sub_8040D3C
+.section .text_8040D8C
 
 	thumb_func_start sub_8040D8C
 sub_8040D8C: @ 8040D8C

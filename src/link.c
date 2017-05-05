@@ -1,7 +1,7 @@
 #include "global.h"
 #include "link.h"
 #include "asm.h"
-#include "battle.h"
+#include "battle_6.h"
 #include "main.h"
 #include "menu.h"
 #include "palette.h"

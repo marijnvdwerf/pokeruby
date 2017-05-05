@@ -56,6 +56,8 @@ SECTIONS {
         asm/battle_4.o(.text);
         asm/battle_5.o(.text);
         asm/battle_6.o(.text);
+        src/battle_6.o(.text);
+        asm/battle_6.o(.text_8030464);
         asm/battle_7.o(.text);
         asm/battle_8.o(.text);
         asm/battle_9.o(.text);
@@ -66,6 +68,8 @@ SECTIONS {
         asm/pokemon_item_effect.o(.text);
         src/pokemon_3.o(.text);
         asm/pokemon_3.o(.text);
+        src/pokemon_3.o(.text_c);
+        asm/pokemon_3.o(.text_8040D8C);
         src/trig.o(.text);
         src/rng.o(.text);
         src/util.o(.text);
@@ -80,6 +84,10 @@ SECTIONS {
         src/load_save.o(.text);
         asm/trade.o(.text);
         asm/berry_blender.o(.text);
+        src/berry_blender.o(.text);
+        asm/berry_blender.o(.text_804E990);
+        src/berry_blender.o(.text_b);
+        asm/berry_blender.o(.text_80520CC);
         src/play_time.o(.text);
         src/new_game.o(.text);
         src/rom4.o(.text);
@@ -129,6 +137,10 @@ SECTIONS {
         asm/rom_8080874.o(.text);
         src/battle_setup.o(.text);
         asm/cable_club.o(.text);
+        src/cable_club.o(.text);
+        asm/cable_club.o(.text_80830E4);
+        src/cable_club.o(.text_b);
+        asm/cable_club.o(.text_80833C4);
         src/mori_debug_menu.o(.text);
         src/trainer_see.o(.text);
         src/wild_encounter.o(.text);
@@ -139,6 +151,7 @@ SECTIONS {
         src/option_menu.o(.text);
         src/pokedex.o(.text);
         asm/pokedex.o(.text);
+        src/pokedex2.o(.text);
         src/trainer_card.o(.text);
         src/save_menu_util.o(.text);
         src/rom_8094928.o(.text);
@@ -169,6 +182,8 @@ SECTIONS {
         asm/record_mixing.o(.text);
         asm/sound_check_menu.o(.text);
         asm/secret_base.o(.text);
+        src/secret_base.o(.text);
+        asm/secret_base.o(.text_80BC1D0);
         asm/tv.o(.text);
         src/tv.o(.text);
         asm/tv.o(.text_80BE8EC);
@@ -192,6 +207,8 @@ SECTIONS {
         asm/easy_chat.o(.text);
         src/easy_chat.o(.text);
         asm/pokenav.o(.text);
+        src/pokenav.o(.text);
+        asm/pokenav.o(.text_80F708C);
         asm/mon_markings.o(.text);
         src/mauville_old_man.o(.text);
         asm/mauville_old_man.o(.text);
@@ -205,7 +222,13 @@ SECTIONS {
         asm/decoration.o(.text);
         src/decoration.o(.text);
         asm/decoration.o(.text_80FE868);
+        src/decoration.o(.text_b);
+        asm/decoration.o(.text_80FED1C);
         asm/slot_machine.o(.text);
+        src/slot_machine.o(.text);
+        asm/slot_machine.o(.text_8104D30);
+        src/slot_machine.o(.text_c);
+        asm/slot_machine.o(.text_81064B8);
         src/contest_painting.o(.text);
         src/battle_ai.o(.text);
         asm/trader.o(.text);
@@ -220,6 +243,8 @@ SECTIONS {
         src/hof_pc.o(.text);
         src/field_specials.o(.text);
         asm/field_specials.o(.text);
+        src/field_specials.o(.text);
+        asm/field_specials.o(.text_810D85C);
         asm/battle_records.o(.text);
         src/battle_records.o(.text);
         asm/battle_records.o(.text_8110494);
@@ -227,6 +252,8 @@ SECTIONS {
         asm/evolution_scene.o(.text);
         asm/roulette.o(.text);
         asm/pokedex_cry_screen.o(.text);
+        src/pokedex_cry_screen.o(.text);
+        asm/pokedex_cry_screen.o(.text_811A4F8);
         src/coins.o(.text);
         src/landmark.o(.text);
         src/fldeff_strength.o(.text);
@@ -245,6 +272,8 @@ SECTIONS {
         asm/field_effect_helpers.o(.text);
         asm/contest_ai.o(.text);
         asm/battle_anim_81258BC.o(.text);
+        src/battle_anim_81258BC.o(.text);
+        asm/battle_anim_81258BC.o(.text_812BBFC);
         src/fldeff_sweetscent.o(.text);
         asm/battle_anim_812C144.o(.text);
         asm/learn_move.o(.text);
@@ -252,6 +281,8 @@ SECTIONS {
         asm/decoration_inventory.o(.text);
         asm/roamer.o(.text);
         asm/battle_tower.o(.text);
+        src/battle_tower.o(.text);
+        asm/battle_tower.o(.text_8135474);
         asm/use_pokeblock.o(.text);
         asm/battle_anim_8137220.o(.text);
         src/player_pc.o(.text);

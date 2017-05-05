@@ -3,6 +3,30 @@
 
 typedef void (*ItemUseFunc)(u8);
 
+struct Item
+{
+    u8 name[14];
+    u16 itemId;
+    u16 price;
+    u8 holdEffect;
+    u8 holdEffectParam;
+    u8 *description;
+    u8 importance;
+    u8 unk19;
+    u8 pocket;
+    u8 type;
+    ItemUseFunc fieldUseFunc;
+    u8 battleUsage;
+    ItemUseFunc battleUseFunc;
+    u8 secondaryId;
+};
+
+struct BagPocket
+{
+    struct ItemSlot *itemSlots;
+    u8 capacity;
+};
+
 void CopyItemName(u16 itemId, u8 *string);
 bool8 IsBagPocketNonEmpty(u8 pocket);
 bool8 CheckBagHasItem(u16 itemId, u16 count);

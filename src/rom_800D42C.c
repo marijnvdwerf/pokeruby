@@ -1,5 +1,5 @@
 #include "global.h"
-#include "battle.h"
+#include "battle_6.h"
 #include "link.h"
 #include "text.h"
 

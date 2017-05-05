@@ -1,6 +1,6 @@
 #include "global.h"
 #include "text.h"
-#include "battle.h"
+#include "battle_6.h"
 #include "main.h"
 #include "palette.h"
 #include "songs.h"
