@@ -24,19 +24,16 @@ extern u16 gMiscClockFemale_Pal[];
 //--------------------------------------------------
 
 static const u8 ClockGfx_Misc[] = INCBIN_U8("graphics/misc/clock_misc.4bpp.lz");
-static const struct SpriteSheet gUnknown_083F7A90[] =
-{
+static const struct SpriteSheet gUnknown_083F7A90[] = {
     {ClockGfx_Misc, 0x2000, 0x1000},
     {NULL},
 };
-static const struct SpritePalette gUnknown_083F7AA0[] =
-{
+static const struct SpritePalette gUnknown_083F7AA0[] = {
     {gMiscClockMale_Pal, 0x1000},
     {gMiscClockFemale_Pal, 0x1001},
     {NULL},
 };
-static const struct OamData gOamData_83F7AB8 =
-{
+static const struct OamData gOamData_83F7AB8 = {
     .y = 160,
     .affineMode = 0,
     .objMode = 0,
@@ -51,27 +48,22 @@ static const struct OamData gOamData_83F7AB8 =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd gSpriteAnim_83F7AC0[] =
-{
+static const union AnimCmd gSpriteAnim_83F7AC0[] = {
     ANIMCMD_FRAME(0, 30),
     ANIMCMD_END,
 };
-static const union AnimCmd gSpriteAnim_83F7AC8[] =
-{
+static const union AnimCmd gSpriteAnim_83F7AC8[] = {
     ANIMCMD_FRAME(64, 30),
     ANIMCMD_END,
 };
-static const union AnimCmd *const gSpriteAnimTable_83F7AD0[] =
-{
+static const union AnimCmd *const gSpriteAnimTable_83F7AD0[] = {
     gSpriteAnim_83F7AC0,
 };
-static const union AnimCmd *const gSpriteAnimTable_83F7AD4[] =
-{
+static const union AnimCmd *const gSpriteAnimTable_83F7AD4[] = {
     gSpriteAnim_83F7AC8,
 };
 static void sub_810B05C(struct Sprite *sprite);
-static const struct SpriteTemplate gSpriteTemplate_83F7AD8 =
-{
+static const struct SpriteTemplate gSpriteTemplate_83F7AD8 = {
     .tileTag = 0x1000,
     .paletteTag = 0x1000,
     .oam = &gOamData_83F7AB8,
@@ -81,8 +73,7 @@ static const struct SpriteTemplate gSpriteTemplate_83F7AD8 =
     .callback = sub_810B05C,
 };
 static void sub_810B0F4(struct Sprite *sprite);
-static const struct SpriteTemplate gSpriteTemplate_83F7AF0 =
-{
+static const struct SpriteTemplate gSpriteTemplate_83F7AF0 = {
     .tileTag = 0x1000,
     .paletteTag = 0x1000,
     .oam = &gOamData_83F7AB8,
@@ -91,8 +82,7 @@ static const struct SpriteTemplate gSpriteTemplate_83F7AF0 =
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = sub_810B0F4,
 };
-static const struct OamData gOamData_83F7B08 =
-{
+static const struct OamData gOamData_83F7B08 = {
     .y = 160,
     .affineMode = 0,
     .objMode = 0,
@@ -107,27 +97,22 @@ static const struct OamData gOamData_83F7B08 =
     .paletteNum = 0,
     .affineParam = 0,
 };
-static const union AnimCmd gSpriteAnim_83F7B10[] =
-{
+static const union AnimCmd gSpriteAnim_83F7B10[] = {
     ANIMCMD_FRAME(132, 30),
     ANIMCMD_END,
 };
-static const union AnimCmd gSpriteAnim_83F7B18[] =
-{
+static const union AnimCmd gSpriteAnim_83F7B18[] = {
     ANIMCMD_FRAME(128, 30),
     ANIMCMD_END,
 };
-static const union AnimCmd *const gSpriteAnimTable_83F7B20[] =
-{
+static const union AnimCmd *const gSpriteAnimTable_83F7B20[] = {
     gSpriteAnim_83F7B10,
 };
-static const union AnimCmd *const gSpriteAnimTable_83F7B24[] =
-{
+static const union AnimCmd *const gSpriteAnimTable_83F7B24[] = {
     gSpriteAnim_83F7B18,
 };
 static void sub_810B18C(struct Sprite *sprite);
-static const struct SpriteTemplate gSpriteTemplate_83F7B28 =
-{
+static const struct SpriteTemplate gSpriteTemplate_83F7B28 = {
     .tileTag = 0x1000,
     .paletteTag = 0x1000,
     .oam = &gOamData_83F7B08,
@@ -137,8 +122,7 @@ static const struct SpriteTemplate gSpriteTemplate_83F7B28 =
     .callback = sub_810B18C,
 };
 static void sub_810B230(struct Sprite *sprite);
-static const struct SpriteTemplate gSpriteTemplate_83F7B40 =
-{
+static const struct SpriteTemplate gSpriteTemplate_83F7B40 = {
     .tileTag = 0x1000,
     .paletteTag = 0x1000,
     .oam = &gOamData_83F7B08,
@@ -596,8 +580,7 @@ static void InitClockWithRtc(u8 taskId)
         gTasks[taskId].tPeriod = PERIOD_PM;
 }
 
-static const s8 gClockHandCoords[][2] =
-{
+static const s8 gClockHandCoords[][2] = {
     {  0, -24},
     {  1, -25},
     {  1, -25},

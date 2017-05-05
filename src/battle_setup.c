@@ -63,22 +63,19 @@ extern u8 gUnknown_0819F80B[];
 extern u8 gUnknown_081C6C02[];
 
 
-static const u8 gBattleTransitionTable_Wild[][2] =
-{
+static const u8 gBattleTransitionTable_Wild[][2] = {
     {8, 9},
     {5, 10},
     {0, 10},
     {7, 6},
 };
-static const u8 gBattleTransitionTable_Trainer[][2] =
-{
+static const u8 gBattleTransitionTable_Trainer[][2] = {
     {4, 11},
     {2, 3},
     {0, 10},
     {1, 6},
 };
-static const struct TrainerBattleSpec gTrainerBattleSpecs_0[] =
-{
+static const struct TrainerBattleSpec gTrainerBattleSpecs_0[] = {
     {&gTrainerBattleMode, 0},
     {&gTrainerBattleOpponent, 1},
     {&gTrainerMapObjectLocalId, 1},
@@ -89,8 +86,7 @@ static const struct TrainerBattleSpec gTrainerBattleSpecs_0[] =
     {&gTrainerBattleEndScript, 5},
     {&gTrainerBattleScriptReturnAddress, 6},
 };
-static const struct TrainerBattleSpec gTrainerBattleSpecs_1[] =
-{
+static const struct TrainerBattleSpec gTrainerBattleSpecs_1[] = {
     {&gTrainerBattleMode, 0},
     {&gTrainerBattleOpponent, 1},
     {&gTrainerMapObjectLocalId, 1},
@@ -101,8 +97,7 @@ static const struct TrainerBattleSpec gTrainerBattleSpecs_1[] =
     {&gTrainerBattleEndScript, 2},
     {&gTrainerBattleScriptReturnAddress, 6},
 };
-static const struct TrainerBattleSpec gTrainerBattleSpecs_2[] =
-{
+static const struct TrainerBattleSpec gTrainerBattleSpecs_2[] = {
     {&gTrainerBattleMode, 0},
     {&gTrainerBattleOpponent, 1},
     {&gTrainerMapObjectLocalId, 1},
@@ -113,8 +108,7 @@ static const struct TrainerBattleSpec gTrainerBattleSpecs_2[] =
     {&gTrainerBattleEndScript, 5},
     {&gTrainerBattleScriptReturnAddress, 6},
 };
-static const struct TrainerBattleSpec gTrainerBattleSpecs_3[] =
-{
+static const struct TrainerBattleSpec gTrainerBattleSpecs_3[] = {
     {&gTrainerBattleMode, 0},
     {&gTrainerBattleOpponent, 1},
     {&gTrainerMapObjectLocalId, 1},
@@ -125,8 +119,7 @@ static const struct TrainerBattleSpec gTrainerBattleSpecs_3[] =
     {&gTrainerBattleEndScript, 5},
     {&gTrainerBattleScriptReturnAddress, 6},
 };
-static const struct TrainerBattleSpec gTrainerBattleSpecs_4[] =
-{
+static const struct TrainerBattleSpec gTrainerBattleSpecs_4[] = {
     {&gTrainerBattleMode, 0},
     {&gTrainerBattleOpponent, 1},
     {&gTrainerMapObjectLocalId, 1},
@@ -138,8 +131,7 @@ static const struct TrainerBattleSpec gTrainerBattleSpecs_4[] =
     {&gTrainerBattleScriptReturnAddress, 6},
 };
 
-const struct TrainerEyeTrainer gTrainerEyeTrainers[] =
-{
+const struct TrainerEyeTrainer gTrainerEyeTrainers[] = {
     {
         {OPPONENT_ROSE_1, OPPONENT_ROSE_2, OPPONENT_ROSE_3, OPPONENT_ROSE_4, OPPONENT_ROSE_5},
         MAP_GROUP_ROUTE118,

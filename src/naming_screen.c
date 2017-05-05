@@ -379,8 +379,7 @@ static bool8 MainState_UpdateSentToPCMessage(struct Task *);
 static bool8 MainState_BeginFadeInOut(struct Task *);
 static bool8 MainState_WaitFadeOutAndExit(struct Task *);
 
-static bool8 (*const sMainStateFuncs[])(struct Task *) =
-{
+static bool8 (*const sMainStateFuncs[])(struct Task *) = {
     MainState_BeginFadeIn,
     MainState_WaitFadeIn,
     MainState_HandleInput,
@@ -535,8 +534,7 @@ static bool8 KeyboardKeyHandler_Page(u8);
 static bool8 KeyboardKeyHandler_Backspace(u8);
 static bool8 KeyboardKeyHandler_OK(u8);
 
-static bool8 (*const sKeyboardKeyHandlers[])(u8) =
-{
+static bool8 (*const sKeyboardKeyHandlers[])(u8) = {
     KeyboardKeyHandler_Character,
     KeyboardKeyHandler_Page,
     KeyboardKeyHandler_Backspace,
@@ -634,8 +632,7 @@ enum
 static void InputState_Disabled(struct Task *);
 static void InputState_Enabled(struct Task *);
 
-static void (*const sInputStateFuncs[])(struct Task *) =
-{
+static void (*const sInputStateFuncs[])(struct Task *) = {
     InputState_Disabled,
     InputState_Enabled,
 };
@@ -699,8 +696,7 @@ static void InputState_Enabled(struct Task *task)
     HandleDpadMovement(task);
 }
 
-static const s16 sDpadDeltaX[] =
-{
+static const s16 sDpadDeltaX[] = {
     0,   //none
     0,   //up
     0,   //down
@@ -708,8 +704,7 @@ static const s16 sDpadDeltaX[] =
     1    //right
 };
 
-static const s16 sDpadDeltaY[] =
-{
+static const s16 sDpadDeltaY[] = {
     0,   //none
     -1,  //up
     1,   //down
@@ -902,8 +897,7 @@ static bool8 PageSwapAnimState_1(struct Task *);
 static bool8 PageSwapAnimState_2(struct Task *);
 static bool8 PageSwapAnimState_Done(struct Task *);
 
-static bool8 (*const sPageSwapAnimStateFuncs[])(struct Task *) =
-{
+static bool8 (*const sPageSwapAnimStateFuncs[])(struct Task *) = {
     PageSwapAnimState_Init,
     PageSwapAnimState_1,
     PageSwapAnimState_2,
@@ -1003,8 +997,7 @@ static void CursorInit(void)
     SetCursorPos(0, 0);
 }
 
-static const u8 sKeyboardSymbolPositions[][9] =
-{
+static const u8 sKeyboardSymbolPositions[][9] = {
     {1,  3,  5,  8, 10, 12, 14, 17, 19},  //Upper page
     {1,  3,  5,  8, 10, 12, 14, 17, 19},  //Lower page
     {1,  4,  7, 10, 13, 16, 16, 16, 19},  //Others page
@@ -1140,8 +1133,7 @@ static u8 sub_80B6B98(struct Sprite *);
 static u8 sub_80B6B9C(struct Sprite *);
 static u8 sub_80B6C08(struct Sprite *);
 
-static u8 (*const gUnknown_083CE2B4[])(struct Sprite *) =
-{
+static u8 (*const gUnknown_083CE2B4[])(struct Sprite *) = {
     sub_80B6B5C,
     sub_80B6B98,
     sub_80B6B9C,
@@ -1283,8 +1275,7 @@ static void sub_80B6E68(void);
 static void sub_80B6EBC(void);
 static void sub_80B6EFC(void);
 
-static void (*const gUnknown_083CE2E0[])(void) =
-{
+static void (*const gUnknown_083CE2E0[])(void) = {
     nullsub_40,
     sub_80B6E68,
     sub_80B6EBC,
@@ -1636,8 +1627,7 @@ static void sub_80B7650(u16 *);
 static void sub_80B7660(u16 *);
 static void sub_80B7670(u16 *);
 
-static void (*const gUnknown_083CE2F0[][2])(u16 *) =
-{
+static void (*const gUnknown_083CE2F0[][2])(u16 *) = {
     {sub_80B7660, sub_80B7650},
     {sub_80B7650, sub_80B7670},
     {sub_80B7670, sub_80B7660},
@@ -1733,8 +1723,7 @@ static void sub_80B7838(void);
 static void sub_80B7844(void);
 static void sub_80B7850(void);
 
-static void (*const gUnknown_083CE310[][2])(void) =
-{
+static void (*const gUnknown_083CE310[][2])(void) = {
     sub_80B7844,
     sub_80B7838,
     sub_80B7838,
@@ -1743,8 +1732,7 @@ static void (*const gUnknown_083CE310[][2])(void) =
     sub_80B7844,
 };
 
-static const struct WindowConfig *const gUnknown_083CE328[][2][2] =
-{
+static const struct WindowConfig *const gUnknown_083CE328[][2][2] = {
     {
         {&gWindowConfig_81E6EDC, &gWindowConfig_81E6EF8},
         {&gWindowConfig_81E6EA4, &gWindowConfig_81E6EC0},
@@ -1762,8 +1750,7 @@ static const struct WindowConfig *const gUnknown_083CE328[][2][2] =
 static void nullsub_61(void);
 static void sub_80B78F8(void);
 
-static void (*const gUnknown_083CE358[])(void) =
-{
+static void (*const gUnknown_083CE358[])(void) = {
     nullsub_61,
     nullsub_61,
     sub_80B78F8,
@@ -1773,8 +1760,7 @@ static void (*const gUnknown_083CE358[])(void) =
 static void nullsub_62(void);
 static void sub_80B7924(void);
 
-static void (*const gUnknown_083CE368[])(void) =
-{
+static void (*const gUnknown_083CE368[])(void) = {
     nullsub_62,
     sub_80B7924,
 };
@@ -1880,8 +1866,7 @@ static void sub_80B7960(void)
 // Forward-declared variables
 //--------------------------------------------------
 
-static const struct NamingScreenTemplate playerNamingScreenTemplate =
-{
+static const struct NamingScreenTemplate playerNamingScreenTemplate = {
     .unk0 = 0,
     .maxChars = 7,
     .unk2 = 1,
@@ -1893,8 +1878,7 @@ static const struct NamingScreenTemplate playerNamingScreenTemplate =
     .title = OtherText_YourName,
 };
 
-static const struct NamingScreenTemplate pcBoxNamingTemplate =
-{
+static const struct NamingScreenTemplate pcBoxNamingTemplate = {
     .unk0 = 0,
     .maxChars = 8,
     .unk2 = 2,
@@ -1906,8 +1890,7 @@ static const struct NamingScreenTemplate pcBoxNamingTemplate =
     .title = OtherText_BoxName,
 };
 
-static const struct NamingScreenTemplate monNamingScreenTemplate =
-{
+static const struct NamingScreenTemplate monNamingScreenTemplate = {
     .unk0 = 0,
     .maxChars = 10,
     .unk2 = 3,
@@ -1919,16 +1902,14 @@ static const struct NamingScreenTemplate monNamingScreenTemplate =
     .title = OtherText_PokeName,
 };
 
-static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
-{
+static const struct NamingScreenTemplate *const sNamingScreenTemplates[] = {
     &playerNamingScreenTemplate,
     &pcBoxNamingTemplate,
     &monNamingScreenTemplate,
     &monNamingScreenTemplate,
 };
 
-static const u8 sKeyboardCharacters[][4][20] =
-{
+static const u8 sKeyboardCharacters[][4][20] = {
     {
         _(" A B C  D E F    . "),
         _(" G H I  J K L    , "),
@@ -1949,8 +1930,7 @@ static const u8 sKeyboardCharacters[][4][20] =
     },
 };
 
-const struct OamData gOamData_83CE498 =
-{
+const struct OamData gOamData_83CE498 = {
     .y = 0,
     .affineMode = 0,
     .objMode = 0,
@@ -1966,8 +1946,7 @@ const struct OamData gOamData_83CE498 =
     .affineParam = 0,
 };
 
-const struct OamData gOamData_83CE4A0 =
-{
+const struct OamData gOamData_83CE4A0 = {
     .y = 0,
     .affineMode = 0,
     .objMode = 0,
@@ -1983,8 +1962,7 @@ const struct OamData gOamData_83CE4A0 =
     .affineParam = 0,
 };
 
-const struct OamData gOamData_83CE4A8 =
-{
+const struct OamData gOamData_83CE4A8 = {
     .y = 0,
     .affineMode = 0,
     .objMode = 0,

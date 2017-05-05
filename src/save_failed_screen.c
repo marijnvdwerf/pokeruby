@@ -36,8 +36,7 @@ extern struct SaveFailedClockStruct gSaveFailedClockInfo;
 extern u32 gDamagedSaveSectors;
 extern u32 gGameContinueCallback;
 
-static const struct OamData sClockOamData =
-{
+static const struct OamData sClockOamData = {
     160, // Y
     0,
     0,
@@ -53,8 +52,7 @@ static const struct OamData sClockOamData =
     0
 };
 
-static const u8 sClockFrames[8][3] =
-{
+static const u8 sClockFrames[8][3] = {
     { 1, 0, 0 },
     { 5, 0, 0 },
     { 9, 0, 0 },

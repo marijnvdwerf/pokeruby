@@ -165,8 +165,7 @@ EWRAM_DATA bool8 gLinkOpen = {0};
 static const u16 sLinkTestDigitPalette[] = INCBIN_U16("graphics/interface/link_test_digits.gbapal");
 static const u32 sLinkTestDigitTiles[] = INCBIN_U32("graphics/interface/link_test_digits.4bpp");
 
-static const u8 sDebugMessages[7][12] =
-{
+static const u8 sDebugMessages[7][12] = {
     _("せつぞく　ちゅうです"),
     _("せつぞく　できません"),
     _("かくにん　ちゅうです"),
@@ -178,8 +177,7 @@ static const u8 sDebugMessages[7][12] =
 
 static const u8 sColorCodes[] = _("{HIGHLIGHT TRANSPARENT}{COLOR WHITE2}");
 
-static const u32 sBlockRequestLookupTable[5 * 2] =
-{
+static const u32 sBlockRequestLookupTable[5 * 2] = {
     (u32)gBlockSendBuffer, 200,
     (u32)gBlockSendBuffer, 200,
     (u32)gBlockSendBuffer, 100,
