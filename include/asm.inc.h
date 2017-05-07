@@ -190,6 +190,13 @@ void sub_8081594(u8);
 void sub_80815E0(u8 val);
 
 // asm/cable_club.o
+void sub_8082D4C();
+void sub_8082D60(u8, u8);
+u32 sub_8082DF4(u8);
+u32 sub_8082E28(u8);
+u32 sub_8082EB8(u8);
+void sub_80830E4(u8 taskId);
+void sub_80833C4(u8 taskId);
 u8 sub_8083664(void);
 void sub_8083A84(TaskFunc);
 s32 sub_8083BF4(u8 id);

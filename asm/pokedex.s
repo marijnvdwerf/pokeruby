@@ -5,7 +5,6 @@
 	.syntax unified
 
 	.text
-
 	thumb_func_start sub_8090750
 sub_8090750: @ 8090750
 	push {r4-r7,lr}

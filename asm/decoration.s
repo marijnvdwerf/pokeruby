@@ -764,6 +764,7 @@ sub_80FE7D4: @ 80FE7D4
 _080FE7E8: .4byte gUnknown_083EC5E4
 	thumb_func_end sub_80FE7D4
 
+.align 2, 0 @ Don't pad with nop.
 	.section .text_80FE868
 
 	thumb_func_start sub_80FE868
@@ -1324,36 +1325,8 @@ sub_80FECB8: @ 80FECB8
 	bx r0
 	thumb_func_end sub_80FECB8
 
-	thumb_func_start sub_80FECE0
-sub_80FECE0: @ 80FECE0
-	push {lr}
-	sub sp, 0x8
-	lsls r0, 24
-	lsrs r0, 24
-	ldr r2, _080FED14 @ =gDecorations
-	ldr r1, _080FED18 @ =gUnknown_020388D0
-	ldr r1, [r1]
-	adds r1, r0
-	ldrb r0, [r1]
-	lsls r0, 5
-	adds r2, 0x18
-	adds r0, r2
-	ldr r0, [r0]
-	movs r1, 0x30
-	str r1, [sp]
-	movs r1, 0x1
-	str r1, [sp, 0x4]
-	movs r1, 0x80
-	movs r2, 0x68
-	movs r3, 0x68
-	bl sub_8072AB0
-	add sp, 0x8
-	pop {r0}
-	bx r0
-	.align 2, 0
-_080FED14: .4byte gDecorations
-_080FED18: .4byte gUnknown_020388D0
-	thumb_func_end sub_80FECE0
+.align 2, 0 @ Don't pad with nop.
+.section .text_80FED1C
 
 	thumb_func_start sub_80FED1C
 sub_80FED1C: @ 80FED1C

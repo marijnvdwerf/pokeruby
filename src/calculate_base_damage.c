@@ -1,6 +1,6 @@
 #include "global.h"
 #include "abilities.h"
-#include "battle.h"
+#include "battle_6.h"
 #include "berry.h"
 #include "event_data.h"
 #include "hold_effects.h"

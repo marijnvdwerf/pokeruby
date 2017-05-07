@@ -51,15 +51,6 @@ struct PokedexEntry
     /*0x20*/ u16 trainerOffset;
 };  /*size = 0x24*/
 
-struct CryRelatedStruct
-{
-    u16 unk0;
-    u8 unk2;
-    u8 unk3;
-    u8 unk4;
-    u8 unk5;
-};
-
 extern struct MusicPlayerInfo gMPlay_BGM;
 extern u8 gReservedSpritePaletteCount;
 extern struct PokedexView *gPokedexView;
@@ -3185,6 +3176,143 @@ void sub_8090750(u8 taskId)
                 gTasks[taskId].func = sub_8090A3C;
             }
             break;
+    }
+}
+*/
+
+/*
+void sub_8090750(u8 taskId) {
+    u16 dexnum;
+
+
+    dexnum = gTasks[taskId].data[1];
+
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+    default:
+        if (gPaletteFade.bufferTransferDisabled)
+        {
+            return;
+        }
+
+        gUnknown_03005CEC = gMain.vblankCallback;
+        SetVBlankCallback(NULL);
+        sub_8091060(0x100);
+        gTasks[taskId].data[0] = 1;
+        break;
+
+    case 1:
+    {
+        u16 i;
+        u8*src;
+        u16 *dest;
+
+
+        LZ77UnCompVram(gPokedexMenu_Gfx, (void *) (VRAM + 0x4000));
+
+        src = gUnknown_08E96BD4;
+        dest = (u16 *) (VRAM + 0x7800);
+        LZ77UnCompVram(src, dest);
+        for (i = 0; i < 640; i++)
+        {
+            dest[i] += 0x2000;
+        }
+
+        sub_8091738((u16) gTasks[taskId].data[1], 2, 1020);
+        ResetPaletteFade();
+        LoadPalette(gPokedexMenu_Pal+2, 0x21, 0x9E);
+
+        gTasks[taskId].data[0] += 1;
+    }
+        break;
+
+    case 2:
+    {
+        void *dest;
+
+        SetUpWindowConfig(&gWindowConfig_81E7064);
+        InitMenuWindow(&gWindowConfig_81E7064);
+
+        dest = (void *) (VRAM + 0xC000);
+        DmaFill16(3, 0, dest, 512);
+
+        gTasks[taskId].data[0] += 1;
+    }
+        break;
+
+    case 3:
+    {
+        sub_8072BD8((u8 *) gDexText_RegisterComplete, 2, 0, 208);
+
+        if (!IsNationalPokedexEnabled())
+        {
+            sub_8091154(NationalToHoennOrder(dexnum), 13, 3);
+        }
+        else
+        {
+            sub_8091154(dexnum, 13, 3);
+        }
+
+        sub_80911C8(dexnum, 16, 3);
+        MenuPrint(gDexText_UnknownPoke, 11, 5);
+        MenuPrint(gDexText_UnknownHeight, 16, 7);
+        MenuPrint(gDexText_UnknownWeight, 16, 9);
+
+        sub_8091304(gPokedexEntries[dexnum].categoryName, 11, 5);
+        sub_8091458(gPokedexEntries[dexnum].height, 16, 7);
+        sub_8091564(gPokedexEntries[dexnum].weight, 16, 9);
+
+        MenuPrint(gPokedexEntries[dexnum].descriptionPage1, 2, 13);
+
+
+        sub_80917CC(14, 0x3FC);
+        gTasks[taskId].data[0] += 1;
+    }
+        break;
+
+    case 4:
+    {
+        u8 spriteId;
+
+        spriteId = sub_80918EC(dexnum, 48, 56, 0);
+        gSprites[spriteId].oam.priority = 0;
+
+        BeginNormalPaletteFade(-1, 0, 16, 0, 0);
+
+        SetVBlankCallback(gUnknown_03005CEC);
+        gTasks[taskId].data[3] = spriteId;
+        gTasks[taskId].data[0] += 1;
+    }
+        break;
+
+    case 5:
+    {
+        REG_BLDCNT = 0;
+        REG_BLDALPHA = 0;
+        REG_BLDY = 0;
+        REG_BG3CNT = 0xF07;
+        REG_DISPCNT = 0x1C40;
+
+        gTasks[taskId].data[0] += 1;
+    }
+        break;
+    case 6:
+    {
+        u16 species;
+
+        if (gPaletteFade.bufferTransferDisabled)
+        {
+            return;
+        }
+
+        species = NationalPokedexNumToSpecies(dexnum);
+        PlayCry1(species, 0);
+        gTasks[taskId].data[2] = 0;
+        gTasks[taskId].data[4] = 0;
+        gTasks[taskId].func = sub_8090A3C;
+    }
+        break;
     }
 }
 */

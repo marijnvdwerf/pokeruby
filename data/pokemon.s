@@ -127,6 +127,7 @@ gUnknown_0820831A:: @ 820831A
 	.2byte 0xFFFF
 
 @ "Nidoran♂" Japanese name
+gUnknown_0820832C:: @ 820832C
 	.string "ニドラン♂$", 11
 
 @ "Nidoran♀" Japanese name

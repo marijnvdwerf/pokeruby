@@ -1,6 +1,6 @@
 #include "global.h"
 #include "asm.h"
-#include "battle.h"
+#include "battle_6.h"
 #include "items.h"
 #include "link.h"
 #include "pokemon.h"

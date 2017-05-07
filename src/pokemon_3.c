@@ -726,3 +726,39 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         }
     }
 }
+
+asm(".section .text_c");
+
+extern u8 gUnknown_0820832C[][11];
+bool8 sub_8040D3C(u16 species, u8 *_name, u8 language)
+{
+    bool8 retVal = FALSE;
+    s32 cmpResult;
+    u8 *name;
+
+    if (species == SPECIES_NIDORAN_M || species == SPECIES_NIDORAN_F)
+    {
+        if (language == GAME_LANGUAGE)
+        {
+            name = (u8 *) gSpeciesNames[species];
+        }
+        else
+        {
+            name = gUnknown_0820832C[1];
+            if (species == SPECIES_NIDORAN_M)
+            {
+                name = gUnknown_0820832C[0];
+            }
+        }
+
+        cmpResult = StringCompareWithoutExtCtrlCodes(_name, name);
+        retVal = FALSE;
+
+        if (!cmpResult)
+        {
+            retVal = TRUE;
+        }
+    }
+
+    return retVal;
+}

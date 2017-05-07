@@ -1,7 +1,7 @@
 #include "global.h"
 #include "battle_setup.h"
 #include "asm.h"
-#include "battle.h"
+#include "battle_6.h"
 #include "event_data.h"
 #include "field_control_avatar.h"
 #include "field_map_obj_helpers.h"

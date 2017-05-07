@@ -1965,19 +1965,7 @@ _08135454: .4byte gSaveBlock2
 _08135458: .4byte 0x00000554
 	thumb_func_end CheckPartyBattleTowerBanlist
 
-	thumb_func_start sub_813545C
-sub_813545C: @ 813545C
-	push {lr}
-	adds r1, r0, 0
-	ldr r0, _08135470 @ =gStringVar4
-	movs r2, 0x2
-	movs r3, 0x3
-	bl sub_80EB544
-	pop {r0}
-	bx r0
-	.align 2, 0
-_08135470: .4byte gStringVar4
-	thumb_func_end sub_813545C
+.section .text_8135474
 
 	thumb_func_start sub_8135474
 sub_8135474: @ 8135474

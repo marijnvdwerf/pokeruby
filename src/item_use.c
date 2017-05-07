@@ -24,6 +24,7 @@
 #include "string_util.h"
 #include "task.h"
 #include "vars.h"
+#include "battle_6.h"
 
 extern void (* gUnknown_03005D00)(u8);
 extern void (* gUnknown_0300485C)(void);
