@@ -13,6 +13,7 @@
 
 extern u16 gScriptResult;
 extern struct TrainerCard gTrainerCards[4];
+extern struct LinkPlayer gLinkPlayers[];
 
 extern u8 gUnknown_03004860;
 extern u8 gFieldLinkPlayerCount;
@@ -46,16 +47,15 @@ void sub_808303C(u8 taskId) {
         return;
     }
 
-    if (linkPlayerCount < taskData[1])
+    if ((gLinkType == 0x2255 && (u32) linkPlayerCount > 1) ||
+        (gLinkType != 0x2255 && taskData[1] <= linkPlayerCount))
     {
-        return;
+        sub_80081C8(linkPlayerCount);
+        sub_8082D4C();
+        ConvertIntToDecimalStringN(gStringVar1, linkPlayerCount, STR_CONV_MODE_LEFT_ALIGN, 1); // r5
+        ShowFieldAutoScrollMessage((u8 *) gUnknown_081A4975);
+        gTasks[taskId].func = sub_80830E4;
     }
-
-    sub_80081C8(linkPlayerCount);
-    sub_8082D4C();
-    ConvertIntToDecimalStringN(gStringVar1, linkPlayerCount, STR_CONV_MODE_LEFT_ALIGN, 1); // r5
-    ShowFieldAutoScrollMessage((u8 *) gUnknown_081A4975);
-    gTasks[taskId].func = sub_80830E4;
 }
 
 #ifdef NONMATCHING
@@ -280,9 +280,14 @@ static void sub_8083314(u8 taskId) {
 
     if (gScriptResult == 1)
     {
-        u16 linkType;
-        linkType = gLinkType;
-        sub_8082D4C(0x00004411, linkType);
+        if (gLinkType != 0x4411)
+        {
+            if (gLinkType == 0x6601)
+            {
+                deUnkValue2 = 1;
+            }
+        }
+        sub_8082D4C();
         EnableBothScriptContexts();
         DestroyTask(taskId);
         return;

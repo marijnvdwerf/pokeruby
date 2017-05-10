@@ -19,10 +19,10 @@ extern u8 gOtherText_DataCannotUseVersion[];
 
 bool32 sub_8126098(u16 a1, u32 a2, u16 a3, u32 a4)
 {
-    if (!(a1 & 0x2))
+    if (!(a1 & 0x4))
         return FALSE;
 
-    if (!(a2 & 0x2))
+    if (!(a2 & 0x4))
         return FALSE;
 
     if (!(a3 & 0x4))
