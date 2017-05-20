@@ -1,9 +1,6 @@
-//
-// Created by Scott Norton on 5/18/17.
-//
+#ifndef GUARD_TV_H
+#define GUARD_TV_H
 
-#ifndef POKERUBY_TV_H
-#define POKERUBY_TV_H
 enum
 {
     TVSHOW_FAN_CLUB_LETTER = 1,
@@ -20,4 +17,5 @@ enum
     TVSHOW_WORLD_OF_MASTERS,
     TVSHOW_MASS_OUTBREAK = 41,
 };
-#endif //POKERUBY_TV_H
+
+#endif // GUARD_TV_H

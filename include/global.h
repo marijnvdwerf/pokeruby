@@ -98,7 +98,7 @@ struct SecretBaseRecord
     /*0x1A09*/ u8 sbr_field_1_0:4;
     /*0x1A09*/ u8 gender:1;
     /*0x1A09*/ u8 sbr_field_1_5:1;
-	/*0x1A09*/ u8 sbr_field_1_6:2;
+    /*0x1A09*/ u8 sbr_field_1_6:2;
     /*0x1A0A*/ u8 sbr_field_2[7]; // 0xFF bytes?
     /*0x1A12*/ u8 trainerId[4]; // byte 0 is used for determining trainer class
     /*0x1A16*/ u16 sbr_field_e;
@@ -299,44 +299,44 @@ struct TVShowMassOutbreak {
 };
 
 struct TVShowPokemonAngler {
-	/*0x00*/ u8 var00;
-	/*0x01*/ u8 var01;
-	/*0x02*/ u8 var02;
-	/*0x03*/ u8 var03;
-	/*0x04*/ u16 var04;
-	/*0x06*/ u8 language;
-	u8 pad07[12];
-	/*0x13*/ u8 playerName[8];
+    /*0x00*/ u8 var00;
+    /*0x01*/ u8 var01;
+    /*0x02*/ u8 var02;
+    /*0x03*/ u8 var03;
+    /*0x04*/ u16 var04;
+    /*0x06*/ u8 language;
+    u8 pad07[12];
+    /*0x13*/ u8 playerName[8];
 };
 
 struct TVShowWorldOfMasters {
-	/*0x00*/ u8 var00;
-	/*0x01*/ u8 var01;
-	/*0x02*/ u16 var02;
-	/*0x04*/ u16 var04;
-	/*0x06*/ u16 var06;
-	/*0x08*/ u16 var08;
-	/*0x0a*/ u8 var0a;
-	/*0x0b*/ u8 language;
-	u8 pad0c[7];
-	/*0x13*/ u8 playerName[8];
+    /*0x00*/ u8 var00;
+    /*0x01*/ u8 var01;
+    /*0x02*/ u16 var02;
+    /*0x04*/ u16 var04;
+    /*0x06*/ u16 var06;
+    /*0x08*/ u16 var08;
+    /*0x0a*/ u8 var0a;
+    /*0x0b*/ u8 language;
+    u8 pad0c[7];
+    /*0x13*/ u8 playerName[8];
 };
 
 struct TVShowSmartShopper {
-	u8 var00;
-	u8 var01;
-	u8 boughtOrSoldFlag;
-	u8 pad03[3];
-	u16 itemIds[3];
-	u16 itemAmounts[3];
+    u8 var00;
+    u8 var01;
+    u8 boughtOrSoldFlag;
+    u8 pad03[3];
+    u16 itemIds[3];
+    u16 itemAmounts[3];
 };
 
 struct TVShowContestWinner {
-	u8 var00;
-	u8 var01;
-	u8 pad02[17];
-	u8 contestCategory:3;
-	u8 var13_3:5;
+    u8 var00;
+    u8 var01;
+    u8 pad02[17];
+    u8 contestCategory:3;
+    u8 var13_3:5;
 };
 
 typedef union TVShow {
@@ -346,10 +346,10 @@ typedef union TVShow {
     struct TVShowFanclubOpinions fanclubOpinions;
     struct TVShowNameRaterShow nameRaterShow;
     struct TVShowMassOutbreak massOutbreak;
-	struct TVShowPokemonAngler pokemonAngler;
-	struct TVShowWorldOfMasters worldOfMasters;
-	struct TVShowSmartShopper smartshopperShow;
-	struct TVShowContestWinner contestShow;
+    struct TVShowPokemonAngler pokemonAngler;
+    struct TVShowWorldOfMasters worldOfMasters;
+    struct TVShowSmartShopper smartshopperShow;
+    struct TVShowContestWinner contestShow;
     struct TVShowPokemonToday pokemonToday;
     struct TVShowPokemonTodayFailed pokemonTodayFailed;
 } TVShow;
@@ -428,9 +428,9 @@ struct SaveTVStruct {
 };
 
 struct UnknownSaveStruct2ABC {
-	u8 val0;
-	u8 val1;
-	u16 val2;
+    u8 val0;
+    u8 val1;
+    u16 val2;
 };
 
 struct GabbyAndTyData {

@@ -1,7 +1,6 @@
 #ifndef GUARD_ITEM_H
 #define GUARD_ITEM_H
 
-
 typedef void (*ItemUseFunc)(u8);
 
 struct Item
