@@ -1487,7 +1487,7 @@ static void sub_813CCE8(u8 taskId)
     }
 }
 #else
-__attribute__((naked))
+NAKED
 static void sub_813CCE8(u8 taskId)
 {
     asm("\n\
@@ -2153,7 +2153,7 @@ static void sub_813DA64(struct Sprite *sprite)
     //_0813DB92
 }
 #else
-__attribute__((naked))
+NAKED
 static void sub_813DA64(struct Sprite *sprite)
 {
     asm(".syntax unified\n\

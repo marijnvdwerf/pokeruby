@@ -765,7 +765,7 @@ void dp01_build_cmdbuf_x10_TODO(u8 a, u16 b)
     dp01_prepare_buffer(a, gUnknown_03004040, 0x44);
 }
 #else
-__attribute__((naked))
+NAKED
 void dp01_build_cmdbuf_x10_TODO(u8 a, u16 b)
 {
     asm(".syntax unified\n\
@@ -903,7 +903,7 @@ _0800CA64: .4byte gUnknown_030041C0\n\
 }
 #endif
 
-__attribute__((naked))
+NAKED
 void dp01_build_cmdbuf_x11_TODO()
 {
     asm(".syntax unified\n\

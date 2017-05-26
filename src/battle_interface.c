@@ -192,7 +192,7 @@ void sub_8043740(s16 a, u16 *b, u8 c)
     asm(""::"r"(r9));
 }
 #else
-__attribute__((naked))
+NAKED
 void sub_8043740(s16 a, u16 *b, u8 c)
 {
     asm(".syntax unified\n\
@@ -776,7 +776,7 @@ void sub_80440EC(u8 a, s16 b, u8 c)
     }
 }
 #else
-__attribute__((naked))
+NAKED
 void sub_80440EC(u8 a, s16 b, u8 c)
 {
     asm(".syntax unified\n\
@@ -1033,7 +1033,7 @@ void sub_8044338(u8 a, struct Pokemon *pkmn)
     }
 }
 #else
-__attribute__((naked))
+NAKED
 void sub_8044338(u8 a, struct Pokemon *pkmn)
 {
     asm(".syntax unified\n\
@@ -1572,7 +1572,7 @@ u8 sub_8044804(u8 a, const struct BattleInterfaceStruct2 *b, u8 c, u8 d)
     return taskId;
 }
 #else
-__attribute__((naked))
+NAKED
 u8 sub_8044804(u8 a, const struct BattleInterfaceStruct2 *b, u8 c, u8 d)
 {
     asm(".syntax unified\n\
