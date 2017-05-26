@@ -237,9 +237,6 @@ static const BattleAICmdFunc sBattleAICmdTable[] = {
     BattleAICmd_if_not_taunted,
 };
 
-#ifdef NONMATCHING
-static
-#endif
 const u16 sDiscouragedPowerfulMoveEffects[] = {
     EFFECT_EXPLOSION,
     EFFECT_DREAM_EATER,
