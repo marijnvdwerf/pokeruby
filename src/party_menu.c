@@ -62,7 +62,7 @@ struct Unk201C000
 struct Unk201F000
 {
     u8 filler0[0xE00];
-    u8 unkE00[3];  // not sure if this is an array or struct, or how big it is
+    u8 unkE00[3]; // not sure if this is an array or struct, or how big it is
 };
 
 struct UnknownStruct5
@@ -282,7 +282,6 @@ void DisplayGiveHeldItemMessage(u8 a, u16 b, u8 c)
     StringExpandPlaceholders(gStringVar4, gOtherText_WasGivenToHold);
     sub_806E834(gStringVar4, c);
 }
-
 
 // Not sure about this one for now.
 /*
@@ -906,71 +905,70 @@ void GetMedicineItemEffectMessage(u16 item)
 {
     switch (GetItemEffectType(item))
     {
-        case 3:
-            StringExpandPlaceholders(gStringVar4, gOtherText_CuredPoisoning);
-            break;
-        case 4:
-            StringExpandPlaceholders(gStringVar4, gOtherText_WokeUp);
-            break;
-        case 5:
-            StringExpandPlaceholders(gStringVar4, gOtherText_BurnHealed);
-            break;
-        case 6:
-            StringExpandPlaceholders(gStringVar4, gOtherText_ThawedOut);
-            break;
-        case 7:
-            StringExpandPlaceholders(gStringVar4, gOtherText_CuredParalysis);
-            break;
-        case 8:
-            StringExpandPlaceholders(gStringVar4, gOtherText_SnapConfusion);
-            break;
-        case 9:
-            StringExpandPlaceholders(gStringVar4, gOtherText_GotOverLove);
-            break;
-        case 11:
-            StringExpandPlaceholders(gStringVar4, gOtherText_BecameHealthy);
-            break;
-        case 13:
-            StringCopy(gStringVar2, gOtherText_Hp2);
-            StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
-            break;
-        case 12:
-            StringCopy(gStringVar2, gOtherText_Attack);
-            StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
-            break;
-        case 17:
-            StringCopy(gStringVar2, gOtherText_Defense);
-            StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
-            break;
-        case 16:
-            StringCopy(gStringVar2, gOtherText_Speed);
-            StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
-            break;
-        case 14:
-            StringCopy(gStringVar2, gOtherText_SpAtk2);
-            StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
-            break;
-        case 15:
-            StringCopy(gStringVar2, gOtherText_SpDef2);
-            StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
-            break;
-        case 19:
-        case 20:
-            StringExpandPlaceholders(gStringVar4, gOtherText_PPIncreased);
-            break;
-        case 21:
-            StringExpandPlaceholders(gStringVar4, gOtherText_PPRestored);
-            break;
-        default:
-            StringExpandPlaceholders(gStringVar4, gOtherText_WontHaveAnyEffect);
-            break;
+    case 3:
+        StringExpandPlaceholders(gStringVar4, gOtherText_CuredPoisoning);
+        break;
+    case 4:
+        StringExpandPlaceholders(gStringVar4, gOtherText_WokeUp);
+        break;
+    case 5:
+        StringExpandPlaceholders(gStringVar4, gOtherText_BurnHealed);
+        break;
+    case 6:
+        StringExpandPlaceholders(gStringVar4, gOtherText_ThawedOut);
+        break;
+    case 7:
+        StringExpandPlaceholders(gStringVar4, gOtherText_CuredParalysis);
+        break;
+    case 8:
+        StringExpandPlaceholders(gStringVar4, gOtherText_SnapConfusion);
+        break;
+    case 9:
+        StringExpandPlaceholders(gStringVar4, gOtherText_GotOverLove);
+        break;
+    case 11:
+        StringExpandPlaceholders(gStringVar4, gOtherText_BecameHealthy);
+        break;
+    case 13:
+        StringCopy(gStringVar2, gOtherText_Hp2);
+        StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
+        break;
+    case 12:
+        StringCopy(gStringVar2, gOtherText_Attack);
+        StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
+        break;
+    case 17:
+        StringCopy(gStringVar2, gOtherText_Defense);
+        StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
+        break;
+    case 16:
+        StringCopy(gStringVar2, gOtherText_Speed);
+        StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
+        break;
+    case 14:
+        StringCopy(gStringVar2, gOtherText_SpAtk2);
+        StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
+        break;
+    case 15:
+        StringCopy(gStringVar2, gOtherText_SpDef2);
+        StringExpandPlaceholders(gStringVar4, gOtherText_WasRaised);
+        break;
+    case 19:
+    case 20:
+        StringExpandPlaceholders(gStringVar4, gOtherText_PPIncreased);
+        break;
+    case 21:
+        StringExpandPlaceholders(gStringVar4, gOtherText_PPRestored);
+        break;
+    default:
+        StringExpandPlaceholders(gStringVar4, gOtherText_WontHaveAnyEffect);
+        break;
     }
 }
 
 bool8 IsMedicineIneffective(struct Pokemon *pkmn, u16 item)
 {
-    if (GetItemEffectType(item) == 13
-     && GetMonData(pkmn, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
+    if (GetItemEffectType(item) == 13 && GetMonData(pkmn, MON_DATA_SPECIES) == SPECIES_SHEDINJA)
         return TRUE;
     else
         return FALSE;
@@ -1060,9 +1058,7 @@ void UseMedicine(u8 taskId, u16 item, TaskFunc func)
 
 bool8 IsBlueYellowRedFlute(u16 item)
 {
-    if (item == 0x27
-     || item == 0x29
-     || item == 0x28)
+    if (item == 0x27 || item == 0x29 || item == 0x28)
         return TRUE;
     else
         return FALSE;

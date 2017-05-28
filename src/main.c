@@ -57,7 +57,7 @@ const IntrFunc gIntrTableTemplate[] = {
     IntrDummy,  // Game Pak interrupt
 };
 
-#define INTR_COUNT ((int)(sizeof(gIntrTableTemplate)/sizeof(IntrFunc)))
+#define INTR_COUNT ((int)(sizeof(gIntrTableTemplate) / sizeof(IntrFunc)))
 
 u16 gKeyRepeatStartDelay;
 bool8 gLinkTransferringData;
@@ -105,9 +105,7 @@ void AgbMain()
     {
         ReadKeys();
 
-        if (gSoftResetDisabled == FALSE
-         && (gMain.heldKeysRaw & A_BUTTON)
-         && (gMain.heldKeysRaw & B_START_SELECT) == B_START_SELECT)
+        if (gSoftResetDisabled == FALSE && (gMain.heldKeysRaw & A_BUTTON) && (gMain.heldKeysRaw & B_START_SELECT) == B_START_SELECT)
             DoSoftReset();
 
         if (gLink.sendQueue.count > 1 && sub_8055910() == 1)
@@ -336,7 +334,8 @@ static void SerialIntr(void)
 }
 
 static void IntrDummy(void)
-{}
+{
+}
 
 static void WaitForVBlank(void)
 {

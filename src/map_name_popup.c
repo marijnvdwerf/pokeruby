@@ -46,7 +46,7 @@ void Task_MapNamePopup(u8 taskId)
     {
     case 0:
         task->data[2] -= 2;
-        if (task->data[2] <= 0 )
+        if (task->data[2] <= 0)
         {
             task->data[0] = 1;
             gTasks[sTaskId].data[1] = 0;
@@ -54,7 +54,7 @@ void Task_MapNamePopup(u8 taskId)
         break;
     case 1:
         task->data[1]++;
-        if (task->data[1] > 120 )
+        if (task->data[1] > 120)
         {
             task->data[1] = 0;
             task->data[0] = 2;

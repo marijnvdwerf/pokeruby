@@ -76,26 +76,26 @@ void Step1(struct Sprite *sprite, u8 dir)
 
 void Step2(struct Sprite *sprite, u8 dir)
 {
-    sprite->pos1.x += 2 * (u16) gDirectionToVector[dir].x;
-    sprite->pos1.y += 2 * (u16) gDirectionToVector[dir].y;
+    sprite->pos1.x += 2 * (u16)gDirectionToVector[dir].x;
+    sprite->pos1.y += 2 * (u16)gDirectionToVector[dir].y;
 }
 
 void Step3(struct Sprite *sprite, u8 dir)
 {
-    sprite->pos1.x += 2 * (u16) gDirectionToVector[dir].x + (u16) gDirectionToVector[dir].x;
-    sprite->pos1.y += 2 * (u16) gDirectionToVector[dir].y + (u16) gDirectionToVector[dir].y;
+    sprite->pos1.x += 2 * (u16)gDirectionToVector[dir].x + (u16)gDirectionToVector[dir].x;
+    sprite->pos1.y += 2 * (u16)gDirectionToVector[dir].y + (u16)gDirectionToVector[dir].y;
 }
 
 void Step4(struct Sprite *sprite, u8 dir)
 {
-    sprite->pos1.x += 4 * (u16) gDirectionToVector[dir].x;
-    sprite->pos1.y += 4 * (u16) gDirectionToVector[dir].y;
+    sprite->pos1.x += 4 * (u16)gDirectionToVector[dir].x;
+    sprite->pos1.y += 4 * (u16)gDirectionToVector[dir].y;
 }
 
 void Step8(struct Sprite *sprite, u8 dir)
 {
-    sprite->pos1.x += 8 * (u16) gDirectionToVector[dir].x;
-    sprite->pos1.y += 8 * (u16) gDirectionToVector[dir].y;
+    sprite->pos1.x += 8 * (u16)gDirectionToVector[dir].x;
+    sprite->pos1.y += 8 * (u16)gDirectionToVector[dir].y;
 }
 
 void oamt_npc_ministep_reset(struct Sprite *sprite, u8 a2, u8 a3)
@@ -234,7 +234,7 @@ bool8 sub_8064824(struct Sprite *sprite)
 void obj_anim_image_set_and_seek(struct Sprite *sprite, u8 a2, u8 a3)
 {
     sprite->animNum = a2;
-    sprite->animPaused = 0 ;
+    sprite->animPaused = 0;
     SeekSpriteAnim(sprite, a3);
 }
 

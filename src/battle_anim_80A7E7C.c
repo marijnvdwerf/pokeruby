@@ -22,7 +22,7 @@ static void sub_80A81D8(u8 task);
 static void sub_80A8374(u8 task);
 static void sub_80A8488(u8 task);
 static void sub_80A85A4(struct Sprite *sprite);
-void sub_80A8614(struct Sprite* sprite);
+void sub_80A8614(struct Sprite *sprite);
 static void sub_80A86F4(struct Sprite *sprite);
 static void sub_80A88F0(struct Sprite *sprite);
 static void sub_80A89B4(u8 task);
@@ -87,7 +87,6 @@ static void sub_80A7EF0(u8 task)
         TASK.data[3]--;
     }
 }
-
 
 void sub_80A7FA0(u8 task)
 {
@@ -530,7 +529,6 @@ void sub_80A8818(struct Sprite *sprite)
     sprite->callback = sub_80784A8;
 }
 
-
 static void sub_80A88F0(struct Sprite *sprite)
 {
     gSprites[sprite->data5].pos2.x = 0;
@@ -697,8 +695,7 @@ static void sub_80A8C0C(u8 task)
             gSprites[spriteId].pos2.y = (y >= 0) ? -y : y;
         }
     }
-    if (((index >= 0x80u) && (TASK.data[11] == 0) && (TASK.data[12] == 1))
-        || ((index < 0x7fu) && (TASK.data[11] == 1) && (TASK.data[12] == 0)))
+    if (((index >= 0x80u) && (TASK.data[11] == 0) && (TASK.data[12] == 1)) || ((index < 0x7fu) && (TASK.data[11] == 1) && (TASK.data[12] == 0)))
     {
         TASK.data[11] ^= 1;
         TASK.data[12] ^= 1;

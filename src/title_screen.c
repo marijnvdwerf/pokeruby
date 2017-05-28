@@ -255,7 +255,7 @@ static const struct SpriteSheet sPokemonLogoShineSpriteSheet[] = {
     {NULL},
 };
 
-#define _RGB(r, g, b) ((((b) & 31) << 10) + (((g) & 31) << 5) + ((r) & 31))
+#define _RGB(r, g, b) ((((b)&31) << 10) + (((g)&31) << 5) + ((r)&31))
 
 #ifdef SAPPHIRE
 //Red Kyogre markings
@@ -427,7 +427,6 @@ static void VBlankCB(void)
     REG_BG1VOFS = gUnknown_030041B4;
 }
 
-
 #define tCounter data[0]
 #define tSkipToNext data[1]
 
@@ -519,12 +518,7 @@ void CB2_InitTitleScreen(void)
         REG_IE |= INTR_FLAG_VBLANK;
         REG_IME = savedIme;
         REG_DISPSTAT |= DISPSTAT_VBLANK_INTR;
-        REG_DISPCNT = DISPCNT_MODE_1
-                    | DISPCNT_OBJ_1D_MAP
-                    | DISPCNT_BG2_ON
-                    | DISPCNT_OBJ_ON
-                    | DISPCNT_WIN0_ON
-                    | DISPCNT_OBJWIN_ON;
+        REG_DISPCNT = DISPCNT_MODE_1 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG2_ON | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON | DISPCNT_OBJWIN_ON;
         m4aSongNumStart(0x19D);
         gMain.state = 5;
         break;
@@ -608,12 +602,7 @@ static void Task_TitleScreenPhase2(u8 taskId)
     else
     {
         gTasks[taskId].tSkipToNext = TRUE;
-        REG_DISPCNT = DISPCNT_MODE_1
-                    | DISPCNT_OBJ_1D_MAP
-                    | DISPCNT_BG0_ON
-                    | DISPCNT_BG1_ON
-                    | DISPCNT_BG2_ON
-                    | DISPCNT_OBJ_ON;
+        REG_DISPCNT = DISPCNT_MODE_1 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON | DISPCNT_BG1_ON | DISPCNT_BG2_ON | DISPCNT_OBJ_ON;
         CreatePressStartBanner(DISPLAY_WIDTH / 2, 108);
         CreateCopyrightBanner(DISPLAY_WIDTH / 2, 148);
         gTasks[taskId].data[4] = 0;
@@ -644,8 +633,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
     {
         if ((gMain.heldKeys & CLEAR_SAVE_BUTTON_COMBO) == CLEAR_SAVE_BUTTON_COMBO)
             SetMainCallback2(CB2_GoToClearSaveDataScreen);
-        if ((gMain.heldKeys & RESET_RTC_BUTTON_COMBO) == RESET_RTC_BUTTON_COMBO
-          && CanResetRTC() == 1)
+        if ((gMain.heldKeys & RESET_RTC_BUTTON_COMBO) == RESET_RTC_BUTTON_COMBO && CanResetRTC() == 1)
         {
             FadeOutBGM(4);
             BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
@@ -709,6 +697,5 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
         else
             palette = LEGENDARY_MARKING_COLOR(31 - colorIntensity);
         LoadPalette(&palette, 0xEF, sizeof(palette));
-   }
+    }
 }
-

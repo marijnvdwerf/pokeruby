@@ -73,10 +73,10 @@ extern struct Decoration gDecorations[];
 
 // This is defined in here so the optimizer can't see its value when compiling
 // script.c.
-void * const gNullScriptPtr = NULL;
+void *const gNullScriptPtr = NULL;
 
 static const u8 sScriptConditionTable[6][3] = {
-//  <  =  >
+    //  <  =  >
     1, 0, 0, // <
     0, 1, 0, // =
     0, 0, 1, // >
@@ -85,7 +85,7 @@ static const u8 sScriptConditionTable[6][3] = {
     1, 0, 1, // !=
 };
 
-static u8 * const sScriptStringVars[] = {
+static u8 *const sScriptStringVars[] = {
     gStringVar1,
     gStringVar2,
     gStringVar3,
@@ -1047,7 +1047,7 @@ bool8 ScrCmd_faceplayer(struct ScriptContext *ctx)
     if (gMapObjects[gSelectedMapObject].active)
     {
         FieldObjectFaceOppositeDirection(&gMapObjects[gSelectedMapObject],
-          player_get_direction_lower_nybble());
+                                         player_get_direction_lower_nybble());
     }
     return FALSE;
 }
