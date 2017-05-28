@@ -49,7 +49,7 @@
 #include "wild_encounter.h"
 
 #ifdef SAPPHIRE
-#define LEGENDARY_MUSIC BGM_OOAME  // Heavy Rain
+#define LEGENDARY_MUSIC BGM_OOAME // Heavy Rain
 #else
 #define LEGENDARY_MUSIC BGM_HIDERI // Drought
 #endif
@@ -108,8 +108,8 @@ extern u8 (*gUnknown_082166A0[])(struct LinkPlayerMapObject *, struct MapObject 
 extern u8 (*gUnknown_082166AC[])(struct LinkPlayerMapObject *, struct MapObject *, u8);
 extern void (*gUnknown_082166D8[])(struct LinkPlayerMapObject *, struct MapObject *);
 
-extern struct MapData * const gMapAttributes[];
-extern struct MapHeader * const * const gMapGroups[];
+extern struct MapData *const gMapAttributes[];
+extern struct MapHeader *const *const gMapGroups[];
 extern const struct WarpData gDummyWarpData;
 extern s32 gUnknown_0839ACE8;
 extern u32 gUnknown_08216694[];
@@ -303,12 +303,12 @@ bool32 warp_data_is_not_neg_1(struct WarpData *warp)
     return TRUE;
 }
 
-struct MapHeader * const get_mapheader_by_bank_and_number(u16 mapGroup, u16 mapNum)
+struct MapHeader *const get_mapheader_by_bank_and_number(u16 mapGroup, u16 mapNum)
 {
     return gMapGroups[mapGroup][mapNum];
 }
 
-struct MapHeader * const warp1_get_mapheader(void)
+struct MapHeader *const warp1_get_mapheader(void)
 {
     return get_mapheader_by_bank_and_number(gUnknown_020297F8.mapGroup, gUnknown_020297F8.mapNum);
 }
@@ -476,7 +476,7 @@ struct MapConnection *sub_8053818(u8 dir)
     if (connection == NULL)
         return NULL;
 
-    for(i = 0; i < count; i++, connection++)
+    for (i = 0; i < count; i++, connection++)
         if (connection->direction == dir)
             return connection;
 
@@ -644,8 +644,7 @@ u8 sub_8053B60(struct UnkPlayerStruct *playerStruct, u8 a2, u16 a3, u8 a4)
         return 4;
     if (MetatileBehavior_IsEastArrowWarp(a3) == TRUE)
         return 3;
-    if ((playerStruct->player_field_0 == 16 && a2 == 8)
-     || (playerStruct->player_field_0 == 8 && a2 == 16))
+    if ((playerStruct->player_field_0 == 16 && a2 == 8) || (playerStruct->player_field_0 == 8 && a2 == 16))
         return playerStruct->player_field_1;
     if (MetatileBehavior_IsLadder(a3) == TRUE)
         return playerStruct->player_field_1;
@@ -758,9 +757,7 @@ u16 sav1_map_get_music(void)
 {
     u16 music;
 
-    if (gSaveBlock1.location.mapGroup == 0
-     && gSaveBlock1.location.mapNum == 26
-     && GetSav1Weather() == 8)
+    if (gSaveBlock1.location.mapGroup == 0 && gSaveBlock1.location.mapNum == 26 && GetSav1Weather() == 8)
         return BGM_ASHROAD;
 
     music = sub_8053D9C(&gSaveBlock1.location);
@@ -896,8 +893,7 @@ void sub_8054050(void)
 {
     s16 x, y;
     PlayerGetDestCoords((u16 *)&x, (u16 *)&y);
-    if (gUnknown_02029816 != TRUE
-     || MetatileBehavior_IsSurfableWaterOrUnderwater(MapGridGetMetatileBehaviorAt(x, y)))
+    if (gUnknown_02029816 != TRUE || MetatileBehavior_IsSurfableWaterOrUnderwater(MapGridGetMetatileBehaviorAt(x, y)))
     {
         s8 pan = (Random() % 88) + 212;
         s8 volume = (Random() % 30) + 50;
@@ -2363,7 +2359,7 @@ void unref_sub_8055A9C(u8 linkPlayerId)
     struct LinkPlayerMapObject *linkPlayerMapObj = &gLinkPlayerMapObjects[linkPlayerId];
     u8 mapObjId = linkPlayerMapObj->mapObjId;
     struct MapObject *mapObj = &gMapObjects[mapObjId];
-    if (mapObj->spriteId != 64 )
+    if (mapObj->spriteId != 64)
         DestroySprite(&gSprites[mapObj->spriteId]);
     linkPlayerMapObj->active = 0;
     mapObj->active = 0;
@@ -2410,8 +2406,7 @@ u8 GetLinkPlayerIdAt(s16 x, s16 y)
     u8 i;
     for (i = 0; i < 4; i++)
     {
-        if (gLinkPlayerMapObjects[i].active
-         && (gLinkPlayerMapObjects[i].mode == 0 || gLinkPlayerMapObjects[i].mode == 2))
+        if (gLinkPlayerMapObjects[i].active && (gLinkPlayerMapObjects[i].mode == 0 || gLinkPlayerMapObjects[i].mode == 2))
         {
             struct MapObject *mapObj = &gMapObjects[gLinkPlayerMapObjects[i].mapObjId];
             if (mapObj->coords2.x == x && mapObj->coords2.y == y)
@@ -2526,8 +2521,7 @@ u8 LinkPlayerDetectCollision(u8 selfMapObjId, u8 a2, s16 x, s16 y)
     {
         if (i != selfMapObjId)
         {
-            if ((gMapObjects[i].coords2.x == x && gMapObjects[i].coords2.y == y)
-             || (gMapObjects[i].coords3.x == x && gMapObjects[i].coords3.y == y))
+            if ((gMapObjects[i].coords2.x == x && gMapObjects[i].coords2.y == y) || (gMapObjects[i].coords3.x == x && gMapObjects[i].coords3.y == y))
             {
                 return 1;
             }

@@ -123,7 +123,7 @@ static void sub_80A22D0(u8 taskId, u8 b, u8 c)
     u8 *ptr;
 
     sub_80A229C(taskId, b, &ptr);
-    *ptr = c;  //what is this supposed to do?
+    *ptr = c; //what is this supposed to do?
 }
 
 static void sub_80A22F4(u8 taskId, u8 b, u8 *c)
@@ -203,8 +203,7 @@ static void sub_80A2490(u8 taskId, u8 b, u8 c, u8 *d)
 {
     u8 var;
 
-    if (FieldObjectIsSpecialAnimActive(&gMapObjects[c])
-     && !FieldObjectClearAnimIfSpecialAnimFinished(&gMapObjects[c]))
+    if (FieldObjectIsSpecialAnimActive(&gMapObjects[c]) && !FieldObjectClearAnimIfSpecialAnimFinished(&gMapObjects[c]))
         return;
 
     var = *d;

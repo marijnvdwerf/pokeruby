@@ -301,7 +301,7 @@ static void NamingScreen_SetUpVideoRegs(void)
     REG_BLDALPHA = 0x80C;
 }
 
-static const struct NamingScreenTemplate *const sNamingScreenTemplates[];  //forward declaration
+static const struct NamingScreenTemplate *const sNamingScreenTemplates[]; //forward declaration
 
 static void NamingScreen_Init(void)
 {
@@ -379,8 +379,7 @@ static bool8 MainState_UpdateSentToPCMessage(struct Task *);
 static bool8 MainState_BeginFadeInOut(struct Task *);
 static bool8 MainState_WaitFadeOutAndExit(struct Task *);
 
-static bool8 (*const sMainStateFuncs[])(struct Task *) =
-{
+static bool8 (*const sMainStateFuncs[])(struct Task *) = {
     MainState_BeginFadeIn,
     MainState_WaitFadeIn,
     MainState_HandleInput,
@@ -482,8 +481,7 @@ static bool8 MainState_6(struct Task *task)
     sub_80B68D8(0);
     sub_80B6460(3, 0, 1);
     gKeyRepeatStartDelay = namingScreenData.unk3C;
-    if (namingScreenData.templateNum == NAMING_SCREEN_TEMPLATE_MON_NAME
-     && CalculatePlayerPartyCount() >= 6)
+    if (namingScreenData.templateNum == NAMING_SCREEN_TEMPLATE_MON_NAME && CalculatePlayerPartyCount() >= 6)
     {
         DisplaySentToPCMessage();
         namingScreenData.state = MAIN_STATE_UPDATE_SENT_TO_PC_MESSAGE;
@@ -492,7 +490,7 @@ static bool8 MainState_6(struct Task *task)
     else
     {
         namingScreenData.state = MAIN_STATE_BEGIN_FADE_OUT;
-        return TRUE;  //Exit the naming screen
+        return TRUE; //Exit the naming screen
     }
 }
 
@@ -529,14 +527,12 @@ enum
     KEY_ROLE_OK,
 };
 
-
 static bool8 KeyboardKeyHandler_Character(u8);
 static bool8 KeyboardKeyHandler_Page(u8);
 static bool8 KeyboardKeyHandler_Backspace(u8);
 static bool8 KeyboardKeyHandler_OK(u8);
 
-static bool8 (*const sKeyboardKeyHandlers[])(u8) =
-{
+static bool8 (*const sKeyboardKeyHandlers[])(u8) = {
     KeyboardKeyHandler_Character,
     KeyboardKeyHandler_Page,
     KeyboardKeyHandler_Backspace,
@@ -634,8 +630,7 @@ enum
 static void InputState_Disabled(struct Task *);
 static void InputState_Enabled(struct Task *);
 
-static void (*const sInputStateFuncs[])(struct Task *) =
-{
+static void (*const sInputStateFuncs[])(struct Task *) = {
     InputState_Disabled,
     InputState_Enabled,
 };
@@ -699,22 +694,20 @@ static void InputState_Enabled(struct Task *task)
     HandleDpadMovement(task);
 }
 
-static const s16 sDpadDeltaX[] =
-{
-    0,   //none
-    0,   //up
-    0,   //down
-    -1,  //left
-    1    //right
+static const s16 sDpadDeltaX[] = {
+    0,  //none
+    0,  //up
+    0,  //down
+    -1, //left
+    1   //right
 };
 
-static const s16 sDpadDeltaY[] =
-{
-    0,   //none
-    -1,  //up
-    1,   //down
-    0,   //left
-    0    //right
+static const s16 sDpadDeltaY[] = {
+    0,  //none
+    -1, //up
+    1,  //down
+    0,  //left
+    0   //right
 };
 
 static const s16 s4RowTo3RowTableY[] = {0, 1, 1, 2};
@@ -864,11 +857,11 @@ static void Task_80B64D4(u8 taskId)
 static u16 sub_80B654C(u8 a)
 {
     const u16 arr[] =
-    {
-        IndexOfSpritePaletteTag(4) * 16 + 0x10E,
-        IndexOfSpritePaletteTag(6) * 16 + 0x10C,
-        IndexOfSpritePaletteTag(6) * 16 + 0x10E,
-    };
+        {
+            IndexOfSpritePaletteTag(4) * 16 + 0x10E,
+            IndexOfSpritePaletteTag(6) * 16 + 0x10C,
+            IndexOfSpritePaletteTag(6) * 16 + 0x10E,
+        };
 
     return arr[a];
 }
@@ -902,8 +895,7 @@ static bool8 PageSwapAnimState_1(struct Task *);
 static bool8 PageSwapAnimState_2(struct Task *);
 static bool8 PageSwapAnimState_Done(struct Task *);
 
-static bool8 (*const sPageSwapAnimStateFuncs[])(struct Task *) =
-{
+static bool8 (*const sPageSwapAnimStateFuncs[])(struct Task *) = {
     PageSwapAnimState_Init,
     PageSwapAnimState_1,
     PageSwapAnimState_2,
@@ -943,17 +935,16 @@ static bool8 PageSwapAnimState_Init(struct Task *task)
 static bool8 PageSwapAnimState_1(struct Task *task)
 {
     u16 *const arr[] =
-    {
-        &namingScreenData.bg2vOffset,
-        &namingScreenData.bg1vOffset
-    };
+        {
+            &namingScreenData.bg2vOffset,
+            &namingScreenData.bg1vOffset};
 
     task->tFrameCount += 4;
     *arr[namingScreenData.unkC] = Sin(task->tFrameCount, 40);
     *arr[namingScreenData.unkD] = Sin((task->tFrameCount + 128) & 0xFF, 40);
     if (task->tFrameCount >= 64)
     {
-        u8 temp = namingScreenData.unk8;  //Why u8 and not u16?
+        u8 temp = namingScreenData.unk8; //Why u8 and not u16?
 
         namingScreenData.unk8 = namingScreenData.unkA;
         namingScreenData.unkA = temp;
@@ -1003,11 +994,10 @@ static void CursorInit(void)
     SetCursorPos(0, 0);
 }
 
-static const u8 sKeyboardSymbolPositions[][9] =
-{
-    {1,  3,  5,  8, 10, 12, 14, 17, 19},  //Upper page
-    {1,  3,  5,  8, 10, 12, 14, 17, 19},  //Lower page
-    {1,  4,  7, 10, 13, 16, 16, 16, 19},  //Others page
+static const u8 sKeyboardSymbolPositions[][9] = {
+    {1, 3, 5, 8, 10, 12, 14, 17, 19},  //Upper page
+    {1, 3, 5, 8, 10, 12, 14, 17, 19},  //Lower page
+    {1, 4, 7, 10, 13, 16, 16, 16, 19}, //Others page
 };
 
 static u8 CursorColToKeyboardCol(s16 x)
@@ -1083,8 +1073,7 @@ void sub_80B6998(struct Sprite *sprite)
     sprite->invisible = (sprite->data4 & 0xFF);
     if (sprite->data0 == 8)
         sprite->invisible = TRUE;
-    if (sprite->invisible || (sprite->data4 & 0xFF00) == 0
-     || sprite->data0 != sprite->data2 || sprite->data1 != sprite->data3)
+    if (sprite->invisible || (sprite->data4 & 0xFF00) == 0 || sprite->data0 != sprite->data2 || sprite->data1 != sprite->data3)
     {
         sprite->data5 = 0;
         sprite->data6 = 1;
@@ -1140,8 +1129,7 @@ static u8 sub_80B6B98(struct Sprite *);
 static u8 sub_80B6B9C(struct Sprite *);
 static u8 sub_80B6C08(struct Sprite *);
 
-static u8 (*const gUnknown_083CE2B4[])(struct Sprite *) =
-{
+static u8 (*const gUnknown_083CE2B4[])(struct Sprite *) = {
     sub_80B6B5C,
     sub_80B6B98,
     sub_80B6B9C,
@@ -1283,8 +1271,7 @@ static void sub_80B6E68(void);
 static void sub_80B6EBC(void);
 static void sub_80B6EFC(void);
 
-static void (*const gUnknown_083CE2E0[])(void) =
-{
+static void (*const gUnknown_083CE2E0[])(void) = {
     nullsub_40,
     sub_80B6E68,
     sub_80B6EBC,
@@ -1459,11 +1446,7 @@ static void AddTextCharacter(u8 ch)
 
 static bool8 sub_80B7198(u8 a)
 {
-    if ((a >= 55 && a <= 74)
-     || (a >= 135 && a <= 139)
-     || (a >= 140 && a <= 144)
-     || (a >= 145 && a <= 149)
-     || (a >= 150 && a <= 154))
+    if ((a >= 55 && a <= 74) || (a >= 135 && a <= 139) || (a >= 140 && a <= 144) || (a >= 145 && a <= 149) || (a >= 150 && a <= 154))
         return TRUE;
     else
         return FALSE;
@@ -1471,8 +1454,7 @@ static bool8 sub_80B7198(u8 a)
 
 static bool8 sub_80B71E4(u8 a)
 {
-    if ((a >= 75 && a <= 79)
-     || (a >= 155 && a <= 159))
+    if ((a >= 75 && a <= 79) || (a >= 155 && a <= 159))
         return TRUE;
     else
         return FALSE;
@@ -1480,12 +1462,7 @@ static bool8 sub_80B71E4(u8 a)
 
 static bool8 sub_80B720C(u8 a)
 {
-    if ((a >= 6 && a <= 20)
-     || (a >= 26 && a <= 30)
-     || (a >= 75 && a <= 79)
-     || (a >= 86 && a <= 100)
-     || (a >= 106 && a <= 110)
-     || (a >= 155 && a <= 159))
+    if ((a >= 6 && a <= 20) || (a >= 26 && a <= 30) || (a >= 75 && a <= 79) || (a >= 86 && a <= 100) || (a >= 106 && a <= 110) || (a >= 155 && a <= 159))
         return TRUE;
     else
         return FALSE;
@@ -1493,10 +1470,7 @@ static bool8 sub_80B720C(u8 a)
 
 static bool8 sub_80B7264(u8 a)
 {
-    if ((a >= 26 && a <= 30)
-     || (a >= 70 && a <= 74)
-     || (a >= 106 && a <= 110)
-     || (a >= 150 && a <= 154))
+    if ((a >= 26 && a <= 30) || (a >= 70 && a <= 74) || (a >= 106 && a <= 110) || (a >= 150 && a <= 154))
         return TRUE;
     else
         return FALSE;
@@ -1636,8 +1610,7 @@ static void sub_80B7650(u16 *);
 static void sub_80B7660(u16 *);
 static void sub_80B7670(u16 *);
 
-static void (*const gUnknown_083CE2F0[][2])(u16 *) =
-{
+static void (*const gUnknown_083CE2F0[][2])(u16 *) = {
     {sub_80B7660, sub_80B7650},
     {sub_80B7650, sub_80B7670},
     {sub_80B7670, sub_80B7660},
@@ -1646,10 +1619,10 @@ static void (*const gUnknown_083CE2F0[][2])(u16 *) =
 static void sub_80B75C4(void)
 {
     u16 *const arr[] =
-    {
-        (u16 *)(VRAM + 0xE000),
-        (u16 *)(VRAM + 0xE800),
-    };
+        {
+            (u16 *)(VRAM + 0xE000),
+            (u16 *)(VRAM + 0xE800),
+        };
 
     gUnknown_083CE2F0[namingScreenData.currentPage][0](arr[namingScreenData.unkC]);
     gUnknown_083CE2F0[namingScreenData.currentPage][1](arr[namingScreenData.unkD]);
@@ -1658,10 +1631,10 @@ static void sub_80B75C4(void)
 static void sub_80B7614(void)
 {
     u16 *const arr[] =
-    {
-        (u16 *)(VRAM + 0xE000),
-        (u16 *)(VRAM + 0xE800),
-    };
+        {
+            (u16 *)(VRAM + 0xE000),
+            (u16 *)(VRAM + 0xE800),
+        };
 
     gUnknown_083CE2F0[namingScreenData.currentPage][1](arr[namingScreenData.unkD]);
 }
@@ -1733,8 +1706,7 @@ static void sub_80B7838(void);
 static void sub_80B7844(void);
 static void sub_80B7850(void);
 
-static void (*const gUnknown_083CE310[][2])(void) =
-{
+static void (*const gUnknown_083CE310[][2])(void) = {
     sub_80B7844,
     sub_80B7838,
     sub_80B7838,
@@ -1743,8 +1715,7 @@ static void (*const gUnknown_083CE310[][2])(void) =
     sub_80B7844,
 };
 
-static const struct WindowConfig *const gUnknown_083CE328[][2][2] =
-{
+static const struct WindowConfig *const gUnknown_083CE328[][2][2] = {
     {
         {&gWindowConfig_81E6EDC, &gWindowConfig_81E6EF8},
         {&gWindowConfig_81E6EA4, &gWindowConfig_81E6EC0},
@@ -1762,8 +1733,7 @@ static const struct WindowConfig *const gUnknown_083CE328[][2][2] =
 static void nullsub_61(void);
 static void sub_80B78F8(void);
 
-static void (*const gUnknown_083CE358[])(void) =
-{
+static void (*const gUnknown_083CE358[])(void) = {
     nullsub_61,
     nullsub_61,
     sub_80B78F8,
@@ -1773,13 +1743,12 @@ static void (*const gUnknown_083CE358[])(void) =
 static void nullsub_62(void);
 static void sub_80B7924(void);
 
-static void (*const gUnknown_083CE368[])(void) =
-{
+static void (*const gUnknown_083CE368[])(void) = {
     nullsub_62,
     sub_80B7924,
 };
 
-static const u8 sKeyboardCharacters[][4][20];  //forward declaration
+static const u8 sKeyboardCharacters[][4][20]; //forward declaration
 
 static u8 GetCharAtKeyboardPos(s16 a, s16 b)
 {
@@ -1818,7 +1787,7 @@ static void sub_80B7850(void)
     PrintKeyboardCharacters(2);
 }
 
-static void PrintKeyboardCharacters(u8 page)  //print letters on page
+static void PrintKeyboardCharacters(u8 page) //print letters on page
 {
     s16 i;
     s16 r5;
@@ -1855,7 +1824,7 @@ static void sub_80B7924(void)
     if ((s16)namingScreenData.unk40 != MON_GENDERLESS)
     {
         if ((s16)namingScreenData.unk40 == MON_FEMALE)
-            genderSymbol[0] = 0xB6;  //female symbol
+            genderSymbol[0] = 0xB6; //female symbol
         MenuPrint(genderSymbol, 0x14, 4);
     }
 }
@@ -1880,8 +1849,7 @@ static void sub_80B7960(void)
 // Forward-declared variables
 //--------------------------------------------------
 
-static const struct NamingScreenTemplate playerNamingScreenTemplate =
-{
+static const struct NamingScreenTemplate playerNamingScreenTemplate = {
     .unk0 = 0,
     .maxChars = 7,
     .unk2 = 1,
@@ -1893,8 +1861,7 @@ static const struct NamingScreenTemplate playerNamingScreenTemplate =
     .title = OtherText_YourName,
 };
 
-static const struct NamingScreenTemplate pcBoxNamingTemplate =
-{
+static const struct NamingScreenTemplate pcBoxNamingTemplate = {
     .unk0 = 0,
     .maxChars = 8,
     .unk2 = 2,
@@ -1906,8 +1873,7 @@ static const struct NamingScreenTemplate pcBoxNamingTemplate =
     .title = OtherText_BoxName,
 };
 
-static const struct NamingScreenTemplate monNamingScreenTemplate =
-{
+static const struct NamingScreenTemplate monNamingScreenTemplate = {
     .unk0 = 0,
     .maxChars = 10,
     .unk2 = 3,
@@ -1919,16 +1885,14 @@ static const struct NamingScreenTemplate monNamingScreenTemplate =
     .title = OtherText_PokeName,
 };
 
-static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
-{
+static const struct NamingScreenTemplate *const sNamingScreenTemplates[] = {
     &playerNamingScreenTemplate,
     &pcBoxNamingTemplate,
     &monNamingScreenTemplate,
     &monNamingScreenTemplate,
 };
 
-static const u8 sKeyboardCharacters[][4][20] =
-{
+static const u8 sKeyboardCharacters[][4][20] = {
     {
         _(" A B C  D E F    . "),
         _(" G H I  J K L    , "),
@@ -1949,8 +1913,7 @@ static const u8 sKeyboardCharacters[][4][20] =
     },
 };
 
-const struct OamData gOamData_83CE498 =
-{
+const struct OamData gOamData_83CE498 = {
     .y = 0,
     .affineMode = 0,
     .objMode = 0,
@@ -1966,8 +1929,7 @@ const struct OamData gOamData_83CE498 =
     .affineParam = 0,
 };
 
-const struct OamData gOamData_83CE4A0 =
-{
+const struct OamData gOamData_83CE4A0 = {
     .y = 0,
     .affineMode = 0,
     .objMode = 0,
@@ -1983,8 +1945,7 @@ const struct OamData gOamData_83CE4A0 =
     .affineParam = 0,
 };
 
-const struct OamData gOamData_83CE4A8 =
-{
+const struct OamData gOamData_83CE4A8 = {
     .y = 0,
     .affineMode = 0,
     .objMode = 0,

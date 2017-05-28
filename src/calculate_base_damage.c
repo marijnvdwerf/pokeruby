@@ -38,11 +38,11 @@ extern struct SpriteTemplate gSpriteTemplate_8208288[];
 extern u8 gSecretBaseTrainerClasses[];
 extern u8 gHoldEffectToType[][2];
 
-#define APPLY_STAT_MOD(var, mon, stat, statIndex)                            \
-{                                                                            \
-    (var) = (stat) * (gStatStageRatios)[(mon)->statStages[(statIndex)] * 2]; \
-    (var) /= (gStatStageRatios + 1)[(mon)->statStages[(statIndex)] * 2];     \
-}
+#define APPLY_STAT_MOD(var, mon, stat, statIndex)                                \
+    {                                                                            \
+        (var) = (stat) * (gStatStageRatios)[(mon)->statStages[(statIndex)] * 2]; \
+        (var) /= (gStatStageRatios + 1)[(mon)->statStages[(statIndex)] * 2];     \
+    }
 
 #ifdef NONMATCHING
 s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *defender, u32 move, u16 a4, u16 powerOverride, u8 typeOverride, u8 a7, u8 a8)
@@ -100,34 +100,22 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER)))
     {
-        if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-            && gTrainerBattleOpponent != 1024
-            && FlagGet(BADGE01_GET)
-            && !battle_side_get_owner(a7))
+        if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && gTrainerBattleOpponent != 1024 && FlagGet(BADGE01_GET) && !battle_side_get_owner(a7))
             attack = (110 * attack) / 100;
 
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER)))
         {
-            if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                && gTrainerBattleOpponent != 1024
-                && FlagGet(BADGE05_GET)
-                && !battle_side_get_owner(a8))
+            if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && gTrainerBattleOpponent != 1024 && FlagGet(BADGE05_GET) && !battle_side_get_owner(a8))
                 defense = (110 * defense) / 100;
 
             if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER)))
             {
-                if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                    && gTrainerBattleOpponent != 1024
-                    && FlagGet(BADGE07_GET)
-                    && !battle_side_get_owner(a7))
+                if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && gTrainerBattleOpponent != 1024 && FlagGet(BADGE07_GET) && !battle_side_get_owner(a7))
                     spAttack = (110 * spAttack) / 100;
 
                 if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_EREADER_TRAINER)))
                 {
-                    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                        && gTrainerBattleOpponent != 1024
-                        && FlagGet(BADGE07_GET)
-                        && !battle_side_get_owner(a8))
+                    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && gTrainerBattleOpponent != 1024 && FlagGet(BADGE07_GET) && !battle_side_get_owner(a8))
                         spDefense = (110 * spDefense) / 100;
                 }
             }
@@ -136,8 +124,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     for (i = 0; i < 17; i++)
     {
-        if (attackerHoldEffect == gHoldEffectToType[i][0]
-            && type == gHoldEffectToType[i][1])
+        if (attackerHoldEffect == gHoldEffectToType[i][0] && type == gHoldEffectToType[i][1])
         {
             if (type <= 8)
                 attack = (attack * (attackerHoldEffectParam + 100)) / 100;
@@ -309,7 +296,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     return damage + 2;
 }
 #else
-__attribute__((naked))
+NAKED
 s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *defender, u32 move, u16 a4, u16 powerOverride, u8 typeOverride, u8 a7, u8 a8)
 {
     asm(".syntax unified\n\

@@ -4,9 +4,7 @@
 #include "sprite.h"
 #include "util.h"
 
-
 static void sub_8046388(struct Sprite *);
-
 
 u8 sub_8046234(s16 x, s16 y, u8 a3)
 {

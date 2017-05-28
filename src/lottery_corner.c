@@ -15,8 +15,7 @@ extern u16 gSpecialVar_0x8006;
 static EWRAM_DATA u16 sWinNumberDigit = 0;
 static EWRAM_DATA u16 sOtIdDigit = 0;
 
-static const u16 sLotteryPrizes[] =
-{
+static const u16 sLotteryPrizes[] = {
     ITEM_PP_UP,
     ITEM_EXP_SHARE,
     ITEM_MAX_REVIVE,
@@ -94,7 +93,7 @@ void PickLotteryCornerTicket(void)
 
             // UB: Too few arguments for function GetMonData
             if (GetBoxMonData(pkmn, MON_DATA_SPECIES) != SPECIES_NONE &&
-            !GetBoxMonData(pkmn, MON_DATA_IS_EGG))
+                !GetBoxMonData(pkmn, MON_DATA_IS_EGG))
             {
                 u32 otId = GetBoxMonData(pkmn, MON_DATA_OT_ID);
                 u8 numMatchingDigits = GetMatchingDigits(gScriptResult, otId);

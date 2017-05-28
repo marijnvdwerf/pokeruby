@@ -60,7 +60,7 @@ void sub_80C4C28(void)
     u16 var;
     u8 specialVar = gSpecialVar_0x8005;
 
-    switch(specialVar)
+    switch (specialVar)
     {
     case 0:
         var = 3;
@@ -90,7 +90,7 @@ void sub_80C4C78(void)
     u16 var;
     u16 returnVar;
 
-    switch(gScriptContestCategory)
+    switch (gScriptContestCategory)
     {
     case 0:
         var = 8;
@@ -112,7 +112,7 @@ void sub_80C4C78(void)
 
     returnVar = gSaveBlock1.sbStruct.unkSB2.sb1_2EFC_struct2[var].var;
 
-    if(returnVar == 0)
+    if (returnVar == 0)
         gSpecialVar_0x8004 = returnVar;
     else
         gSpecialVar_0x8004 = 1;
@@ -125,9 +125,7 @@ void sub_80C4CEC(void)
 
 void sub_80C4CF8(void)
 {
-    if(!gUnknown_02038690[gContestPlayerMonIndex]
-    && gScriptContestRank == 3
-    && (s16)gUnknown_02038678[gContestPlayerMonIndex] >= 800)
+    if (!gUnknown_02038690[gContestPlayerMonIndex] && gScriptContestRank == 3 && (s16)gUnknown_02038678[gContestPlayerMonIndex] >= 800)
     {
         gSpecialVar_0x8004 = 1;
     }
@@ -150,7 +148,7 @@ u8 sub_80C4D50(void)
 }
 
 // nope. too hard
-__attribute__((naked))
+NAKED
 void sub_80C4D80(void)
 {
     asm(".syntax unified\n\
@@ -361,7 +359,7 @@ void ShowContestWinnerCleanup(void)
 
 void ShowContestWinner(void)
 {
-    if(gUnknown_0203856C)
+    if (gUnknown_0203856C)
     {
         sub_80AAF30();
         BATTLE_STRUCT->unk15DDF = 1;
@@ -385,10 +383,7 @@ bool8 GiveMonArtistRibbon(void)
 {
     u8 ribbon = GetMonData(&gPlayerParty[gUnknown_02038694], MON_DATA_ARTIST_RIBBON);
 
-    if(ribbon == FALSE
-    && gUnknown_02038690[gContestPlayerMonIndex] == 0
-    && gScriptContestRank == 3
-    && (s16)gUnknown_02038678[gContestPlayerMonIndex] >= 800)
+    if (ribbon == FALSE && gUnknown_02038690[gContestPlayerMonIndex] == 0 && gScriptContestRank == 3 && (s16)gUnknown_02038678[gContestPlayerMonIndex] >= 800)
     {
         ribbon = TRUE;
         SetMonData(&gPlayerParty[gUnknown_02038694], MON_DATA_ARTIST_RIBBON, &ribbon);
@@ -413,7 +408,7 @@ void ShowContestEntryMonPic(void)
     u8 spriteId;
     u8 taskId;
 
-    if(FindTaskIdByFunc(sub_80C5190) == 0xFF)
+    if (FindTaskIdByFunc(sub_80C5190) == 0xFF)
     {
         u8 left = CONTEST_ENTRY_PIC_LEFT;
         u8 top = CONTEST_ENTRY_PIC_TOP;
@@ -426,9 +421,9 @@ void ShowContestEntryMonPic(void)
         gTasks[taskId].data[0] = 0;
         gTasks[taskId].data[1] = species;
         HandleLoadSpecialPokePic((struct SpriteSheet *)&gMonFrontPicTable[species].data,
-        gMonFrontPicCoords[species].coords, gMonFrontPicCoords[species].y_offset,
-        (u32)gUnknown_081FAF4C[0], gUnknown_081FAF4C[1], species, var1);
-        paletteData = (struct SpritePalette *) sub_80409C8(species, var2, var1);
+                                 gMonFrontPicCoords[species].coords, gMonFrontPicCoords[species].y_offset,
+                                 (u32)gUnknown_081FAF4C[0], gUnknown_081FAF4C[1], species, var1);
+        paletteData = (struct SpritePalette *)sub_80409C8(species, var2, var1);
         LoadCompressedObjectPalette(paletteData);
         GetMonSpriteTemplate_803C56C(species, 1);
         gUnknown_02024E8C.paletteTag = paletteData->tag;
@@ -445,7 +440,7 @@ void sub_80C5164(void)
 {
     u8 taskId = FindTaskIdByFunc(sub_80C5190);
 
-    if(taskId != 0xFF)
+    if (taskId != 0xFF)
         gTasks[taskId].data[0]++;
 }
 
@@ -454,13 +449,13 @@ void sub_80C5190(u8 taskId)
     struct Task *task = &gTasks[taskId];
     struct Sprite *sprite;
 
-    switch(task->data[0])
+    switch (task->data[0])
     {
     case 2:
         sprite = &gSprites[task->data[2]];
         FreeSpritePaletteByTag(GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum));
 
-        if(sprite->oam.affineMode)
+        if (sprite->oam.affineMode)
             FreeOamMatrix(sprite->oam.matrixNum);
 
         DestroySprite(sprite);
@@ -481,7 +476,7 @@ void sub_80C5190(u8 taskId)
 
 void ScriptGetMultiplayerId(void)
 {
-    if(gIsLinkContest & 1)
+    if (gIsLinkContest & 1)
         gScriptResult = GetMultiplayerId();
     else
         gScriptResult = 4;
@@ -492,7 +487,7 @@ void ScriptRandom(void)
     u16 random;
     u16 *scriptPtr;
 
-    if(gIsLinkContest & 1)
+    if (gIsLinkContest & 1)
     {
         gUnknown_03005D28 = 1103515245 * gUnknown_03005D28 + 24691;
         random = gUnknown_03005D28 >> 16;
@@ -513,7 +508,7 @@ void HealPlayerParty(void)
     u8 arg[4];
 
     // restore HP.
-    for(i = 0; i < gPlayerPartyCount; i++)
+    for (i = 0; i < gPlayerPartyCount; i++)
     {
         u16 maxHP = GetMonData(&gPlayerParty[i], MON_DATA_MAX_HP);
         arg[0] = maxHP;
@@ -522,7 +517,7 @@ void HealPlayerParty(void)
         ppBonuses = GetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES);
 
         // restore PP.
-        for(j = 0; j < 4; j++)
+        for (j = 0; j < 4; j++)
         {
             arg[0] = CalculatePPWithBonus(GetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j), ppBonuses, j);
             SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, arg);
@@ -552,9 +547,9 @@ u8 ScriptGiveMon(u16 species, u8 var, u16 item, u32 var3, u32 var4, u8 var5)
     nationalSpecies = SpeciesToNationalPokedexNum(species);
 
     // nested if check to fool compiler
-    if(sentToPc < 2)
+    if (sentToPc < 2)
     {
-        if(sentToPc >= 0)
+        if (sentToPc >= 0)
         {
             // set both the seen and caught flags
             sub_8090D90(nationalSpecies, 2);
@@ -580,7 +575,7 @@ void CheckForAlivePartyMons(void)
 {
     u8 var = sub_803DAA0();
 
-    switch(var)
+    switch (var)
     {
     case 1:
         gScriptResult = var;
@@ -598,10 +593,10 @@ bool8 CheckPartyMonHasHeldItem(u16 item)
 {
     int i;
 
-    for(i = 0; i < 6; i++)
+    for (i = 0; i < 6; i++)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
-        if(species != SPECIES_NONE && species != SPECIES_EGG && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == item)
+        if (species != SPECIES_NONE && species != SPECIES_EGG && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == item)
             return TRUE;
     }
     return FALSE;
@@ -611,7 +606,7 @@ bool8 GetNameOfEnigmaBerryInPlayerParty(void)
 {
     bool8 hasItem = CheckPartyMonHasHeldItem(ITEM_ENIGMA_BERRY);
 
-    if(hasItem == TRUE)
+    if (hasItem == TRUE)
         GetBerryNameByBerryType(ItemIdToBerryType(ITEM_ENIGMA_BERRY), gStringVar1);
 
     return hasItem;
@@ -624,7 +619,7 @@ void ScriptWildBattle(u16 species, u8 level, u16 item)
     ZeroEnemyPartyMons();
     CreateMon(&gEnemyParty[0], species, level, 0x20, 0, 0, 0, 0);
 
-    if(item)
+    if (item)
     {
         data[0] = item;
         data[1] = item >> 8;
@@ -634,7 +629,7 @@ void ScriptWildBattle(u16 species, u8 level, u16 item)
 
 void ScriptSetMonMoveSlot(u8 monIndex, u16 move, u8 slot)
 {
-    if(monIndex > 6)
+    if (monIndex > 6)
         monIndex = gPlayerPartyCount - 1;
 
     SetMonMoveSlot(&gPlayerParty[monIndex], move, slot);
@@ -650,7 +645,7 @@ void sub_80C5580(void)
 {
     u8 var = gSelectedOrderFromParty[0];
 
-    switch(var)
+    switch (var)
     {
     case 0:
         gScriptResult = 0;
@@ -673,7 +668,7 @@ void SetBattleTowerPlayerParty(void)
 {
     u8 var = gSelectedOrderFromParty[0];
 
-    switch(var)
+    switch (var)
     {
     case 0: // player quit battle tower?
         LoadPlayerParty();
@@ -696,15 +691,15 @@ void ReducePlayerPartyToThree(void)
     CpuFill32(0, party, sizeof party);
 
     // copy the selected pokemon according to the order.
-    for(i = 0; i < 3; i++)
-        if(gSelectedOrderFromParty[i]) // as long as the order keeps going (did the player select 1 mon? 2? 3?), do not stop
+    for (i = 0; i < 3; i++)
+        if (gSelectedOrderFromParty[i])                              // as long as the order keeps going (did the player select 1 mon? 2? 3?), do not stop
             party[i] = gPlayerParty[gSelectedOrderFromParty[i] - 1]; // index is 0 based, not literal
 
     // delete the last 3 pokemon
     CpuFill32(0, gPlayerParty, sizeof gPlayerParty);
 
     // overwrite the first 3 with the order copied to.
-    for(i = 0; i < 3; i++)
+    for (i = 0; i < 3; i++)
         gPlayerParty[i] = party[i];
 
     CalculatePlayerPartyCount();
