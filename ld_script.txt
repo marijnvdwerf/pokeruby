@@ -245,6 +245,8 @@ SECTIONS {
         src/battle_811DA74.o(.text);
         asm/battle_811DA74.o(.text);
         asm/battle_message.o(.text);
+        src/battle_message.o(.text);
+        asm/battle_message.o(.text_c);
         asm/choose_party.o(.text);
         asm/cable_car.o(.text);
         asm/roulette_util.o(.text);
@@ -462,6 +464,7 @@ SECTIONS {
         data/battle_transition.o(.rodata);
         data/battle_811DA74.o(.rodata);
         data/battle_message.o(.rodata);
+        src/battle_message.o(.rodata);
         data/choose_party.o(.rodata);
         data/cable_car.o(.rodata);
         src/save.o(.rodata);
