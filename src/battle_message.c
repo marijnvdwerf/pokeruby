@@ -1,15 +1,57 @@
 #include "global.h"
 #include "battle_message.h"
 #include "battle.h"
+#include "battle_setup.h"
+#include "battle_tower.h"
 #include "data2.h"
+#include "flags.h"
 #include "item.h"
 #include "items.h"
 #include "link.h"
 #include "moves.h"
+#include "opponent_constants.h"
 #include "rom_8077ABC.h"
 #include "string_util.h"
 #include "text.h"
 
+
+extern struct SecretBaseRecord gSecretBaseRecord;
+#define DEF(mon, str1, str2)                \
+    if (battle_side_get_owner(mon) == 0)    \
+    {                                       \
+        ptr = str1;                         \
+    }                                       \
+    else                                    \
+    {                                       \
+        ptr = str2;                         \
+    }
+
+#define DEF2(var1, var2)                    \
+    if (var1[0] == 0xFD)                    \
+    {                                       \
+        sub_8121A68(var1, var2);            \
+        ptr = var2;                         \
+    }                                       \
+    else                                    \
+    {                                       \
+        ptr = var1;                         \
+    }
+
+#define DEF3(var1, var2)          \
+    mon = &var1[gUnknown_02024A6A[battle_get_side_with_given_state(var2)]];     \
+    GetMonData(mon, MON_DATA_NICKNAME, buffer2);                                \
+    StringGetEnd10(buffer2);                                                    \
+    ptr = buffer2;
+
+
+#define DEF4(var1, var2)                                                                \
+    mon = &var1[gUnknown_02024A6A[gLinkPlayers[multiplayerId].lp_field_18 ^ var2]];     \
+    GetMonData(mon, MON_DATA_NICKNAME, buffer2);                                        \
+    StringGetEnd10(buffer2);                                                            \
+    ptr = buffer2;
+
+
+extern u8 gPlayerMonIndex;
 extern u8 gUnknown_03004290[];
 
 extern u8 gUnknown_02024C0B;
@@ -17,6 +59,7 @@ extern u8 gUnknown_02024C0B;
 extern struct BattleEnigmaBerry gEnigmaBerries[];
 
 extern u16 gBattleTypeFlags;
+extern u8 gUnknown_02024C0A;
 
 // data/battle_message.s
 extern const u8 gUnknown_08400791[];
@@ -215,7 +258,7 @@ extern const u8 gUnknown_084017A8[];
 
 struct UnkStructA {
     u16 var00;
-    u8 pad02[2];
+    u16 var02;
     u16 var04;
     u8 var06;
     u8 var07;
@@ -248,6 +291,8 @@ extern u8 gUnknown_0203926C[];
 void sub_8121D1C(const u8 *arg0);
 
 void sub_8121D74(const u8 *dstPtr);
+
+void sub_8121A68(u8 *r0, u8 *r1);
 
 void sub_8120AA8(u16 arg0) {
     int i;
@@ -392,7 +437,7 @@ void sub_8120AA8(u16 arg0) {
         else
         {
 
-            if (gTrainerBattleOpponent == 0x800)
+            if (gTrainerBattleOpponent == OPPONENT_800)
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
                 {
@@ -551,7 +596,7 @@ void sub_8120AA8(u16 arg0) {
 }
 
 
-u8* get_battle_strings_(const u8 * arg0) {
+int get_battle_strings_(const u8 *arg0) {
     return sub_8120FFC(arg0, gUnknown_020238CC);
 }
 
@@ -588,130 +633,501 @@ const u8 *sub_8120F98(u8 *arg0) {
 }
 #endif
 
-#ifdef NONMATCHING
-int sub_8120FFC(const u8 *msg, u8 *buffer) {
+
+#define PLACEHOLDER_ATTACKING_TRAINER 8
+#define PLACEHOLDER_DEFENDING_TRAINER 9
+#define PLACEHOLDER_ATTACKING_MON 12
+#define PLACEHOLDER_DEFENDING_MON 13
+
+extern u8 gEnemyMonIndex;
+extern u16 gUnknown_02024A6A[];
+
+asm(".section .text.sub_8121A68");
+
+int sub_8120FFC(const u8 *source, u8 *destination) {
+    u8 buffer2[12];
+    int i = 0;
+    u8 i1;
+    struct Pokemon *mon;
+    const u8 *ptr = NULL;
     u8 multiplayerId = GetMultiplayerId();
 
-    int index = 0;
 
-    int i = 0;
-    while (msg[i] != EOS)
+    while (*source != EOS)
     {
-        if (msg[i] != 0xFD)
+        if (*source == 0xFD)
         {
-            buffer[index] = msg[i];
-            index += 1;
-            i += 1;
 
-            continue;
-        }
+            source++;
+            switch (*source)
+            {
+            case 0:
+                if (gUnknown_030041C0[0] == 0xFD)
+                {
+                    sub_8121A68(gUnknown_030041C0, gStringVar1);
+                    ptr = gStringVar1;
+                }
+                else
+                {
+                    ptr = sub_8120F98(gUnknown_030041C0);
+                    if (ptr == NULL)
+                    {
+                        ptr = gUnknown_030041C0;
+                    }
+                }
+                break;
+            case 1:
+                DEF2(gUnknown_03004290, gStringVar2)
+                break;
+            case 42:
+                DEF2(gUnknown_030042B0, gStringVar3)
+                break;
 
-        switch (msg[i + 1])
-        {
-        case 0:
-            if(gUnknown_030041C0[0] == 0xFD) {
-                sub_8121A68(gUnknown_030041C0, gStringVar1);
-            } else {
-                if(sub_8120F98(gUnknown_030041C0)) {
+            case 2:
+            DEF3(gPlayerParty, 0)
+                break;
+            case 3:
+            DEF3(gEnemyParty, 1)
+                break;
+            case 4:
+            DEF3(gPlayerParty, 2)
+                break;
+            case 5:
+            DEF3(gEnemyParty, 3)
+                break;
+
+
+            case 6:
+            DEF4(gPlayerParty, 0)
+                break;
+            case 7:
+            DEF4(gEnemyParty, 1)
+                break;
+            case PLACEHOLDER_ATTACKING_TRAINER:
+            DEF4(gPlayerParty, 2)
+                break;
+            case PLACEHOLDER_DEFENDING_TRAINER:
+            DEF4(gEnemyParty, 3)
+                break;
+
+            case 10:
+                if (battle_side_get_owner(gPlayerMonIndex) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[gUnknown_02024A6A[battle_get_side_with_given_state(battle_get_per_side_status(gPlayerMonIndex) & 1)]];
+                }
+                else
+                {
+                    mon = &gPlayerParty[gUnknown_02024A6A[battle_get_side_with_given_state(battle_get_per_side_status(gPlayerMonIndex) & 1)]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+
+            case 11:
+                if (battle_side_get_owner(gPlayerMonIndex) == 0)
+                {
+                    mon = &gPlayerParty[gUnknown_02024A6A[battle_get_side_with_given_state(battle_get_per_side_status(gPlayerMonIndex) & 1) + 2]];
+                }
+                else
+                {
+                    mon = &gEnemyParty[gUnknown_02024A6A[battle_get_side_with_given_state(battle_get_per_side_status(gPlayerMonIndex) & 1) + 2]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+
+            case PLACEHOLDER_ATTACKING_MON:
+                if (battle_side_get_owner(gPlayerMonIndex) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[gUnknown_02024A6A[gPlayerMonIndex]];
+                }
+                else
+                {
+                    mon = &gPlayerParty[gUnknown_02024A6A[gPlayerMonIndex]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+            case PLACEHOLDER_DEFENDING_MON:
+                if (battle_side_get_owner(gEnemyMonIndex) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[gUnknown_02024A6A[gEnemyMonIndex]];
 
                 }
-            }
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        case 9:
-            break;
-        case 10:
-            break;
-        case 11:
-            break;
-        case 12:
-            break;
-        case 13:
-            break;
-        case 14:
-            break;
-        case 15:
-            break;
-        case 16:
-            break;
-        case 17:
-            break;
-        case 18:
-            break;
-        case 19:
-            break;
-        case 20:
-            break;
-        case 21:
-            break;
-        case 22:
-            break;
-        case 23:
-            break;
-        case 24:
-            break;
-        case 25:
-            break;
-        case 26:
-            break;
-        case 27:
-            break;
-        case 28:
-            break;
-        case 29:
-            break;
-        case 30:
-            break;
-        case 31:
-            break;
-        case 32:
-            break;
-        case 33:
-            break;
-        case 34:
-            break;
-        case 35:
-            break;
-        case 36:
-            break;
-        case 37:
-            break;
-        case 38:
-            break;
-        case 39:
-            break;
-        case 40:
-            break;
-        case 41:
-            break;
-        case 42:
-            break;
+                else
+                {
+                    mon = &gPlayerParty[gUnknown_02024A6A[gEnemyMonIndex]];
+                }
 
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+            case 14:
+                if (battle_side_get_owner(gUnknown_02024C0A) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[gUnknown_02024A6A[gUnknown_02024C0A]];
+                }
+                else
+                {
+                    mon = &gPlayerParty[gUnknown_02024A6A[gUnknown_02024C0A]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+            case 15:
+                if (battle_side_get_owner(gUnknown_02024A60) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[gUnknown_02024A6A[gUnknown_02024A60]];
+                }
+                else
+                {
+                    mon = &gPlayerParty[gUnknown_02024A6A[gUnknown_02024A60]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+
+            case 16:
+                if (battle_side_get_owner(ewram[0x16003]) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[gUnknown_02024A6A[ewram[0x16003]]];
+                }
+                else
+                {
+
+                    mon = &gPlayerParty[gUnknown_02024A6A[ewram[0x16003]]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+
+            case 17:
+                if (gSelectedOrderFromParty->var00 > MOVE_PSYCHO_BOOST)
+                {
+                    const u8 i2 = ewram[0x160A0];
+                    ptr = gUnknown_08401674[i2];
+                }
+                else
+                {
+                    ptr = gMoveNames[gSelectedOrderFromParty->var00];
+                }
+                break;
+
+            case 18:
+                if (gSelectedOrderFromParty->var02 > MOVE_PSYCHO_BOOST)
+                {
+                    const u8 i2 = ewram[0x160A0];
+                    ptr = gUnknown_08401674[i2];
+                }
+                else
+                {
+                    ptr = gMoveNames[gSelectedOrderFromParty->var02];
+                }
+                break;
+
+            case 19:
+                if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+                {
+                    if (gUnknown_02024C04 == ITEM_ENIGMA_BERRY)
+                    {
+                        if (gLinkPlayers[ewram[0x160CB]].lp_field_18 == gUnknown_02024C0B)
+                        {
+                            StringCopy(buffer2, gEnigmaBerries[gUnknown_02024C0B].name);
+                            StringAppend(buffer2, gUnknown_08400A85);
+                            ptr = buffer2;
+                        }
+                        else
+                        {
+                            ptr = gUnknown_08400A78;
+                        }
+                    }
+                    else
+                    {
+                        CopyItemName(gUnknown_02024C04, buffer2);
+                        ptr = buffer2;
+                    }
+                }
+                else
+                {
+                    CopyItemName(gUnknown_02024C04, buffer2);
+                    ptr = buffer2;
+                }
+                break;
+
+            case 20:
+                ptr = gAbilityNames[byte_2024C06];
+                break;
+            case 21:
+                ptr = gAbilityNames[gUnknown_0203926C[gPlayerMonIndex]];
+                break;
+            case 22:
+                ptr = gAbilityNames[gUnknown_0203926C[gEnemyMonIndex]];
+                break;
+            case 23:
+                ptr = gAbilityNames[gUnknown_0203926C[ewram[0x16003]]];
+                break;
+            case 24:
+                ptr = gAbilityNames[gUnknown_0203926C[gUnknown_02024C0A]];
+                break;
+
+            case 25:
+                // Opponent class
+                if (gTrainerBattleOpponent == OPPONENT_SECRET_BASE)
+                {
+                    ptr = gTrainerClassNames[GetSecretBaseTrainerNameIndex()];
+                }
+                else if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
+                {
+                    ptr = gTrainerClassNames[get_trainer_class_name_index()];
+                }
+                else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
+                {
+                    ptr = gTrainerClassNames[sub_8135FD8()];
+                }
+                else
+                {
+                    ptr = gTrainerClassNames[gTrainers[gTrainerBattleOpponent].trainerClass];
+                }
+                break;
+
+            case 26:
+                // Opponent name
+                if (gTrainerBattleOpponent == OPPONENT_SECRET_BASE)
+                {
+                    memset(buffer2, 0xFF, 8);
+                    memcpy(buffer2, gSecretBaseRecord.sbr_field_2, 7);
+                    ptr = buffer2;
+                }
+                else if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
+                {
+                    get_trainer_name(buffer2);
+                    ptr = buffer2;
+                }
+                else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
+                {
+                    sub_8135FF4(buffer2);
+                    ptr = buffer2;
+                }
+                else
+                {
+                    ptr = gTrainers[gTrainerBattleOpponent].trainerName;
+                }
+                break;
+
+            case 27:
+                ptr = gLinkPlayers[multiplayerId].name;
+                break;
+            case 28:
+                ptr = gLinkPlayers[sub_803FC34(gLinkPlayers[multiplayerId].lp_field_18 ^ 2)].name;
+                break;
+            case 29:
+                ptr = gLinkPlayers[sub_803FC34(gLinkPlayers[multiplayerId].lp_field_18 ^ 1)].name;
+                break;
+            case 30:
+                ptr = gLinkPlayers[sub_803FC34(gLinkPlayers[multiplayerId].lp_field_18 ^ 3)].name;
+                break;
+
+            case 31:
+                // Link player name
+                ptr = gLinkPlayers[sub_803FC34(ewram[0x16003])].name;
+                break;
+
+            case 32:
+                // Player name
+                ptr = gSaveBlock2.playerName;
+                break;
+
+            case 33:
+                ptr = sub_8082830();
+                break;
+
+            case 34:
+                if (battle_side_get_owner(ewram[0x16003]) != 0)
+                {
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                    {
+                        ptr = gUnknown_08400797;
+                    }
+                    else
+                    {
+                        ptr = gUnknown_08400791;
+                    }
+                    while (*ptr != EOS)
+                    {
+                        destination[i++] = *ptr;
+                        ptr++;
+                    }
+
+                    mon = &gEnemyParty[ewram[0x1605E]];
+                }
+                else
+                {
+                    mon = &gPlayerParty[ewram[0x1605E]];
+                }
+
+                GetMonData(mon, MON_DATA_NICKNAME, buffer2);
+                StringGetEnd10(buffer2);
+                ptr = buffer2;
+                break;
+
+            case 35:
+                // Someone's/Lanette's
+                if (FlagGet(SYS_PC_LANETTE))
+                {
+                    ptr = gUnknown_084009F7;
+                }
+                else
+                {
+                    ptr = gUnknown_084009ED;
+                }
+                break;
+
+            case 38:
+                DEF(gPlayerMonIndex, gUnknown_084007AC, gUnknown_084007A7)
+                break;
+            case 39:
+                DEF(gEnemyMonIndex, gUnknown_084007AC, gUnknown_084007A7)
+                break;
+
+            case 36:
+                DEF(gPlayerMonIndex, gUnknown_084007A1, gUnknown_0840079C)
+                break;
+            case 37:
+                DEF(gEnemyMonIndex, gUnknown_084007A1, gUnknown_0840079C)
+                break;
+
+            case 40:
+                DEF(gPlayerMonIndex, gUnknown_084007B2, gUnknown_084007B7)
+                break;
+            case 41:
+                DEF(gEnemyMonIndex, gUnknown_084007B2, gUnknown_084007B7)
+                break;
+            }
+
+            i1 = *source;
+            source++;
+
+            while (*ptr != EOS)
+            {
+                destination[i++] = *ptr;
+                ptr++;
+            }
+
+            if (i1 == 0x21)
+            {
+                destination[i++] = 0xFC;
+                destination[i++] = 0x09;
+            }
+        }
+        else
+        {
+            destination[i++] = *source;
+            source++;
         }
     }
 
-    buffer[index] = msg[i];
+    destination[i++] = *(source++);
 
-    return index + 1;
+    return i;
 }
-#endif
-
-asm(".section .text.sub_8121A68");
 
 void sub_8121A68(u8 *r0, u8 *r1) {
     int i = 1;
