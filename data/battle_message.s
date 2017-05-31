@@ -125,7 +125,3 @@ gUnknown_084016BC:: @ 84016BC
 	.2byte 0x141
 	.2byte 0x157
 	.2byte 0x0
-
-	.align 2
-gUnknown_084017A8:: @ 84017A8
-	.4byte -1, -1
