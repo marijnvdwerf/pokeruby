@@ -133,7 +133,11 @@ void sub_8121D74(const u8 *dstPtr);
 
 void sub_8121A68(u8 *r0, u8 *r1);
 
-const u8 *de_sub_804110C(u16, const u8 *);
+#if GERMAN
+const u8 *de_sub_804110C(u16 arg0, const u8 * arg1) {
+    return arg1;
+}
+#endif
 
 #if ENGLISH
 #define FILTER_STR(arg0, arg1) arg1
