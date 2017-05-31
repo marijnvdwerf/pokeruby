@@ -133,6 +133,15 @@ void sub_8121D74(const u8 *dstPtr);
 
 void sub_8121A68(u8 *r0, u8 *r1);
 
+
+
+struct UnkStructBattle {
+    const u8 (*jpnText)[8];
+    const u8 (*battleText)[];
+};
+
+extern const struct UnkStructBattle gUnknown_081FA6D4[];
+
 #if GERMAN
 const u8 *de_sub_804110C(u16 arg0, const u8 * arg1) {
     return arg1;
@@ -454,4 +463,38 @@ void sub_8120AA8(u16 arg0) {
 
 int get_battle_strings_(const u8 *arg0) {
     return sub_8120FFC(arg0, gUnknown_020238CC);
+}
+
+const u8 *sub_8120F98(u8 *arg0) {
+    u32 i;
+    u8 *sp2;
+    u32 i1, i2;
+
+    u8 sp[8] = {EOS, EOS, EOS, EOS, EOS, EOS, EOS, EOS};
+
+    sp2 = sp;
+    i = 0;
+    while (i < 8 && *arg0 != EOS)
+    {
+        *sp2 = *arg0;
+        arg0++;
+        sp2++;
+        i++;
+    }
+
+    i1 = ((u32 *) sp)[0];
+    i2 = ((u32 *) sp)[1];
+    for (i = 0; i < 7; i++)
+    {
+        const struct UnkStructBattle *unkStructBattle = &gUnknown_081FA6D4[i];
+
+        if (i1 == ((u32 *) *(unkStructBattle->jpnText))[0] &&
+            i2 == ((u32 *) *(unkStructBattle->jpnText))[1])
+        {
+            return *(unkStructBattle->battleText);
+        }
+
+    }
+
+    return NULL;
 }

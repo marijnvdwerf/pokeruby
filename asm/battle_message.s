@@ -6,62 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_8120F98
-sub_8120F98: @ 8120F98
-	push {r4,r5,lr}
-	sub sp, 0x8
-	adds r4, r0, 0
-	ldr r1, _08120FB0 @ =gUnknown_084017A8
-	mov r0, sp
-	movs r2, 0x8
-	bl memcpy
-	mov r2, sp
-	movs r3, 0
-	b _08120FC0
-	.align 2, 0
-_08120FB0: .4byte gUnknown_084017A8
-_08120FB4:
-	strb r1, [r2]
-	adds r4, 0x1
-	adds r2, 0x1
-	adds r3, 0x1
-	cmp r3, 0x7
-	bhi _08120FC8
-_08120FC0:
-	ldrb r1, [r4]
-	adds r0, r1, 0
-	cmp r0, 0xFF
-	bne _08120FB4
-_08120FC8:
-	ldr r5, [sp]
-	ldr r4, [sp, 0x4]
-	movs r3, 0
-	ldr r2, _08120FE4 @ =gUnknown_081FA6D4
-_08120FD0:
-	ldr r1, [r2]
-	ldr r0, [r1]
-	cmp r5, r0
-	bne _08120FE8
-	ldr r0, [r1, 0x4]
-	cmp r4, r0
-	bne _08120FE8
-	ldr r0, [r2, 0x4]
-	b _08120FF2
-	.align 2, 0
-_08120FE4: .4byte gUnknown_081FA6D4
-_08120FE8:
-	adds r2, 0x8
-	adds r3, 0x1
-	cmp r3, 0x6
-	bls _08120FD0
-	movs r0, 0
-_08120FF2:
-	add sp, 0x8
-	pop {r4,r5}
-	pop {r1}
-	bx r1
-	thumb_func_end sub_8120F98
-
 	thumb_func_start sub_8120FFC
 sub_8120FFC: @ 8120FFC
 	push {r4-r7,lr}
