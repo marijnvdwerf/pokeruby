@@ -452,3 +452,6 @@ void sub_8120AA8(u16 arg0) {
     get_battle_strings_(ptr);
 }
 
+int get_battle_strings_(const u8 *arg0) {
+    return sub_8120FFC(arg0, gUnknown_020238CC);
+}

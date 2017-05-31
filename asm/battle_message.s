@@ -6,17 +6,6 @@
 
 	.text
 
-	thumb_func_start get_battle_strings_
-get_battle_strings_: @ 8120F88
-	push {lr}
-	ldr r1, _08120F94 @ =gUnknown_020238CC
-	bl sub_8120FFC
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08120F94: .4byte gUnknown_020238CC
-	thumb_func_end get_battle_strings_
-
 	thumb_func_start sub_8120F98
 sub_8120F98: @ 8120F98
 	push {r4,r5,lr}
