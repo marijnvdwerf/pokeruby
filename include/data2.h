@@ -42,5 +42,7 @@ extern struct SpritePalette gUnknown_081FAEAC;
 extern const struct SpriteTemplate gSpriteTemplate_81FAF0C;
 extern void *gUnknown_081FAF4C[];
 extern struct BattleMove gBattleMoves[];
+extern u8 gTypeNames[][7];
+extern u8 gAbilityNames[][13];
 
 #endif // GUARD_DATA2_H
