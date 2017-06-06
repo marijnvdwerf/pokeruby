@@ -3157,3 +3157,88 @@ void sub_8090750(u8 taskId)
     }
 }
 */
+
+asm(".section .text.sub_8091564");
+
+#define CHAR_0 (0xA1)
+
+void sub_8091304(u8 *arg0, u8 left, u8 top) {
+    u8 buffer[32];
+    u8 i;
+
+    i = 0;
+    while(arg0[i] != EOS && i < 11) {
+        buffer[i] = arg0[i];
+        i++;
+    }
+
+    buffer[i] = EOS;
+
+    sub_8072B80(buffer, left, top, (u8 *) gDexText_UnknownPoke);
+}
+
+void unref_sub_80913A4(u16 arg0, u8 left, u8 top) {
+    u8 buffer[8];
+    int offset;
+    u8 result;
+
+    u8 r6 = 0;
+    offset = 0;
+
+
+    buffer[r6++] = 0xFC;
+    buffer[r6++] = 0x13;
+    r6++;
+
+    result = (arg0 / 1000);
+    if (result == 0)
+    {
+        offset = 6;
+    }
+    else
+    {
+        buffer[r6++] = result + CHAR_0;
+    }
+
+
+    result = (arg0 % 1000) / 100;
+
+    if (result == 0 && offset != 0)
+    {
+        offset += 6;
+    }
+    else
+    {
+        buffer[r6++] = result + CHAR_0;
+    }
+
+    buffer[r6++] = (((arg0 % 1000) % 100) / 10) + CHAR_0;
+    buffer[r6++] = CHAR_COMMA;
+    buffer[r6++] = (((arg0 % 1000) % 100) % 10) + CHAR_0;
+
+    buffer[r6++] = EOS;
+    buffer[2] = offset;
+    MenuPrint(buffer, left, top);
+}
+
+void sub_8091458(u16 arg0, u8 left, u8 top) {
+    unref_sub_80913A4(arg0, left, top);
+}
+
+void sub_8091564(u16 arg0, u8 left, u8 top) {
+    unref_sub_80913A4(arg0, left, top);
+}
+
+asm(".align 2, 0");
+
+asm(".section .text.sub_8091E20");
+
+#if ENGLISH
+#define WIDTH 208
+#elif GERMAN
+#define WIDTH 216
+#endif
+
+void sub_8091E20(const u8 *text) {
+    sub_8072AB0((u8 *) text, 9, 120, WIDTH, 32, 1);
+}
