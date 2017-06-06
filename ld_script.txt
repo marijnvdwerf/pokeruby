@@ -68,6 +68,7 @@ SECTIONS {
         src/pokemon_2.o(.text);
         asm/pokemon_item_effect.o(.text);
         src/pokemon_3.o(.text);
+        src/de_rom_8040FE0.o(.text);
         src/trig.o(.text);
         src/rng.o(.text);
         src/util.o(.text);
@@ -81,6 +82,10 @@ SECTIONS {
         asm/pokeball.o(.text);
         src/load_save.o(.text);
         asm/trade.o(.text);
+        src/trade.o(.text);
+        asm/trade.o(.text.sub_804A9F4);
+        src/trade.o(.text.sub_804DAD4);
+        asm/trade.o(.text.sub_804DB2C);
         asm/berry_blender.o(.text);
         src/play_time.o(.text);
         src/new_game.o(.text);
@@ -141,6 +146,10 @@ SECTIONS {
         src/option_menu.o(.text);
         src/pokedex.o(.text);
         asm/pokedex.o(.text);
+        src/pokedex.o(.text.sub_8091564);
+        asm/pokedex.o(.text.sub_8091738);
+        src/pokedex.o(.text.sub_8091E20);
+        asm/pokedex.o(.text.sub_8091E3C);
         src/trainer_card.o(.text);
         src/save_menu_util.o(.text);
         src/rom_8094928.o(.text);
@@ -190,6 +199,7 @@ SECTIONS {
         asm/rotating_gate.o(.text);
         src/safari_zone.o(.text);
         asm/contest_link_80C857C.o(.text);
+        src/contest_link_de.o(.text);
         src/item_use.o(.text);
         asm/battle_anim_80CA710.o(.text);
         src/bike.o(.text);
@@ -244,6 +254,7 @@ SECTIONS {
         asm/battle_transition.o(.text);
         src/battle_811DA74.o(.text);
         asm/battle_811DA74.o(.text);
+        src/battle_message.o(.text);
         asm/battle_message.o(.text);
         asm/choose_party.o(.text);
         asm/cable_car.o(.text);
@@ -334,6 +345,8 @@ SECTIONS {
         tools/agbcc/lib/libgcc.a:_negdi2.o(.text);
         src/libc.o(.text);
     } =0
+
+    . = 0x81ef778;
 
     .rodata :
     ALIGN(4)
@@ -462,6 +475,7 @@ SECTIONS {
         data/battle_transition.o(.rodata);
         data/battle_811DA74.o(.rodata);
         data/battle_message.o(.rodata);
+        src/battle_message.o(.rodata);
         data/choose_party.o(.rodata);
         data/cable_car.o(.rodata);
         src/save.o(.rodata);
