@@ -7,18 +7,48 @@
 	.text
 
 	thumb_func_start PlaySlotMachine
-PlaySlotMachine: @ 81018A0
-	push {lr}
-	lsls r0, 24
-	lsrs r0, 24
-	bl sub_81019B0
-	ldr r0, _081018B4 @ =sub_81018B8
-	bl SetMainCallback2
-	pop {r0}
-	bx r0
-	.align 2, 0
-_081018B4: .4byte sub_81018B8
+PlaySlotMachine:
+.syntax divided
+	push	{lr}
+	lsl	r0, r0, #0x18
+	lsr	r0, r0, #0x18
+	ldr	r3, ._1
+	mov	r2, #0x0
+	strb	r2, [r3]
+	bl	sub_81019B0
+	ldr	r0, ._1 + 4
+	bl	SetMainCallback2
+	pop	{r0}
+	bx	r0
+._2:
+	.align	2, 0
+._1:
+	.word	gUnknown_0300074C+0x5
+	.word	sub_81018B8+1
+.syntax unified
 	thumb_func_end PlaySlotMachine
+
+	thumb_func_start debug_sub_811609C
+debug_sub_811609C:
+.syntax divided
+	push	{lr}
+	lsl	r0, r0, #0x18
+	lsr	r0, r0, #0x18
+	ldr	r3, ._3
+	mov	r2, #0x1
+	strb	r2, [r3]
+	bl	sub_81019B0
+	ldr	r0, ._3 + 4
+	bl	SetMainCallback2
+	pop	{r0}
+	bx	r0
+._4:
+	.align	2, 0
+._3:
+	.word	gUnknown_0300074C+0x5
+	.word	sub_81018B8+1
+.syntax unified
+	thumb_func_end debug_sub_811609C
 
 	thumb_func_start sub_81018B8
 sub_81018B8: @ 81018B8
@@ -388,112 +418,131 @@ _08101BA0: .4byte 0x00000809
 	thumb_func_end sub_8101B04
 
 	thumb_func_start sub_8101BA4
-sub_8101BA4: @ 8101BA4
-	push {r4-r7,lr}
-	mov r7, r9
-	mov r6, r8
-	push {r6,r7}
-	bl sub_81019EC
-	ldr r5, _08101C74 @ =0x02000000
-	movs r4, 0
-	strb r4, [r5]
-	strb r4, [r5, 0x2]
-	bl Random
-	movs r1, 0x1
-	ands r1, r0
-	strb r1, [r5, 0x3]
-	strb r4, [r5, 0x4]
-	movs r0, 0
-	strh r4, [r5, 0x8]
-	strb r0, [r5, 0xA]
-	strb r0, [r5, 0xB]
-	ldr r0, _08101C78 @ =gSaveBlock1
-	ldr r1, _08101C7C @ =0x00000494
-	adds r0, r1
-	ldrh r0, [r0]
-	strh r0, [r5, 0xC]
-	strh r4, [r5, 0xE]
-	strh r4, [r5, 0x10]
-	strh r4, [r5, 0x12]
-	strh r4, [r5, 0x18]
-	movs r0, 0x8
-	strh r0, [r5, 0x1A]
-	adds r1, r5, 0
-	adds r1, 0x58
-	movs r0, 0xF0
-	strh r0, [r1]
-	adds r1, 0x2
-	movs r0, 0xA0
-	strh r0, [r1]
-	adds r0, r5, 0
-	adds r0, 0x5C
-	movs r1, 0x3F
-	strh r1, [r0]
-	adds r0, 0x2
-	strh r1, [r0]
-	bl GetCurrentMapMusic
-	adds r1, r5, 0
-	adds r1, 0x60
-	strh r0, [r1]
-	movs r7, 0
-	adds r6, r5, 0
-	ldr r2, _08101C80 @ =gUnknown_083ECCF8
-	mov r9, r2
-	movs r0, 0x1C
-	adds r0, r6
-	mov r8, r0
-_08101C14:
-	lsls r5, r7, 1
-	adds r0, r6, 0
-	adds r0, 0x22
-	adds r0, r5, r0
-	movs r1, 0
-	strh r1, [r0]
-	adds r4, r6, 0
-	adds r4, 0x28
-	adds r4, r5, r4
-	ldrb r0, [r6, 0x3]
-	lsls r0, 1
-	lsls r1, r7, 2
-	adds r0, r1
-	add r0, r9
-	movs r1, 0
-	ldrsh r0, [r0, r1]
-	movs r1, 0x15
-	bl __modsi3
-	strh r0, [r4]
-	add r5, r8
-	movs r2, 0
-	ldrsh r0, [r4, r2]
-	lsls r1, r0, 1
-	adds r1, r0
-	lsls r1, 3
-	movs r2, 0xFC
-	lsls r2, 1
-	adds r0, r2, 0
-	subs r0, r1
-	strh r0, [r5]
-	movs r1, 0
-	ldrsh r0, [r5, r1]
-	adds r1, r2, 0
-	bl __modsi3
-	strh r0, [r5]
-	adds r0, r7, 0x1
-	lsls r0, 24
-	lsrs r7, r0, 24
-	cmp r7, 0x2
-	bls _08101C14
-	pop {r3,r4}
-	mov r8, r3
-	mov r9, r4
-	pop {r4-r7}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_08101C74: .4byte 0x02000000
-_08101C78: .4byte gSaveBlock1
-_08101C7C: .4byte 0x00000494
-_08101C80: .4byte gUnknown_083ECCF8
+sub_8101BA4:
+.syntax divided
+	push	{r4, r5, r6, r7, lr}
+	mov	r7, sl
+	mov	r6, r9
+	mov	r5, r8
+	push	{r5, r6, r7}
+	bl	sub_81019EC
+	ldr	r5, ._43
+	mov	r4, #0x0
+	strb	r4, [r5]
+	strb	r4, [r5, #0x2]
+	bl	Random
+	mov	r1, #0x1
+	and	r1, r1, r0
+	strb	r1, [r5, #0x3]
+	strb	r4, [r5, #0x4]
+	mov	r0, #0x0
+	strh	r4, [r5, #0x8]
+	strb	r0, [r5, #0xa]
+	strb	r0, [r5, #0xb]
+	ldr	r0, ._43 + 4
+	ldr	r1, ._43 + 8
+	add	r0, r0, r1
+	ldrh	r0, [r0]
+	strh	r0, [r5, #0xc]
+	strh	r4, [r5, #0xe]
+	strh	r4, [r5, #0x10]
+	strh	r4, [r5, #0x12]
+	strh	r4, [r5, #0x18]
+	mov	r0, #0x8
+	strh	r0, [r5, #0x1a]
+	add	r1, r5, #0
+	add	r1, r1, #0x58
+	mov	r0, #0xf0
+	strh	r0, [r1]
+	add	r1, r1, #0x2
+	mov	r0, #0xa0
+	strh	r0, [r1]
+	add	r0, r5, #0
+	add	r0, r0, #0x5c
+	mov	r1, #0x3f
+	strh	r1, [r0]
+	add	r0, r0, #0x2
+	strh	r1, [r0]
+	bl	GetCurrentMapMusic
+	add	r1, r5, #0
+	add	r1, r1, #0x60
+	strh	r0, [r1]
+	mov	r7, #0x0
+	add	r6, r5, #0
+	ldr	r2, ._43 + 12
+	mov	sl, r2
+	mov	r0, #0x1c
+	add	r0, r0, r6
+	mov	r9, r0
+._41:
+	lsl	r5, r7, #0x1
+	mov	r1, #0x22
+	add	r1, r1, r6
+	mov	r8, r1
+	add	r1, r5, r1
+	mov	r0, #0x0
+	strh	r0, [r1]
+	add	r4, r6, #0
+	add	r4, r4, #0x28
+	add	r4, r5, r4
+	ldrb	r0, [r6, #0x3]
+	lsl	r0, r0, #0x1
+	lsl	r1, r7, #0x2
+	add	r0, r0, r1
+	add r0, r0, sl
+	mov	r2, #0x0
+	ldsh	r0, [r0, r2]
+	mov	r1, #0x15
+	bl	gScriptFuncs_End+0x3e40
+	strh	r0, [r4]
+	add r5, r5, r9
+	mov	r1, #0x0
+	ldsh	r0, [r4, r1]
+	lsl	r1, r0, #0x1
+	add	r1, r1, r0
+	lsl	r1, r1, #0x3
+	mov	r2, #0xfc
+	lsl	r2, r2, #0x1
+	add	r0, r2, #0
+	sub	r0, r0, r1
+	strh	r0, [r5]
+	mov	r1, #0x0
+	ldsh	r0, [r5, r1]
+	add	r1, r2, #0
+	bl	gScriptFuncs_End+0x3e40
+	strh	r0, [r5]
+	add	r0, r7, #1
+	lsl	r0, r0, #0x18
+	lsr	r7, r0, #0x18
+	cmp	r7, #0x2
+	bls	._41	@cond_branch
+	bl	debug_sub_811B5D0
+	ldr	r0, ._43 + 16
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._42	@cond_branch
+	mov	r1, r8
+	sub	r1, r1, #0x22
+	mov	r0, #0xfa
+	lsl	r0, r0, #0x2
+	strh	r0, [r1, #0xc]
+._42:
+	pop	{r3, r4, r5}
+	mov	r8, r3
+	mov	r9, r4
+	mov	sl, r5
+	pop	{r4, r5, r6, r7}
+	pop	{r0}
+	bx	r0
+._44:
+	.align	2, 0
+._43:
+	.word	+0x2000000
+	.word	gSaveBlock1
+	.word	0x494
+	.word	gUnknown_083ECCF8
+	.word	gUnknown_0300074C+0x5
+.syntax unified
 	thumb_func_end sub_8101BA4
 
 	thumb_func_start sub_8101C84
@@ -710,152 +759,238 @@ _08101E0C: .4byte 0x02000000
 	thumb_func_end sub_8101DF4
 
 	thumb_func_start sub_8101E10
-sub_8101E10: @ 8101E10
-	push {lr}
-	movs r0, 0
-	bl sub_8104CAC
-	ldr r2, _08101E34 @ =0x02000000
-	movs r0, 0x5
-	strb r0, [r2]
-	movs r0, 0xC
-	ldrsh r1, [r2, r0]
-	ldr r0, _08101E38 @ =0x0000270e
-	cmp r1, r0
-	ble _08101E2C
-	movs r0, 0x17
-	strb r0, [r2]
-_08101E2C:
-	movs r0, 0x1
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08101E34: .4byte 0x02000000
-_08101E38: .4byte 0x0000270e
+sub_8101E10:
+.syntax divided
+	push	{lr}
+	mov	r0, #0x0
+	bl	sub_8104CAC
+	ldr	r2, ._70
+	mov	r0, #0x5
+	strb	r0, [r2]
+	ldr	r0, ._70 + 4
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._67	@cond_branch
+	ldr	r0, ._70 + 8
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	bne	._69	@cond_branch
+._67:
+	mov	r0, #0xc
+	ldsh	r1, [r2, r0]
+	ldr	r0, ._70 + 12
+	cmp	r1, r0
+	ble	._69	@cond_branch
+	mov	r0, #0x17
+	strb	r0, [r2]
+._69:
+	mov	r0, #0x1
+	pop	{r1}
+	bx	r1
+._71:
+	.align	2, 0
+._70:
+	.word	+0x2000000
+	.word	gUnknown_0300074C+0x5
+	.word	gUnknown_0300074C+0x8
+	.word	0x270e
+.syntax unified
 	thumb_func_end sub_8101E10
 
 	thumb_func_start sub_8101E3C
-sub_8101E3C: @ 8101E3C
-	push {r4,lr}
-	ldr r0, _08101E58 @ =gMain
-	ldrh r1, [r0, 0x2E]
-	movs r0, 0x4
-	ands r0, r1
-	cmp r0, 0
-	beq _08101E60
-	movs r0, 0
-	bl sub_8104AB8
-	ldr r1, _08101E5C @ =0x02000000
-	movs r0, 0x8
-	strb r0, [r1]
-	b _08101F1A
-	.align 2, 0
-_08101E58: .4byte gMain
-_08101E5C: .4byte 0x02000000
-_08101E60:
-	movs r0, 0x80
-	lsls r0, 1
-	ands r0, r1
-	cmp r0, 0
-	beq _08101EC2
-	ldr r2, _08101EB8 @ =0x02000000
-	movs r1, 0xC
-	ldrsh r0, [r2, r1]
-	subs r0, 0x3
-	movs r3, 0x12
-	ldrsh r1, [r2, r3]
-	adds r0, r1
-	cmp r0, 0
-	blt _08101EBC
-	ldrh r4, [r2, 0x12]
-	adds r0, r1, 0
-	cmp r0, 0x2
-	bgt _08101E9C
-_08101E84:
-	lsls r0, r4, 24
-	lsrs r0, 24
-	bl sub_8103D50
-	lsls r0, r4, 16
-	movs r2, 0x80
-	lsls r2, 9
-	adds r0, r2
-	lsrs r4, r0, 16
-	asrs r0, 16
-	cmp r0, 0x2
-	ble _08101E84
-_08101E9C:
-	ldr r1, _08101EB8 @ =0x02000000
-	ldrh r0, [r1, 0xC]
-	subs r0, 0x3
-	ldrh r3, [r1, 0x12]
-	adds r0, r3
-	strh r0, [r1, 0xC]
-	movs r0, 0x3
-	strh r0, [r1, 0x12]
-	movs r0, 0x9
-	strb r0, [r1]
-	movs r0, 0x5F
-	bl PlaySE
-	b _08101F1A
-	.align 2, 0
-_08101EB8: .4byte 0x02000000
-_08101EBC:
-	movs r0, 0x6
-	strb r0, [r2]
-	b _08101F1A
-_08101EC2:
-	movs r0, 0x80
-	ands r0, r1
-	cmp r0, 0
-	beq _08101EEC
-	ldr r4, _08101F24 @ =0x02000000
-	movs r1, 0xC
-	ldrsh r0, [r4, r1]
-	cmp r0, 0
-	beq _08101EEC
-	movs r0, 0x5F
-	bl PlaySE
-	ldrb r0, [r4, 0x12]
-	bl sub_8103D50
-	ldrh r0, [r4, 0xC]
-	subs r0, 0x1
-	strh r0, [r4, 0xC]
-	ldrh r0, [r4, 0x12]
-	adds r0, 0x1
-	strh r0, [r4, 0x12]
-_08101EEC:
-	ldr r0, _08101F24 @ =0x02000000
-	movs r2, 0x12
-	ldrsh r1, [r0, r2]
-	ldr r2, _08101F28 @ =gMain
-	adds r3, r0, 0
-	cmp r1, 0x2
-	bgt _08101F08
-	cmp r1, 0
-	beq _08101F0C
-	ldrh r1, [r2, 0x2E]
-	movs r0, 0x1
-	ands r0, r1
-	cmp r0, 0
-	beq _08101F0C
-_08101F08:
-	movs r0, 0x9
-	strb r0, [r3]
-_08101F0C:
-	ldrh r1, [r2, 0x2E]
-	movs r0, 0x2
-	ands r0, r1
-	cmp r0, 0
-	beq _08101F1A
-	movs r0, 0x15
-	strb r0, [r3]
-_08101F1A:
-	movs r0, 0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08101F24: .4byte 0x02000000
-_08101F28: .4byte gMain
+sub_8101E3C:
+.syntax divided
+	push	{r4, r5, lr}
+	ldr	r0, ._77
+	ldrb	r1, [r0]
+	add	r3, r0, #0
+	ldr	r5, ._77 + 4
+	cmp	r1, #0
+	beq	._76	@cond_branch
+	ldr	r2, ._77 + 8
+	ldrb	r0, [r2]
+	cmp	r0, #0
+	beq	._76	@cond_branch
+	ldr	r4, ._77 + 12
+	mov	r1, #0xc
+	ldsh	r0, [r4, r1]
+	cmp	r0, #0x3
+	ble	._74	@cond_branch
+	ldrh	r1, [r5, #0x2c]
+	mov	r0, #0x2
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._75	@cond_branch
+._74:
+	mov	r0, #0x0
+	strb	r0, [r2]
+	b	._76
+._78:
+	.align	2, 0
+._77:
+	.word	gUnknown_0300074C+0x5
+	.word	gMain
+	.word	gUnknown_0300074C+0x8
+	.word	+0x2000000
+._75:
+	mov	r0, #0x0
+	bl	sub_8103D50
+	mov	r0, #0x1
+	bl	sub_8103D50
+	mov	r0, #0x2
+	bl	sub_8103D50
+	ldrh	r0, [r4, #0xc]
+	sub	r0, r0, #0x3
+	strh	r0, [r4, #0xc]
+	mov	r0, #0x3
+	strh	r0, [r4, #0x12]
+	mov	r0, #0x9
+	strb	r0, [r4]
+	b	._102
+._76:
+	ldrb	r0, [r3]
+	cmp	r0, #0
+	beq	._81	@cond_branch
+	ldrh	r1, [r5, #0x2e]
+	mov	r0, #0x8
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._81	@cond_branch
+	bl	debug_sub_811B620
+	ldr	r1, ._83
+	mov	r0, #0x1d
+	strb	r0, [r1]
+	b	._102
+._84:
+	.align	2, 0
+._83:
+	.word	+0x2000000
+._81:
+	ldrh	r1, [r5, #0x2e]
+	mov	r0, #0x4
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._85	@cond_branch
+	mov	r0, #0x0
+	bl	sub_8104AB8
+	ldr	r1, ._87
+	mov	r0, #0x8
+	strb	r0, [r1]
+	b	._102
+._88:
+	.align	2, 0
+._87:
+	.word	+0x2000000
+._85:
+	mov	r0, #0x80
+	lsl	r0, r0, #0x1
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._89	@cond_branch
+	ldr	r2, ._94
+	mov	r3, #0xc
+	ldsh	r0, [r2, r3]
+	sub	r0, r0, #0x3
+	mov	r3, #0x12
+	ldsh	r1, [r2, r3]
+	add	r0, r0, r1
+	cmp	r0, #0
+	blt	._90	@cond_branch
+	ldrh	r4, [r2, #0x12]
+	add	r0, r1, #0
+	cmp	r0, #0x2
+	bgt	._91	@cond_branch
+._92:
+	lsl	r0, r4, #0x18
+	lsr	r0, r0, #0x18
+	bl	sub_8103D50
+	lsl	r0, r4, #0x10
+	mov	r2, #0x80
+	lsl	r2, r2, #0x9
+	add	r0, r0, r2
+	lsr	r4, r0, #0x10
+	asr	r0, r0, #0x10
+	cmp	r0, #0x2
+	ble	._92	@cond_branch
+._91:
+	ldr	r1, ._94
+	ldrh	r0, [r1, #0xc]
+	sub	r0, r0, #0x3
+	ldrh	r3, [r1, #0x12]
+	add	r0, r0, r3
+	strh	r0, [r1, #0xc]
+	mov	r0, #0x3
+	strh	r0, [r1, #0x12]
+	mov	r0, #0x9
+	strb	r0, [r1]
+	mov	r0, #0x5f
+	bl	PlaySE
+	b	._102
+._95:
+	.align	2, 0
+._94:
+	.word	+0x2000000
+._90:
+	mov	r0, #0x6
+	b	._96
+._89:
+	mov	r0, #0x80
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._98	@cond_branch
+	ldr	r4, ._103
+	mov	r1, #0xc
+	ldsh	r0, [r4, r1]
+	cmp	r0, #0
+	beq	._98	@cond_branch
+	mov	r0, #0x5f
+	bl	PlaySE
+	ldrb	r0, [r4, #0x12]
+	bl	sub_8103D50
+	ldrh	r0, [r4, #0xc]
+	sub	r0, r0, #0x1
+	strh	r0, [r4, #0xc]
+	ldrh	r0, [r4, #0x12]
+	add	r0, r0, #0x1
+	strh	r0, [r4, #0x12]
+._98:
+	ldr	r0, ._103
+	mov	r2, #0x12
+	ldsh	r1, [r0, r2]
+	add	r2, r0, #0
+	ldr	r5, ._103 + 4
+	cmp	r1, #0x2
+	bgt	._99	@cond_branch
+	cmp	r1, #0
+	beq	._101	@cond_branch
+	ldrh	r1, [r5, #0x2e]
+	mov	r0, #0x1
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._101	@cond_branch
+._99:
+	mov	r0, #0x9
+	strb	r0, [r2]
+._101:
+	ldrh	r1, [r5, #0x2e]
+	mov	r0, #0x2
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._102	@cond_branch
+	mov	r0, #0x15
+._96:
+	strb	r0, [r2]
+._102:
+	mov	r0, #0x0
+	pop	{r4, r5}
+	pop	{r1}
+	bx	r1
+._104:
+	.align	2, 0
+._103:
+	.word	+0x2000000
+	.word	gMain
+.syntax unified
 	thumb_func_end sub_8101E3C
 
 	thumb_func_start sub_8101F2C
@@ -929,51 +1064,67 @@ _08101FA0: .4byte 0x02000000
 	thumb_func_end sub_8101F88
 
 	thumb_func_start sub_8101FA4
-sub_8101FA4: @ 8101FA4
-	push {r4,lr}
-	adds r4, r0, 0
-	bl sub_8102484
-	bl sub_8104DA4
-	movs r0, 0
-	bl sub_8102DEC
-	movs r0, 0x1
-	bl sub_8102DEC
-	movs r0, 0x2
-	bl sub_8102DEC
-	movs r0, 0
-	strh r0, [r4, 0x8]
-	ldr r4, _08101FDC @ =0x02000000
-	ldrb r1, [r4, 0x4]
-	movs r0, 0x20
-	ands r0, r1
-	cmp r0, 0
-	beq _08101FE0
-	bl sub_810430C
-	movs r0, 0xA
-	b _08101FE8
-	.align 2, 0
-_08101FDC: .4byte 0x02000000
-_08101FE0:
-	movs r0, 0x1
-	bl sub_8104CAC
-	movs r0, 0xB
-_08101FE8:
-	strb r0, [r4]
-	ldr r4, _08102004 @ =0x02000000
-	movs r0, 0x8
-	strh r0, [r4, 0x1A]
-	ldrb r0, [r4, 0xA]
-	cmp r0, 0
-	beq _08101FFC
-	bl dp15_jump_random_unknown
-	strh r0, [r4, 0x1A]
-_08101FFC:
-	movs r0, 0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08102004: .4byte 0x02000000
+sub_8101FA4:
+.syntax divided
+	push	{r4, lr}
+	add	r4, r0, #0
+	bl	sub_8102484
+	bl	sub_8104DA4
+	mov	r0, #0x0
+	bl	sub_8102DEC
+	mov	r0, #0x1
+	bl	sub_8102DEC
+	mov	r0, #0x2
+	bl	sub_8102DEC
+	mov	r0, #0x0
+	strh	r0, [r4, #0x8]
+	ldr	r4, ._115
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x20
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._113	@cond_branch
+	bl	sub_810430C
+	mov	r0, #0xa
+	b	._114
+._116:
+	.align	2, 0
+._115:
+	.word	+0x2000000
+._113:
+	mov	r0, #0x1
+	bl	sub_8104CAC
+	mov	r0, #0xb
+._114:
+	strb	r0, [r4]
+	ldr	r4, ._119
+	mov	r0, #0x8
+	strh	r0, [r4, #0x1a]
+	ldrb	r0, [r4, #0xa]
+	cmp	r0, #0
+	beq	._117	@cond_branch
+	bl	dp15_jump_random_unknown
+	strh	r0, [r4, #0x1a]
+._117:
+	ldr	r0, ._119 + 4
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._118	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x68
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._118:
+	mov	r0, #0x0
+	pop	{r4}
+	pop	{r1}
+	bx	r1
+._120:
+	.align	2, 0
+._119:
+	.word	+0x2000000
+	.word	gUnknown_0300074C+0x5
+.syntax unified
 	thumb_func_end sub_8101FA4
 
 	thumb_func_start sub_8102008
@@ -1001,222 +1152,387 @@ _08102030: .4byte 0x02000000
 	thumb_func_end sub_8102008
 
 	thumb_func_start sub_8102034
-sub_8102034: @ 8102034
-	push {lr}
-	ldrh r1, [r0, 0x8]
-	adds r1, 0x1
-	strh r1, [r0, 0x8]
-	lsls r1, 16
-	asrs r1, 16
-	cmp r1, 0x1D
-	ble _0810204E
-	bl sub_81024F0
-	ldr r1, _08102054 @ =0x02000000
-	movs r0, 0xC
-	strb r0, [r1]
-_0810204E:
-	movs r0, 0
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08102054: .4byte 0x02000000
+sub_8102034:
+.syntax divided
+	push	{r4, lr}
+	ldrh	r1, [r0, #0x8]
+	add	r1, r1, #0x1
+	strh	r1, [r0, #0x8]
+	lsl	r1, r1, #0x10
+	asr	r1, r1, #0x10
+	cmp	r1, #0x1d
+	ble	._124	@cond_branch
+	ldr	r0, ._127
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._126	@cond_branch
+	ldr	r0, ._127 + 4
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._126	@cond_branch
+	ldr	r4, ._127 + 8
+	bl	Random
+	mov	r1, #0x1f
+	and	r1, r1, r0
+	add	r1, r1, #0x1
+	str	r1, [r4]
+._126:
+	bl	sub_81024F0
+	ldr	r1, ._127 + 12
+	mov	r0, #0xc
+	strb	r0, [r1]
+._124:
+	mov	r0, #0x0
+	pop	{r4}
+	pop	{r1}
+	bx	r1
+._128:
+	.align	2, 0
+._127:
+	.word	gUnknown_0300074C+0x5
+	.word	gUnknown_0300074C+0x8
+	.word	gUnknown_0300074C+0xc
+	.word	+0x2000000
+.syntax unified
 	thumb_func_end sub_8102034
 
 	thumb_func_start sub_8102058
-sub_8102058: @ 8102058
-	push {r4,lr}
-	ldr r0, _08102088 @ =gMain
-	ldrh r1, [r0, 0x2E]
-	movs r0, 0x1
-	ands r0, r1
-	cmp r0, 0
-	beq _0810207E
-	movs r0, 0x18
-	bl PlaySE
-	ldr r4, _0810208C @ =0x02000000
-	ldrb r0, [r4, 0x18]
-	bl sub_8102E1C
-	ldrb r0, [r4, 0x18]
-	bl sub_8103C14
-	movs r0, 0xD
-	strb r0, [r4]
-_0810207E:
-	movs r0, 0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08102088: .4byte gMain
-_0810208C: .4byte 0x02000000
+sub_8102058:
+.syntax divided
+	push	{r4, r5, lr}
+	ldr	r0, ._133
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._130	@cond_branch
+	ldr	r0, ._133 + 4
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._130	@cond_branch
+	ldr	r5, ._133 + 8
+	ldr	r0, [r5]
+	sub	r0, r0, #0x1
+	str	r0, [r5]
+	cmp	r0, #0
+	bne	._135	@cond_branch
+	mov	r0, #0x18
+	bl	PlaySE
+	ldr	r4, ._133 + 12
+	ldrb	r0, [r4, #0x18]
+	bl	sub_8102E1C
+	ldrb	r0, [r4, #0x18]
+	bl	sub_8103C14
+	bl	Random
+	mov	r1, #0x1f
+	and	r1, r1, r0
+	add	r1, r1, #0x1
+	str	r1, [r5]
+	b	._132
+._134:
+	.align	2, 0
+._133:
+	.word	gUnknown_0300074C+0x5
+	.word	gUnknown_0300074C+0x8
+	.word	gUnknown_0300074C+0xc
+	.word	+0x2000000
+._130:
+	ldr	r0, ._136
+	ldrh	r1, [r0, #0x2e]
+	mov	r0, #0x1
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._135	@cond_branch
+	mov	r0, #0x18
+	bl	PlaySE
+	ldr	r4, ._136 + 4
+	ldrb	r0, [r4, #0x18]
+	bl	sub_8102E1C
+	ldrb	r0, [r4, #0x18]
+	bl	sub_8103C14
+._132:
+	mov	r0, #0xd
+	strb	r0, [r4]
+._135:
+	mov	r0, #0x0
+	pop	{r4, r5}
+	pop	{r1}
+	bx	r1
+._137:
+	.align	2, 0
+._136:
+	.word	gMain
+	.word	+0x2000000
+.syntax unified
 	thumb_func_end sub_8102058
 
 	thumb_func_start sub_8102090
-sub_8102090: @ 8102090
-	push {r4,lr}
-	ldr r4, _081020BC @ =0x02000000
-	ldrb r0, [r4, 0x18]
-	bl sub_8102E40
-	lsls r0, 24
-	cmp r0, 0
-	bne _081020C0
-	ldrh r0, [r4, 0x18]
-	adds r0, 0x1
-	strh r0, [r4, 0x18]
-	movs r1, 0xC
-	strb r1, [r4]
-	lsls r0, 16
-	asrs r0, 16
-	cmp r0, 0x2
-	ble _081020B6
-	movs r0, 0xE
-	strb r0, [r4]
-_081020B6:
-	movs r0, 0x1
-	b _081020C2
-	.align 2, 0
-_081020BC: .4byte 0x02000000
-_081020C0:
-	movs r0, 0
-_081020C2:
-	pop {r4}
-	pop {r1}
-	bx r1
+sub_8102090:
+.syntax divided
+	push	{r4, lr}
+	ldr	r4, ._146
+	ldrb	r0, [r4, #0x18]
+	bl	sub_8102E40
+	lsl	r0, r0, #0x18
+	lsr	r2, r0, #0x18
+	cmp	r2, #0
+	bne	._138	@cond_branch
+	ldrh	r0, [r4, #0x18]
+	add	r0, r0, #0x1
+	strh	r0, [r4, #0x18]
+	mov	r1, #0xc
+	strb	r1, [r4]
+	lsl	r0, r0, #0x10
+	asr	r0, r0, #0x10
+	cmp	r0, #0x2
+	ble	._161	@cond_branch
+	mov	r0, #0xe
+	strb	r0, [r4]
+	ldr	r0, ._146 + 4
+	ldrb	r0, [r0]
+	cmp	r0, #0x8
+	beq	._140	@cond_branch
+	cmp	r0, #0x8
+	bgt	._141	@cond_branch
+	cmp	r0, #0x2
+	beq	._142	@cond_branch
+	cmp	r0, #0x2
+	bgt	._143	@cond_branch
+	cmp	r0, #0x1
+	beq	._144	@cond_branch
+	b	._161
+._147:
+	.align	2, 0
+._146:
+	.word	+0x2000000
+	.word	gUnknown_0300074C+0x4
+._143:
+	cmp	r0, #0x4
+	beq	._148	@cond_branch
+	b	._161
+._141:
+	cmp	r0, #0x40
+	beq	._150	@cond_branch
+	cmp	r0, #0x40
+	bgt	._151	@cond_branch
+	cmp	r0, #0x10
+	beq	._152	@cond_branch
+	b	._161
+._151:
+	cmp	r0, #0x80
+	beq	._154	@cond_branch
+	b	._161
+._142:
+	mov	r0, #0x14
+	strh	r0, [r4, #0x28]
+	strh	r0, [r4, #0x2a]
+	mov	r0, #0x12
+	b	._160
+._144:
+	mov	r0, #0x14
+	strh	r0, [r4, #0x28]
+	strh	r0, [r4, #0x2a]
+	mov	r0, #0x12
+	b	._160
+._148:
+	mov	r0, #0x3
+	strh	r0, [r4, #0x28]
+	mov	r0, #0x1
+	strh	r0, [r4, #0x2a]
+	mov	r0, #0x2
+	b	._160
+._140:
+	strh	r2, [r4, #0x28]
+	mov	r0, #0x2
+	strh	r0, [r4, #0x2a]
+	mov	r0, #0x3
+	b	._160
+._152:
+	mov	r0, #0x2
+	strh	r0, [r4, #0x28]
+	mov	r0, #0x5
+	strh	r0, [r4, #0x2a]
+	mov	r0, #0x14
+	b	._160
+._150:
+	mov	r0, #0x13
+	strh	r0, [r4, #0x28]
+	strh	r0, [r4, #0x2a]
+	strh	r2, [r4, #0x2c]
+	b	._161
+._154:
+	mov	r0, #0x13
+	strh	r0, [r4, #0x28]
+	strh	r0, [r4, #0x2a]
+._160:
+	strh	r0, [r4, #0x2c]
+._161:
+	mov	r0, #0x1
+	b	._162
+._138:
+	mov	r0, #0x0
+._162:
+	pop	{r4}
+	pop	{r1}
+	bx	r1
+.syntax unified
 	thumb_func_end sub_8102090
 
 	thumb_func_start sub_81020C8
-sub_81020C8: @ 81020C8
-	push {r4,lr}
-	ldr r4, _08102128 @ =0x02000000
-	ldrb r1, [r4, 0x4]
-	movs r0, 0xC0
-	ands r0, r1
-	strb r0, [r4, 0x4]
-	bl sub_81027A0
-	ldrb r0, [r4, 0xA]
-	cmp r0, 0
-	beq _081020E8
-	subs r0, 0x1
-	strb r0, [r4, 0xA]
-	ldrb r0, [r4, 0xB]
-	adds r0, 0x1
-	strb r0, [r4, 0xB]
-_081020E8:
-	ldrh r0, [r4, 0x8]
-	cmp r0, 0
-	beq _081021B4
-	movs r0, 0xF
-	strb r0, [r4]
-	bl sub_8102A24
-	bl sub_8103F70
-	ldrh r0, [r4, 0x10]
-	ldrh r1, [r4, 0xE]
-	subs r0, r1
-	strh r0, [r4, 0x10]
-	lsls r0, 16
-	cmp r0, 0
-	bge _0810210C
-	movs r0, 0
-	strh r0, [r4, 0x10]
-_0810210C:
-	ldrh r1, [r4, 0x8]
-	movs r0, 0xC0
-	lsls r0, 1
-	ands r0, r1
-	cmp r0, 0
-	beq _08102130
-	ldr r0, _0810212C @ =0x00000185
-	bl PlayFanfare
-	movs r0, 0x6
-	bl sub_8104CAC
-	b _0810215A
-	.align 2, 0
-_08102128: .4byte 0x02000000
-_0810212C: .4byte 0x00000185
-_08102130:
-	movs r0, 0x40
-	ands r0, r1
-	cmp r0, 0
-	beq _0810214C
-	ldr r0, _08102148 @ =0x00000185
-	bl PlayFanfare
-	movs r0, 0x5
-	bl sub_8104CAC
-	b _0810215A
-	.align 2, 0
-_08102148: .4byte 0x00000185
-_0810214C:
-	movs r0, 0xC3
-	lsls r0, 1
-	bl PlayFanfare
-	movs r0, 0x2
-	bl sub_8104CAC
-_0810215A:
-	ldr r1, _081021B0 @ =0x02000000
-	ldrh r3, [r1, 0x8]
-	movs r0, 0xE0
-	lsls r0, 1
-	ands r0, r3
-	adds r2, r1, 0
-	cmp r0, 0
-	beq _08102192
-	ldrb r1, [r2, 0x4]
-	movs r0, 0x3F
-	ands r0, r1
-	movs r1, 0
-	strb r0, [r2, 0x4]
-	movs r0, 0xC0
-	lsls r0, 1
-	ands r0, r3
-	cmp r0, 0
-	beq _08102192
-	strb r1, [r2, 0xA]
-	strb r1, [r2, 0xB]
-	strb r1, [r2, 0x3]
-	movs r0, 0x80
-	lsls r0, 1
-	ands r0, r3
-	cmp r0, 0
-	beq _08102192
-	movs r0, 0x1
-	strb r0, [r2, 0x3]
-_08102192:
-	ldrh r1, [r2, 0x8]
-	movs r0, 0x20
-	ands r0, r1
-	cmp r0, 0
-	beq _081021D2
-	ldrb r0, [r2, 0x2]
-	cmp r0, 0xF
-	bhi _081021D2
-	adds r0, 0x1
-	strb r0, [r2, 0x2]
-	ldrb r0, [r2, 0x2]
-	bl sub_8104064
-	b _081021D2
-	.align 2, 0
-_081021B0: .4byte 0x02000000
-_081021B4:
-	movs r0, 0x3
-	bl sub_8104CAC
-	movs r0, 0x14
-	strb r0, [r4]
-	ldrh r0, [r4, 0x12]
-	ldrh r1, [r4, 0x10]
-	adds r0, r1
-	strh r0, [r4, 0x10]
-	lsls r0, 16
-	asrs r0, 16
-	ldr r1, _081021DC @ =0x0000270f
-	cmp r0, r1
-	ble _081021D2
-	strh r1, [r4, 0x10]
-_081021D2:
-	movs r0, 0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_081021DC: .4byte 0x0000270f
+sub_81020C8:
+.syntax divided
+	push	{r4, lr}
+	ldr	r4, ._165
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0xc0
+	and	r0, r0, r1
+	strb	r0, [r4, #0x4]
+	bl	sub_81027A0
+	ldrb	r0, [r4, #0xa]
+	cmp	r0, #0
+	beq	._163	@cond_branch
+	sub	r0, r0, #0x1
+	strb	r0, [r4, #0xa]
+	ldrb	r0, [r4, #0xb]
+	add	r0, r0, #0x1
+	strb	r0, [r4, #0xb]
+	b	._164
+._166:
+	.align	2, 0
+._165:
+	.word	+0x2000000
+._163:
+	bl	debug_sub_811B894
+._164:
+	ldr	r4, ._171
+	ldrh	r0, [r4, #0x8]
+	cmp	r0, #0
+	beq	._167	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x6c
+	mov	r2, #0xe
+	ldsh	r1, [r4, r2]
+	bl	debug_sub_811B5B4
+	mov	r0, #0xf
+	strb	r0, [r4]
+	bl	sub_8102A24
+	bl	sub_8103F70
+	ldrh	r0, [r4, #0x10]
+	ldrh	r1, [r4, #0xe]
+	sub	r0, r0, r1
+	strh	r0, [r4, #0x10]
+	lsl	r0, r0, #0x10
+	cmp	r0, #0
+	bge	._168	@cond_branch
+	mov	r0, #0x0
+	strh	r0, [r4, #0x10]
+._168:
+	ldrh	r1, [r4, #0x8]
+	mov	r0, #0xc0
+	lsl	r0, r0, #0x1
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._169	@cond_branch
+	ldr	r0, ._171 + 4
+	bl	PlayFanfare
+	mov	r0, #0x6
+	bl	sub_8104CAC
+	b	._174
+._172:
+	.align	2, 0
+._171:
+	.word	+0x2000000
+	.word	0x185
+._169:
+	mov	r0, #0x40
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._173	@cond_branch
+	ldr	r0, ._175
+	bl	PlayFanfare
+	mov	r0, #0x5
+	bl	sub_8104CAC
+	b	._174
+._176:
+	.align	2, 0
+._175:
+	.word	0x185
+._173:
+	mov	r0, #0xc3
+	lsl	r0, r0, #0x1
+	bl	PlayFanfare
+	mov	r0, #0x2
+	bl	sub_8104CAC
+._174:
+	ldr	r1, ._183
+	ldrh	r3, [r1, #0x8]
+	mov	r0, #0xe0
+	lsl	r0, r0, #0x1
+	and	r0, r0, r3
+	add	r2, r1, #0
+	cmp	r0, #0
+	beq	._179	@cond_branch
+	ldrb	r1, [r2, #0x4]
+	mov	r0, #0x3f
+	and	r0, r0, r1
+	mov	r1, #0x0
+	strb	r0, [r2, #0x4]
+	mov	r0, #0xc0
+	lsl	r0, r0, #0x1
+	and	r0, r0, r3
+	cmp	r0, #0
+	beq	._179	@cond_branch
+	strb	r1, [r2, #0xa]
+	strb	r1, [r2, #0xb]
+	strb	r1, [r2, #0x3]
+	mov	r0, #0x80
+	lsl	r0, r0, #0x1
+	and	r0, r0, r3
+	cmp	r0, #0
+	beq	._179	@cond_branch
+	mov	r0, #0x1
+	strb	r0, [r2, #0x3]
+._179:
+	ldrh	r1, [r2, #0x8]
+	mov	r0, #0x20
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._185	@cond_branch
+	ldrb	r0, [r2, #0x2]
+	cmp	r0, #0xf
+	bhi	._185	@cond_branch
+	add	r0, r0, #0x1
+	strb	r0, [r2, #0x2]
+	ldrb	r0, [r2, #0x2]
+	bl	sub_8104064
+	b	._185
+._184:
+	.align	2, 0
+._183:
+	.word	+0x2000000
+._167:
+	mov	r0, #0x3
+	bl	sub_8104CAC
+	mov	r0, #0x14
+	strb	r0, [r4]
+	ldrh	r0, [r4, #0x12]
+	ldrh	r1, [r4, #0x10]
+	add	r0, r0, r1
+	strh	r0, [r4, #0x10]
+	lsl	r0, r0, #0x10
+	asr	r0, r0, #0x10
+	ldr	r1, ._186
+	cmp	r0, r1
+	ble	._185	@cond_branch
+	strh	r1, [r4, #0x10]
+._185:
+	mov	r0, #0x0
+	pop	{r4}
+	pop	{r1}
+	bx	r1
+._187:
+	.align	2, 0
+._186:
+	.word	0x270f
+.syntax unified
 	thumb_func_end sub_81020C8
 
 	thumb_func_start sub_81021E0
@@ -1537,34 +1853,44 @@ _08102420: .4byte 0x02000000
 	thumb_func_end sub_81023FC
 
 	thumb_func_start sub_8102424
-sub_8102424: @ 8102424
-	push {r4,lr}
-	sub sp, 0x4
-	ldr r0, _08102454 @ =gSaveBlock1
-	ldr r4, _08102458 @ =0x02000000
-	ldrh r1, [r4, 0xC]
-	ldr r2, _0810245C @ =0x00000494
-	adds r0, r2
-	movs r2, 0
-	strh r1, [r0]
-	movs r0, 0x1
-	negs r0, r0
-	str r2, [sp]
-	movs r1, 0
-	movs r3, 0x10
-	bl BeginNormalPaletteFade
-	ldrb r0, [r4]
-	adds r0, 0x1
-	strb r0, [r4]
-	movs r0, 0
-	add sp, 0x4
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08102454: .4byte gSaveBlock1
-_08102458: .4byte 0x02000000
-_0810245C: .4byte 0x00000494
+sub_8102424:
+.syntax divided
+	push	{lr}
+	add	sp, sp, #0xfffffffc
+	ldr	r0, ._234
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	bne	._233	@cond_branch
+	ldr	r0, ._234 + 4
+	ldr	r1, ._234 + 8
+	ldrh	r1, [r1, #0xc]
+	ldr	r2, ._234 + 12
+	add	r0, r0, r2
+	strh	r1, [r0]
+._233:
+	mov	r0, #0x1
+	neg	r0, r0
+	mov	r1, #0x0
+	str	r1, [sp]
+	mov	r2, #0x0
+	mov	r3, #0x10
+	bl	BeginNormalPaletteFade
+	ldr	r1, ._234 + 8
+	ldrb	r0, [r1]
+	add	r0, r0, #0x1
+	strb	r0, [r1]
+	mov	r0, #0x0
+	add	sp, sp, #0x4
+	pop	{r1}
+	bx	r1
+._235:
+	.align	2, 0
+._234:
+	.word	gUnknown_0300074C+0x5
+	.word	gSaveBlock1
+	.word	+0x2000000
+	.word	0x494
+.syntax unified
 	thumb_func_end sub_8102424
 
 	thumb_func_start sub_8102460
@@ -1588,58 +1914,267 @@ _0810247C: .4byte gPaletteFade
 _08102480: .4byte 0x02000000
 	thumb_func_end sub_8102460
 
+	thumb_func_start debug_sub_8116E74
+debug_sub_8116E74:
+.syntax divided
+	push	{lr}
+	bl	debug_sub_811B634
+	lsl	r0, r0, #0x18
+	cmp	r0, #0
+	beq	._239	@cond_branch
+	ldr	r1, ._240
+	mov	r0, #0x5
+	strb	r0, [r1]
+._239:
+	mov	r0, #0x0
+	pop	{r1}
+	bx	r1
+._241:
+	.align	2, 0
+._240:
+	.word	+0x2000000
+.syntax unified
+	thumb_func_end debug_sub_8116E74
+
 	thumb_func_start sub_8102484
-sub_8102484: @ 8102484
-	push {r4,lr}
-	ldr r4, _081024E4 @ =0x02000000
-	ldrb r0, [r4, 0xA]
-	cmp r0, 0
-	bne _081024DC
-	ldrb r1, [r4, 0x4]
-	movs r0, 0xC0
-	ands r0, r1
-	cmp r0, 0
-	bne _081024DC
-	bl sub_8102540
-	lsls r0, 24
-	cmp r0, 0
-	beq _081024C0
-	bl sub_8102578
-	lsls r0, 24
-	lsrs r3, r0, 24
-	cmp r3, 0x3
-	beq _081024C0
-	ldr r1, _081024E8 @ =gUnknown_083ECE42
-	lsls r0, r3, 1
-	adds r0, r1
-	ldrb r1, [r0]
-	ldrb r0, [r4, 0x4]
-	orrs r0, r1
-	strb r0, [r4, 0x4]
-	cmp r3, 0x1
-	bne _081024DC
-_081024C0:
-	bl sub_81025BC
-	lsls r0, 24
-	lsrs r3, r0, 24
-	cmp r3, 0x5
-	beq _081024DC
-	ldr r2, _081024E4 @ =0x02000000
-	ldr r1, _081024EC @ =gUnknown_083ECE48
-	lsls r0, r3, 1
-	adds r0, r1
-	ldrb r1, [r0]
-	ldrb r0, [r2, 0x4]
-	orrs r0, r1
-	strb r0, [r2, 0x4]
-_081024DC:
-	pop {r4}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_081024E4: .4byte 0x02000000
-_081024E8: .4byte gUnknown_083ECE42
-_081024EC: .4byte gUnknown_083ECE48
+sub_8102484:
+.syntax divided
+	push	{r4, r5, r6, lr}
+	ldr	r0, ._256
+	ldrb	r2, [r0, #0xa]
+	add	r4, r0, #0
+	cmp	r2, #0
+	beq	._242	@cond_branch
+	b	._270
+._242:
+	ldr	r0, ._256 + 4
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	beq	._245	@cond_branch
+	ldr	r3, ._256 + 8
+	ldrb	r0, [r3]
+	cmp	r0, #0
+	beq	._245	@cond_branch
+	ldr	r0, ._256 + 12
+	ldrb	r1, [r0]
+	strb	r1, [r4, #0x4]
+	strb	r2, [r3]
+	strb	r2, [r0]
+	mov	r0, #0x80
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._246	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x88
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._246:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x40
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._247	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x84
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._247:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x20
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._248	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x8c
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._248:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x10
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._249	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x80
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._249:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x8
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._250	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x7c
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._250:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x4
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._251	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x78
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._251:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x1
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._252	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x74
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._252:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x2
+	and	r0, r0, r1
+	cmp	r0, #0
+	bne	._253	@cond_branch
+	b	._270
+._253:
+	add	r0, r4, #0
+	add	r0, r0, #0x70
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+	b	._270
+._257:
+	.align	2, 0
+._256:
+	.word	+0x2000000
+	.word	gUnknown_0300074C+0x5
+	.word	gUnknown_0300074C+0x6
+	.word	gUnknown_0300074C+0x7
+._245:
+	add	r5, r4, #0
+	ldrb	r1, [r5, #0x4]
+	mov	r0, #0xc0
+	and	r0, r0, r1
+	cmp	r0, #0
+	bne	._270	@cond_branch
+	bl	sub_8102540
+	lsl	r0, r0, #0x18
+	cmp	r0, #0
+	beq	._260	@cond_branch
+	bl	sub_8102578
+	lsl	r0, r0, #0x18
+	lsr	r6, r0, #0x18
+	cmp	r6, #0x3
+	beq	._260	@cond_branch
+	ldr	r1, ._271
+	lsl	r0, r6, #0x1
+	add	r0, r0, r1
+	ldrb	r1, [r0]
+	ldrb	r0, [r5, #0x4]
+	orr	r0, r0, r1
+	strb	r0, [r5, #0x4]
+	mov	r1, #0x80
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._261	@cond_branch
+	add	r0, r5, #0
+	add	r0, r0, #0x88
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._261:
+	ldrb	r1, [r5, #0x4]
+	mov	r0, #0x40
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._262	@cond_branch
+	add	r0, r5, #0
+	add	r0, r0, #0x84
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._262:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x20
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._263	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x8c
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._263:
+	cmp	r6, #0x1
+	bne	._270	@cond_branch
+._260:
+	bl	sub_81025BC
+	lsl	r0, r0, #0x18
+	lsr	r6, r0, #0x18
+	cmp	r6, #0x5
+	beq	._270	@cond_branch
+	ldr	r4, ._271 + 4
+	ldr	r1, ._271 + 8
+	lsl	r0, r6, #0x1
+	add	r0, r0, r1
+	ldrb	r1, [r0]
+	ldrb	r0, [r4, #0x4]
+	orr	r0, r0, r1
+	strb	r0, [r4, #0x4]
+	mov	r1, #0x10
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._266	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x80
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._266:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x8
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._267	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x7c
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._267:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x4
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._268	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x78
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._268:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x1
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._269	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x74
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._269:
+	ldrb	r1, [r4, #0x4]
+	mov	r0, #0x2
+	and	r0, r0, r1
+	cmp	r0, #0
+	beq	._270	@cond_branch
+	add	r0, r4, #0
+	add	r0, r0, #0x70
+	mov	r1, #0x1
+	bl	debug_sub_811B5B4
+._270:
+	pop	{r4, r5, r6}
+	pop	{r0}
+	bx	r0
+._272:
+	.align	2, 0
+._271:
+	.word	gUnknown_083ECE42
+	.word	+0x2000000
+	.word	gUnknown_083ECE48
+.syntax unified
 	thumb_func_end sub_8102484
 
 	thumb_func_start sub_81024F0

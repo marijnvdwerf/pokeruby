@@ -70,6 +70,9 @@ gUnknown_083C16FC:: @ 83C16FC
 	.4byte sub_80A65AC
 	.4byte sub_80A6618
 
+gUnknown_Debug_083EBC68:: @ 0x83EBC68
+	.incbin "baserom-debug.gba", 0x3EBC68 , 240
+
 	.align 1
 gUnknown_083C1704:: @ 83C1704
 	.2byte 0x41EE, 0x7FFF

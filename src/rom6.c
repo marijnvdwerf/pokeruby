@@ -116,6 +116,35 @@ static void sub_810B4CC(u8 taskId)
     DestroyTask(taskId);
 }
 
+__attribute__((naked))
+void debug_sub_8120968()
+{
+    asm(
+        "	push	{lr}\n"
+        "	mov	r0, #0x56\n"
+        "	bl	npc_before_player_of_type\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r0, r0, #0x18\n"
+        "	cmp	r0, #0x1\n"
+        "	bne	._27	@cond_branch\n"
+        "	ldr	r1, ._29\n"
+        "	mov	r0, #0x0\n"
+        "	strb	r0, [r1]\n"
+        "	bl	sub_810B53C\n"
+        "	b	._28\n"
+        "._30:\n"
+        "	.align	2, 0\n"
+        "._29:\n"
+        "	.word	gLastFieldPokeMenuOpened\n"
+        "._27:\n"
+        "	bl	ScriptContext2_Disable\n"
+        "._28:\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "\n"
+    );
+}
+
 bool8 SetUpFieldMove_RockSmash(void)
 {
     if (npc_before_player_of_type(0x56) == TRUE)

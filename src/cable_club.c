@@ -21,9 +21,9 @@ extern u8 gFieldLinkPlayerCount;
 extern u8 gUnknown_081A4932[];
 extern const u8 gUnknown_081A4975[];
 
-static void sub_80830E4(u8 taskId);
+void sub_80830E4(u8 taskId);
 static void sub_8083288(u8 taskId);
-static void sub_8083314(u8 taskId);
+void sub_8083314(u8 taskId);
 
 void sub_808303C(u8 taskId) {
     s32 linkPlayerCount;
@@ -72,7 +72,7 @@ void sub_808303C(u8 taskId) {
 }
 
 #ifdef NONMATCHING
-static void sub_80830E4(u8 taskId) {
+void sub_80830E4(u8 taskId) {
     if (sub_8082E28(taskId) == 1 ||
         sub_8082EB8(taskId) == 1 ||
         sub_8082DF4(taskId) == 1 ||
@@ -98,7 +98,7 @@ static void sub_80830E4(u8 taskId) {
 }
 #else
 __attribute__((naked))
-static void sub_80830E4(u8 taskId) {
+void sub_80830E4(u8 taskId) {
     asm(".syntax unified\n\
     push {r4-r6,lr}\n\
     lsls r0, 24\n\
@@ -203,6 +203,85 @@ void sub_8083188(u8 taskId) {
     }
 }
 
+#ifdef DEBUG
+__attribute__((naked))
+void sub_80831F8()
+{
+    asm(
+        "	push	{r4, r5, r6, r7, lr}\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r4, r0, #0x18\n"
+        "	ldr	r1, ._145\n"
+        "	lsl	r0, r4, #0x2\n"
+        "	add	r0, r0, r4\n"
+        "	lsl	r0, r0, #0x3\n"
+        "	add	r5, r0, r1\n"
+        "	ldrb	r7, [r5, #0xa]\n"
+        "	ldrb	r6, [r5, #0xc]\n"
+        "	add	r0, r4, #0\n"
+        "	bl	sub_8082E28\n"
+        "	cmp	r0, #0x1\n"
+        "	beq	._142	@cond_branch\n"
+        "	add	r0, r4, #0\n"
+        "	bl	sub_8082DF4\n"
+        "	cmp	r0, #0x1\n"
+        "	beq	._142	@cond_branch\n"
+        "	bl	GetLinkPlayerCount_2\n"
+        "	add	r1, r0, #0\n"
+        "	lsl	r1, r1, #0x18\n"
+        "	lsr	r1, r1, #0x18\n"
+        "	add	r0, r4, #0\n"
+        "	bl	sub_8082D60\n"
+        "	ldr	r4, ._145 + 4\n"
+        "	add	r0, r7, #0\n"
+        "	add	r1, r6, #0\n"
+        "	bl	sub_8082D9C\n"
+        "	strh	r0, [r4]\n"
+        "	lsl	r0, r0, #0x10\n"
+        "	lsr	r0, r0, #0x10\n"
+        "	cmp	r0, #0\n"
+        "	beq	._142	@cond_branch\n"
+        "	cmp	r0, #0x3\n"
+        "	bne	._143	@cond_branch\n"
+        "	bl	sub_800832C\n"
+        "	bl	HideFieldMessageBox\n"
+        "	ldr	r0, ._145 + 8\n"
+        "	b	._144\n"
+        "._146:\n"
+        "	.align	2, 0\n"
+        "._145:\n"
+        "	.word	gTasks\n"
+        "	.word	gScriptResult\n"
+        "	.word	sub_80833C4+1\n"
+        "._143:\n"
+        "	bl	GetLinkPlayerCount_2\n"
+        "	ldr	r4, ._147\n"
+        "	strb	r0, [r4]\n"
+        "	bl	GetMultiplayerId\n"
+        "	ldr	r1, ._147 + 4\n"
+        "	strb	r0, [r1]\n"
+        "	ldrb	r0, [r4]\n"
+        "	bl	sub_80081C8\n"
+        "	ldr	r0, ._147 + 8\n"
+        "	bl	sub_8093390\n"
+        "	ldr	r0, ._147 + 12\n"
+        "._144:\n"
+        "	str	r0, [r5]\n"
+        "._142:\n"
+        "	pop	{r4, r5, r6, r7}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._148:\n"
+        "	.align	2, 0\n"
+        "._147:\n"
+        "	.word	gFieldLinkPlayerCount\n"
+        "	.word	gUnknown_03004860\n"
+        "	.word	gBlockSendBuffer\n"
+        "	.word	sub_8083314+1\n"
+        "\n"
+    );
+}
+#else
 void sub_80831F8(u8 taskId) {
     u8 local1, local2;
     u16 *result;
@@ -239,6 +318,7 @@ void sub_80831F8(u8 taskId) {
         gTasks[taskId].func = sub_8083314;
     }
 }
+#endif
 
 static void sub_8083288(u8 taskId) {
     if (sub_8082DF4(taskId) == 1)
@@ -263,7 +343,7 @@ static void sub_8083288(u8 taskId) {
     }
 }
 
-static void sub_8083314(u8 taskId) {
+void sub_8083314(u8 taskId) {
     u8 index;
 
     struct TrainerCard *trainerCards;

@@ -11,6 +11,9 @@ gBadgesTiles:: @ 83B5AB8
 	.align 2
 	.4byte 0x2000000
 
+gUnknown_Debug_083E0448:: @ 0x83E0448
+	.incbin "baserom-debug.gba", 0x3E0448, 56
+
 	.align 2
 gUnknown_083B5EBC:: @ 83B5EBC
 	.4byte sub_8093864

@@ -2908,8 +2908,8 @@ EWRAM_DATA static u32 sFeebasRngValue = 0;
 
 #define NUM_FEEBAS_SPOTS 6
 
-static u16 FeebasRandom(void);
-static void FeebasSeedRng(u16 seed);
+u16 FeebasRandom(void);
+void FeebasSeedRng(u16 seed);
 
 static bool8 RepelCheck(u8 level);
 static void ApplyFluteEncounterRateMod(u32 *encRate);
@@ -2995,18 +2995,49 @@ static bool8 CheckFeebas(void)
     return FALSE;
 }
 
-static u16 FeebasRandom(void)
+u16 FeebasRandom(void)
 {
     sFeebasRngValue = 12345 + 0x41C64E6D * sFeebasRngValue;
     return sFeebasRngValue >> 16;
 }
 
-static void FeebasSeedRng(u16 seed)
+void FeebasSeedRng(u16 seed)
 {
     sFeebasRngValue = seed;
 }
 
-static u8 ChooseWildMonIndex_Land(void)
+__attribute__((naked))
+void debug_sub_8092344()
+{
+    asm(
+        "	push	{lr}\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r0, r0, #0x18\n"
+        "	add	r1, r0, #0\n"
+        "	cmp	r0, #0\n"
+        "	bne	._34	@cond_branch\n"
+        "	mov	r0, #0x83\n"
+        "	b	._39\n"
+        "._34:\n"
+        "	cmp	r0, #0x1\n"
+        "	bne	._36	@cond_branch\n"
+        "	mov	r0, #0xa7\n"
+        "	b	._39\n"
+        "._36:\n"
+        "	cmp	r1, #0x2\n"
+        "	beq	._38	@cond_branch\n"
+        "	mov	r0, #0x0\n"
+        "	b	._39\n"
+        "._38:\n"
+        "	mov	r0, #0x95\n"
+        "._39:\n"
+        "	pop	{r1}\n"
+        "	bx	r1\n"
+        "\n"
+    );
+}
+
+u8 ChooseWildMonIndex_Land(void)
 {
     u8 rand = Random() % 100;
 
@@ -3246,7 +3277,44 @@ static bool8 DoWildEncounterRateDiceRoll(u16 encounterRate)
         return FALSE;
 }
 
-static bool8 DoWildEncounterTest(u32 encounterRate, bool8 ignoreAbility)
+__attribute__((naked))
+void debug_sub_809283C()
+{
+    asm(
+        "	push	{r4, r5, r6, lr}\n"
+        "	lsl	r0, r0, #0x10\n"
+        "	lsr	r5, r0, #0x10\n"
+        "	mov	r6, #0x0\n"
+        "	mov	r4, #0x0\n"
+        "	cmp	r6, r5\n"
+        "	bcs	._138	@cond_branch\n"
+        "._140:\n"
+        "	mov	r0, #0xa0\n"
+        "	lsl	r0, r0, #0x1\n"
+        "	bl	DoWildEncounterRateDiceRoll\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r0, r0, #0x18\n"
+        "	cmp	r0, #0x1\n"
+        "	bne	._139	@cond_branch\n"
+        "	add	r0, r6, #1\n"
+        "	lsl	r0, r0, #0x10\n"
+        "	lsr	r6, r0, #0x10\n"
+        "._139:\n"
+        "	add	r0, r4, #1\n"
+        "	lsl	r0, r0, #0x10\n"
+        "	lsr	r4, r0, #0x10\n"
+        "	cmp	r4, r5\n"
+        "	bcc	._140	@cond_branch\n"
+        "._138:\n"
+        "	add	r0, r6, #0\n"
+        "	pop	{r4, r5, r6}\n"
+        "	pop	{r1}\n"
+        "	bx	r1\n"
+        "\n"
+    );
+}
+
+ bool8 DoWildEncounterTest(u32 encounterRate, bool8 ignoreAbility)
 {
     encounterRate *= 16;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))

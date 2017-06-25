@@ -19,7 +19,7 @@ extern u8 gUnknown_0202E86C[];
 extern u8 gUnknown_0202E874[];
 
 static void MovePlayerOnMachBike(u8, u16, u16);
-static u8 GetMachBikeTransition(u8 *);
+u8 GetMachBikeTransition(u8 *);
 static void MachBikeTransition_FaceDirection(u8);
 static void MachBikeTransition_80E517C(u8);
 static void MachBikeTransition_80E51C4(u8);
@@ -121,12 +121,64 @@ void MovePlayerOnBike(u8 direction, u16 newKeys, u16 heldKeys)
         MovePlayerOnAcroBike(direction, newKeys, heldKeys);
 }
 
+#ifdef DEBUG
+__attribute__((naked))
+void MovePlayerOnMachBike(u8 u81, u16 u161, u16 u162)
+{
+    asm(
+        "	push	{r4, lr}\n"
+        "	add	sp, sp, #0xfffffffc\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r1, r0, #0x18\n"
+        "	mov	r0, sp\n"
+        "	strb	r1, [r0]\n"
+        "	ldr	r0, ._8\n"
+        "	ldrb	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._6	@cond_branch\n"
+        "	add	r0, r1, #0\n"
+        "	bl	debug_sub_805F2B0\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	cmp	r0, #0\n"
+        "	beq	._6	@cond_branch\n"
+        "	bl	sub_80E6024\n"
+        "	b	._7\n"
+        "._9:\n"
+        "	.align	2, 0\n"
+        "._8:\n"
+        "	.word	gUnknown_020297ED\n"
+        "._6:\n"
+        "	ldr	r4, ._10\n"
+        "	mov	r0, sp\n"
+        "	bl	GetMachBikeTransition\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r0, r0, #0x16\n"
+        "	add	r0, r0, r4\n"
+        "	mov	r1, sp\n"
+        "	ldrb	r1, [r1]\n"
+        "	ldr	r2, [r0]\n"
+        "	add	r0, r1, #0\n"
+        "	bl	gScriptFuncs_End+0x3cfc\n"
+        "._7:\n"
+        "	add	sp, sp, #0x4\n"
+        "	pop	{r4}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._11:\n"
+        "	.align	2, 0\n"
+        "._10:\n"
+        "	.word	sMachBikeTransitions\n"
+        "\n"
+    );
+}
+#else
 static void MovePlayerOnMachBike(u8 direction, u16 newKeys, u16 heldKeys)
 {
     sMachBikeTransitions[GetMachBikeTransition(&direction)](direction);
 }
+#endif
 
-static u8 GetMachBikeTransition(u8 *ptr)
+u8 GetMachBikeTransition(u8 *ptr)
 {
     u8 direction = player_get_direction_upper_nybble();
 
@@ -247,10 +299,68 @@ static void MachBikeTransition_80E5270(u8 var)
     }
 }
 
+#ifdef DEBUG
+__attribute__((naked))
+void MovePlayerOnAcroBike(u8 u81, u16 u161, u16 u162)
+{
+    asm(
+        "	push	{r4, r5, r6, lr}\n"
+        "	add	sp, sp, #0xfffffffc\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r3, r0, #0x18\n"
+        "	mov	r0, sp\n"
+        "	strb	r3, [r0]\n"
+        "	lsl	r1, r1, #0x10\n"
+        "	lsr	r6, r1, #0x10\n"
+        "	lsl	r2, r2, #0x10\n"
+        "	lsr	r5, r2, #0x10\n"
+        "	ldr	r0, ._55\n"
+        "	ldrb	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._53	@cond_branch\n"
+        "	add	r0, r3, #0\n"
+        "	bl	debug_sub_805F2B0\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	cmp	r0, #0\n"
+        "	beq	._53	@cond_branch\n"
+        "	bl	sub_80E6024\n"
+        "	b	._54\n"
+        "._56:\n"
+        "	.align	2, 0\n"
+        "._55:\n"
+        "	.word	gUnknown_020297ED\n"
+        "._53:\n"
+        "	ldr	r4, ._57\n"
+        "	mov	r0, sp\n"
+        "	add	r1, r6, #0\n"
+        "	add	r2, r5, #0\n"
+        "	bl	CheckMovementInputAcroBike\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r0, r0, #0x16\n"
+        "	add	r0, r0, r4\n"
+        "	mov	r1, sp\n"
+        "	ldrb	r1, [r1]\n"
+        "	ldr	r2, [r0]\n"
+        "	add	r0, r1, #0\n"
+        "	bl	gScriptFuncs_End+0x3cfc\n"
+        "._54:\n"
+        "	add	sp, sp, #0x4\n"
+        "	pop	{r4, r5, r6}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._58:\n"
+        "	.align	2, 0\n"
+        "._57:\n"
+        "	.word	sAcroBikeTransitions\n"
+        "\n"
+    );
+}
+#else
 static void MovePlayerOnAcroBike(u8 newDirection, u16 newKeys, u16 heldKeys)
 {
     sAcroBikeTransitions[CheckMovementInputAcroBike(&newDirection, newKeys, heldKeys)](newDirection);
 }
+#endif
 
 static u8 CheckMovementInputAcroBike(u8 *newDirection, u16 newKeys, u16 heldKeys)
 {

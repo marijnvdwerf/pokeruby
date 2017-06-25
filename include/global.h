@@ -19,6 +19,8 @@ void *     memset (void *, int, size_t);
 int     strcmp (const char *, const char *);
 #endif
 
+#define DEBUG 1
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 

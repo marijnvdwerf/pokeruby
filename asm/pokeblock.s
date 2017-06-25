@@ -547,6 +547,47 @@ sub_810BAF4: @ 810BAF4
 _0810BB08: .4byte sub_810B96C
 	thumb_func_end sub_810BAF4
 
+	thumb_func_start debug_sub_8120F98
+debug_sub_8120F98:
+.syntax divided
+	push	{r4, r5, lr}
+	mov	r3, #0x0
+	ldr	r1, ._132
+	ldrb	r0, [r1]
+	cmp	r0, #0
+	beq	._130	@cond_branch
+	ldr	r5, ._132 + 4
+	add	r4, r1, #0
+._131:
+	lsl	r0, r3, #0x3
+	add	r2, r0, r5
+	add	r0, r0, r4
+	ldr	r1, [r0, #0x4]
+	ldr	r0, [r0]
+	str	r0, [r2]
+	str	r1, [r2, #0x4]
+	add	r0, r3, #1
+	lsl	r0, r0, #0x18
+	lsr	r3, r0, #0x18
+	cmp	r3, #0x27
+	bhi	._130	@cond_branch
+	lsl	r0, r3, #0x3
+	add	r0, r0, r4
+	ldrb	r0, [r0]
+	cmp	r0, #0
+	bne	._131	@cond_branch
+._130:
+	pop	{r4, r5}
+	pop	{r0}
+	bx	r0
+._133:
+	.align	2, 0
+._132:
+	.word	gUnknown_083F7F9C
+	.word	gSaveBlock1+0x7f8
+.syntax unified
+	thumb_func_end debug_sub_8120F98
+
 	thumb_func_start sub_810BB0C
 sub_810BB0C: @ 810BB0C
 	push {lr}

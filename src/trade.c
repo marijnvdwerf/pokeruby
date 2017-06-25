@@ -56,11 +56,48 @@ void sub_804A96C(struct UnkStructD *arg0, u8 left, u8 top, u16 *tilemap, u8 widt
 }
 
 #if GERMAN
+#ifdef DEBUG
+__attribute__((naked))
+void sub_804A96C_alt(struct UnkStructD *arg0, u8 left, u8 top, u16 *tilemap, u8 width, u8 height, u16 sp8)
+{
+    asm(
+        "	push	{r4, r5, r6, lr}\n"
+        "	add	sp, sp, #0xfffffff4\n"
+        "	add	r6, r0, #0\n"
+        "	ldr	r0, [sp, #0x1c]\n"
+        "	ldr	r4, [sp, #0x20]\n"
+        "	ldr	r5, [sp, #0x24]\n"
+        "	lsl	r1, r1, #0x18\n"
+        "	lsr	r1, r1, #0x18\n"
+        "	lsl	r2, r2, #0x18\n"
+        "	lsr	r2, r2, #0x18\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r0, r0, #0x18\n"
+        "	lsl	r4, r4, #0x18\n"
+        "	lsr	r4, r4, #0x18\n"
+        "	lsl	r5, r5, #0x10\n"
+        "	lsr	r5, r5, #0x10\n"
+        "	str	r0, [sp]\n"
+        "	str	r4, [sp, #0x4]\n"
+        "	str	r5, [sp, #0x8]\n"
+        "	add	r0, r6, #0\n"
+        "	bl	sub_804A96C\n"
+        "	mov	r0, #0x1\n"
+        "	strb	r0, [r6, #0x10]\n"
+        "	add	sp, sp, #0xc\n"
+        "	pop	{r4, r5, r6}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "\n"
+    );
+}
+#else
 void sub_804A96C_alt(struct UnkStructD *arg0, u8 left, u8 top, u16 *tilemap, u8 width, u8 height, u16 sp8) {
     sub_804A96C(arg0, left, top, tilemap, width, height, sp8);
 
     arg0->var10 = 1;
 }
+#endif
 #endif
 
 asm(".section .text.sub_804DAD4");

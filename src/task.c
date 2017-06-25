@@ -29,24 +29,61 @@ void ResetTasks()
     gTasks[ACTIVE_SENTINEL - 1].next = TAIL_SENTINEL;
 }
 
-u8 CreateTask(TaskFunc func, u8 priority)
+__attribute__((naked))
+u8 CreateTask(TaskFunc func, u8 u81)
 {
-    u8 taskId;
-
-    for (taskId = 0; taskId < ACTIVE_SENTINEL; taskId++)
-    {
-        if (!gTasks[taskId].isActive)
-        {
-            gTasks[taskId].func = func;
-            gTasks[taskId].priority = priority;
-            InsertTask(taskId);
-            memset(gTasks[taskId].data, 0, sizeof(gTasks[taskId].data));
-            gTasks[taskId].isActive = TRUE;
-            return taskId;
-        }
-    }
-
-    return 0;
+    asm(
+        "	push	{r4, r5, r6, r7, lr}\n"
+        "	add	r2, r0, #0\n"
+        "	lsl	r1, r1, #0x18\n"
+        "	lsr	r1, r1, #0x18\n"
+        "	mov	r6, #0x0\n"
+        "	ldr	r7, ._6\n"
+        "._8:\n"
+        "	lsl	r0, r6, #0x2\n"
+        "	add	r0, r0, r6\n"
+        "	lsl	r5, r0, #0x3\n"
+        "	add	r4, r5, r7\n"
+        "	ldrb	r0, [r4, #0x4]\n"
+        "	cmp	r0, #0\n"
+        "	bne	._4	@cond_branch\n"
+        "	str	r2, [r4]\n"
+        "	strb	r1, [r4, #0x7]\n"
+        "	add	r0, r6, #0\n"
+        "	bl	InsertTask\n"
+        "	add	r0, r7, #0\n"
+        "	add	r0, r0, #0x8\n"
+        "	add	r0, r5, r0\n"
+        "	mov	r1, #0x0\n"
+        "	mov	r2, #0x20\n"
+        "	bl	gScriptFuncs_End+0x5c24\n"
+        "	mov	r0, #0x1\n"
+        "	strb	r0, [r4, #0x4]\n"
+        "	add	r0, r6, #0\n"
+        "	b	._5\n"
+        "._7:\n"
+        "	.align	2, 0\n"
+        "._6:\n"
+        "	.word	gTasks\n"
+        "._4:\n"
+        "	add	r0, r6, #1\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r6, r0, #0x18\n"
+        "	cmp	r6, #0xf\n"
+        "	bls	._8	@cond_branch\n"
+        "	ldr	r0, ._9\n"
+        "	bl	unref_sub_80AB084\n"
+        "	mov	r0, #0x0\n"
+        "._5:\n"
+        "	pop	{r4, r5, r6, r7}\n"
+        "	pop	{r1}\n"
+        "	bx	r1\n"
+        "._10:\n"
+        "	.align	2, 0\n"
+        "._9:\n"
+        "	.word	gSpriteTemplate_8393188+0x18\n"
+        "\n"
+    );
 }
 
 static void InsertTask(u8 newTaskId)

@@ -44,6 +44,27 @@ static const u8 sRoamerLocations[][6] =
     { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF },
 };
 
+__attribute__((naked))
+void debug_sub_814A3A8()
+{
+    asm(
+        "	push	{r4, lr}\n"
+        "	mov	r4, #0x0\n"
+        "._1:\n"
+        "	add	r0, r4, #0\n"
+        "	bl	IsThereStorageSpaceForDecoration\n"
+        "	add	r0, r4, #1\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r4, r0, #0x18\n"
+        "	cmp	r4, #0x78\n"
+        "	bls	._1	@cond_branch\n"
+        "	pop	{r4}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "\n"
+    );
+}
+
 void ClearRoamerData(void)
 {
     memset(&gSaveBlock1.roamer, 0, sizeof(gSaveBlock1.roamer));
@@ -223,4 +244,51 @@ void GetRoamerLocation(u8 *mapGroup, u8 *mapNum)
 {
     *mapGroup = sRoamerLocation[MAP_GRP];
     *mapNum = sRoamerLocation[MAP_NUM];
+}
+
+__attribute__((naked))
+void debug_sub_814A714()
+{
+    asm(
+        "	push	{r4, r5, lr}\n"
+        "	ldr	r5, ._a2\n"
+        "	mov	r4, #0x4\n"
+        "	ldsb	r4, [r5, r4]\n"
+        "	cmp	r4, #0\n"
+        "	bne	._a1	@cond_branch\n"
+        "	bl	CreateInitialRoamerMon\n"
+        "	ldr	r1, ._a2 + 4\n"
+        "	strb	r4, [r1]\n"
+        "	ldrb	r0, [r5, #0x5]\n"
+        "	strb	r0, [r1, #0x1]\n"
+        "._a1:\n"
+        "	pop	{r4, r5}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._a3:\n"
+        "	.align	2, 0\n"
+        "._a2:\n"
+        "	.word	gSaveBlock1\n"
+        "	.word	sRoamerLocation\n"
+        "\n"
+    );
+}
+
+__attribute__((naked))
+void debug_sub_814A73C()
+{
+    asm(
+        "	push	{lr}\n"
+        "	ldr	r1, ._4\n"
+        "	ldrb	r1, [r1, #0x1]\n"
+        "	mov	r2, #0x0\n"
+        "	bl	sub_80FBFB4\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._5:\n"
+        "	.align	2, 0\n"
+        "._4:\n"
+        "	.word	sRoamerLocation\n"
+        "\n"
+    );
 }

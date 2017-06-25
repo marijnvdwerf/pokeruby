@@ -172,7 +172,3 @@ gUnknown_083E57A4:: @ 83E57A4
 	.4byte Unknown_3E5790
 	.byte 5, 15, 15, 52
 	.4byte Unknown_3E5790
-
-@ XXX: what is this?
-	.align 2
-	.4byte 0x2000000

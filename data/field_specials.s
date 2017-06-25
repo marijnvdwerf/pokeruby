@@ -73,3 +73,6 @@ gUnknown_083F8408:: @ 83F8408
 
 gUnknown_083F8410:: @ 83F8410
 	.byte  8, 13, 14, 11, 10, 12, 15,  9
+
+@ 0x84245CC
+	.incbin "baserom-debug.gba", 0x4245CC, 96

@@ -233,4 +233,6 @@ u8 LinkPlayerDetectCollision(u8, u8, s16, s16);
 void CreateLinkPlayerSprite(u8);
 void SpriteCB_LinkPlayer(struct Sprite *);
 
+void debug_sub_805891C(void);
+
 #endif // GUARD_ROM4_H

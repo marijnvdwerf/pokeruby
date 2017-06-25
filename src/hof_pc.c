@@ -8,7 +8,7 @@
 #include "task.h"
 
 extern void (*gFieldCallback)(void);
-extern void (*gUnknown_0300485C)(void);
+extern void (*gFieldCallback)(void);
 
 static void ReshowPCMenuAfterHallOfFamePC(void);
 static void Task_WaitForPaletteFade(u8);

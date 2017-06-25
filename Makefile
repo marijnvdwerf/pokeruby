@@ -4,7 +4,7 @@ AS      := $(DEVKITARM)/bin/arm-none-eabi-as
 ASFLAGS := -mcpu=arm7tdmi
 
 CC1             := tools/agbcc/bin/agbcc
-override CFLAGS += -mthumb-interwork -Wimplicit -Wparentheses -Wunused -Werror -O2 -fhex-asm
+override CFLAGS += -mthumb-interwork -Wimplicit -Wparentheses -Wunused -O2 -fhex-asm
 
 CPP      := $(DEVKITARM)/bin/arm-none-eabi-cpp
 CPPFLAGS := -I tools/agbcc/include -iquote include -nostdinc -undef
@@ -126,7 +126,7 @@ $$($1_C_OBJS): VERSION := $2
 $$($1_C_OBJS): REVISION := $3
 $$($1_C_OBJS): LANGUAGE := $4
 build/$1/%.o : %.c $$$$(c_dep)
-	@$$(CPP) $$(CPPFLAGS) -D $$(VERSION) -D REVISION=$$(REVISION) -D $$(LANGUAGE) $$< -o build/$1/$$*.i
+	@$$(CPP) $$(CPPFLAGS) -D $$(VERSION) -D REVISION=$$(REVISION) -D $$(LANGUAGE) -DDEBUG=1 $$< -o build/$1/$$*.i
 	@$$(PREPROC) build/$1/$$*.i charmap.txt | $$(CC1) $$(CFLAGS) -o build/$1/$$*.s
 	@printf ".text\n\t.align\t2, 0\n" >> build/$1/$$*.s
 	$$(AS) $$(ASFLAGS) -o $$@ build/$1/$$*.s
@@ -135,13 +135,13 @@ $$($1_ASM_OBJS): VERSION := $2
 $$($1_ASM_OBJS): REVISION := $3
 $$($1_ASM_OBJS): LANGUAGE := $4
 build/$1/asm/%.o: asm/%.s $$$$(asm_dep)
-	$$(AS) $$(ASFLAGS) --defsym $$(VERSION)=1 --defsym REVISION=$$(REVISION) --defsym $$(LANGUAGE)=1 -o $$@ $$<
+	$$(AS) $$(ASFLAGS) --defsym $$(VERSION)=1 --defsym REVISION=$$(REVISION) --defsym $$(LANGUAGE)=1 --defsym DEBUG=1 -o $$@ $$<
 
 $$($1_DATA_ASM_OBJS): VERSION := $2
 $$($1_DATA_ASM_OBJS): REVISION := $3
 $$($1_DATA_ASM_OBJS): LANGUAGE := $4
 build/$1/data/%.o: data/%.s $$$$(asm_dep)
-	$$(PREPROC) $$< charmap.txt | $$(AS) $$(ASFLAGS) --defsym $$(VERSION)=1 --defsym REVISION=$$(REVISION) --defsym $$(LANGUAGE)=1 -o $$@
+	$$(PREPROC) $$< charmap.txt | $$(AS) $$(ASFLAGS) --defsym $$(VERSION)=1 --defsym REVISION=$$(REVISION) --defsym $$(LANGUAGE)=1 --defsym DEBUG=1 -o $$@
 
 build/$1/sym_bss.ld: LANGUAGE := $4
 build/$1/sym_bss.ld: sym_bss.txt

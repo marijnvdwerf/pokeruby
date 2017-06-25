@@ -34,7 +34,7 @@ extern const struct
     u16 unk_083D1358_1;
 } gUnknown_083D1358[7];
 extern const u8 gUnknown_083D1374[4 * 16];
-extern void *gUnknown_0300485C;
+extern void (*gFieldCallback)(void);
 extern const u8 gUnknown_083D13EC[12];
 extern u8 gUnknown_081A2E14[];
 

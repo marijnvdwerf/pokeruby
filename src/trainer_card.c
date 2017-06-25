@@ -82,11 +82,11 @@ enum
     TD_CALLBACK,
 };
 
-static void sub_8093174(void);
+void sub_8093174(void);
 static void sub_809323C(void);
 static void sub_8093254(void);
-static void sub_80932AC(Callback callBack);
-static void sub_80932E4(u8 arg1, Callback callBack);
+void sub_80932AC(Callback callBack);
+void sub_80932E4(u8 arg1, Callback callBack);
 void sub_8093324(void);
 static void nullsub_60(u8);
 static u32 sav12_xor_get_clamped_above(u8 index, u32 maxVal);
@@ -127,7 +127,7 @@ static void sub_8093F80(void);
 static void sub_8093FD0(void);
 static void sub_8094038(void);
 static void sub_80940E4(void);
-static void sub_8094110(void);
+void sub_8094110(void);
 static void sub_8094140(void);
 static void sub_8094188(void);
 static void TrainerCard_Front_PrintTrainerID(void);
@@ -150,21 +150,169 @@ static void TrainerCard_Back_PrintPokemonTrades_Label(void);
 static void TrainerCard_Back_PrintPokemonTrades(void);
 void unref_sub_8094588(u16 left, u16 top);
 
-void sub_8093110(Callback arg1)
+__attribute__((naked))
+void sub_8093110(void (*pFunction)(void))
 {
-    sub_80932AC(arg1);
-    SetMainCallback2(sub_8093174);
-    ewram0.language = GAME_LANGUAGE;
+    asm(
+        "	push	{lr}\n"
+        "	ldr	r2, ._1\n"
+        "	mov	r1, #0x0\n"
+        "	strb	r1, [r2]\n"
+        "	bl	sub_80932AC\n"
+        "	ldr	r0, ._1 + 4\n"
+        "	bl	SetMainCallback2\n"
+        "	ldr	r0, ._1 + 8\n"
+        "	add	r0, r0, #0x9c\n"
+        "	mov	r1, #0x5\n"
+        "	strb	r1, [r0]\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._2:\n"
+        "	.align	2, 0\n"
+        "._1:\n"
+        "	.word	gDebug_03000748\n"
+        "	.word	sub_8093174+1\n"
+        "	.word	+0x2000000\n"
+        "\n"
+    );
 }
 
-void sub_8093130(u8 playerIndex, Callback arg2)
+__attribute__((naked))
+void sub_8093130(u8 u81, void (*pFunction)(void))
 {
-    sub_80932E4(playerIndex, arg2);
-    SetMainCallback2(sub_8093174);
-    ewram0.language = gLinkPlayers[gLinkPlayerMapObjects[playerIndex].linkPlayerId].language;
+    asm(
+        "	push	{r4, lr}\n"
+        "	add	r4, r0, #0\n"
+        "	lsl	r4, r4, #0x18\n"
+        "	lsr	r4, r4, #0x18\n"
+        "	ldr	r2, ._3\n"
+        "	mov	r0, #0x0\n"
+        "	strb	r0, [r2]\n"
+        "	add	r0, r4, #0\n"
+        "	bl	sub_80932E4\n"
+        "	ldr	r0, ._3 + 4\n"
+        "	bl	SetMainCallback2\n"
+        "	ldr	r2, ._3 + 8\n"
+        "	ldr	r3, ._3 + 12\n"
+        "	ldr	r0, ._3 + 16\n"
+        "	lsl	r4, r4, #0x2\n"
+        "	add	r4, r4, r0\n"
+        "	ldrb	r1, [r4, #0x1]\n"
+        "	lsl	r0, r1, #0x3\n"
+        "	sub	r0, r0, r1\n"
+        "	lsl	r0, r0, #0x2\n"
+        "	add	r0, r0, r3\n"
+        "	ldrh	r0, [r0, #0x1a]\n"
+        "	add	r2, r2, #0x9c\n"
+        "	strb	r0, [r2]\n"
+        "	pop	{r4}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._4:\n"
+        "	.align	2, 0\n"
+        "._3:\n"
+        "	.word	gDebug_03000748\n"
+        "	.word	sub_8093174+1\n"
+        "	.word	+0x2000000\n"
+        "	.word	gLinkPlayers\n"
+        "	.word	gLinkPlayerMapObjects\n"
+        "\n"
+    );
 }
 
-static void sub_8093174(void)
+__attribute__((naked))
+void debug_sub_80A0710()
+{
+    asm(
+        "	push	{lr}\n"
+        "	ldr	r2, ._5\n"
+        "	mov	r1, #0x1\n"
+        "	strb	r1, [r2]\n"
+        "	bl	sub_80932AC\n"
+        "	ldr	r0, ._5 + 4\n"
+        "	bl	SetMainCallback2\n"
+        "	ldr	r0, ._5 + 8\n"
+        "	add	r0, r0, #0x9c\n"
+        "	mov	r1, #0x5\n"
+        "	strb	r1, [r0]\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._6:\n"
+        "	.align	2, 0\n"
+        "._5:\n"
+        "	.word	gDebug_03000748\n"
+        "	.word	sub_8093174+1\n"
+        "	.word	+0x2000000\n"
+        "\n"
+    );
+}
+
+__attribute__((naked))
+void debug_sub_80A073C()
+{
+    asm(
+        "	push	{r4, lr}\n"
+        "	add	r4, r0, #0\n"
+        "	ldr	r0, ._7\n"
+        "	ldr	r1, ._7 + 4\n"
+        "	mov	r2, #0x38\n"
+        "	bl	gScriptFuncs_End+0x5bc4\n"
+        "	ldr	r1, ._7 + 8\n"
+        "	mov	r0, #0x1\n"
+        "	strb	r0, [r1]\n"
+        "	mov	r0, #0x0\n"
+        "	add	r1, r4, #0\n"
+        "	bl	sub_80932E4\n"
+        "	ldr	r0, ._7 + 12\n"
+        "	bl	SetMainCallback2\n"
+        "	ldr	r0, ._7 + 16\n"
+        "	add	r0, r0, #0x9c\n"
+        "	mov	r1, #0x5\n"
+        "	strb	r1, [r0]\n"
+        "	pop	{r4}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._8:\n"
+        "	.align	2, 0\n"
+        "._7:\n"
+        "	.word	gTrainerCards\n"
+        "	.word	gUnknown_Debug_083E0448\n"
+        "	.word	gDebug_03000748\n"
+        "	.word	sub_8093174+1\n"
+        "	.word	+0x2000000\n"
+        "\n"
+    );
+}
+
+__attribute__((naked))
+void debug_sub_80A0780()
+{
+    asm(
+        "	push	{r4, r5, lr}\n"
+        "	ldr	r5, ._10\n"
+        "	mov	r4, #0x3\n"
+        "._9:\n"
+        "	add	r0, r5, #0\n"
+        "	ldr	r1, ._10 + 4\n"
+        "	mov	r2, #0x38\n"
+        "	bl	gScriptFuncs_End+0x5bc4\n"
+        "	add	r5, r5, #0x38\n"
+        "	sub	r4, r4, #0x1\n"
+        "	cmp	r4, #0\n"
+        "	bge	._9	@cond_branch\n"
+        "	pop	{r4, r5}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._11:\n"
+        "	.align	2, 0\n"
+        "._10:\n"
+        "	.word	gTrainerCards\n"
+        "	.word	gUnknown_Debug_083E0448\n"
+        "\n"
+    );
+}
+
+void sub_8093174(void)
 {
     switch (gMain.state)
     {
@@ -236,7 +384,7 @@ static void sub_8093254(void)
         DmaCopy16(3, gUnknown_03004DE0.filler0, gUnknown_03004DE0.unk780, sizeof(gUnknown_03004DE0.unk780));
 }
 
-static void sub_80932AC(Callback callBack)
+void sub_80932AC(Callback callBack)
 {
     u8 taskId = CreateTask(nullsub_60, 0xFF);
     struct Task *task = &gTasks[taskId];
@@ -244,7 +392,7 @@ static void sub_80932AC(Callback callBack)
     StoreWordInTwoHalfwords(&task->data[TD_CALLBACK], (u32)callBack);
 }
 
-static void sub_80932E4(u8 arg1, Callback callBack)
+void sub_80932E4(u8 arg1, Callback callBack)
 {
     u8 taskId = CreateTask(nullsub_60, 0xFF);
 
@@ -488,76 +636,142 @@ static void sub_8093688(void)
     sub_80936D4();
 }
 
-void sub_80936D4(void)
+__attribute__((naked))
+void sub_80936D4()
 {
-    ewram0.var_7 = 0;
-    ewram0.var_8 = 0;
-    ewram0.var_9 = 0;
-    ewram0.var_a = 0;
-    ewram0.var_b = 0;
-    ewram0.var_c = 0;
-    ewram0.var_d = 0;
-
-    memset(ewram0.var_e, 0, sizeof(ewram0.var_e));
-
-    if (ewram0.var_64.hasPokedex)
-    {
-        ewram0.var_7 += 1;
-    }
-
-    if (ewram0.var_64.firstHallOfFameA != 0 || ewram0.var_64.firstHallOfFameB != 0 ||
-        ewram0.var_64.firstHallOfFameC != 0)
-    {
-        ewram0.var_8 += 1;
-    }
-
-    if (ewram0.var_64.linkBattleWins != 0 || ewram0.var_64.linkBattleLosses != 0)
-    {
-        ewram0.var_9 += 1;
-    }
-
-    if (ewram0.var_64.battleTowerWins != 0 || ewram0.var_64.battleTowerLosses != 0)
-    {
-        ewram0.var_a += 1;
-    }
-
-    if (ewram0.var_64.contestsWithFriends != 0)
-    {
-        ewram0.var_b += 1;
-    }
-
-    if (ewram0.var_64.pokeblocksWithFriends != 0)
-    {
-        ewram0.var_c += 1;
-    }
-
-    if (ewram0.var_64.pokemonTrades != 0)
-    {
-        ewram0.var_d += 1;
-    }
-
-    if (!ewram0.var_1)
-    {
-        u32 badgeFlag;
-        int i;
-
-        i = 0;
-        badgeFlag = BADGE01_GET;
-        while (1)
-        {
-            if (FlagGet(badgeFlag))
-            {
-                ewram0.var_e[i] += 1;
-            }
-
-            badgeFlag += 1;
-            i += 1;
-            if (badgeFlag > BADGE08_GET)
-            {
-                break;
-            }
-        }
-    }
+    asm(
+        "	push	{r4, r5, r6, lr}\n"
+        "	ldr	r4, ._91\n"
+        "	mov	r0, #0x0\n"
+        "	strb	r0, [r4, #0x7]\n"
+        "	strb	r0, [r4, #0x8]\n"
+        "	strb	r0, [r4, #0x9]\n"
+        "	strb	r0, [r4, #0xa]\n"
+        "	strb	r0, [r4, #0xb]\n"
+        "	strb	r0, [r4, #0xc]\n"
+        "	strb	r0, [r4, #0xd]\n"
+        "	add	r0, r4, #0\n"
+        "	add	r0, r0, #0xe\n"
+        "	mov	r1, #0x0\n"
+        "	mov	r2, #0x8\n"
+        "	bl	gScriptFuncs_End+0x5c24\n"
+        "	add	r0, r4, #0\n"
+        "	add	r0, r0, #0x66\n"
+        "	ldrb	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._79	@cond_branch\n"
+        "	ldrb	r0, [r4, #0x7]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r4, #0x7]\n"
+        "._79:\n"
+        "	add	r0, r4, #0\n"
+        "	add	r0, r0, #0x6a\n"
+        "	ldrh	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	bne	._80	@cond_branch\n"
+        "	ldr	r0, [r4, #0x6c]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._81	@cond_branch\n"
+        "._80:\n"
+        "	ldrb	r0, [r4, #0x8]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r4, #0x8]\n"
+        "._81:\n"
+        "	ldr	r1, ._91\n"
+        "	ldr	r0, [r1, #0x78]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._82	@cond_branch\n"
+        "	ldrb	r0, [r1, #0x9]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r1, #0x9]\n"
+        "._82:\n"
+        "	ldr	r0, [r1, #0x7c]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._83	@cond_branch\n"
+        "	ldrb	r0, [r1, #0xa]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r1, #0xa]\n"
+        "._83:\n"
+        "	add	r0, r1, #0\n"
+        "	add	r0, r0, #0x80\n"
+        "	ldrh	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._84	@cond_branch\n"
+        "	ldrb	r0, [r1, #0xb]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r1, #0xb]\n"
+        "._84:\n"
+        "	add	r0, r1, #0\n"
+        "	add	r0, r0, #0x82\n"
+        "	ldrh	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._85	@cond_branch\n"
+        "	ldrb	r0, [r1, #0xc]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r1, #0xc]\n"
+        "._85:\n"
+        "	add	r0, r1, #0\n"
+        "	add	r0, r0, #0x84\n"
+        "	ldrh	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._86	@cond_branch\n"
+        "	ldrb	r0, [r1, #0xd]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r1, #0xd]\n"
+        "._86:\n"
+        "	ldrb	r0, [r1, #0x1]\n"
+        "	cmp	r0, #0\n"
+        "	bne	._87	@cond_branch\n"
+        "	mov	r5, #0x0\n"
+        "	ldr	r4, ._91 + 4\n"
+        "	add	r6, r1, #0\n"
+        "	add	r6, r6, #0xe\n"
+        "._89:\n"
+        "	lsl	r0, r4, #0x10\n"
+        "	lsr	r0, r0, #0x10\n"
+        "	bl	FlagGet\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	cmp	r0, #0\n"
+        "	beq	._88	@cond_branch\n"
+        "	add	r1, r5, r6\n"
+        "	ldrb	r0, [r1]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r1]\n"
+        "._88:\n"
+        "	add	r4, r4, #0x1\n"
+        "	add	r5, r5, #0x1\n"
+        "	ldr	r0, ._91 + 8\n"
+        "	cmp	r4, r0\n"
+        "	bls	._89	@cond_branch\n"
+        "._87:\n"
+        "	ldr	r0, ._91 + 12\n"
+        "	ldrb	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._90	@cond_branch\n"
+        "	ldr	r0, ._91\n"
+        "	mov	r1, #0x1\n"
+        "	strb	r1, [r0, #0x8]\n"
+        "	strb	r1, [r0, #0x9]\n"
+        "	strb	r1, [r0, #0xa]\n"
+        "	strb	r1, [r0, #0xb]\n"
+        "	strb	r1, [r0, #0xc]\n"
+        "	strb	r1, [r0, #0xd]\n"
+        "	add	r0, r0, #0xe\n"
+        "	mov	r2, #0x8\n"
+        "	bl	gScriptFuncs_End+0x5c24\n"
+        "._90:\n"
+        "	pop	{r4, r5, r6}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._92:\n"
+        "	.align	2, 0\n"
+        "._91:\n"
+        "	.word	+0x2000000\n"
+        "	.word	0x807\n"
+        "	.word	0x80e\n"
+        "	.word	gDebug_03000748\n"
+        "\n"
+    );
 }
 
 void sub_80937A4()
@@ -627,29 +841,87 @@ bool8 sub_80938A8(struct Task *task)
     return FALSE;
 }
 
-bool8 sub_80938CC(struct Task *task)
+__attribute__((naked))
+bool8 sub_80938CC()
 {
-    if (gMain.newKeys & B_BUTTON)
-    {
-        ewram0.var_0 = 5;
-        return TRUE;
-    }
-    else if (gMain.newKeys & A_BUTTON)
-    {
-        if (ewram0.var_3 != 0)
-        {
-            ewram0.var_0 = 5;
-            return TRUE;
-        }
-        else
-        {
-            ewram0.var_3 ^= 1;
-            ewram0.var_0 = 3;
-            return TRUE;
-        }
-    }
-
-    return FALSE;
+    asm(
+        "	push	{r4, lr}\n"
+        "	ldr	r0, ._107\n"
+        "	ldrh	r1, [r0, #0x2e]\n"
+        "	mov	r0, #0x2\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0\n"
+        "	beq	._105	@cond_branch\n"
+        "	ldr	r1, ._107 + 4\n"
+        "	mov	r0, #0x5\n"
+        "	strb	r0, [r1]\n"
+        "	mov	r0, #0x1\n"
+        "	b	._114\n"
+        "._108:\n"
+        "	.align	2, 0\n"
+        "._107:\n"
+        "	.word	gMain\n"
+        "	.word	+0x2000000\n"
+        "._105:\n"
+        "	mov	r0, #0x1\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0\n"
+        "	beq	._109	@cond_branch\n"
+        "	ldr	r2, ._112\n"
+        "	ldrb	r1, [r2, #0x3]\n"
+        "	cmp	r1, #0\n"
+        "	beq	._110	@cond_branch\n"
+        "	mov	r0, #0x5\n"
+        "	b	._111\n"
+        "._113:\n"
+        "	.align	2, 0\n"
+        "._112:\n"
+        "	.word	+0x2000000\n"
+        "._110:\n"
+        "	mov	r0, #0x1\n"
+        "	eor	r0, r0, r1\n"
+        "	strb	r0, [r2, #0x3]\n"
+        "	mov	r0, #0x3\n"
+        "._111:\n"
+        "	strb	r0, [r2]\n"
+        "	mov	r0, #0x1\n"
+        "	b	._114\n"
+        "._109:\n"
+        "	ldr	r0, ._118\n"
+        "	ldrb	r0, [r0]\n"
+        "	cmp	r0, #0\n"
+        "	beq	._117	@cond_branch\n"
+        "	mov	r0, #0x80\n"
+        "	lsl	r0, r0, #0x1\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0\n"
+        "	beq	._117	@cond_branch\n"
+        "	ldr	r4, ._118 + 4\n"
+        "	ldrb	r0, [r4, #0x2]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strb	r0, [r4, #0x2]\n"
+        "	ldrb	r0, [r4, #0x2]\n"
+        "	mov	r1, #0x5\n"
+        "	bl	gScriptFuncs_End+0x43d0\n"
+        "	strb	r0, [r4, #0x2]\n"
+        "	bl	sub_8093EA0\n"
+        "	ldrb	r0, [r4, #0x3]\n"
+        "	cmp	r0, #0\n"
+        "	bne	._117	@cond_branch\n"
+        "	bl	sub_8093FD0\n"
+        "._117:\n"
+        "	mov	r0, #0x0\n"
+        "._114:\n"
+        "	pop	{r4}\n"
+        "	pop	{r1}\n"
+        "	bx	r1\n"
+        "._119:\n"
+        "	.align	2, 0\n"
+        "._118:\n"
+        "	.word	gDebug_03000748\n"
+        "	.word	+0x2000000\n"
+        "\n"
+    );
 }
 
 bool8 sub_8093918(struct Task *task)
@@ -1520,7 +1792,7 @@ _0809410C: .4byte 0x000003ff\n\
 }
 
 __attribute__((naked))
-static void sub_8094110()
+void sub_8094110()
 {
     asm(".syntax unified\n\
     push {r4-r6,lr}\n\
@@ -1602,18 +1874,45 @@ static void TrainerCard_Front_PrintMoney(void)
     sub_80B7AEC(ewram0.var_64.money, 16, 8);
 }
 
-static void TrainerCard_Front_PrintPokedexCount(void)
+__attribute__((naked))
+void TrainerCard_Front_PrintPokedexCount()
 {
-    u8 buffer[16];
-
-    if (ewram0.var_7 == FALSE)
-    {
-        sub_8094110();
-        return;
-    }
-
-    ConvertIntToDecimalStringN(buffer, ewram0.var_64.pokedexSeen, STR_CONV_MODE_LEFT_ALIGN, 3);
-    MenuPrint_RightAligned(buffer, 16, 10);
+    asm(
+        "	push	{lr}\n"
+        "	add	sp, sp, #0xfffffff0\n"
+        "	ldr	r0, ._229\n"
+        "	ldrb	r0, [r0]\n"
+        "	ldr	r1, ._229 + 4\n"
+        "	cmp	r0, #0\n"
+        "	bne	._227	@cond_branch\n"
+        "	ldrb	r0, [r1, #0x7]\n"
+        "	cmp	r0, #0\n"
+        "	bne	._227	@cond_branch\n"
+        "	bl	sub_8094110\n"
+        "	b	._228\n"
+        "._230:\n"
+        "	.align	2, 0\n"
+        "._229:\n"
+        "	.word	gDebug_03000748\n"
+        "	.word	+0x2000000\n"
+        "._227:\n"
+        "	add	r0, r1, #0\n"
+        "	add	r0, r0, #0x70\n"
+        "	ldrh	r1, [r0]\n"
+        "	mov	r0, sp\n"
+        "	mov	r2, #0x0\n"
+        "	mov	r3, #0x3\n"
+        "	bl	ConvertIntToDecimalStringN\n"
+        "	mov	r0, sp\n"
+        "	mov	r1, #0x10\n"
+        "	mov	r2, #0xa\n"
+        "	bl	MenuPrint_RightAligned\n"
+        "._228:\n"
+        "	add	sp, sp, #0x10\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "\n"
+    );
 }
 
 static void TrainerCard_Front_PrintPlayTime(u8 *arg1, s16 colon)

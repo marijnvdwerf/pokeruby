@@ -10,6 +10,7 @@
 #include "main_menu.h"
 #include "palette.h"
 #include "reset_rtc_screen.h"
+#include "rom4.h"
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
@@ -344,12 +345,12 @@ static const struct CompressedSpriteSheet sPokemonLogoShineSpriteSheet[] =
 static void MainCB2(void);
 static void Task_TitleScreenPhase1(u8);
 static void Task_TitleScreenPhase2(u8);
-static void Task_TitleScreenPhase3(u8);
-static void CB2_GoToMainMenu(void);
-static void CB2_GoToClearSaveDataScreen(void);
-static void CB2_GoToResetRtcScreen(void);
-static void CB2_GoToCopyrightScreen(void);
-static void UpdateLegendaryMarkingColor(u8);
+void Task_TitleScreenPhase3(u8);
+void CB2_GoToMainMenu(void);
+void CB2_GoToClearSaveDataScreen(void);
+void CB2_GoToResetRtcScreen(void);
+void CB2_GoToCopyrightScreen(void);
+void UpdateLegendaryMarkingColor(u8);
 
 void SpriteCallback_VersionBannerLeft(struct Sprite *sprite)
 {
@@ -799,74 +800,204 @@ static void Task_TitleScreenPhase2(u8 taskId)
 }
 
 //Show Kyogre/Groundon silhouette and process main title screen input
-static void Task_TitleScreenPhase3(u8 taskId)
+__attribute__((naked))
+void Task_TitleScreenPhase3(u8 u81)
 {
-    REG_BLDCNT = 0x2142;
-    REG_BLDALPHA = 0x1F0F;
-    REG_BLDY = 0;
-
-    if ((gMain.newKeys & A_BUTTON) || (gMain.newKeys & START_BUTTON))
-    {
-        FadeOutBGM(4);
-        BeginNormalPaletteFade(-1, 0, 0, 0x10, 0xFFFF);
-        SetMainCallback2(CB2_GoToMainMenu);
-    }
-    else
-    {
-        if ((gMain.heldKeys & CLEAR_SAVE_BUTTON_COMBO) == CLEAR_SAVE_BUTTON_COMBO)
-            SetMainCallback2(CB2_GoToClearSaveDataScreen);
-        if ((gMain.heldKeys & RESET_RTC_BUTTON_COMBO) == RESET_RTC_BUTTON_COMBO
-          && CanResetRTC() == 1)
-        {
-            FadeOutBGM(4);
-            BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
-            SetMainCallback2(CB2_GoToResetRtcScreen);
-        }
-        else
-        {
-            REG_BG2Y = 0;
-            gTasks[taskId].tCounter++;
-            if (gTasks[taskId].tCounter & 1)
-            {
-                gTasks[taskId].data[4]++;
-                gUnknown_030041B4 = gTasks[taskId].data[4];
-                gUnknown_030042C0 = 0;
-            }
-            UpdateLegendaryMarkingColor(gTasks[taskId].tCounter);
-            if ((gMPlay_BGM.status & 0xFFFF) == 0)
-            {
-                BeginNormalPaletteFade(-1, 0, 0, 0x10, 0xFFFF);
-                SetMainCallback2(CB2_GoToCopyrightScreen);
-            }
-        }
-    }
+    asm(
+        "	push	{r4, r5, r6, lr}\n"
+        "	add	sp, sp, #0xfffffffc\n"
+        "	lsl	r0, r0, #0x18\n"
+        "	lsr	r6, r0, #0x18\n"
+        "	ldr	r1, ._96\n"
+        "	ldr	r2, ._96 + 4\n"
+        "	add	r0, r2, #0\n"
+        "	strh	r0, [r1]\n"
+        "	add	r1, r1, #0x2\n"
+        "	ldr	r2, ._96 + 8\n"
+        "	add	r0, r2, #0\n"
+        "	strh	r0, [r1]\n"
+        "	add	r1, r1, #0x2\n"
+        "	mov	r0, #0x0\n"
+        "	strh	r0, [r1]\n"
+        "	ldr	r4, ._96 + 12\n"
+        "	ldrh	r1, [r4, #0x2e]\n"
+        "	mov	r0, #0x1\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0\n"
+        "	bne	._93	@cond_branch\n"
+        "	mov	r0, #0x8\n"
+        "	and	r0, r0, r1\n"
+        "	lsl	r0, r0, #0x10\n"
+        "	lsr	r5, r0, #0x10\n"
+        "	cmp	r5, #0\n"
+        "	beq	._94	@cond_branch\n"
+        "._93:\n"
+        "	mov	r0, #0x4\n"
+        "	bl	FadeOutBGM\n"
+        "	mov	r0, #0x1\n"
+        "	neg	r0, r0\n"
+        "	ldr	r1, ._96 + 16\n"
+        "	str	r1, [sp]\n"
+        "	mov	r1, #0x0\n"
+        "	mov	r2, #0x0\n"
+        "	mov	r3, #0x10\n"
+        "	bl	BeginNormalPaletteFade\n"
+        "	ldr	r0, ._96 + 20\n"
+        "	bl	SetMainCallback2\n"
+        "	b	._109\n"
+        "._97:\n"
+        "	.align	2, 0\n"
+        "._96:\n"
+        "	.word	0x4000050\n"
+        "	.word	0x2142\n"
+        "	.word	0x1f0f\n"
+        "	.word	gMain\n"
+        "	.word	0xffff\n"
+        "	.word	CB2_GoToMainMenu+1\n"
+        "._94:\n"
+        "	ldrh	r1, [r4, #0x2c]\n"
+        "	mov	r0, #0x46\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0x46\n"
+        "	bne	._98	@cond_branch\n"
+        "	ldr	r0, ._102\n"
+        "	bl	SetMainCallback2\n"
+        "._98:\n"
+        "	ldrh	r1, [r4, #0x2c]\n"
+        "	mov	r0, #0x26\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0x26\n"
+        "	bne	._100	@cond_branch\n"
+        "	bl	CanResetRTC\n"
+        "	cmp	r0, #0x1\n"
+        "	bne	._100	@cond_branch\n"
+        "	mov	r0, #0x4\n"
+        "	bl	FadeOutBGM\n"
+        "	mov	r0, #0x1\n"
+        "	neg	r0, r0\n"
+        "	str	r5, [sp]\n"
+        "	mov	r1, #0x0\n"
+        "	mov	r2, #0x0\n"
+        "	mov	r3, #0x10\n"
+        "	bl	BeginNormalPaletteFade\n"
+        "	ldr	r0, ._102 + 4\n"
+        "	bl	SetMainCallback2\n"
+        "	b	._109\n"
+        "._103:\n"
+        "	.align	2, 0\n"
+        "._102:\n"
+        "	.word	CB2_GoToClearSaveDataScreen+1\n"
+        "	.word	CB2_GoToResetRtcScreen+1\n"
+        "._100:\n"
+        "	ldr	r0, ._106\n"
+        "	ldrh	r0, [r0, #0x2c]\n"
+        "	cmp	r0, #0x4\n"
+        "	bne	._104	@cond_branch\n"
+        "	mov	r0, #0x1\n"
+        "	neg	r0, r0\n"
+        "	mov	r1, #0x0\n"
+        "	str	r1, [sp]\n"
+        "	mov	r2, #0x0\n"
+        "	mov	r3, #0x10\n"
+        "	bl	BeginNormalPaletteFade\n"
+        "	ldr	r0, ._106 + 4\n"
+        "	bl	SetMainCallback2\n"
+        "	b	._109\n"
+        "._107:\n"
+        "	.align	2, 0\n"
+        "._106:\n"
+        "	.word	gMain\n"
+        "	.word	CB2_debug+1\n"
+        "._104:\n"
+        "	ldr	r0, ._110\n"
+        "	mov	r3, #0x0\n"
+        "	str	r3, [r0]\n"
+        "	ldr	r1, ._110 + 4\n"
+        "	lsl	r0, r6, #0x2\n"
+        "	add	r0, r0, r6\n"
+        "	lsl	r0, r0, #0x3\n"
+        "	add	r2, r0, r1\n"
+        "	ldrh	r0, [r2, #0x8]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strh	r0, [r2, #0x8]\n"
+        "	mov	r1, #0x1\n"
+        "	and	r0, r0, r1\n"
+        "	cmp	r0, #0\n"
+        "	beq	._108	@cond_branch\n"
+        "	ldrh	r0, [r2, #0x10]\n"
+        "	add	r0, r0, #0x1\n"
+        "	strh	r0, [r2, #0x10]\n"
+        "	ldr	r1, ._110 + 8\n"
+        "	strh	r0, [r1]\n"
+        "	ldr	r0, ._110 + 12\n"
+        "	strh	r3, [r0]\n"
+        "._108:\n"
+        "	ldrb	r0, [r2, #0x8]\n"
+        "	bl	UpdateLegendaryMarkingColor\n"
+        "	ldr	r0, ._110 + 16\n"
+        "	ldr	r1, ._110 + 20\n"
+        "	ldrh	r0, [r0, #0x4]\n"
+        "	cmp	r0, #0\n"
+        "	bne	._109	@cond_branch\n"
+        "	mov	r0, #0x1\n"
+        "	neg	r0, r0\n"
+        "	str	r1, [sp]\n"
+        "	mov	r1, #0x0\n"
+        "	mov	r2, #0x0\n"
+        "	mov	r3, #0x10\n"
+        "	bl	BeginNormalPaletteFade\n"
+        "	ldr	r0, ._110 + 24\n"
+        "	bl	SetMainCallback2\n"
+        "._109:\n"
+        "	add	sp, sp, #0x4\n"
+        "	pop	{r4, r5, r6}\n"
+        "	pop	{r0}\n"
+        "	bx	r0\n"
+        "._111:\n"
+        "	.align	2, 0\n"
+        "._110:\n"
+        "	.word	0x400002c\n"
+        "	.word	gTasks\n"
+        "	.word	gUnknown_030041B4\n"
+        "	.word	gUnknown_030042C0\n"
+        "	.word	gMPlay_BGM\n"
+        "	.word	0xffff\n"
+        "	.word	CB2_GoToCopyrightScreen+1\n"
+        "\n"
+    );
 }
 
-static void CB2_GoToMainMenu(void)
+void CB2_GoToMainMenu(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitMainMenu);
 }
 
-static void CB2_GoToCopyrightScreen(void)
+void CB2_debug(void)
+{
+    if (!UpdatePaletteFade())
+        SetMainCallback2(debug_sub_805891C);
+}
+
+void CB2_GoToCopyrightScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitCopyrightScreenAfterTitleScreen);
 }
 
-static void CB2_GoToClearSaveDataScreen(void)
+void CB2_GoToClearSaveDataScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitClearSaveDataScreen);
 }
 
-static void CB2_GoToResetRtcScreen(void)
+void CB2_GoToResetRtcScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitResetRtcScreen);
 }
 
-static void UpdateLegendaryMarkingColor(u8 frameNum)
+void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     u16 palette;
 
