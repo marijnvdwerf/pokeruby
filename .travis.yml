@@ -9,12 +9,20 @@ addons:
     packages:
       - gcc-multilib
       - linux-libc-dev
+      - cmake
 cache:
   apt: true
 install:
   - pushd $HOME
+
   - travis_retry wget http://download.sourceforge.net/devkitpro/devkitARM_r46-x86_64-linux.tar.bz2
   - tar xf devkitARM*.tar.bz2
+
+  - mkdir ninja
+  - travis_retry curl -L https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-linux.zip -o ninja-linux.zip
+  - unzip ninja-linux.zip -d ninja
+  - export PATH=$PWD/ninja:$PATH
+
   - popd
 
 matrix:
